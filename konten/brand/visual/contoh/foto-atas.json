@@ -1,0 +1,15 @@
+{
+ "output_dir": "konten/visual/<tanggal>_<kode>",
+ "slides": [
+  {
+   "layout": "foto-atas",
+   "nomor": 2,
+   "foto": "konten/visual/<tanggal>_<kode>/foto/1.jpg",
+   "judul": "1. Pablo Escobar",
+   "subjudul": "__Narcos__ (2015-2017)",
+   "body": [
+    "Dia bisa duduk santai di tengah kekacauan, sementara semua orang sibuk memikirkan langkah berikutnya. Tak perlu berteriak atau mengancam, cukup menyebut namanya saja, orang-orang sudah tahu siapa yang sedang mereka hadapi."
+   ]
+  }
+ ]
+}
