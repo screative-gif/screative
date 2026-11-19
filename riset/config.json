@@ -25,11 +25,19 @@
       "actor": "apify/instagram-post-scraper",
       "accounts": [
         "seakun.id",
-        "sisasaldocom"
+        "sisasaldocom",
+        "folkative",
+        "harinesia.id",
+        "faktasemenitofc",
+        "otakplastisin",
+        "howcomeid",
+        "pernahpikirkenapa",
+        "edu.clay"
       ],
       "_catatan": "akun pertama = akun sendiri (dipantau performanya). Tambahkan akun referensi/kompetitor setelahnya, mis. usulan dari laporan Lira.",
       "results_per_query": 12,
-      "max_usd_per_run": 0.1
+      "max_usd_per_run": 0.1,
+      "_catatan_referensi": "Referensi pilar 2 (dipilih 19 Nov 2026, lihat konten/laporan/2026-11-19_akun-referensi.md): sisasaldocom & folkative = format carousel; harinesia.id, faktasemenitofc, otakplastisin, howcomeid, pernahpikirkenapa, edu.clay = radar topik fakta unik (Reels, sering outlier). Yang dicari: post >= 5x median akunnya sendiri."
     },
     "threads": {
       "enabled": true,

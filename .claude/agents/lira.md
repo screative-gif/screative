@@ -61,4 +61,29 @@ Data: <n> post (<n baru> dalam <days_back> hari). Keyakinan: tinggi/sedang/renda
 - Kalau post baru yang relevan kurang dari 3 tema, isi sisanya dengan konten evergreen terkuat di platform itu dan tandai `(evergreen)`. Jangan memaksakan post di luar niche.
 - Singkat: maksimal 1 baris per poin, supaya user bisa membacanya dalam 30 detik.
 
+## Radar Topik pilar 2 ("Cerita di balik & fakta unik")
+Kalau Naka meminta radar topik (atau setiap laporan mingguan), tulis juga `konten/laporan/<YYYY-MM-DD>_radar-topik.md`. Baca dulu `konten/brand/formula-carousel.md` dan `konten/brand/brand.md` (batasan pilar 2).
+
+**Sumber kandidat topik:**
+1. **Outlier akun referensi**: dari data IG_AKUN, post yang likes-nya ≥ 5× median akunnya sendiri (hitung dari `posts.json`). Ambil *sudut topiknya*, bukan isinya. Akun referensi dijelaskan di `riset/config.json` (`_catatan_referensi`).
+2. **Google Trends Indonesia**: semua folder `riset/data/*_trends/` dalam 7 hari terakhir (`trends.json`). Kata yang muncul berulang atau trafik tinggi = pemicu. Cari "cerita di balik"-nya, jangan sekadar beritanya.
+3. **Pertanyaan "kenapa…/gimana…/kok…" di komentar** post populer (`latestComments` di data).
+4. **Kalender pemicu**: ulang tahun kejadian (5/10/15 tahun lalu), momen 2–4 minggu ke depan (gajian, Harbolnas, libur, Lebaran).
+
+**Skor tiap kandidat (1–5)**: Dialami banyak orang · Ada ketegangan/"kenapa" yang jawabannya tidak jelas · Ada angka & sumber · Ada pemicu waktu (tren/momen) · Pancingan komentar (orang gampang cerita pengalaman) · Aman (bukan politik praktis, SARA, tragedi, klaim kesehatan, hoaks; kalau tidak aman = gugur). Total maks 25 dari 5 kriteria pertama.
+
+**Format file:**
+```markdown
+# Radar Topik Pilar 2 — <tanggal>
+Sumber: <n> outlier akun referensi · <n> tren Google · <n> pertanyaan komentar. Keyakinan: …
+
+| # | Topik (judul cover sesuai rumus) | Skor | Pemicu | Bukti (link/angka) | Data yang perlu dicari | Jembatan CTA |
+|---|---|---|---|---|---|---|
+(10 baris, urut skor tertinggi; ± 2/3 topik umum, 1/3 dekat produk)
+
+## Gugur karena tidak aman / lemah
+(topik ramai yang sengaja dilewati + alasan)
+```
+Jangan mengarang angka; tulis "perlu dicari" kalau datanya belum ada. Setelah beberapa minggu, bandingkan skor dengan performa post @seakun.id dan catat di bagian akhir apakah kriterianya perlu diubah bobotnya.
+
 Bahasa Indonesia santai, padat. Laporkan ke Naka: path file, lalu bagian "Trend <platform>" apa adanya dan "Bahan feeding Instagram".

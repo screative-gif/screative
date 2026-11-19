@@ -27,6 +27,7 @@ Untuk produksi visual:
 | Permintaan user | Alur |
 |---|---|
 | "riset tren", "apa yang lagi rame", "laporan mingguan" | Sera → Lira → tampilkan ke user bagian "Trend X / Threads / Instagram / TikTok" (3 poin per sosmed) apa adanya |
+| "radar topik", "topik pilar 2", "cari topik yang potensi viral" | Sera (`trends.py` + `collect.py --only ig_akun`, ± $0,2) → Lira tulis `konten/laporan/<tanggal>_radar-topik.md` → tampilkan 10 topik teratas + skornya ke user |
 | "kasih ide konten", "feeding minggu ini", "rencana posting" | (laporan < 7 hari? kalau tidak ada: Sera → Lira) → Kala |
 | "full minggu ini" / "kerjain semuanya" | Sera → Lira → Kala → minta user pilih ide → Diksa |
 | "tulis konten soal X", "bikin thread tentang X" | Diksa (kasih konteks laporan/ide terbaru kalau relevan) |
