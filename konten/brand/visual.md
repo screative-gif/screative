@@ -60,6 +60,7 @@ Cover format berita **hanya memakai 3 gaya tipografi: `lingkar` (H), `editorial`
   - **Judul yang berakhir dengan %, ?, atau simbol lain tidak diberi titik lagi.**
   - **Kalimat penjelas grafik** (catatan di bawah `versus`, `anotasi` balapan, label garis acuan): **1 warna saja per kalimat** (hijau utama atau `#FF4F2F`), tanpa pil/kotak, tanpa campuran warna.
   - **Bagan maks 3 warna termasuk putih**: putih + hijau utama + `#FF4F2F`. Kuning hanya untuk pil highlight teks, bukan di bagan.
+  - **Slide tanpa sumber data** (mis. angka ilustrasi, penutup): kosongkan `sumber`, bagian tengah footer dibiarkan kosong. Angka ilustrasi diberi catatan kecil di bawah visualnya (`visual.catatan`: "Note: angka simulasi").
   - Teks di dalam kotak/kartu minimal 26 px; ringkas keterangannya supaya cukup 1–2 baris.
   - **Acuan yang sudah disetujui user:** slide 2–4 C-GAJI (spec: `konten/brand/visual/contoh/data-variasi.json`): versus + polaroid, balapan + strip bahan pokok berlabel, turun + latar. Tiru tingkat kerapiannya untuk slide lain.
 - **Slide isi = layout `berita-isi`:** foto di atas (± 700 px), lalu 2–3 paragraf pendek di latar kertas; `**tebal**`, `__hijau__`.

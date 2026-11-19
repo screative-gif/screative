@@ -420,6 +420,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .ka-m b{display:block;font-family:HeadFont,sans-serif;font-size:50px;color:%(or)s;font-weight:400;line-height:1.1}
 .ka-m span{display:block;font-size:26px;color:#222;line-height:1.25;margin-top:4px}
 .hp .nt.sorot{outline:4px solid %(or)s;outline-offset:-4px}
+.vnote{text-align:center;font-size:22px;color:#6b6b6b;margin-top:16px;font-style:italic}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -564,7 +565,8 @@ def vis_html(v):
             rp = n.get("rp", "")
             rows += (f'<div class="nt{cls}"><div><div class="ap">{e(n.get("app", ""))}</div><div class="tx">{md(n.get("teks", ""))}</div></div>'
                      + (f'<div class="rp {"p" if rp.startswith("+") else "m"}">{e(rp)}</div>' if rp else "") + "</div>")
-        return f'<div class="hp"><div class="jam">{e(v.get("jam", "09.41"))}</div>{rows}</div>'
+        note = f'<div class="vnote">{e(v["catatan"])}</div>' if v.get("catatan") else ""
+        return f'<div class="hp"><div class="jam">{e(v.get("jam", "09.41"))}</div>{rows}</div>{note}'
     return ""
 
 def slide_html(s, n=1):
