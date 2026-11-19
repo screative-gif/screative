@@ -420,14 +420,15 @@ def slide_html(s, n=1):
             def hk(t, svg=False):
                 h = html.escape(curly(t), quote=False)
                 ring = ('<svg viewBox="0 0 200 100" preserveAspectRatio="none"><path d="M 18,62 C 4,22 120,2 186,30 C 214,48 170,92 96,94 C 30,96 0,70 22,36 C 40,14 110,8 150,14" '
-                        'fill="none" stroke="#7AEBD6" stroke-width="5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>') if svg else ""
+                        'fill="none" stroke="#FF4F2F" stroke-width="5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>') if svg else ""
                 return re.sub(r"__([\s\S]+?)__", lambda m: f'<span class="g">{m.group(1)}{ring}</span>', h)
             sub = html.escape(s.get("subjudul", ""))
             if gaya == "lingkar":
                 out.append('<div class="tshade"></div>')
                 body = "".join(f'<div class="l">{hk(l, True)}</div>' for l in lines)
                 out.append(f'<div class="tipo lingkar">{body}' + (f'<div class="s">{sub}</div>' if sub else "") + "</div>")
-                out.append(f'<div class="ajak">{html.escape(s.get("ajakan", "Simak sampai habis"))}<span class="ar">{icon("chevron-right",30,"#111",2.6)}</span></div>')
+                if s.get("ajakan"):  # tombol ajakan opsional (default: tidak ada)
+                    out.append(f'<div class="ajak">{html.escape(s["ajakan"])}<span class="ar">{icon("chevron-right",30,"#111",2.6)}</span></div>')
             elif gaya == "editorial":
                 out.append('<div class="tgrad" style="height:80%"></div>')
                 body = f'<div class="e1">{hk(lines[0])}</div>' + "".join(
