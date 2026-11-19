@@ -175,7 +175,7 @@ Sumber:
 7. Mandiri Spending Index via Bisnis.com (2 Feb 2026): indeks tabungan kelas menengah
 Catatan: periode upah (Agt–Agt) dan inflasi (Des–Des) berbeda. Nominal di slide notifikasi HP adalah ilustrasi. Konten ini bukan saran keuangan; untuk kondisi keuangan pribadi, konsultasikan ke perencana keuangan.
 
-#gajian #faktaunik #ekonomisehari-hari #kelasmenengah #tanggaltua
+#gajian #faktaunik #ekonomiseharihari #kelasmenengah #tanggaltua
 
 ---
 
@@ -184,4 +184,3 @@ Catatan: periode upah (Agt–Agt) dan inflasi (Des–Des) berbeda. Nominal di sl
 - UMP DKI hanya dipakai sebagai "angka di kertas naik" (slide 2 & 8), tidak dibandingkan langsung dengan inflasi, sesuai catatan lembar fakta.
 - Tidak ada ajakan "geser/swipe" di slide mana pun. Slide CTA hanya 1 ajakan ("Kunjungi seakun.id"); "Simpan & bagikan" dari usulan formula sengaja tidak dipakai supaya ajakan tidak bertumpuk.
 - Caption tidak memuat baris CTA produk (pilar 2); CTA cukup di slide 10.
-- Hashtag `#ekonomisehari-hari` mengandung tanda hubung yang memutus hashtag di Instagram; kalau mau aman ganti ke `#ekonomiseharihari`.
