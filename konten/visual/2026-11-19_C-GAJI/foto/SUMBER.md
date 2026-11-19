@@ -20,3 +20,6 @@
 | s06c.jpg | Magnific stok | id 233809960 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/233809960) | 2026-11-19 |
 | s10b.jpg | Magnific stok | id 298806616 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/298806616) | 2026-11-19 | tidak dipakai, file dihapus — tokoh tampak paruh baya (QA Tilik putaran 2) |
 | s10c.jpg | Magnific stok | id 378909158 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/378909158) | 2026-11-19 |
+| s03-beras.jpg | Magnific stok | id 61726372 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/61726372) | 2026-11-19 |
+| s03-telur.jpg | Magnific stok | id 426282106 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/426282106) | 2026-11-19 |
+| s03-minyak.jpg | Magnific stok | id 393151077 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/393151077) | 2026-11-19 |

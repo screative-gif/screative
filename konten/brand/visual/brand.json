@@ -8,10 +8,10 @@
  "fonts": {
   "heading": "Poppins-Bold.ttf",
   "body": {
-   "400": "Poppins-Regular.ttf",
-   "500": "Poppins-Medium.ttf",
-   "600": "Poppins-SemiBold.ttf",
-   "700": "Poppins-Bold.ttf"
+   "400": "Inter-Variable.ttf",
+   "500": "Inter-Variable.ttf",
+   "600": "Inter-Variable.ttf",
+   "700": "Inter-Variable.ttf"
   }
  },
  "colors": {

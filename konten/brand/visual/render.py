@@ -154,7 +154,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .sub{color:%(pink)s;font-weight:700;font-size:27px;line-height:1.4;margin-top:30px;text-wrap:pretty}
 .body p{font-size:27px;line-height:1.45;margin-top:26px;letter-spacing:.2px;text-wrap:pretty}
 .hl.pill{padding:3px 26px}
-.hl{background:rgba(255,122,26,.9);color:#1b1b1b;font-weight:700;border-radius:22px;padding:2px 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl{background:#CDEFE6;color:#0B3D33;font-weight:700;border-radius:999px;padding:1px .45em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .pk{color:%(pink)s;font-weight:700}.tl{color:%(teal_dark)s;font-weight:700}.dk{color:#2f2f2f}
 .items{margin-top:36px}
 .it{display:flex;align-items:center;gap:22px;padding:18px 0;border-bottom:2px dashed %(teal)s}
@@ -290,16 +290,17 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .dt .lb{display:flex;justify-content:space-between;font-weight:600;font-size:19px;letter-spacing:3px;text-transform:uppercase;color:#7a7a7a}
 .dt .lb b{color:%(pink)s}
 .dt .jd{font-family:HeadFont,sans-serif;font-size:66px;line-height:1.08;letter-spacing:-1px;color:#111;margin-top:4px;text-wrap:balance}
-.dt .jd .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,122,26,.9) 56%%,rgba(255,122,26,.9) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .jd .g{background:#FFE38A;color:#17201D;border-radius:999px;padding:0 .28em;margin:0 .02em;box-decoration-break:clone;-webkit-box-decoration-break:clone;position:relative;display:inline-block;line-height:1.12}
 .dt .gb{border-radius:30px;overflow:hidden;margin:0 0 30px;box-shadow:0 14px 34px rgba(0,0,0,.14);flex:none}
 .dt .gb img{width:100%%;height:100%%;object-fit:cover;display:block}
+.dt .jd .g:last-of-type::after{content:'';position:absolute;right:-.55em;top:-.45em;width:.6em;height:.6em;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g stroke='%%23FFC233' stroke-width='5' stroke-linecap='round'><path d='M8 30 L16 18'/><path d='M20 26 L33 20'/><path d='M14 12 L18 3'/></g></svg>") no-repeat center/contain}
 .dt .is p{font-size:29px;line-height:1.45;color:#3a3a3a;margin-top:18px;text-wrap:pretty}
 .dt .is b,.dt .is .pk{color:#111;font-weight:700}
-.dt .is .tl{color:#0B5C4B;font-weight:700}
-.dt .is .hl{background:linear-gradient(180deg,transparent 52%%,rgba(255,122,26,.9) 52%%,rgba(255,122,26,.9) 94%%,transparent 94%%);border-radius:0;padding:0 3px}
+.dt .is .tl{background:#0B8F72;color:#fff;font-weight:700;border-radius:999px;padding:1px .45em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .is .hl{background:#CDEFE6;color:#0B3D33;font-weight:700;border-radius:999px;padding:1px .45em}
 .dt .vz{margin-top:30px;flex:1;display:flex;flex-direction:column;justify-content:center}
 .dt .pt{margin-top:auto;font-family:HeadFont,sans-serif;font-size:36px;line-height:1.2;color:#111;text-wrap:balance;padding-top:24px}
-.dt .pt .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,122,26,.9) 56%%,rgba(255,122,26,.9) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .pt .g{background:#FFE38A;color:#17201D;border-radius:999px;padding:0 .28em;margin:0 .02em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .dt .sb{font-size:15px;color:#8a8a8a;margin-top:12px;line-height:1.35}
 .vz .ab{font-family:HeadFont,sans-serif;font-size:190px;line-height:1.05;letter-spacing:-6px;color:%(pink)s}
 .vz .ab.o{color:%(label)s}
@@ -341,7 +342,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .hp .nt.akhir{background:%(label)s}.hp .nt.akhir .tx,.hp .nt.akhir .ap,.hp .nt.akhir .rp{color:#fff}
 .cta2{position:absolute;z-index:2;left:72px;right:72px;top:190px;bottom:118px;display:flex;flex-direction:column;color:#fff}
 .cta2 .jb{font-family:HeadFont,sans-serif;font-size:68px;line-height:1.1;letter-spacing:-1px;text-wrap:balance}
-.cta2 .jb .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 58%%,rgba(255,122,26,.95) 58%%,rgba(255,122,26,.95) 92%%,transparent 92%%);padding:0 6px;margin:0 -6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.cta2 .jb .g{background:#FFE38A;color:#17201D;border-radius:999px;padding:0 .28em;margin:0 .02em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .cta2 .mf{font-size:30px;line-height:1.45;margin-top:22px;opacity:.92}
 .cta2 .gr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
 .cta2 .gr div{border-radius:24px;padding:22px 20px;background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.28);display:flex;align-items:center;gap:14px;font-weight:600;font-size:24px}
@@ -362,7 +363,8 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .sisi .tx{flex:1.6}.sisi .gsi{flex:1;border-radius:30px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.16)}
 .sisi .gsi img{width:100%%;height:100%%;object-fit:cover}
 .gst{display:flex;gap:18px;margin-top:26px}
-.gst div{flex:1;height:210px;border-radius:22px;overflow:hidden;border:6px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.15)}
+.gst > div{flex:1;height:200px;border-radius:22px;overflow:hidden;border:6px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.15);position:relative}
+.gst span{position:absolute;left:8px;bottom:8px;background:#fff;color:#17201D;font-weight:700;font-size:18px;border-radius:10px;padding:3px 10px}
 .gst img{width:100%%;height:100%%;object-fit:cover}
 .vs{display:flex;align-items:stretch;position:relative}
 .vs .c{flex:1;border-radius:32px;padding:34px 30px 30px;position:relative}
@@ -390,20 +392,26 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .tn-ch div{flex:1;border-radius:24px;padding:20px 24px;background:#fff;border:3px solid %(ink)s;display:flex;align-items:center;gap:18px}
 .tn-ch > div > b{font-family:HeadFont,sans-serif;font-size:52px;color:%(or)s;font-weight:400}
 .tn-ch span{font-size:22px;color:#333;line-height:1.3}
+.glt{position:absolute;left:0;top:0;width:100%%;object-fit:cover;z-index:1;border-radius:0 0 56px 56px}
+.glt-v{position:absolute;left:0;top:0;width:100%%;z-index:1;border-radius:0 0 56px 56px;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%%,rgba(0,0,0,0) 30%%,rgba(10,20,17,.55) 62%%,rgba(10,20,17,.8) 100%%)}
+.dt.m-latar .jd{color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.dt.m-latar .is p{color:rgba(255,255,255,.92)}
+.dt.m-latar .is b,.dt.m-latar .is .pk{color:#fff}
+.dt.m-latar .vz{margin-top:56px}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
 .bisi .g{color:%(pink)s;font-weight:700}
-.bar{position:absolute;z-index:3;left:56px;right:56px;bottom:34px;height:46px;border-radius:24px;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;
+.bar{position:absolute;z-index:3;left:56px;right:56px;bottom:34px;height:46px;border-radius:24px;color:#0B3D33;display:flex;align-items:center;justify-content:space-between;padding:0 22px;
  background:linear-gradient(120deg,rgba(8,160,129,.55),rgba(74,209,185,.30));backdrop-filter:blur(16px) saturate(160%%);-webkit-backdrop-filter:blur(16px) saturate(160%%);
  border:1.5px solid rgba(255,255,255,.45);box-shadow:0 8px 26px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.35)}
-.bar.padat{background:linear-gradient(120deg,rgba(8,160,129,.96),rgba(47,191,165,.92));border-color:rgba(255,255,255,.6)}
-.bar .a{font-weight:700;font-size:20px}
+.bar.padat{background:linear-gradient(120deg,rgba(255,255,255,.95),rgba(255,255,255,.66));border-color:rgba(255,255,255,1);box-shadow:0 10px 26px rgba(0,0,0,.10),inset 0 1px 0 #fff}
+.bar .a{font-weight:700;font-size:20px;color:#0B5C4B}
 .bar .m{font-size:15px;font-weight:500;letter-spacing:.6px;opacity:.95;display:flex;align-items:center;gap:10px}
 .bar .m.sm{font-size:14px;letter-spacing:.2px;max-width:640px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;opacity:.92}
-.bar .m i{width:5px;height:5px;border-radius:50%%;background:#fff;opacity:.8}
+.bar .m i{width:5px;height:5px;border-radius:50%%;background:#0B3D33;opacity:.6}
 .bar .z{display:flex;align-items:center;gap:8px;font-weight:600;font-size:18px}
-.bar .z .c{width:28px;height:28px;border-radius:50%%;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center}
+.bar .z .c{width:28px;height:28px;border-radius:50%%;background:#0B5C4B;border:none;display:flex;align-items:center;justify-content:center}
 .kjg .w{background:%(pink)s;color:#fff;font-weight:700;font-size:30px;border-radius:50px;padding:12px 34px}
 """
 
@@ -411,8 +419,11 @@ def fontfaces():
     fd = "file://" + os.path.join(HERE, "font")
     f = BRAND["fonts"]
     out = [f"@font-face{{font-family:HeadFont;src:url('{fd}/{f['heading']}')}}"]
-    for w, fn in f["body"].items():
-        out.append(f"@font-face{{font-family:BodyFont;font-weight:{w};src:url('{fd}/{fn}')}}")
+    if len(set(f["body"].values())) == 1 and "Variable" in next(iter(f["body"].values())):
+        out.append(f"@font-face{{font-family:BodyFont;font-weight:100 900;src:url('{fd}/{next(iter(f['body'].values()))}')}}")
+    else:
+        for w, fn in f["body"].items():
+            out.append(f"@font-face{{font-family:BodyFont;font-weight:{w};src:url('{fd}/{fn}')}}")
     for fam, fn in BRAND.get("fonts_extra", {}).items():
         out.append(f"@font-face{{font-family:{fam};src:url('{fd}/{fn}')}}")
     return "\n".join(out).replace("%", "%%")
@@ -544,7 +555,7 @@ def slide_html(s, n=1):
         out.append(f'<img class="bfoto" src="{uri(s["foto"])}" style="height:{fh}px;object-position:{s.get("foto_pos", "center center")}">')
         out.append('<div class="bshade"></div>')
     if berita and s.get("header", True):
-        terang = bool(s.get("foto")) or layout == "cta-seakun"
+        terang = bool(s.get("foto")) or layout == "cta-seakun" or (layout == "data" and s.get("gambar_mode") == "latar" and s.get("gambar"))
         out.append(f'<div class="hdr3{"" if terang else " gelap"}"><img src="{uri(BRAND["logo_footer"] if terang else BRAND["logo_header"])}">'
                    f'<div class="tg"><i></i>{html.escape(BRAND.get("tagline_pendek", "Platform Patungan No.1 Indonesia"))}<i></i></div></div>')
     elif s.get("header", True) and BRAND.get("header_style") == "seakun":
@@ -674,7 +685,7 @@ def slide_html(s, n=1):
         mode = s.get("gambar_mode", "atas")
         gl = s.get("gambar") if isinstance(s.get("gambar"), list) else ([s["gambar"]] if s.get("gambar") else [])
         img = lambda g: f'<img src="{uri(g)}" style="object-position:{s.get("gambar_pos", "center")}">'
-        gb, kelas = "", ""
+        gb, kelas, body_top = "", "", 0
         if gl and mode == "atas":
             gb = f'<div class="gb" style="height:{s.get("gambar_tinggi", 430)}px">{img(gl[0])}</div>'
         elif gl and mode == "polaroid":
@@ -682,9 +693,16 @@ def slide_html(s, n=1):
         elif gl and mode == "lingkaran":
             gb = f'<div class="gli">{img(gl[0])}</div>'; kelas = " m-pojok"
         elif gl and mode == "strip":
-            gb = '<div class="gst">' + "".join(f'<div style="transform:rotate({r}deg)">{img(g)}</div>' for g, r in zip(gl, [-3, 2, -1.5, 3])) + "</div>"
+            labs = s.get("gambar_label", [])
+            gb = '<div class="gst">' + "".join(f'<div style="transform:rotate({r}deg)">{img(g)}' + (f'<span>{html.escape(labs[k])}</span>' if k < len(labs) else "") + '</div>'
+                                              for k, (g, r) in enumerate(zip(gl, [-3, 2, -1.5, 3, -2]))) + "</div>"
         head = (f'<div class="jd" style="font-size:{s.get("judul_size", 66)}px">{jdl(s.get("judul", ""))}</div>'
                 + (f'<div class="is">{isi}</div>' if isi else ""))
+        if gl and mode == "latar":
+            out.append(f'<img class="glt" src="{uri(gl[0])}" style="height:{s.get("gambar_tinggi", 640)}px;object-position:{s.get("gambar_pos", "center")}">'
+                       f'<div class="glt-v" style="height:{s.get("gambar_tinggi", 640)}px"></div>')
+            kelas = " m-latar"
+            body_top = s.get("gambar_tinggi", 640) - 250
         if gl and mode == "sisi":
             head = f'<div class="sisi"><div class="tx">{head}</div><div class="gsi" style="height:{s.get("gambar_tinggi", 420)}px">{img(gl[0])}</div></div>'
             gb = ""
@@ -692,7 +710,8 @@ def slide_html(s, n=1):
             body = head + gb
         else:
             body = (gb if mode == "atas" else "") + head + (gb if mode in ("polaroid", "lingkaran") else "")
-        out.append(f'<div class="dt{kelas}">{body}' + (f'<div class="vz">{vz}</div>' if vz else "")
+        gaya_dt = f' style="top:{body_top}px"' if mode == "latar" and gl else ""
+        out.append(f'<div class="dt{kelas}"{gaya_dt}>{body}' + (f'<div class="vz">{vz}</div>' if vz else "")
                    + (f'<div class="pt">{green(s["penutup"])}</div>' if s.get("penutup") else "") + "</div>")
     if layout == "cta-seakun":
         warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
@@ -709,7 +728,7 @@ def slide_html(s, n=1):
         padat = (not s.get("foto")) and layout != "cta-seakun"
         out.append(f'<div class="bar{" padat" if padat else ""}"><span class="a">{html.escape(BRAND["website"])}</span>'
                    + (f'<span class="m sm">Sumber: {html.escape(s["sumber"])}</span>' if s.get("sumber") else f'<span class="m">{"<i></i>".join(html.escape(x) for x in s.get("bar_tengah", BRAND.get("bar_tengah", [])))}</span>')
-                   + (f'<span class="z">{icon("instagram",20,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>' if s.get("bar_kanan") == "ig"
+                   + (f'<span class="z">{icon("instagram",20,"#0B3D33",2)} @{html.escape(BRAND["handle"])}</span></div>' if s.get("bar_kanan") == "ig"
                     else f'<span class="z">{html.escape(s.get("bar_kanan", "Geser"))}<span class="c">{icon("chevron-right",18,"#fff",2.6)}</span></span></div>'))
     elif f == "kunjungi":
         out.append(f'<div class="kjg"><span class="t">Kunjungi website</span><span class="w">{html.escape(BRAND["website"])}</span></div>')
