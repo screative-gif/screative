@@ -1,2 +1,2 @@
-2026-11-19: slide 2–10 dirender (slide-02.png … slide-10.png); cover menunggu foto.
-Catatan: render.py menamai file menurut urutan di spec (spec sekarang hanya berisi slide 2–10, jadi keluaran mentahnya slide-01..09 dan sudah diganti nama ke slide-02..10). Saat cover ditambahkan sebagai slide pertama di spec.json, render ulang semua supaya nama file otomatis cocok.
+2026-11-19: 10 slide dirender ulang dengan gambar (slide-01.png … slide-10.png); menunggu QA Tilik.
+Cover: berita/editorial + foto/cover.png. Slide 2–9: layout data + gambar (lihat foto/SUMBER.md). Slide 10: cta-seakun (bar_kanan ig).

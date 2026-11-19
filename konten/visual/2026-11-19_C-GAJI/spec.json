@@ -1,12 +1,18 @@
 {
  "output_dir": "konten/visual/2026-11-19_C-GAJI",
- "_catatan": "Hanya slide 2-10. Cover (slide 1) menunggu foto dari user. render.py menamai file slide-01..09 menurut urutan; ganti nama ke slide-02..10 setelah render (atau tambahkan cover di depan lalu render ulang semua).",
  "slides": [
+  {
+   "layout": "berita",
+   "kartu": "editorial",
+   "nomor": 1,
+   "foto": "konten/visual/2026-11-19_C-GAJI/foto/cover.png",
+   "foto_pos": "center top",
+   "judul": "Gaji udah naik,\nkok tetap\n__pas-pasan?__\nFakta?",
+   "subjudul": "Slip gaji bilang naik. Dompet bilang lain."
+  },
   {
    "layout": "data",
    "nomor": 2,
-   "label": "01 · Di atas kertas",
-   "halaman": "02/10",
    "judul": "Di atas kertas,\ngajinya __naik kok__.",
    "isi": [
     "UMP DKI Jakarta naik dari **Rp3,1 juta** di 2016 jadi **Rp5,73 juta** di 2026. Hampir tiap tahun angka di slip gaji bertambah, jadi wajar kalau kita berharap hidup ikut makin longgar."
@@ -29,16 +35,16 @@
     ]
    },
    "penutup": "Angkanya memang naik. Pertanyaannya: __naiknya cukup nggak?__",
-   "sumber": "Pergub DKI 230/2015 (via Tempo/Antara); Bisnis.com, 24 Des 2025"
+   "sumber": "Pergub DKI 230/2015; Bisnis.com (24 Des 2025)",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s02.jpg",
+   "gambar_tinggi": 320
   },
   {
    "layout": "data",
    "nomor": 3,
-   "label": "02 · Balapan",
-   "halaman": "03/10",
    "judul": "Gaji naik __1,94%__.\nHarga makanan naik __4,58%__.",
    "isi": [
-    "Dalam setahun terakhir, rata-rata upah buruh naik **1,94%** (Rp3,27 juta → Rp3,33 juta). Harga secara umum naik **2,92%**, dan yang paling ngebut justru **makanan, minuman & tembakau: 4,58%**. Pengeluaran yang nggak bisa di-skip."
+    "Setahun terakhir, upah rata-rata naik **1,94%**. Yang paling ngebut justru harga **makanan, minuman & tembakau**."
    ],
    "visual": {
     "tipe": "batang",
@@ -65,17 +71,17 @@
     ]
    },
    "penutup": "Gajinya naik jalan kaki, harga makanan naik ojek.",
-   "sumber": "BPS, Keadaan Ketenagakerjaan Agt 2025 (upah Agt 2024–Agt 2025); BPS, inflasi Des 2025 yoy (via Kontan). Periode berbeda: upah Agt–Agt, inflasi Des–Des.",
-   "judul_size": 58
+   "sumber": "BPS (upah Agt 2024–Agt 2025; inflasi Des 2025 yoy)",
+   "judul_size": 58,
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s03.jpg",
+   "gambar_tinggi": 300
   },
   {
    "layout": "data",
    "nomor": 4,
-   "label": "03 · Upah riil",
-   "halaman": "04/10",
    "judul": "Yang naik angkanya,\nbukan __daya belinya__.",
    "isi": [
-    "Kenaikan gaji dikurangi kenaikan harga disebut **upah riil**. Menurut Bank Dunia, upah riil di Indonesia **turun rata-rata 1,1% per tahun** sepanjang 2018–2024. Paling terasa justru di pekerja berkeahlian tinggi: **−2,3% per tahun**."
+    "**Upah riil** = kenaikan gaji dikurangi kenaikan harga. Menurut Bank Dunia, upah riil Indonesia **turun rata-rata 1,1% per tahun** (2018–2024), paling dalam di pekerja berkeahlian tinggi."
    ],
    "visual": {
     "tipe": "angka-besar",
@@ -92,20 +98,19 @@
     ]
    },
    "penutup": "Gaji kamu mungkin naik. Yang bisa dibeli belum tentu.",
-   "sumber": "Bank Dunia, Indonesia Economic Prospects Des 2025 (via Bisnis.com, 24 Des 2025)"
+   "sumber": "Bank Dunia, Indonesia Economic Prospects Des 2025",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s04.jpg",
+   "gambar_tinggi": 300
   },
   {
    "layout": "data",
    "nomor": 5,
-   "label": "04 · Kelas menengah",
-   "halaman": "05/10",
    "judul": "Kelas menengah\nberkurang __9,48 juta__ orang.",
    "isi": [
-    "Versi BPS, kelas menengah adalah yang pengeluarannya **Rp2,04–9,9 juta per orang per bulan**. Jumlahnya turun dari **57,33 juta** (2019) jadi **47,85 juta** (2024). Sementara itu, kelompok “calon kelas menengah” membengkak jadi **137,5 juta** orang."
+    "Batas BPS: pengeluaran **Rp2,04–9,9 juta per orang per bulan**. “Calon kelas menengah” membengkak jadi **137,5 juta**."
    ],
    "visual": {
     "tipe": "batang",
-    "judul": "Jumlah kelas menengah (orang)",
     "items": [
      {
       "label": "2019",
@@ -127,33 +132,34 @@
     ]
    },
    "penutup": "Banyak yang nggak miskin, tapi juga belum merasa aman.",
-   "sumber": "BPS, Susenas Maret 2024 (via Bisnis.com, Kontan, CNBC Indonesia & Metro TV)"
+   "sumber": "BPS, Susenas Maret 2024",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s05.jpg",
+   "gambar_tinggi": 300,
+   "judul_size": 58
   },
   {
    "layout": "data",
    "nomor": 6,
-   "label": "05 · Tanda-tandanya",
-   "halaman": "06/10",
    "judul": "Tanggal tua makin\nsering __ditalangin__.",
    "isi": [
-    "Per Agustus 2026 ada **± 34 juta rekening paylater** di perbankan, totalnya **Rp31,41 triliun**, naik **29,1%** dalam setahun. Rata-rata **± Rp940 ribu** per rekening. Di sisi lain, indeks tabungan kelas menengah turun ke **100,4**, terendah sejak Oktober 2023."
+    "Total utang paylater perbankan **Rp31,41 triliun**, naik **29,1%** setahun. Indeks tabungan kelas menengah turun ke **100,4**, terendah sejak Oktober 2023."
    ],
    "visual": {
     "tipe": "angka-besar",
     "angka": "± 34 juta",
-    "ket": "\nrekening paylater di perbankan (Agustus 2026)"
+    "ket": "rekening paylater di perbankan (Agustus 2026)"
    },
    "penutup": "Bukan soal boros. Banyak yang cuma lagi nambal sampai gajian.",
-   "sumber": "OJK via Bisnis.com (5 Okt 2026) & CNBC Indonesia (4 Agt 2026); Mandiri Spending Index via Bisnis.com (2 Feb 2026)"
+   "sumber": "OJK (Agt 2026); Mandiri Spending Index (Feb 2026)",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s06.jpg",
+   "gambar_tinggi": 300
   },
   {
    "layout": "data",
    "nomor": 7,
-   "label": "06 · Sehari setelah gajian",
-   "halaman": "07/10",
    "judul": "Gaji masuk.\nLalu __satu per satu__ pamit.",
    "isi": [
-    "Yang besar biasanya kelihatan: kos, makan, transport. Yang kecil sering lolos: **langganan streaming, musik, penyimpanan, AI**. Masing-masing terasa “cuma segini”. Dijumlah, baru kaget."
+    "Yang kecil sering lolos: tiap langganan terasa “cuma segini”."
    ],
    "visual": {
     "tipe": "notif",
@@ -164,20 +170,12 @@
       "rp": "+Rp5.000.000"
      },
      {
-      "teks": "Kos, belanja dapur & transport",
-      "rp": "−Rp3.300.000"
+      "teks": "Kos, dapur, transport & tagihan",
+      "rp": "−Rp3.950.000"
      },
      {
-      "teks": "Tagihan paylater & paket data",
-      "rp": "−Rp650.000"
-     },
-     {
-      "teks": "==Streaming film & musik==",
-      "rp": "−Rp180.000"
-     },
-     {
-      "teks": "==Cloud & langganan AI==",
-      "rp": "−Rp330.000"
+      "teks": "==Streaming, musik, cloud & AI==",
+      "rp": "−Rp510.000"
      },
      {
       "teks": "Sisa saldo (masih tanggal 1)",
@@ -187,16 +185,17 @@
     ]
    },
    "penutup": "Bukan satu pengeluaran yang bikin boncos, tapi yang kecil-kecil dan rutin.",
-   "sumber": "angka ilustrasi, bukan data dan bukan harga layanan tertentu"
+   "sumber": "angka ilustrasi, bukan data/harga layanan",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/stok-dompet-struk.jpg",
+   "gambar_tinggi": 300,
+   "judul_size": 58
   },
   {
    "layout": "data",
    "nomor": 8,
-   "label": "07 · Ringkasnya",
-   "halaman": "08/10",
    "judul": "Gaji naik,\ntapi __ruangnya__ menyempit.",
    "isi": [
-    "Bukan berarti kamu payah ngatur duit. Angka-angkanya memang bergerak ke arah yang bikin sisa gaji makin tipis. Upah riil 2018–2024 pun **turun rata-rata 1,1% per tahun**."
+    "Bukan berarti kamu payah ngatur duit."
    ],
    "visual": {
     "tipe": "tabel",
@@ -213,7 +212,7 @@
       "Rp5,73 juta (2026)"
      ],
      [
-      "Harga naik setahun",
+      "Inflasi",
       "1,57% (Des 2024)",
       "2,92% (Des 2025)"
      ],
@@ -230,13 +229,13 @@
     ]
    },
    "penutup": "Slip gaji makin panjang, napas di akhir bulan makin pendek.",
-   "sumber": "BPS, Pergub DKI, Bank Dunia (via Bisnis.com, Kontan, CNBC Indonesia, Tempo/Antara)"
+   "sumber": "BPS, Pergub DKI, Bank Dunia",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s08.jpg",
+   "gambar_tinggi": 300
   },
   {
    "layout": "data",
    "nomor": 9,
-   "label": "08 · Jadi, fakta?",
-   "halaman": "09/10",
    "judul": "Pas-pasan itu\n__bukan cuma perasaan__.",
    "isi": [
     "Gaji memang naik, tapi harga, terutama makanan, naik lebih cepat. Wajar kalau kerja makin keras tapi sisanya makin tipis. Yang paling gampang dimulai: cek lagi pengeluaran kecil yang diam-diam rutin."
@@ -246,7 +245,9 @@
     "teks": "**\"Kamu ngerasain juga?\nPengeluaran apa yang paling\nbikin kaget tiap bulan?\"**"
    },
    "penutup": "Ceritain di komentar, siapa tahu kita senasib.",
-   "sumber": "rangkuman slide 2–8"
+   "sumber": "rangkuman slide 2–8",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s09.jpg",
+   "gambar_tinggi": 300
   },
   {
    "layout": "cta-seakun",
