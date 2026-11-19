@@ -431,9 +431,9 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .cta2 .pv img{height:58px;max-width:170px;object-fit:contain;object-position:left center}
 .cta2 .pv b{font-family:HeadFont,sans-serif;font-weight:400;font-size:42px;color:#17201D;margin-top:12px;line-height:1}
 .cta2 .pv span{font-size:26px;color:#666;margin-top:4px}
-.cta2 .bt2{margin-top:auto;align-self:stretch;display:flex;align-items:center;justify-content:center;gap:18px;background:#FAD02C;color:#17201D;border-radius:70px;padding:22px 26px;font-family:HeadFont,sans-serif;font-size:46px;box-shadow:0 0 0 8px rgba(250,208,44,.28),0 18px 40px rgba(250,208,44,.35);transform:rotate(-1.5deg)}
-.cta2 .bt2 .w{background:#17201D;color:#FAD02C;border-radius:50px;padding:6px 26px}
-.cta2 .bt2 .ar{width:64px;height:64px;border-radius:50%%;background:#fff;display:flex;align-items:center;justify-content:center}
+.cta2 .bt2{margin-top:auto;align-self:stretch;display:flex;align-items:center;justify-content:center;gap:18px;background:linear-gradient(135deg,#0BB894,#09A185 55%%,#078A71);color:#fff;border-radius:70px;padding:22px 26px;font-family:HeadFont,sans-serif;font-size:46px;border:3px solid rgba(255,255,255,.85);box-shadow:0 0 0 10px rgba(9,161,133,.35),0 0 50px rgba(78,231,125,.55),0 20px 40px rgba(0,0,0,.35)}
+.cta2 .bt2 .w{background:#fff;color:#09A185;border-radius:50px;padding:6px 26px}
+.cta2 .bt2 .ar{width:64px;height:64px;border-radius:50%%;background:#FAD02C;display:flex;align-items:center;justify-content:center}
 .kt-o{font-size:28px;color:#3a3a3a;margin-top:26px}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
