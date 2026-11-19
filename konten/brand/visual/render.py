@@ -226,7 +226,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .kartu.kaca{padding:66px 46px 46px;border-radius:36px;background:linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,.12));backdrop-filter:blur(20px) brightness(.78) saturate(150%%);-webkit-backdrop-filter:blur(20px) brightness(.78) saturate(150%%);border:1.5px solid rgba(255,255,255,.55);box-shadow:0 18px 50px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.55)}
 .kartu.kaca .kick{position:absolute;top:-24px;left:40px;transform:rotate(-4deg);margin:0;border-radius:12px;padding:9px 20px;font-size:22px;box-shadow:0 8px 18px rgba(255,79,47,.35)}
 .kartu.kaca .bj{text-shadow:0 2px 14px rgba(0,0,0,.30)}
-.kartu.kaca .bj .g{color:#fff;background:linear-gradient(180deg,transparent 56%%,%(label)s 56%%,%(label)s 90%%,transparent 90%%);padding:0 8px;margin:0 -8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.kartu.kaca .bj .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 56%%,%(label)s 56%%,%(label)s 90%%,transparent 90%%);padding:0 8px;margin:0 -8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .kartu.kaca .bs{text-shadow:0 1px 10px rgba(0,0,0,.35)}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
