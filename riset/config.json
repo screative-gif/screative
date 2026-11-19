@@ -22,7 +22,8 @@
       "enabled": true,
       "actor": "apify/instagram-post-scraper",
       "accounts": [
-        "seakun.id"
+        "seakun.id",
+        "sisasaldocom"
       ],
       "_catatan": "akun pertama = akun sendiri (dipantau performanya). Tambahkan akun referensi/kompetitor setelahnya, mis. usulan dari laporan Lira.",
       "results_per_query": 12,
