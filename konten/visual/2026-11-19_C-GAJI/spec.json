@@ -16,7 +16,7 @@
    "judul": "Di atas kertas,\ngajinya __naik kok__.",
    "judul_size": 62,
    "isi": [
-    "UMP DKI Jakarta naik dari Rp3,1 juta di 2016 jadi __Rp5,73 juta__ di 2026. Wajar kalau kita berharap hidup ikut makin longgar."
+    "UMP DKI Jakarta naik dari Rp3,1 juta\ndi 2016 jadi __Rp5,73 juta__ di 2026.\nWajar kalau kita berharap hidup\nikut makin longgar."
    ],
    "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s02b.jpg",
    "gambar_mode": "polaroid",
@@ -181,8 +181,8 @@
       "ket": "total utang, naik 29,1% setahun"
      },
      {
-      "angka": "100,4",
-      "ket": "indeks tabungan kelas menengah, terendah sejak Okt 2023"
+      "angka": "Indeks 100,4",
+      "ket": "tabungan kelas menengah, terendah sejak Okt 2023"
      }
     ]
    },
@@ -224,8 +224,7 @@
      {
       "app": "Sisa saldo",
       "teks": "Masih 29 hari lagi ke gajian",
-      "rp": "Rp540.000",
-      "akhir": true
+      "rp": "Rp540.000"
      }
     ],
     "catatan": "Note: angka simulasi"
@@ -241,7 +240,7 @@
    ],
    "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s08.jpg",
    "gambar_mode": "sisi",
-   "gambar_tinggi": 300,
+   "gambar_tinggi": 420,
    "visual": {
     "tipe": "tabel",
     "kolom": [
@@ -267,9 +266,9 @@
       "47,85 jt (2024)"
      ],
      [
-      "Calon kelas menengah",
-      "128,85 jt (2019)",
-      "137,5 jt (2024)"
+      "Rata-rata upah",
+      "Rp3,27 jt (2024)",
+      "Rp3,33 jt (2025)"
      ]
     ]
    },

@@ -1,1 +1,1 @@
-2026-11-20: revisi besar (layout variatif, palet baru, cover notif, CTA logo+harga). Menunggu QA Tilik.
+2026-11-20: revisi besar selesai; temuan QA Tilik (6) diterapkan sesuai uji Tilik. Menunggu approve user.
