@@ -223,7 +223,11 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .kartu.gradasi .bs,.kartu.kaca .bs{color:rgba(255,255,255,.92);font-size:44px;margin-top:14px}
 .kartu.gradasi .kick,.kartu.kaca .kick{border-radius:30px;padding:8px 20px;display:inline-flex;align-items:center;gap:8px}
 .kartu.gradasi .ln{width:90px;height:6px;border-radius:3px;background:linear-gradient(90deg,%(pink)s,#7AEBD6);margin-top:26px}
-.kartu.kaca{padding:44px 46px 46px;border-radius:36px;background:linear-gradient(135deg,rgba(6,40,33,.42),rgba(6,40,33,.22));backdrop-filter:blur(18px) saturate(150%%);-webkit-backdrop-filter:blur(18px) saturate(150%%);border:1.5px solid rgba(255,255,255,.4);box-shadow:0 18px 50px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.4)}
+.kartu.kaca{padding:66px 46px 46px;border-radius:36px;background:linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,.12));backdrop-filter:blur(20px) brightness(.78) saturate(150%%);-webkit-backdrop-filter:blur(20px) brightness(.78) saturate(150%%);border:1.5px solid rgba(255,255,255,.55);box-shadow:0 18px 50px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.55)}
+.kartu.kaca .kick{position:absolute;top:-24px;left:40px;transform:rotate(-4deg);margin:0;border-radius:12px;padding:9px 20px;font-size:22px;box-shadow:0 8px 18px rgba(255,79,47,.35)}
+.kartu.kaca .bj{text-shadow:0 2px 14px rgba(0,0,0,.30)}
+.kartu.kaca .bj .g{display:inline-block;margin-top:14px;color:#fff;background:%(label)s;padding:0 16px 4px;margin-left:-6px;transform:rotate(-1deg);border-radius:10px;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-shadow:none;line-height:1.22}
+.kartu.kaca .bs{text-shadow:0 1px 10px rgba(0,0,0,.35)}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
