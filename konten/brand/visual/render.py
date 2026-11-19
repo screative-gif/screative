@@ -37,7 +37,7 @@ Slide:
         visual {"tipe": "angka-besar" (angka, ket | pembanding:[{angka,ket,warna:"oranye"}]) | "batang" (judul, items:[{label,nilai,teks,sorot:"hijau|oranye"}])
                 | "dulu-vs-sekarang" (kiri/kanan:{judul,isi[]}) | "tabel" (kolom[], baris[[]], sorot_kolom) | "daftar" (items[])
                 | "kutipan" (teks, oleh) | "notif" (jam, items:[{app,teks,rp:"+Rp…/−Rp…",akhir:true}])}
-  cta-seakun: jembatan, manfaat, layanan [nama disamarkan], ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
+  cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), layanan [nama disamarkan], ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
   --- khusus foto-atas ---
   foto        path foto/cuplikan (diisi user); foto_height px (default 790); foto_pos object-position (default "center top")
   judul       teks di kotak oranye, mis. "1. Pablo Escobar"
@@ -148,7 +148,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .sub{color:%(pink)s;font-weight:700;font-size:27px;line-height:1.4;margin-top:30px;text-wrap:pretty}
 .body p{font-size:27px;line-height:1.45;margin-top:26px;letter-spacing:.2px;text-wrap:pretty}
 .hl.pill{padding:3px 26px}
-.hl{background:rgba(255,79,47,.55);color:#1b1b1b;font-weight:700;border-radius:22px;padding:2px 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl{background:rgba(255,122,0,.6);color:#1b1b1b;font-weight:700;border-radius:22px;padding:2px 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .pk{color:%(pink)s;font-weight:700}.tl{color:%(teal_dark)s;font-weight:700}.dk{color:#2f2f2f}
 .items{margin-top:36px}
 .it{display:flex;align-items:center;gap:22px;padding:18px 0;border-bottom:2px dashed %(teal)s}
@@ -284,20 +284,20 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .dt .lb{display:flex;justify-content:space-between;font-weight:600;font-size:19px;letter-spacing:3px;text-transform:uppercase;color:#7a7a7a}
 .dt .lb b{color:%(pink)s}
 .dt .jd{font-family:HeadFont,sans-serif;font-size:66px;line-height:1.08;letter-spacing:-1px;color:#111;margin-top:4px;text-wrap:balance}
-.dt .jd .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,79,47,.55) 56%%,rgba(255,79,47,.55) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .jd .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,122,0,.6) 56%%,rgba(255,122,0,.6) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .dt .gb{border-radius:30px;overflow:hidden;margin:0 0 30px;box-shadow:0 14px 34px rgba(0,0,0,.14);flex:none}
 .dt .gb img{width:100%%;height:100%%;object-fit:cover;display:block}
 .dt .is p{font-size:29px;line-height:1.45;color:#3a3a3a;margin-top:18px;text-wrap:pretty}
 .dt .is b,.dt .is .pk{color:#111;font-weight:700}
 .dt .is .tl{color:#0B5C4B;font-weight:700}
-.dt .is .hl{background:linear-gradient(180deg,transparent 52%%,rgba(255,79,47,.55) 52%%,rgba(255,79,47,.55) 94%%,transparent 94%%);border-radius:0;padding:0 3px}
+.dt .is .hl{background:linear-gradient(180deg,transparent 52%%,rgba(255,122,0,.6) 52%%,rgba(255,122,0,.6) 94%%,transparent 94%%);border-radius:0;padding:0 3px}
 .dt .vz{margin-top:30px;flex:1;display:flex;flex-direction:column;justify-content:center}
 .dt .pt{margin-top:auto;font-family:HeadFont,sans-serif;font-size:36px;line-height:1.2;color:#111;text-wrap:balance;padding-top:24px}
-.dt .pt .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,79,47,.55) 56%%,rgba(255,79,47,.55) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .pt .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,122,0,.6) 56%%,rgba(255,122,0,.6) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .dt .sb{font-size:15px;color:#8a8a8a;margin-top:12px;line-height:1.35}
 .vz .ab{font-family:HeadFont,sans-serif;font-size:190px;line-height:1.05;letter-spacing:-6px;color:%(pink)s}
 .vz .ab.o{color:%(label)s}
-.vz .ak{font-size:27px;color:#444;margin-top:14px}
+.vz .ak{font-size:27px;color:#444;margin-top:34px}
 .vz .ab2{display:flex;gap:28px}
 .vz .ab2 > div{flex:1;border-radius:30px;padding:40px 34px;background:rgba(255,255,255,.65);border:2px solid rgba(0,0,0,.06)}
 .vz .ab2 .n{font-family:HeadFont,sans-serif;font-size:120px;line-height:1.12;letter-spacing:-3px}
@@ -335,12 +335,14 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .hp .nt.akhir{background:%(label)s}.hp .nt.akhir .tx,.hp .nt.akhir .ap,.hp .nt.akhir .rp{color:#fff}
 .cta2{position:absolute;z-index:2;left:72px;right:72px;top:190px;bottom:118px;display:flex;flex-direction:column;color:#fff}
 .cta2 .jb{font-family:HeadFont,sans-serif;font-size:68px;line-height:1.1;letter-spacing:-1px;text-wrap:balance}
-.cta2 .jb .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 58%%,rgba(255,79,47,.75) 58%%,rgba(255,79,47,.75) 92%%,transparent 92%%);padding:0 6px;margin:0 -6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.cta2 .jb .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 58%%,rgba(255,122,0,.85) 58%%,rgba(255,122,0,.85) 92%%,transparent 92%%);padding:0 6px;margin:0 -6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .cta2 .mf{font-size:30px;line-height:1.45;margin-top:22px;opacity:.92}
-.cta2 .gr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:auto 0}
+.cta2 .gr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
 .cta2 .gr div{border-radius:24px;padding:22px 20px;background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.28);display:flex;align-items:center;gap:14px;font-weight:600;font-size:24px}
 .cta2 .gr i{flex:none;width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-style:normal;font-family:HeadFont,sans-serif;font-size:24px;color:#fff}
-.cta2 .bt{align-self:flex-start;display:flex;align-items:center;gap:18px;background:#AAFFEF;color:#06352C;border-radius:60px;padding:16px 18px 16px 38px;font-weight:700;font-size:34px}
+.cta2 .gb{border-radius:30px;overflow:hidden;margin-top:34px;flex:none;box-shadow:0 14px 34px rgba(0,0,0,.3)}
+.cta2 .gb img{width:100%%;height:100%%;object-fit:cover;display:block}
+.cta2 .bt{margin-top:auto;align-self:flex-start;display:flex;align-items:center;gap:18px;background:#AAFFEF;color:#06352C;border-radius:60px;padding:16px 18px 16px 38px;font-weight:700;font-size:34px}
 .cta2 .bt span{background:#06352C;color:#fff;border-radius:40px;padding:10px 26px;font-size:30px}
 .cta2 .ss{font-size:22px;opacity:.75;margin-top:18px}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
@@ -607,7 +609,8 @@ def slide_html(s, n=1):
                      for k, n in enumerate(s.get("layanan", ["Netfl1x", "Sp0tify", "YouTub3", "Disn3y+", "ChatGP7", "Canv4"])))
         out.append(f'<div class="cta2"><div class="jb">{green(s.get("jembatan", ""))}</div>'
                    f'<div class="mf">{md(s.get("manfaat", "Patungan langganan premium: aman, legal, lebih hemat."))}</div>'
-                   f'<div class="gr">{gr}</div>'
+                   + (f'<div class="gb" style="height:{s.get("gambar_tinggi", 300)}px"><img src="{uri(s["gambar"])}" style="object-position:{s.get("gambar_pos", "center")}"></div>' if s.get("gambar") else "")
+                   + f'<div class="gr">{gr}</div>'
                    f'<div class="bt">Kunjungi <span>{html.escape(BRAND["website"])}</span></div>'
                    f'<div class="ss">{html.escape(s.get("ajakan_akhir", "Simpan & bagikan ke teman yang lagi ngerasa pas-pasan juga."))}</div></div>')
     f = s.get("footer", "bar" if berita else BRAND.get("footer_default", "web-ig"))
