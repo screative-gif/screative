@@ -1,0 +1,62 @@
+{
+  "niche": "Hiburan & langganan digital hemat: rekomendasi tontonan/musik, edukasi patungan yang aman, promo, dan humor relate seputar langganan premium; plus fakta unik & topik umum yang lagi trending (pilar 2)",
+  "keywords": [
+    "patungan netflix",
+    "rekomendasi film",
+    "langganan premium murah",
+    "fakta unik"
+  ],
+  "hashtags": [
+    "rekomendasifilm",
+    "patungannetflix",
+    "faktaunik"
+  ],
+  "language": "id",
+  "days_back": 14,
+  "platforms": {
+    "instagram": {
+      "enabled": true,
+      "actor": "apify/instagram-hashtag-scraper",
+      "results_per_query": 15,
+      "max_usd_per_run": 0.3
+    },
+    "ig_akun": {
+      "enabled": true,
+      "actor": "apify/instagram-post-scraper",
+      "accounts": [
+        "seakun.id",
+        "sisasaldocom",
+        "folkative",
+        "harinesia.id",
+        "faktasemenitofc",
+        "otakplastisin",
+        "howcomeid",
+        "pernahpikirkenapa",
+        "edu.clay"
+      ],
+      "_catatan": "akun pertama = akun sendiri (dipantau performanya). Tambahkan akun referensi/kompetitor setelahnya, mis. usulan dari laporan Lira.",
+      "results_per_query": 12,
+      "max_usd_per_run": 0.1,
+      "_catatan_referensi": "Referensi pilar 2 (dipilih 19 Nov 2026, lihat konten/laporan/2026-11-19_akun-referensi.md): sisasaldocom & folkative = format carousel; harinesia.id, faktasemenitofc, otakplastisin, howcomeid, pernahpikirkenapa, edu.clay = radar topik fakta unik (Reels, sering outlier). Yang dicari: post >= 5x median akunnya sendiri."
+    },
+    "threads": {
+      "enabled": true,
+      "actor": "scrapesage/threads-search-scraper",
+      "results_per_query": 15,
+      "max_usd_per_run": 0.35
+    },
+    "tiktok": {
+      "enabled": true,
+      "actor": "clockworks/tiktok-scraper",
+      "results_per_query": 15,
+      "max_usd_per_run": 0.5
+    },
+    "x": {
+      "enabled": false,
+      "actor": "xquik/x-tweet-scraper",
+      "results_per_query": 15,
+      "max_usd_per_run": 0.1
+    }
+  },
+  "_catatan_platform": "Kanal aktif Seakun: Instagram (@seakun.id) & Threads. TikTok dipakai sebagai sumber inspirasi Reels. X dimatikan secara default."
+}

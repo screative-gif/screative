@@ -1,0 +1,335 @@
+{
+ "output_dir": "konten/visual/2026-11-19_C-GAJI",
+ "slides": [
+  {
+   "layout": "berita",
+   "kartu": "editorial",
+   "nomor": 1,
+   "foto": "konten/visual/2026-11-19_C-GAJI/foto/cover3.png",
+   "foto_pos": "center top",
+   "judul": "Gaji udah naik,\nkok tetap\n__pas-pasan?__\nFakta?",
+   "subjudul": "Slip gaji bilang naik. Dompet bilang lain.",
+   "foto_geser": 50,
+   "teks_naik": 40
+  },
+  {
+   "layout": "data",
+   "nomor": 2,
+   "judul": "Di atas kertas,\ngajinya __naik kok__.",
+   "judul_size": 62,
+   "isi": [
+    "UMP DKI Jakarta naik dari Rp3,1 juta\ndi 2016 jadi __Rp5,73 juta__ di 2026.\nWajar kalau kita berharap hidup\nikut makin longgar."
+   ],
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s02b.jpg",
+   "gambar_mode": "polaroid",
+   "gambar_ket": "Hari gajian 🎉",
+   "gambar_miring": 5,
+   "gambar_pos": "center 55%",
+   "visual": {
+    "tipe": "versus",
+    "kiri": {
+     "label": "2016",
+     "angka": "Rp3,1 jt",
+     "ket": "UMP DKI Jakarta"
+    },
+    "kanan": {
+     "label": "2026",
+     "angka": "Rp5,73 jt",
+     "ket": "UMP DKI Jakarta"
+    },
+    "badge": "+85%",
+    "catatan": "Dalam 10 tahun, angka di slip gaji hampir 2× lipat"
+   },
+   "penutup": "UMP DKI 2026 sendiri naik __6,17%__ dari 2025.",
+   "sumber": "Pergub DKI 230/2015; Bisnis.com (24 Des 2025)"
+  },
+  {
+   "layout": "data",
+   "nomor": 3,
+   "judul": "Gaji naik 1,94%\nHarga makanan naik __4,58%__",
+   "judul_size": 58,
+   "isi": [
+    "Setahun terakhir, yang paling ngebut justru harga **makanan, minuman & tembakau**."
+   ],
+   "gambar": [
+    "konten/visual/2026-11-19_C-GAJI/foto/s03-beras.jpg",
+    "konten/visual/2026-11-19_C-GAJI/foto/s03-telur.jpg",
+    "konten/visual/2026-11-19_C-GAJI/foto/s03-minyak.jpg",
+    "konten/visual/2026-11-19_C-GAJI/foto/s03.jpg"
+   ],
+   "gambar_mode": "strip",
+   "gambar_pos": "center",
+   "visual": {
+    "tipe": "balapan",
+    "items": [
+     {
+      "label": "Upah",
+      "nilai": 1.94,
+      "teks": "1,94%",
+      "warna": "hijau"
+     },
+     {
+      "label": "Inflasi",
+      "nilai": 2.92,
+      "teks": "2,92%",
+      "warna": "hijau"
+     },
+     {
+      "label": "Makanan",
+      "nilai": 4.58,
+      "teks": "4,58%",
+      "warna": "oranye"
+     }
+    ],
+    "garis": {
+     "nilai": 1.94,
+     "teks": "garis gaji"
+    },
+    "anotasi": "Makanan naik ± 2,4× lebih cepat dari gaji"
+   },
+   "penutup": "Inflasi Desember 2024 masih __1,57%__. Setahun kemudian hampir dua kali lipat.",
+   "sumber": "BPS (upah Agt 2024–Agt 2025; inflasi Des 2025 yoy)",
+   "gambar_label": [
+    "Beras",
+    "Telur",
+    "Minyak",
+    "Cabai"
+   ]
+  },
+  {
+   "layout": "data",
+   "nomor": 4,
+   "judul": "Yang naik angkanya,\nbukan __daya belinya__.",
+   "judul_size": 64,
+   "isi": [
+    "**Upah riil** = kenaikan gaji dikurangi kenaikan harga. Ini yang menentukan seberapa banyak yang bisa kamu beli."
+   ],
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s04.jpg",
+   "gambar_mode": "latar",
+   "gambar_tinggi": 740,
+   "visual": {
+    "tipe": "turun",
+    "angka": "−1,1%",
+    "ket": "upah riil semua pekerja **per tahun**, 2018–2024",
+    "pendamping": [
+     {
+      "angka": "−2,3%",
+      "ket": "keahlian tinggi"
+     },
+     {
+      "angka": "+0,3%",
+      "ket": "keahlian rendah"
+     }
+    ]
+   },
+   "sumber": "Bank Dunia, Indonesia Economic Prospects Des 2025",
+   "gambar_pos": "center 55%",
+   "teks_dalam": 330
+  },
+  {
+   "layout": "data",
+   "nomor": 5,
+   "judul": "Kelas menengah\nberkurang __9,48 juta__",
+   "judul_size": 54,
+   "isi": [
+    "Menurut BPS, kelas menengah adalah yang pengeluarannya **Rp2,04–9,9 juta per orang per bulan**."
+   ],
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s05b.jpg",
+   "gambar_mode": "lingkaran",
+   "gambar_pos": "center 55%",
+   "visual": {
+    "tipe": "kolom",
+    "judul": "Jumlah kelas menengah",
+    "tinggi": 330,
+    "items": [
+     {
+      "label": "2019",
+      "nilai": 57.33,
+      "teks": "57,33 jt"
+     },
+     {
+      "label": "2022",
+      "nilai": 49.51,
+      "teks": "49,51 jt"
+     },
+     {
+      "label": "2024",
+      "nilai": 47.85,
+      "teks": "47,85 jt",
+      "warna": "oranye"
+     }
+    ],
+    "selisih": "−9,48 jt"
+   },
+   "penutup": "Sebaliknya, “calon kelas menengah” membengkak jadi __137,5 juta__ orang.",
+   "sumber": "BPS, Susenas Maret 2024"
+  },
+  {
+   "layout": "data",
+   "nomor": 6,
+   "judul": "Tanggal tua makin\nsering __ditalangin.__",
+   "judul_size": 62,
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s06c.jpg",
+   "gambar_mode": "atas",
+   "gambar_tinggi": 280,
+   "gambar_pos": "15% center",
+   "visual": {
+    "tipe": "kartu-angka",
+    "angka": "± 34 juta",
+    "ket": "rekening paylater di perbankan (Agustus 2026)",
+    "mini": [
+     {
+      "angka": "Rp31,41 T",
+      "ket": "total utang, naik 29,1% setahun"
+     },
+     {
+      "angka": "Indeks 100,4",
+      "ket": "tabungan kelas menengah, terendah sejak Okt 2023"
+     }
+    ]
+   },
+   "sumber": "OJK (Agt 2026); Mandiri Spending Index (Feb 2026)"
+  },
+  {
+   "layout": "data",
+   "nomor": 7,
+   "judul": "Gaji masuk, lalu\n__satu per satu__ pamit.",
+   "judul_size": 50,
+   "isi": [
+    "Yang kecil sering lolos, karena tiap langganan terasa “cuma segini”."
+   ],
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s07b.jpg",
+   "gambar_mode": "polaroid",
+   "gambar_ket": "Tanggal 1, sudah begini",
+   "gambar_miring": -4,
+   "gambar_pos": "center 40%",
+   "visual": {
+    "tipe": "notif",
+    "jam": "Tanggal 1",
+    "items": [
+     {
+      "app": "m-Banking",
+      "teks": "Gaji masuk",
+      "rp": "+Rp5.000.000"
+     },
+     {
+      "app": "Pengeluaran wajib",
+      "teks": "Kos, dapur, transport & tagihan",
+      "rp": "−Rp3.950.000"
+     },
+     {
+      "app": "Langganan",
+      "teks": "Streaming, musik, cloud & AI",
+      "rp": "−Rp510.000",
+      "sorot": true
+     },
+     {
+      "app": "Sisa saldo",
+      "teks": "Masih 29 hari lagi ke gajian",
+      "rp": "Rp540.000"
+     }
+    ],
+    "catatan": "Note: angka simulasi"
+   }
+  },
+  {
+   "layout": "data",
+   "nomor": 8,
+   "judul": "Gaji naik, ruangnya\n__menyempit.__",
+   "judul_size": 52,
+   "isi": [
+    "Bukan berarti kamu payah ngatur duit. Angkanya memang bergerak ke arah yang berat."
+   ],
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s08.jpg",
+   "gambar_mode": "sisi",
+   "gambar_tinggi": 420,
+   "visual": {
+    "tipe": "tabel",
+    "kolom": [
+     "",
+     "Dulu",
+     "Sekarang"
+    ],
+    "sorot_kolom": 2,
+    "baris": [
+     [
+      "UMP DKI",
+      "Rp3,1 jt (2016)",
+      "Rp5,73 jt (2026)"
+     ],
+     [
+      "Inflasi",
+      "1,57% (2024)",
+      "2,92% (2025)"
+     ],
+     [
+      "Kelas menengah",
+      "57,33 jt (2019)",
+      "47,85 jt (2024)"
+     ],
+     [
+      "Rata-rata upah",
+      "Rp3,27 jt (2024)",
+      "Rp3,33 jt (2025)"
+     ]
+    ]
+   },
+   "sumber": "BPS; Pergub DKI 230/2015; Bisnis.com"
+  },
+  {
+   "layout": "data",
+   "nomor": 9,
+   "judul": "Pas-pasan itu\n__bukan cuma perasaan.__",
+   "judul_size": 64,
+   "isi": [
+    "Gaji naik, tapi harga, terutama makanan, naik lebih cepat. Langkah paling gampang: cek lagi pengeluaran kecil yang diam-diam rutin."
+   ],
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s09.jpg",
+   "gambar_mode": "latar",
+   "gambar_tinggi": 740,
+   "teks_dalam": 360,
+   "visual": {
+    "tipe": "kutipan",
+    "teks": "“Kamu ngerasain juga?\nPengeluaran apa yang paling bikin kaget\ntiap bulan?”",
+    "oleh": "Ceritain di komentar, siapa tahu kita senasib."
+   }
+  },
+  {
+   "layout": "cta-seakun",
+   "nomor": 10,
+   "jembatan": "Biaya hidup boleh naik.\nLangganan kamu __jangan ikut boncos.__",
+   "manfaat": "Patungan langganan premium: aman, legal, lebih hemat.",
+   "gambar_latar": "konten/visual/2026-11-19_C-GAJI/foto/s10c.jpg",
+   "gambar_pos": "center 35%",
+   "judul_harga": "Harga patungan di Seakun",
+   "footer": "none",
+   "layanan": [
+    {
+     "logo": "konten/brand/visual/logo/provider/netflix.svg",
+     "harga": "Rp47.500"
+    },
+    {
+     "logo": "konten/brand/visual/logo/provider/spotify.svg",
+     "harga": "Rp31.633"
+    },
+    {
+     "logo": "konten/brand/visual/logo/provider/youtube.svg",
+     "harga": "Rp39.900"
+    },
+    {
+     "logo": "konten/brand/visual/logo/provider/disneyplus.svg",
+     "harga": "Rp30.567"
+    },
+    {
+     "logo": "konten/brand/visual/logo/provider/chatgpt.svg",
+     "harga": "Rp80.000"
+    },
+    {
+     "logo": "konten/brand/visual/logo/provider/canva.svg",
+     "harga": "Rp100.000"
+    }
+   ],
+   "tombol": "tap"
+  }
+ ]
+}

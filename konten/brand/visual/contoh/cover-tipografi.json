@@ -1,0 +1,35 @@
+{
+ "output_dir": "konten/visual/<tanggal>_<kode>",
+ "slides": [
+  {
+   "layout": "berita",
+   "foto": "konten/visual/<tanggal>_<kode>/foto/cover.jpg",
+   "foto_pos": "center 30%",
+   "kicker": "Rekomendasi tontonan",
+   "judul": "Film yang bikin\n2 jam terasa __20 menit__",
+   "subjudul": "5 rekomendasi Netfl1x buat maraton akhir pekan",
+   "text_top": 640,
+   "kartu": "lingkar"
+  },
+  {
+   "layout": "berita",
+   "foto": "konten/visual/<tanggal>_<kode>/foto/cover.jpg",
+   "foto_pos": "center 30%",
+   "kicker": "Rekomendasi tontonan",
+   "judul": "5 Film Netfl1x yang bikin\n2 jam terasa\n__20 menit__",
+   "subjudul": "REKOMENDASI MARATON AKHIR PEKAN",
+   "text_top": 640,
+   "kartu": "editorial"
+  },
+  {
+   "layout": "berita",
+   "foto": "konten/visual/<tanggal>_<kode>/foto/cover.jpg",
+   "foto_pos": "center 30%",
+   "kicker": "Rekomendasi Netfl1x",
+   "judul": "5 Film yang\nbikin 2 jam\n__terasa__\n__20 menit__",
+   "subjudul": "Cocok buat maraton akhir pekan kamu",
+   "text_top": 640,
+   "kartu": "poster"
+  }
+ ]
+}

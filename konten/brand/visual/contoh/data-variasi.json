@@ -1,0 +1,119 @@
+{
+ "output_dir": "konten/visual/<tanggal>_<kode>",
+ "slides": [
+  {
+   "layout": "data",
+   "nomor": 2,
+   "judul": "Di atas kertas,\ngajinya __naik kok__.",
+   "judul_size": 62,
+   "isi": [
+    "UMP DKI Jakarta naik dari Rp3,1 juta\ndi 2016 jadi __Rp5,73 juta__ di 2026.\nWajar kalau kita berharap hidup\nikut makin longgar."
+   ],
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s02b.jpg",
+   "gambar_mode": "polaroid",
+   "gambar_ket": "Hari gajian 🎉",
+   "gambar_miring": 5,
+   "gambar_pos": "center 55%",
+   "visual": {
+    "tipe": "versus",
+    "kiri": {
+     "label": "2016",
+     "angka": "Rp3,1 jt",
+     "ket": "UMP DKI Jakarta"
+    },
+    "kanan": {
+     "label": "2026",
+     "angka": "Rp5,73 jt",
+     "ket": "UMP DKI Jakarta"
+    },
+    "badge": "+85%",
+    "catatan": "Dalam 10 tahun, angka di slip gaji hampir 2× lipat"
+   },
+   "penutup": "UMP DKI 2026 sendiri naik __6,17%__ dari 2025.",
+   "sumber": "Pergub DKI 230/2015; Bisnis.com (24 Des 2025)"
+  },
+  {
+   "layout": "data",
+   "nomor": 3,
+   "judul": "Gaji naik 1,94%\nHarga makanan naik __4,58%__",
+   "judul_size": 58,
+   "isi": [
+    "Setahun terakhir, yang paling ngebut justru harga **makanan, minuman & tembakau**."
+   ],
+   "gambar": [
+    "konten/visual/2026-11-19_C-GAJI/foto/s03-beras.jpg",
+    "konten/visual/2026-11-19_C-GAJI/foto/s03-telur.jpg",
+    "konten/visual/2026-11-19_C-GAJI/foto/s03-minyak.jpg",
+    "konten/visual/2026-11-19_C-GAJI/foto/s03.jpg"
+   ],
+   "gambar_mode": "strip",
+   "gambar_pos": "center",
+   "visual": {
+    "tipe": "balapan",
+    "items": [
+     {
+      "label": "Upah",
+      "nilai": 1.94,
+      "teks": "1,94%",
+      "warna": "hijau"
+     },
+     {
+      "label": "Inflasi",
+      "nilai": 2.92,
+      "teks": "2,92%",
+      "warna": "hijau"
+     },
+     {
+      "label": "Makanan",
+      "nilai": 4.58,
+      "teks": "4,58%",
+      "warna": "oranye"
+     }
+    ],
+    "garis": {
+     "nilai": 1.94,
+     "teks": "garis gaji"
+    },
+    "anotasi": "Makanan naik ± 2,4× lebih cepat dari gaji"
+   },
+   "penutup": "Inflasi Desember 2024 masih __1,57%__. Setahun kemudian hampir dua kali lipat.",
+   "sumber": "BPS (upah Agt 2024–Agt 2025; inflasi Des 2025 yoy)",
+   "gambar_label": [
+    "Beras",
+    "Telur",
+    "Minyak",
+    "Cabai"
+   ]
+  },
+  {
+   "layout": "data",
+   "nomor": 4,
+   "judul": "Yang naik angkanya,\nbukan __daya belinya__.",
+   "judul_size": 64,
+   "isi": [
+    "**Upah riil** = kenaikan gaji dikurangi kenaikan harga. Ini yang menentukan seberapa banyak yang bisa kamu beli."
+   ],
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s04.jpg",
+   "gambar_mode": "latar",
+   "gambar_tinggi": 740,
+   "visual": {
+    "tipe": "turun",
+    "angka": "−1,1%",
+    "ket": "upah riil semua pekerja **per tahun**, 2018–2024",
+    "pendamping": [
+     {
+      "angka": "−2,3%",
+      "ket": "keahlian tinggi"
+     },
+     {
+      "angka": "+0,3%",
+      "ket": "keahlian rendah"
+     }
+    ]
+   },
+   "sumber": "Bank Dunia, Indonesia Economic Prospects Des 2025",
+   "gambar_pos": "center 55%",
+   "teks_dalam": 330
+  }
+ ]
+}

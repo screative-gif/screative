@@ -1,0 +1,22 @@
+{
+ "output_dir": "konten/visual/<tanggal>_<kode>",
+ "slides": [
+  {
+   "layout": "berita",
+   "foto": "konten/visual/<tanggal>_<kode>/foto/1.jpg",
+   "foto_pos": "center 30%",
+   "kicker": "Rekomendasi tontonan",
+   "judul": "5 Film Netfl1x yang Bikin\n__2 Jam Terasa 20 Menit__",
+   "subjudul": "Cocok buat maraton akhir pekan kamu",
+   "text_top": 640
+  },
+  {
+   "layout": "berita-isi",
+   "foto": "konten/visual/<tanggal>_<kode>/foto/2.jpg",
+   "body": [
+    "Paragraf isi dengan **kata tebal** untuk penekanan dan __kata hijau__ untuk judul film.",
+    "Paragraf kedua, 2–3 paragraf pendek per slide."
+   ]
+  }
+ ]
+}
