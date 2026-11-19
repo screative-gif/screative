@@ -184,6 +184,29 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .fa .isi b{font-weight:700}
 .kjg{position:absolute;z-index:3;left:50%%;transform:translateX(-50%%);bottom:64px;display:flex;align-items:center;gap:18px;white-space:nowrap;background:#fff;border-radius:60px;padding:9px 9px 9px 40px;box-shadow:0 8px 28px rgba(0,0,0,.10)}
 .kjg .t{font-weight:700;font-size:30px;color:%(pink)s}
+/* ---- layout berita (cover = "berita", isi = "berita-isi") ---- */
+.bfoto{position:absolute;left:0;top:0;width:100%%;object-fit:cover}
+.bshade{position:absolute;left:0;right:0;top:0;height:260px;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
+.hdr3{position:absolute;top:50px;left:0;right:0;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hdr3 img{height:50px}
+.hdr3 .tg{color:#fff;font-weight:600;font-size:19px;letter-spacing:1.6px;text-transform:uppercase;display:flex;align-items:center;gap:10px;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.hdr3 .tg i{width:26px;height:2px;background:#fff;opacity:.8}
+.hdr3.gelap img{filter:none}.hdr3.gelap .tg{color:%(pink)s;text-shadow:none}.hdr3.gelap .tg i{background:%(pink)s}
+.kartu{position:absolute;z-index:2;left:56px;right:56px;background:#fff;border-radius:0 0 56px 0;padding:44px 48px 46px 48px;box-shadow:0 16px 44px rgba(0,0,0,.18)}
+.kartu .strip{position:absolute;left:0;top:-12px;display:flex;height:12px}
+.kartu .strip i{width:118px;height:12px}
+.kartu .kick{display:inline-block;background:%(label)s;color:#fff;font-weight:700;font-size:21px;letter-spacing:1.5px;text-transform:uppercase;border-radius:8px;padding:6px 16px;margin-bottom:22px}
+.kartu .bj{font-family:HeadFont,sans-serif;font-size:74px;line-height:1.1;color:#111;letter-spacing:-.5px;text-wrap:balance}
+.kartu .bj .g{color:%(pink)s}
+.kartu .bs{font-size:50px;line-height:1.2;color:#111;margin-top:10px;font-weight:400;text-wrap:balance}
+.bisi{position:absolute;z-index:2;left:64px;right:64px}
+.bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
+.bisi b,.bisi .pk{font-weight:700;color:#111}
+.bisi .g{color:%(pink)s;font-weight:700}
+.bar{position:absolute;z-index:3;left:44px;right:44px;bottom:38px;height:58px;border-radius:30px;background:%(pink)s;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 30px}
+.bar .a{font-weight:700;font-size:26px}
+.bar .m{font-size:17px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;opacity:.95}
+.bar .z{display:flex;align-items:center;gap:8px;font-weight:600;font-size:23px}
 .kjg .w{background:%(pink)s;color:#fff;font-weight:700;font-size:30px;border-radius:50px;padding:12px 34px}
 """
 
@@ -244,7 +267,15 @@ def slide_html(s, n=1):
     mask = (f"-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 {vstop-14}%,transparent {vstop+8}%);"
             if veil == "kiri" else "")
     out.append(f'<div class="veil" style="background:{vcss};{mask}"></div>')
-    if s.get("header", True) and BRAND.get("header_style") == "seakun":
+    berita = layout in ("berita", "berita-isi")
+    if berita and s.get("foto"):
+        fh = s.get("foto_height", H if layout == "berita" else 700)
+        out.append(f'<img class="bfoto" src="{uri(s["foto"])}" style="height:{fh}px;object-position:{s.get("foto_pos", "center center")}">')
+        out.append('<div class="bshade"></div>')
+    if berita and s.get("header", True):
+        out.append(f'<div class="hdr3{" gelap" if not s.get("foto") else ""}"><img src="{uri(BRAND["logo_footer"] if s.get("foto") else BRAND["logo_header"])}">'
+                   f'<div class="tg"><i></i>{html.escape(BRAND.get("tagline_pendek", "Platform Patungan No.1 Indonesia"))}<i></i></div></div>')
+    elif s.get("header", True) and BRAND.get("header_style") == "seakun":
         out.append(f'<div class="hdr2">{badge_svg()}{dots_html(n)}</div>')
     elif s.get("header", True) and layout != "threads":
         out.append(f'<div class="hdr"><img src="{uri(BRAND["logo_header"])}">'
@@ -260,7 +291,7 @@ def slide_html(s, n=1):
             lab = ["♥ ", "💬 ", "🔁 ", "➤ "]
             stats = '<div class="st">' + "".join(f"<span>{lab[i]}{html.escape(v)}</span>" for i, v in enumerate(st[:4])) + "</div>"
         out.append(f'<div class="card"><div class="who">{av}{html.escape(t.get("name",""))} {vf}</div>{paras}{stats}</div>')
-    elif layout != "foto-atas":
+    elif layout not in ("foto-atas", "berita", "berita-isi"):
         bw = s.get("body_width", 900 if layout == "tengah" else 520)
         parts = []
         if s.get("headline"):
@@ -298,8 +329,21 @@ def slide_html(s, n=1):
         if s.get("body"):
             parts.append('<div class="isi">' + "".join(f'<p>{md(p)}</p>' for p in s["body"]) + "</div>")
         out.append(f'<div class="fa" style="top:{s.get("text_top", 672)}px">' + "".join(parts) + "</div>")
-    f = s.get("footer", BRAND.get("footer_default", "web-ig"))
-    if f == "kunjungi":
+    if layout == "berita":
+        strip = "".join(f'<i style="background:{c}"></i>' for c in BRAND.get("dots", [C["pink"]])[:3])
+        kick = f'<div class="kick">{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
+        sub = f'<div class="bs">{green(s["subjudul"])}</div>' if s.get("subjudul") else ""
+        out.append(f'<div class="kartu" style="top:{s.get("text_top", 560)}px"><div class="strip">{strip}</div>{kick}'
+                   f'<div class="bj">{green(s.get("judul", ""))}</div>{sub}</div>')
+    if layout == "berita-isi":
+        paras = "".join(f"<p>{md(p).replace('class="tl"', 'class="g"')}</p>" for p in s.get("body", []))
+        out.append(f'<div class="bisi" style="top:{s.get("text_top", 770)}px">{paras}</div>')
+    f = s.get("footer", "bar" if berita else BRAND.get("footer_default", "web-ig"))
+    if f == "bar":
+        out.append(f'<div class="bar"><span class="a">{html.escape(BRAND["website"])}</span>'
+                   f'<span class="m">{html.escape(BRAND.get("tagline_pendek", "Platform Patungan No.1 Indonesia"))}</span>'
+                   f'<span class="z">{icon("instagram",26,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>')
+    elif f == "kunjungi":
         out.append(f'<div class="kjg"><span class="t">Kunjungi website</span><span class="w">{html.escape(BRAND["website"])}</span></div>')
     elif f == "web-ig":
         out.append(f'<div class="ftr">{icon("globe",30,"#fff",2)} {html.escape(BRAND["website"])} <span class="sep">|</span> {icon("instagram",30,"#fff",2)} @{html.escape(BRAND["handle"])}</div>')
