@@ -188,9 +188,9 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .bfoto{position:absolute;left:0;top:0;width:100%%;object-fit:cover}
 .bshade{position:absolute;left:0;right:0;top:0;height:260px;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
 .hdr3{position:absolute;top:50px;left:0;right:0;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px}
-.hdr3 img{height:50px}
-.hdr3 .tg{color:#fff;font-weight:600;font-size:19px;letter-spacing:1.6px;text-transform:uppercase;display:flex;align-items:center;gap:10px;text-shadow:0 1px 6px rgba(0,0,0,.35)}
-.hdr3 .tg i{width:26px;height:2px;background:#fff;opacity:.8}
+.hdr3 img{height:46px}
+.hdr3 .tg{color:#fff;font-weight:600;font-size:13.5px;letter-spacing:1.8px;text-transform:uppercase;display:flex;align-items:center;gap:10px;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.hdr3 .tg i{width:18px;height:2px;background:#fff;opacity:.8}
 .hdr3.gelap img{filter:none}.hdr3.gelap .tg{color:%(pink)s;text-shadow:none}.hdr3.gelap .tg i{background:%(pink)s}
 .kartu{position:absolute;z-index:2;left:56px;right:56px;background:#fff;border-radius:0 0 56px 0;padding:44px 48px 46px 48px;box-shadow:0 16px 44px rgba(0,0,0,.18)}
 .kartu .strip{position:absolute;left:0;top:-12px;display:flex;height:12px}
@@ -203,10 +203,13 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
 .bisi .g{color:%(pink)s;font-weight:700}
-.bar{position:absolute;z-index:3;left:44px;right:44px;bottom:38px;height:58px;border-radius:30px;background:%(pink)s;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 30px}
-.bar .a{font-weight:700;font-size:26px}
-.bar .m{font-size:17px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;opacity:.95}
-.bar .z{display:flex;align-items:center;gap:8px;font-weight:600;font-size:23px}
+.bar{position:absolute;z-index:3;left:72px;right:72px;bottom:34px;height:46px;border-radius:24px;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;
+ background:linear-gradient(120deg,rgba(8,160,129,.55),rgba(74,209,185,.30));backdrop-filter:blur(16px) saturate(160%%);-webkit-backdrop-filter:blur(16px) saturate(160%%);
+ border:1.5px solid rgba(255,255,255,.45);box-shadow:0 8px 26px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.35)}
+.bar .a{font-weight:700;font-size:20px}
+.bar .m{font-size:15px;font-weight:500;letter-spacing:.6px;opacity:.95;display:flex;align-items:center;gap:10px}
+.bar .m i{width:5px;height:5px;border-radius:50%%;background:#fff;opacity:.8}
+.bar .z{display:flex;align-items:center;gap:7px;font-weight:600;font-size:18px}
 .kjg .w{background:%(pink)s;color:#fff;font-weight:700;font-size:30px;border-radius:50px;padding:12px 34px}
 """
 
@@ -341,8 +344,8 @@ def slide_html(s, n=1):
     f = s.get("footer", "bar" if berita else BRAND.get("footer_default", "web-ig"))
     if f == "bar":
         out.append(f'<div class="bar"><span class="a">{html.escape(BRAND["website"])}</span>'
-                   f'<span class="m">{html.escape(BRAND.get("tagline_pendek", "Platform Patungan No.1 Indonesia"))}</span>'
-                   f'<span class="z">{icon("instagram",26,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>')
+                   f'<span class="m">{"<i></i>".join(html.escape(x) for x in s.get("bar_tengah", BRAND.get("bar_tengah", ["Hemat", "Aman", "Legal"])))}</span>'
+                   f'<span class="z">{icon("instagram",20,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>')
     elif f == "kunjungi":
         out.append(f'<div class="kjg"><span class="t">Kunjungi website</span><span class="w">{html.escape(BRAND["website"])}</span></div>')
     elif f == "web-ig":
