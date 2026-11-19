@@ -36,7 +36,12 @@ Slide:
   data: gambar (path foto, opsional; gambar_tinggi px default 430, gambar_pos), judul (__x__ = hijau + stabilo oranye), isi [paragraf], penutup, sumber (tampil di bar bawah: "Sumber: …"),
         visual {"tipe": "angka-besar" (angka, ket | pembanding:[{angka,ket,warna:"oranye"}]) | "batang" (judul, items:[{label,nilai,teks,sorot:"hijau|oranye"}])
                 | "dulu-vs-sekarang" (kiri/kanan:{judul,isi[]}) | "tabel" (kolom[], baris[[]], sorot_kolom) | "daftar" (items[])
-                | "kutipan" (teks, oleh) | "notif" (jam, items:[{app,teks,rp:"+Rp…/−Rp…",akhir:true}])}
+                | "kutipan" (teks, oleh) | "notif" (jam, items:[{app,teks,rp:"+Rp…/−Rp…",akhir:true}])
+                | "versus" (kiri/kanan:{label,angka,ket}, badge "+85%", catatan) — perbandingan 2 angka + panah
+                | "balapan" (items:[{label,nilai,teks,warna:"hijau|kuning|oranye|gelap"}], garis:{nilai,teks}, anotasi) — batang + garis acuan
+                | "turun" (angka, ket, pendamping:[{angka,ket}]) — angka turun + panah besar}
+        gambar_mode: "atas" (default) | "polaroid" (foto kecil miring di pojok kanan atas, gambar_ket, gambar_miring)
+                | "lingkaran" (badge bulat di pojok) | "sisi" (panel di samping judul) | "strip" (gambar: [3 path] berjejer)
   cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), layanan [nama disamarkan], ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
   --- khusus foto-atas ---
   foto        path foto/cuplikan (diisi user); foto_height px (default 790); foto_pos object-position (default "center top")
@@ -68,7 +73,8 @@ BRAND = json.load(open(_bp, encoding="utf-8"))
 _c = BRAND["colors"]
 C = {"pink": _c["primary"], "pink2": _c["secondary"], "teal": _c["accent"], "teal_dark": _c["accent_dark"],
      "yellow": _c["highlight"], "text": _c["text"], "soft": _c.get("primary_soft", _c["secondary"]),
-     "label": _c.get("label", _c["accent"])}
+     "label": _c.get("label", _c["accent"]),
+     "or": _c.get("oranye_terang", "#FF7A1A"), "kn": _c.get("kuning", "#FFC233"), "hj": _c.get("hijau_tua", "#0B5C4B"), "ink": "#17201D"}
 BG = BRAND["backgrounds"]
 BG_DEFAULT = next(iter(BG))
 
@@ -148,7 +154,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .sub{color:%(pink)s;font-weight:700;font-size:27px;line-height:1.4;margin-top:30px;text-wrap:pretty}
 .body p{font-size:27px;line-height:1.45;margin-top:26px;letter-spacing:.2px;text-wrap:pretty}
 .hl.pill{padding:3px 26px}
-.hl{background:rgba(255,122,0,.6);color:#1b1b1b;font-weight:700;border-radius:22px;padding:2px 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl{background:rgba(255,122,26,.9);color:#1b1b1b;font-weight:700;border-radius:22px;padding:2px 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .pk{color:%(pink)s;font-weight:700}.tl{color:%(teal_dark)s;font-weight:700}.dk{color:#2f2f2f}
 .items{margin-top:36px}
 .it{display:flex;align-items:center;gap:22px;padding:18px 0;border-bottom:2px dashed %(teal)s}
@@ -284,16 +290,16 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .dt .lb{display:flex;justify-content:space-between;font-weight:600;font-size:19px;letter-spacing:3px;text-transform:uppercase;color:#7a7a7a}
 .dt .lb b{color:%(pink)s}
 .dt .jd{font-family:HeadFont,sans-serif;font-size:66px;line-height:1.08;letter-spacing:-1px;color:#111;margin-top:4px;text-wrap:balance}
-.dt .jd .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,122,0,.6) 56%%,rgba(255,122,0,.6) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .jd .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,122,26,.9) 56%%,rgba(255,122,26,.9) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .dt .gb{border-radius:30px;overflow:hidden;margin:0 0 30px;box-shadow:0 14px 34px rgba(0,0,0,.14);flex:none}
 .dt .gb img{width:100%%;height:100%%;object-fit:cover;display:block}
 .dt .is p{font-size:29px;line-height:1.45;color:#3a3a3a;margin-top:18px;text-wrap:pretty}
 .dt .is b,.dt .is .pk{color:#111;font-weight:700}
 .dt .is .tl{color:#0B5C4B;font-weight:700}
-.dt .is .hl{background:linear-gradient(180deg,transparent 52%%,rgba(255,122,0,.6) 52%%,rgba(255,122,0,.6) 94%%,transparent 94%%);border-radius:0;padding:0 3px}
+.dt .is .hl{background:linear-gradient(180deg,transparent 52%%,rgba(255,122,26,.9) 52%%,rgba(255,122,26,.9) 94%%,transparent 94%%);border-radius:0;padding:0 3px}
 .dt .vz{margin-top:30px;flex:1;display:flex;flex-direction:column;justify-content:center}
 .dt .pt{margin-top:auto;font-family:HeadFont,sans-serif;font-size:36px;line-height:1.2;color:#111;text-wrap:balance;padding-top:24px}
-.dt .pt .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,122,0,.6) 56%%,rgba(255,122,0,.6) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .pt .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,122,26,.9) 56%%,rgba(255,122,26,.9) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .dt .sb{font-size:15px;color:#8a8a8a;margin-top:12px;line-height:1.35}
 .vz .ab{font-family:HeadFont,sans-serif;font-size:190px;line-height:1.05;letter-spacing:-6px;color:%(pink)s}
 .vz .ab.o{color:%(label)s}
@@ -306,8 +312,8 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .vz .br .l{width:130px;font-weight:600;font-size:25px;color:#444;flex:none}
 .vz .br .t{flex:1;height:76px;border-radius:14px;background:rgba(0,0,0,.05);position:relative}
 .vz .br .f{height:100%%;border-radius:14px;background:#BFE6DC;display:flex;align-items:center;justify-content:flex-end;padding-right:16px;font-weight:700;font-size:25px;color:#0b4a3d;min-width:150px}
-.vz .br.s .f{background:%(pink)s;color:#fff}
-.vz .br.o .f{background:%(label)s;color:#fff}
+.vz .br.s .f{background:%(hj)s;color:#fff}
+.vz .br.o .f{background:%(or)s;color:#fff}
 .vz .bj{font-size:21px;color:#777;margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
 .vz .dvs{display:flex;gap:24px}
 .vz .dvs > div{flex:1;border-radius:26px;padding:26px 28px}
@@ -335,7 +341,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .hp .nt.akhir{background:%(label)s}.hp .nt.akhir .tx,.hp .nt.akhir .ap,.hp .nt.akhir .rp{color:#fff}
 .cta2{position:absolute;z-index:2;left:72px;right:72px;top:190px;bottom:118px;display:flex;flex-direction:column;color:#fff}
 .cta2 .jb{font-family:HeadFont,sans-serif;font-size:68px;line-height:1.1;letter-spacing:-1px;text-wrap:balance}
-.cta2 .jb .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 58%%,rgba(255,122,0,.85) 58%%,rgba(255,122,0,.85) 92%%,transparent 92%%);padding:0 6px;margin:0 -6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.cta2 .jb .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 58%%,rgba(255,122,26,.95) 58%%,rgba(255,122,26,.95) 92%%,transparent 92%%);padding:0 6px;margin:0 -6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .cta2 .mf{font-size:30px;line-height:1.45;margin-top:22px;opacity:.92}
 .cta2 .gr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
 .cta2 .gr div{border-radius:24px;padding:22px 20px;background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.28);display:flex;align-items:center;gap:14px;font-weight:600;font-size:24px}
@@ -345,6 +351,45 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .cta2 .bt{margin-top:auto;align-self:flex-start;display:flex;align-items:center;gap:18px;background:#AAFFEF;color:#06352C;border-radius:60px;padding:16px 18px 16px 38px;font-weight:700;font-size:34px}
 .cta2 .bt span{background:#06352C;color:#fff;border-radius:40px;padding:10px 26px;font-size:30px}
 .cta2 .ss{font-size:22px;opacity:.75;margin-top:18px}
+/* ---- variasi gambar & komponen sorotan (revisi user 20 Nov) ---- */
+.dt.m-pojok .jd,.dt.m-pojok .is{padding-right:330px}
+.gpo{position:absolute;top:-6px;right:-6px;width:300px;background:#fff;padding:14px 14px 46px;box-shadow:0 18px 36px rgba(0,0,0,.18);z-index:3}
+.gpo img{width:100%%;height:290px;object-fit:cover;display:block}
+.gpo span{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:19px;font-weight:600;color:#555}
+.gli{position:absolute;top:0;right:0;width:290px;height:290px;border-radius:50%%;overflow:hidden;border:10px solid #fff;box-shadow:0 0 0 6px %(or)s,0 18px 36px rgba(0,0,0,.18)}
+.gli img{width:100%%;height:100%%;object-fit:cover}
+.sisi{display:flex;gap:30px;align-items:stretch}
+.sisi .tx{flex:1.6}.sisi .gsi{flex:1;border-radius:30px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.sisi .gsi img{width:100%%;height:100%%;object-fit:cover}
+.gst{display:flex;gap:18px;margin-top:26px}
+.gst div{flex:1;height:210px;border-radius:22px;overflow:hidden;border:6px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.15)}
+.gst img{width:100%%;height:100%%;object-fit:cover}
+.vs{display:flex;align-items:stretch;position:relative}
+.vs .c{flex:1;border-radius:32px;padding:34px 30px 30px;position:relative}
+.vs .c.a{background:#fff;border:3px solid %(ink)s;color:%(ink)s}
+.vs .c.b{background:%(hj)s;color:#fff;margin-left:120px}
+.vs .lb{font-weight:700;font-size:22px;letter-spacing:3px;opacity:.7}
+.vs .n{font-family:HeadFont,sans-serif;font-size:76px;white-space:nowrap;line-height:1.1;letter-spacing:-2px;margin-top:8px}
+.vs .k{font-size:22px;opacity:.8;margin-top:6px}
+.vs .ar{position:absolute;left:50%%;top:50%%;transform:translate(-50%%,-50%%);width:112px;height:112px;border-radius:50%%;background:%(or)s;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:HeadFont,sans-serif;font-size:30px;box-shadow:0 0 0 10px #F1F2F3,0 14px 30px rgba(255,122,26,.45);z-index:2;line-height:1}
+.vs .ar svg{margin-bottom:4px}
+.vs-cat{margin-top:24px;display:inline-block;font-size:24px;font-weight:600;color:%(ink)s;background:%(kn)s;border-radius:40px;padding:10px 24px}
+.bl{position:relative;padding-top:50px}
+.bl .rw{display:flex;align-items:center;gap:18px;margin:18px 0}
+.bl .lb{width:150px;font-weight:700;font-size:25px;color:%(ink)s;flex:none}
+.bl .tr{flex:1;position:relative;height:84px}
+.bl .f{height:100%%;border-radius:0 42px 42px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:22px;font-family:HeadFont,sans-serif;font-size:38px;min-width:170px}
+.bl .gr{position:absolute;top:-50px;bottom:-14px;border-left:4px dashed %(ink)s;z-index:2}
+.bl .gr span{position:absolute;top:0;left:10px;white-space:nowrap;font-size:20px;font-weight:700;color:%(ink)s;background:%(kn)s;border-radius:20px;padding:4px 14px}
+.vz .an{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin-top:10px;font-family:HeadFont,sans-serif;font-size:34px;color:%(or)s}
+.tn{display:flex;align-items:center;gap:34px}
+.tn .ic{flex:none;width:190px;height:190px;border-radius:50%%;background:%(or)s;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(255,122,26,.4)}
+.tn .n{font-family:HeadFont,sans-serif;font-size:170px;line-height:1.05;letter-spacing:-6px;color:%(ink)s}
+.tn .k{font-size:26px;color:#444;margin-top:8px;max-width:600px}
+.tn-ch{display:flex;gap:16px;margin-top:30px}
+.tn-ch div{flex:1;border-radius:24px;padding:20px 24px;background:#fff;border:3px solid %(ink)s;display:flex;align-items:center;gap:18px}
+.tn-ch > div > b{font-family:HeadFont,sans-serif;font-size:52px;color:%(or)s;font-weight:400}
+.tn-ch span{font-size:22px;color:#333;line-height:1.3}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -404,6 +449,36 @@ def vis_html(v):
         return ""
     t = v.get("tipe")
     e = lambda x: html.escape(str(x))
+    if t == "versus":
+        a, b = v["kiri"], v["kanan"]
+        arrow = '<svg width="44" height="30" viewBox="0 0 44 30" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h36M28 4l11 11-11 11"/></svg>'
+        card = lambda c, k: f'<div class="c {k}"><div class="lb">{e(c.get("label", ""))}</div><div class="n">{e(c["angka"])}</div><div class="k">{md(c.get("ket", ""))}</div></div>'
+        cat = f'<div class="vs-cat">{md(v["catatan"])}</div>' if v.get("catatan") else ""
+        return f'<div class="vs">{card(a, "a")}<div class="ar">{arrow}{e(v.get("badge", ""))}</div>{card(b, "b")}</div>{cat}'
+    if t == "balapan":
+        mx = max(float(i["nilai"]) for i in v["items"]) or 1
+        warna = {"hijau": C["hj"], "oranye": C["or"], "kuning": C["kn"], "gelap": C["ink"]}
+        rows = ""
+        for k, i in enumerate(v["items"]):
+            w = float(i["nilai"]) / mx * 100
+            col = warna.get(i.get("warna", "hijau"), C["hj"])
+            tc = "#17201D" if i.get("warna") == "kuning" else "#fff"
+            gr = ""
+            if k == 0 and v.get("garis"):
+                pos = float(v["garis"]["nilai"]) / mx * 100
+                gr = f'<div class="gr" style="left:{pos:.1f}%"><span>{e(v["garis"]["teks"])}</span></div>'
+            rows += (f'<div class="rw"><div class="lb">{e(i["label"])}</div><div class="tr">{gr}'
+                     f'<div class="f" style="width:{max(22, w):.1f}%;background:{col};color:{tc}">{e(i.get("teks", i["nilai"]))}</div></div></div>')
+        an = ""
+        if v.get("anotasi"):
+            up = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>'
+            an = f'<div class="an">{up}{md(v["anotasi"])}</div>'
+        return f'<div class="bl">{rows}</div>{an}'
+    if t == "turun":
+        down = '<svg width="110" height="110" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M5 12l7 7 7-7"/></svg>'
+        ch = "".join(f'<div><b>{e(c["angka"])}</b><span>{md(c.get("ket", ""))}</span></div>' for c in v.get("pendamping", []))
+        return (f'<div class="tn"><div class="ic">{down}</div><div><div class="n">{e(v["angka"])}</div><div class="k">{md(v.get("ket", ""))}</div></div></div>'
+                + (f'<div class="tn-ch">{ch}</div>' if ch else ""))
     if t == "angka-besar":
         if v.get("pembanding"):
             cells = "".join(f'<div><div class="n" style="color:{C["label"] if p.get("warna") == "oranye" else C["pink"]}">{e(p["angka"])}</div><div class="k">{md(p.get("ket", ""))}</div></div>' for p in v["pembanding"])
@@ -596,13 +671,29 @@ def slide_html(s, n=1):
         hal = s.get("halaman", "")
         vz = vis_html(s.get("visual"))
         isi = "".join(f"<p>{md(p)}</p>" for p in s.get("isi", []))
-        gb = (f'<div class="gb" style="height:{s.get("gambar_tinggi", 430)}px"><img src="{uri(s["gambar"])}" style="object-position:{s.get("gambar_pos", "center")}"></div>'
-              if s.get("gambar") else "")
-        out.append(f'<div class="dt">{gb}'
-                   f'<div class="jd" style="font-size:{s.get("judul_size", 66)}px">{jdl(s.get("judul", ""))}</div>'
-                   + (f'<div class="is">{isi}</div>' if isi else "") + (f'<div class="vz">{vz}</div>' if vz else "")
-                   + (f'<div class="pt">{green(s["penutup"])}</div>' if s.get("penutup") else "")
-                   + "</div>")
+        mode = s.get("gambar_mode", "atas")
+        gl = s.get("gambar") if isinstance(s.get("gambar"), list) else ([s["gambar"]] if s.get("gambar") else [])
+        img = lambda g: f'<img src="{uri(g)}" style="object-position:{s.get("gambar_pos", "center")}">'
+        gb, kelas = "", ""
+        if gl and mode == "atas":
+            gb = f'<div class="gb" style="height:{s.get("gambar_tinggi", 430)}px">{img(gl[0])}</div>'
+        elif gl and mode == "polaroid":
+            gb = f'<div class="gpo" style="transform:rotate({s.get("gambar_miring", 4)}deg)">{img(gl[0])}<span>{html.escape(s.get("gambar_ket", ""))}</span></div>'; kelas = " m-pojok"
+        elif gl and mode == "lingkaran":
+            gb = f'<div class="gli">{img(gl[0])}</div>'; kelas = " m-pojok"
+        elif gl and mode == "strip":
+            gb = '<div class="gst">' + "".join(f'<div style="transform:rotate({r}deg)">{img(g)}</div>' for g, r in zip(gl, [-3, 2, -1.5, 3])) + "</div>"
+        head = (f'<div class="jd" style="font-size:{s.get("judul_size", 66)}px">{jdl(s.get("judul", ""))}</div>'
+                + (f'<div class="is">{isi}</div>' if isi else ""))
+        if gl and mode == "sisi":
+            head = f'<div class="sisi"><div class="tx">{head}</div><div class="gsi" style="height:{s.get("gambar_tinggi", 420)}px">{img(gl[0])}</div></div>'
+            gb = ""
+        if mode == "strip":
+            body = head + gb
+        else:
+            body = (gb if mode == "atas" else "") + head + (gb if mode in ("polaroid", "lingkaran") else "")
+        out.append(f'<div class="dt{kelas}">{body}' + (f'<div class="vz">{vz}</div>' if vz else "")
+                   + (f'<div class="pt">{green(s["penutup"])}</div>' if s.get("penutup") else "") + "</div>")
     if layout == "cta-seakun":
         warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
         gr = "".join(f'<div><i style="background:{warna[k % len(warna)]}">{html.escape(n[0])}</i>{html.escape(n)}</div>'
