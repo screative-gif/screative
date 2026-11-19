@@ -88,6 +88,7 @@ I = {
  "sun": '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>',
  "shield": '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
  "share": '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>',
+ "chevron-right": '<polyline points="9 18 15 12 9 6"/>',
  "instagram": '<rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>',
 }
 
@@ -203,13 +204,14 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
 .bisi .g{color:%(pink)s;font-weight:700}
-.bar{position:absolute;z-index:3;left:72px;right:72px;bottom:34px;height:46px;border-radius:24px;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;
+.bar{position:absolute;z-index:3;left:56px;right:56px;bottom:34px;height:46px;border-radius:24px;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;
  background:linear-gradient(120deg,rgba(8,160,129,.55),rgba(74,209,185,.30));backdrop-filter:blur(16px) saturate(160%%);-webkit-backdrop-filter:blur(16px) saturate(160%%);
  border:1.5px solid rgba(255,255,255,.45);box-shadow:0 8px 26px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.35)}
 .bar .a{font-weight:700;font-size:20px}
 .bar .m{font-size:15px;font-weight:500;letter-spacing:.6px;opacity:.95;display:flex;align-items:center;gap:10px}
 .bar .m i{width:5px;height:5px;border-radius:50%%;background:#fff;opacity:.8}
-.bar .z{display:flex;align-items:center;gap:7px;font-weight:600;font-size:18px}
+.bar .z{display:flex;align-items:center;gap:8px;font-weight:600;font-size:18px}
+.bar .z .c{width:28px;height:28px;border-radius:50%%;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center}
 .kjg .w{background:%(pink)s;color:#fff;font-weight:700;font-size:30px;border-radius:50px;padding:12px 34px}
 """
 
@@ -345,7 +347,8 @@ def slide_html(s, n=1):
     if f == "bar":
         out.append(f'<div class="bar"><span class="a">{html.escape(BRAND["website"])}</span>'
                    f'<span class="m">{"<i></i>".join(html.escape(x) for x in s.get("bar_tengah", BRAND.get("bar_tengah", ["Hemat", "Aman", "Legal"])))}</span>'
-                   f'<span class="z">{icon("instagram",20,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>')
+                   + (f'<span class="z">{icon("instagram",20,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>' if s.get("bar_kanan") == "ig"
+                    else f'<span class="z">{html.escape(s.get("bar_kanan", "Geser"))}<span class="c">{icon("chevron-right",18,"#fff",2.6)}</span></span></div>'))
     elif f == "kunjungi":
         out.append(f'<div class="kjg"><span class="t">Kunjungi website</span><span class="w">{html.escape(BRAND["website"])}</span></div>')
     elif f == "web-ig":

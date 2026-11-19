@@ -37,7 +37,7 @@ Terinspirasi format portal berita, dimodifikasi untuk Seakun.
 - **Header tengah atas:** logo Seakun putih + tagline "— PLATFORM PATUNGAN NO.1 INDONESIA —" (gradasi gelap tipis di atas foto).
 - **Cover = layout `berita`:** foto full-bleed, kartu putih (sudut kanan-bawah membulat) dengan strip 3 warna hijau di atasnya, label oranye (`kicker`, mis. REKOMENDASI TONTONAN), judul tebal hitam (`__teks__` = hijau), subjudul regular.
 - **Slide isi = layout `berita-isi`:** foto di atas (± 700 px), lalu 2–3 paragraf pendek di latar kertas; `**tebal**`, `__hijau__`.
-- **Bar bawah (`footer: "bar"`, otomatis):** pil kaca (glassmorphic: hijau transparan + blur + garis putih tipis), kecil: seakun.id | Hemat • Aman • Legal | @seakun.id. Teks tengah bisa diganti per slide lewat `bar_tengah` (list). Tidak ada "Swipe". Tagline hanya di header (kecil).
+- **Bar bawah (`footer: "bar"`, otomatis):** pil kaca (glassmorphic: hijau transparan + blur + garis putih tipis), kecil: seakun.id | Hemat • Aman • Legal | Geser ›. Lebar bar sejajar kotak headline (kiri-kanan 56 px). Teks tengah bisa diganti per slide lewat `bar_tengah` (list). **Slide terakhir wajib `bar_kanan: "ig"`** (ikon Instagram + @seakun.id, tanpa "Geser"). Pengecualian dari aturan "Tanpa CTA geser": khusus format berita, disetujui user. Tagline hanya di header (kecil).
 - Contoh spec: `konten/brand/visual/contoh/berita.json`.
 
 ## Layout wajib (setiap post)
