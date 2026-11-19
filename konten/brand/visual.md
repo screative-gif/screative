@@ -53,9 +53,14 @@ Cover format berita **hanya memakai 3 gaya tipografi: `lingkar` (H), `editorial`
   - **Palet:** utama `#09A185`, sekunder `#4EE77D`, highlight `#FF4F2F`, highlight lain `#FAD02C` (boleh turunan satu palet). Grafik **maks 2 warna**: pembanding = hijau utama, yang disorot = `#FF4F2F`; kuning hanya untuk label kecil (garis acuan, catatan).
   - **Highlight:** judul/penutup `__teks__` = pil kuning `#FAD02C`; **tanda baca di ujung ikut masuk pil** ("naik kok."); tanpa coretan/aksen. Isi `==teks==` = pil hijau muda; isi `__teks__` = pil hijau utama teks putih (angka terpenting).
   - **Font:** judul Poppins Bold; semua teks lain **Open Sauce Sans Medium** (tebal: Open Sauce Sans Bold).
-  - **Bar footer:** kaca hijau bergradasi transparan (`#09A185` → `#4EE77D`), teks putih.
+  - **Bar footer:** kaca hijau bergradasi **sangat transparan** (`#09A185` → `#4EE77D`); teks putih di atas foto, teks hijau tua `#064E40` di atas latar kertas.
   - **`penutup` hanya kalau menambah insight/fakta baru** (mis. "UMP DKI 2026 sendiri naik 6,17% dari 2025."). Jangan pakai kalimat jargon yang mirip di tiap slide; kalau tidak ada insight tambahan, kosongkan. Jarak penutup ke bar footer dibuat lega (otomatis).
-  - Mode `latar`: foto penuh di atas (sudut bawah membulat), judul putih di atas foto, header otomatis putih.
+  - Mode `latar`: foto penuh di atas (sudut bawah membulat), judul putih di atas foto, header otomatis putih. Teks di atas foto **tidak boleh mepet tepi bawah foto**: atur `gambar_tinggi` (± 740) & `teks_dalam` (± 330). Highlight tanpa bayangan teks.
+  - **Highlight hemat:** maksimal **1 highlight per kalimat/judul**, pilih angka/frasa terpenting. Pil kuning dibuat rapat (padding atas-bawah kecil).
+  - **Judul yang berakhir dengan %, ?, atau simbol lain tidak diberi titik lagi.**
+  - **Kalimat penjelas grafik** (catatan di bawah `versus`, `anotasi` balapan, label garis acuan): **1 warna saja per kalimat** (hijau utama atau `#FF4F2F`), tanpa pil/kotak, tanpa campuran warna.
+  - **Bagan maks 3 warna termasuk putih**: putih + hijau utama + `#FF4F2F`. Kuning hanya untuk pil highlight teks, bukan di bagan.
+  - Teks di dalam kotak/kartu minimal 26 px; ringkas keterangannya supaya cukup 1–2 baris.
 - **Slide isi = layout `berita-isi`:** foto di atas (± 700 px), lalu 2–3 paragraf pendek di latar kertas; `**tebal**`, `__hijau__`.
 - **Bar bawah (`footer: "bar"`, otomatis):** pil kaca (glassmorphic: hijau transparan + blur + garis putih tipis), kecil: seakun.id | Hemat • Aman • Legal | Geser ›. Lebar bar sejajar kotak headline (kiri-kanan 56 px). Teks tengah bisa diganti per slide lewat `bar_tengah` (list). **Slide terakhir wajib `bar_kanan: "ig"`** (ikon Instagram + @seakun.id, tanpa "Geser"). Pengecualian dari aturan "Tanpa CTA geser": khusus format berita, disetujui user. Tagline hanya di header (kecil).
 - Contoh spec: `konten/brand/visual/contoh/berita.json`.
