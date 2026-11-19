@@ -1,0 +1,32 @@
+{
+ "nama": "Seakun",
+ "handle": "seakun.id",
+ "website": "seakun.id",
+ "tagline_html": "Platform Patungan<br><b>No. 1 di Indonesia</b>",
+ "logo_header": "konten/brand/visual/logo/seakun-logo.png",
+ "logo_footer": "konten/brand/visual/logo/seakun-logo-putih.png",
+ "fonts": {
+  "heading": "Poppins-Bold.ttf",
+  "body": {
+   "400": "Poppins-Regular.ttf",
+   "500": "Poppins-Medium.ttf",
+   "600": "Poppins-SemiBold.ttf",
+   "700": "Poppins-Bold.ttf"
+  }
+ },
+ "colors": {
+  "primary": "#08A081",
+  "primary_soft": "#2FBFA5",
+  "secondary": "#4AD1B9",
+  "accent": "#DD6200",
+  "accent_dark": "#D45A00",
+  "highlight": "#AAFFEF",
+  "text": "#111111"
+ },
+ "backgrounds": {
+  "latar1": "#F0F1F2",
+  "latar2": "#F3F5F5",
+  "latar3": "#EAF6F2"
+ },
+ "_catatan": "Semua path relatif ke root proyek. Font ditaruh di konten/brand/visual/font/. 'primary' = judul, label footer, kata tebal. 'accent' = kata kunci di judul & ikon. 'accent_dark' = versi gelap aksen untuk teks (harus terbaca di latar). 'highlight' = stabilo. 'primary_soft' = lingkaran ikon daftar. Latar selalu lembut/pucat."
+}

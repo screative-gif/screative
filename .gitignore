@@ -1,0 +1,5 @@
+riset/.env
+riset/data/
+__pycache__/
+.DS_Store
+konten/visual/_uji-setup/

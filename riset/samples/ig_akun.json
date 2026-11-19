@@ -1,0 +1,22 @@
+[
+ {
+  "caption": "Contoh post akun sendiri: 3 tips yang sering ditanyakan follower #contoh",
+  "commentsCount": 4,
+  "dimensionsHeight": 1350,
+  "dimensionsWidth": 1080,
+  "displayUrl": "https://example.com/contoh.jpg",
+  "hashtags": [
+   "contoh"
+  ],
+  "id": "0001",
+  "isPinned": false,
+  "likesCount": 42,
+  "ownerFullName": "Akun Contoh",
+  "ownerId": "0",
+  "ownerUsername": "akun_contoh",
+  "shortCode": "CONTOH0",
+  "timestamp": "2026-11-10T08:00:00.000Z",
+  "type": "Sidecar",
+  "url": "https://www.instagram.com/p/CONTOH0/"
+ }
+]
