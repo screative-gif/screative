@@ -32,6 +32,12 @@ Slide:
   threads     {"name":"..","avatar":"path opsional","verified":true,"text":["para1","para2"],"stats":["7.2K","304","2.3K","974"]}
   header      true/false (logo kiri atas + tagline kanan atas). Default true
   footer      "kunjungi" (label "Kunjungi website seakun.id") | "web-ig" | "logo-ig" | "none"; default dari brand.json footer_default
+  --- slide data ("data") & CTA ("cta-seakun") untuk format "cerita di balik" ---
+  data: label ("01 · GAJINYA"), halaman ("02/10"), judul (__x__ = hijau + stabilo oranye), isi [paragraf], penutup, sumber,
+        visual {"tipe": "angka-besar" (angka, ket | pembanding:[{angka,ket,warna:"oranye"}]) | "batang" (judul, items:[{label,nilai,teks,sorot:"hijau|oranye"}])
+                | "dulu-vs-sekarang" (kiri/kanan:{judul,isi[]}) | "tabel" (kolom[], baris[[]], sorot_kolom) | "daftar" (items[])
+                | "kutipan" (teks, oleh) | "notif" (jam, items:[{app,teks,rp:"+Rp…/−Rp…",akhir:true}])}
+  cta-seakun: jembatan, manfaat, layanan [nama disamarkan], ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
   --- khusus foto-atas ---
   foto        path foto/cuplikan (diisi user); foto_height px (default 790); foto_pos object-position (default "center top")
   judul       teks di kotak oranye, mis. "1. Pablo Escobar"
@@ -273,6 +279,67 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .torn{display:inline-block;background:%(label)s;color:#fff;font-weight:700;text-transform:uppercase;font-size:34px;letter-spacing:1px;padding:14px 26px;clip-path:polygon(0%% 2.9%%,4%% 1.4%%,8%% 5.9%%,12%% 0.7%%,16%% 4.8%%,20%% 3.3%%,24%% 0.5%%,28%% 4.6%%,32%% 0.3%%,36%% 3.9%%,40%% 0.6%%,44%% 0.8%%,48%% 3.8%%,52%% 7.4%%,56%% 1.1%%,60%% 2.0%%,64%% 5.6%%,68%% 8.5%%,72%% 5.2%%,76%% 3.6%%,80%% 8.8%%,84%% 0.4%%,88%% 7.7%%,92%% 2.6%%,96%% 1.3%%,100%% 1.1%%,100%% 97.2%%,96%% 92.7%%,92%% 98.4%%,88%% 94.8%%,84%% 94.2%%,80%% 96.6%%,76%% 95.1%%,72%% 99.4%%,68%% 99.5%%,64%% 98.1%%,60%% 93.9%%,56%% 96.2%%,52%% 97.2%%,48%% 94.7%%,44%% 95.9%%,40%% 97.3%%,36%% 92.9%%,32%% 93.7%%,28%% 97.8%%,24%% 94.8%%,20%% 95.3%%,16%% 92.1%%,12%% 93.4%%,8%% 97.4%%,4%% 91.2%%,0%% 98.9%%)}
 .torn.t1{transform:rotate(-2deg);margin-bottom:6px}
 .torn.t2{background:#fff;color:#111;font-weight:600;text-transform:none;font-size:36px;transform:rotate(1.5deg);margin-top:16px}
+/* ---- slide data & CTA (format "cerita di balik") ---- */
+.dt{position:absolute;z-index:2;left:72px;right:72px;top:172px;bottom:118px;display:flex;flex-direction:column}
+.dt .lb{display:flex;justify-content:space-between;font-weight:600;font-size:19px;letter-spacing:3px;text-transform:uppercase;color:#7a7a7a}
+.dt .lb b{color:%(pink)s}
+.dt .jd{font-family:HeadFont,sans-serif;font-size:66px;line-height:1.08;letter-spacing:-1px;color:#111;margin-top:14px;text-wrap:balance}
+.dt .jd .g{color:%(pink)s;background:linear-gradient(180deg,transparent 58%%,rgba(255,79,47,.30) 58%%,rgba(255,79,47,.30) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .is p{font-size:29px;line-height:1.45;color:#3a3a3a;margin-top:18px;text-wrap:pretty}
+.dt .is b,.dt .is .pk{color:#111;font-weight:700}
+.dt .is .tl{color:%(pink)s;font-weight:700}
+.dt .vz{margin-top:30px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.dt .pt{margin-top:auto;font-family:HeadFont,sans-serif;font-size:36px;line-height:1.2;color:#111;text-wrap:balance;padding-top:24px}
+.dt .pt .g{color:%(pink)s}
+.dt .sb{font-size:15px;color:#8a8a8a;margin-top:12px;line-height:1.35}
+.vz .ab{font-family:HeadFont,sans-serif;font-size:190px;line-height:.95;letter-spacing:-6px;color:%(pink)s}
+.vz .ab.o{color:%(label)s}
+.vz .ak{font-size:27px;color:#444;margin-top:6px}
+.vz .ab2{display:flex;gap:28px}
+.vz .ab2 > div{flex:1;border-radius:30px;padding:40px 34px;background:rgba(255,255,255,.65);border:2px solid rgba(0,0,0,.06)}
+.vz .ab2 .n{font-family:HeadFont,sans-serif;font-size:120px;line-height:1;letter-spacing:-3px}
+.vz .ab2 .k{font-size:24px;color:#555;margin-top:8px}
+.vz .br{display:flex;align-items:center;gap:18px;margin:20px 0}
+.vz .br .l{width:130px;font-weight:600;font-size:25px;color:#444;flex:none}
+.vz .br .t{flex:1;height:76px;border-radius:14px;background:rgba(0,0,0,.05);position:relative}
+.vz .br .f{height:100%%;border-radius:14px;background:#BFE6DC;display:flex;align-items:center;justify-content:flex-end;padding-right:16px;font-weight:700;font-size:25px;color:#0b4a3d;min-width:150px}
+.vz .br.s .f{background:%(pink)s;color:#fff}
+.vz .br.o .f{background:%(label)s;color:#fff}
+.vz .bj{font-size:21px;color:#777;margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
+.vz .dvs{display:flex;gap:24px}
+.vz .dvs > div{flex:1;border-radius:26px;padding:26px 28px}
+.vz .dvs .a{background:#E7E4DF}
+.vz .dvs .b{background:%(pink)s;color:#fff}
+.vz .dvs h4{font-size:20px;letter-spacing:3px;font-weight:700;margin-bottom:14px;opacity:.8}
+.vz .dvs li{list-style:none;font-size:27px;line-height:1.3;margin:10px 0;font-weight:500}
+.vz .tb{width:100%%;border-collapse:collapse;font-size:29px}
+.vz .tb th{font-size:18px;letter-spacing:2.5px;text-transform:uppercase;color:#888;text-align:left;padding:0 10px 12px;font-weight:700}
+.vz .tb th.s,.vz .tb td.s{color:%(pink)s}
+.vz .tb td{padding:22px 10px;border-top:2px solid rgba(0,0,0,.08);line-height:1.25;font-weight:500;color:#222}
+.vz .tb td:first-child{color:#777;font-weight:600;font-size:20px;letter-spacing:1px;text-transform:uppercase;width:24%%}
+.vz .tb td.s{font-weight:700}
+.vz .ds li{list-style:none;display:flex;gap:16px;align-items:flex-start;font-size:28px;line-height:1.35;margin:14px 0;color:#222}
+.vz .ds li i{flex:none;width:40px;height:40px;border-radius:12px;background:%(pink)s;color:#fff;font-style:normal;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.vz .kt{border-left:8px solid %(label)s;padding:8px 0 8px 28px;font-family:HeadFont,sans-serif;font-size:46px;line-height:1.2;color:#111}
+.vz .kt small{display:block;font-family:BodyFont,sans-serif;font-size:22px;color:#777;margin-top:12px;font-weight:500}
+.hp{margin:6px auto 0;width:640px;border-radius:46px;background:#111;padding:26px 22px 30px;box-shadow:0 24px 50px rgba(0,0,0,.25)}
+.hp .jam{color:#fff;text-align:center;font-family:HeadFont,sans-serif;font-size:58px;margin-bottom:14px}
+.hp .nt{background:rgba(255,255,255,.93);border-radius:22px;padding:14px 20px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.hp .nt .ap{font-size:16px;color:#777;font-weight:600;letter-spacing:.5px}
+.hp .nt .tx{font-size:23px;color:#111;font-weight:600;line-height:1.25}
+.hp .nt .rp{font-weight:700;font-size:25px;white-space:nowrap}
+.hp .nt .rp.p{color:%(pink)s}.hp .nt .rp.m{color:%(label)s}
+.hp .nt.akhir{background:%(label)s}.hp .nt.akhir .tx,.hp .nt.akhir .ap,.hp .nt.akhir .rp{color:#fff}
+.cta2{position:absolute;z-index:2;left:72px;right:72px;top:190px;bottom:118px;display:flex;flex-direction:column;color:#fff}
+.cta2 .jb{font-family:HeadFont,sans-serif;font-size:68px;line-height:1.1;letter-spacing:-1px;text-wrap:balance}
+.cta2 .jb .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 58%%,rgba(255,79,47,.75) 58%%,rgba(255,79,47,.75) 92%%,transparent 92%%);padding:0 6px;margin:0 -6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.cta2 .mf{font-size:30px;line-height:1.45;margin-top:22px;opacity:.92}
+.cta2 .gr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.cta2 .gr div{border-radius:24px;padding:22px 20px;background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.28);display:flex;align-items:center;gap:14px;font-weight:600;font-size:24px}
+.cta2 .gr i{flex:none;width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-style:normal;font-family:HeadFont,sans-serif;font-size:24px;color:#fff}
+.cta2 .bt{margin-top:auto;align-self:flex-start;display:flex;align-items:center;gap:18px;background:#AAFFEF;color:#06352C;border-radius:60px;padding:16px 18px 16px 38px;font-weight:700;font-size:34px}
+.cta2 .bt span{background:#06352C;color:#fff;border-radius:40px;padding:10px 26px;font-size:30px}
+.cta2 .ss{font-size:22px;opacity:.75;margin-top:18px}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -280,6 +347,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .bar{position:absolute;z-index:3;left:56px;right:56px;bottom:34px;height:46px;border-radius:24px;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;
  background:linear-gradient(120deg,rgba(8,160,129,.55),rgba(74,209,185,.30));backdrop-filter:blur(16px) saturate(160%%);-webkit-backdrop-filter:blur(16px) saturate(160%%);
  border:1.5px solid rgba(255,255,255,.45);box-shadow:0 8px 26px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.35)}
+.bar.padat{background:linear-gradient(120deg,rgba(8,160,129,.96),rgba(47,191,165,.92));border-color:rgba(255,255,255,.6)}
 .bar .a{font-weight:700;font-size:20px}
 .bar .m{font-size:15px;font-weight:500;letter-spacing:.6px;opacity:.95;display:flex;align-items:center;gap:10px}
 .bar .m i{width:5px;height:5px;border-radius:50%%;background:#fff;opacity:.8}
@@ -324,15 +392,57 @@ def green(s):
     s = re.sub(r"__([\s\S]+?)__", r'<span class="g">\1</span>', s)
     return s.replace("\n", "<br>")
 
+def vis_html(v):
+    """Visual data untuk layout "data". v = {"tipe": ..., ...}."""
+    if not v:
+        return ""
+    t = v.get("tipe")
+    e = lambda x: html.escape(str(x))
+    if t == "angka-besar":
+        if v.get("pembanding"):
+            cells = "".join(f'<div><div class="n" style="color:{C["label"] if p.get("warna") == "oranye" else C["pink"]}">{e(p["angka"])}</div><div class="k">{md(p.get("ket", ""))}</div></div>' for p in v["pembanding"])
+            return f'<div class="ab2">{cells}</div>'
+        return f'<div class="ab{" o" if v.get("warna") == "oranye" else ""}">{e(v["angka"])}</div><div class="ak">{md(v.get("ket", ""))}</div>'
+    if t == "batang":
+        mx = max(float(i["nilai"]) for i in v["items"]) or 1
+        rows = "".join(f'<div class="br{" s" if i.get("sorot") == True or i.get("sorot") == "hijau" else (" o" if i.get("sorot") == "oranye" else "")}"><div class="l">{e(i["label"])}</div>'
+                       f'<div class="t"><div class="f" style="width:{max(18, float(i["nilai"]) / mx * 100):.1f}%">{e(i.get("teks", i["nilai"]))}</div></div></div>' for i in v["items"])
+        return (f'<div class="bj">{e(v["judul"])}</div>' if v.get("judul") else "") + rows
+    if t == "dulu-vs-sekarang":
+        a, b = v.get("kiri", {}), v.get("kanan", {})
+        li = lambda xs: "".join(f"<li>{md(x)}</li>" for x in xs)
+        return (f'<div class="dvs"><div class="a"><h4>{e(a.get("judul", "DULU"))}</h4><ul>{li(a.get("isi", []))}</ul></div>'
+                f'<div class="b"><h4>{e(b.get("judul", "SEKARANG"))}</h4><ul>{li(b.get("isi", []))}</ul></div></div>')
+    if t == "tabel":
+        k = v["kolom"]; sc = v.get("sorot_kolom", len(k) - 1)
+        th = "".join(f'<th class="{"s" if i == sc else ""}">{e(c)}</th>' for i, c in enumerate(k))
+        tr = "".join("<tr>" + "".join(f'<td class="{"s" if i == sc else ""}">{md(str(c))}</td>' for i, c in enumerate(r)) + "</tr>" for r in v["baris"])
+        return f'<table class="tb"><tr>{th}</tr>{tr}</table>'
+    if t == "daftar":
+        return '<ul class="ds">' + "".join(f'<li><i>{k + 1}</i><span>{md(x)}</span></li>' for k, x in enumerate(v["items"])) + "</ul>"
+    if t == "kutipan":
+        return f'<div class="kt">{md(v["teks"])}' + (f'<small>{e(v["oleh"])}</small>' if v.get("oleh") else "") + "</div>"
+    if t == "notif":
+        rows = ""
+        for n in v["items"]:
+            cls = " akhir" if n.get("akhir") else ""
+            rp = n.get("rp", "")
+            rows += (f'<div class="nt{cls}"><div><div class="ap">{e(n.get("app", ""))}</div><div class="tx">{md(n.get("teks", ""))}</div></div>'
+                     + (f'<div class="rp {"p" if rp.startswith("+") else "m"}">{e(rp)}</div>' if rp else "") + "</div>")
+        return f'<div class="hp"><div class="jam">{e(v.get("jam", "09.41"))}</div>{rows}</div>'
+    return ""
+
 def slide_html(s, n=1):
     layout = s.get("layout", "kiri")
     bg = BG.get(s.get("bg", BG_DEFAULT), BG[BG_DEFAULT])
-    veil = s.get("veil", {"kiri": "kiri", "tengah": "atas", "threads": "none", "foto-atas": "none"}.get(layout, "kiri"))
+    veil = s.get("veil", {"kiri": "kiri", "tengah": "atas", "threads": "none", "foto-atas": "none", "data": "none", "cta-seakun": "none", "berita-isi": "none"}.get(layout, "kiri"))
     vstop = s.get("veil_until", 62 if veil == "kiri" else 55)
     vcss = {"kiri": f"linear-gradient(90deg,{bg} 0%,{bg}EE 38%,{bg}00 62%)",
             "atas": f"linear-gradient(180deg,{bg} 0%,{bg}F0 {vstop-21}%,{bg}00 {vstop}%)",
             "none": "none"}[veil]
-    tex = BRAND.get("texture") if s.get("texture", True) else None
+    tex = BRAND.get("texture") if s.get("texture", layout != "cta-seakun") else None
+    if layout == "cta-seakun":
+        bg = s.get("bg_warna", "linear-gradient(160deg,#07463A,#04291F)")
     bgcss = f"background:{bg} url('{uri(tex)}') center/cover no-repeat" if tex else f"background:{bg}"
     out = [f'<body class="{layout}" style="{bgcss}">']
     if layout == "foto-atas" and s.get("foto"):
@@ -347,13 +457,14 @@ def slide_html(s, n=1):
     mask = (f"-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 {vstop-14}%,transparent {vstop+8}%);"
             if veil == "kiri" else "")
     out.append(f'<div class="veil" style="background:{vcss};{mask}"></div>')
-    berita = layout in ("berita", "berita-isi")
+    berita = layout in ("berita", "berita-isi", "data", "cta-seakun")
     if berita and s.get("foto"):
         fh = s.get("foto_height", H if layout == "berita" else 700)
         out.append(f'<img class="bfoto" src="{uri(s["foto"])}" style="height:{fh}px;object-position:{s.get("foto_pos", "center center")}">')
         out.append('<div class="bshade"></div>')
     if berita and s.get("header", True):
-        out.append(f'<div class="hdr3{" gelap" if not s.get("foto") else ""}"><img src="{uri(BRAND["logo_footer"] if s.get("foto") else BRAND["logo_header"])}">'
+        terang = bool(s.get("foto")) or layout == "cta-seakun"
+        out.append(f'<div class="hdr3{"" if terang else " gelap"}"><img src="{uri(BRAND["logo_footer"] if terang else BRAND["logo_header"])}">'
                    f'<div class="tg"><i></i>{html.escape(BRAND.get("tagline_pendek", "Platform Patungan No.1 Indonesia"))}<i></i></div></div>')
     elif s.get("header", True) and BRAND.get("header_style") == "seakun":
         out.append(f'<div class="hdr2">{badge_svg()}{dots_html(n)}</div>')
@@ -371,7 +482,7 @@ def slide_html(s, n=1):
             lab = ["♥ ", "💬 ", "🔁 ", "➤ "]
             stats = '<div class="st">' + "".join(f"<span>{lab[i]}{html.escape(v)}</span>" for i, v in enumerate(st[:4])) + "</div>"
         out.append(f'<div class="card"><div class="who">{av}{html.escape(t.get("name",""))} {vf}</div>{paras}{stats}</div>')
-    elif layout not in ("foto-atas", "berita", "berita-isi"):
+    elif layout not in ("foto-atas", "berita", "berita-isi", "data", "cta-seakun"):
         bw = s.get("body_width", 900 if layout == "tengah" else 520)
         parts = []
         if s.get("headline"):
@@ -472,9 +583,31 @@ def slide_html(s, n=1):
     if layout == "berita-isi":
         paras = "".join(f"<p>{md(p).replace('class="tl"', 'class="g"')}</p>" for p in s.get("body", []))
         out.append(f'<div class="bisi" style="top:{s.get("text_top", 770)}px">{paras}</div>')
+    if layout == "data":
+        def jdl(t):
+            return green(t)
+        lb = s.get("label", "")
+        hal = s.get("halaman", "")
+        vz = vis_html(s.get("visual"))
+        isi = "".join(f"<p>{md(p)}</p>" for p in s.get("isi", []))
+        out.append(f'<div class="dt"><div class="lb"><span>{html.escape(lb)}</span><span>{html.escape(hal)}</span></div>'
+                   f'<div class="jd" style="font-size:{s.get("judul_size", 66)}px">{jdl(s.get("judul", ""))}</div>'
+                   + (f'<div class="is">{isi}</div>' if isi else "") + (f'<div class="vz">{vz}</div>' if vz else "")
+                   + (f'<div class="pt">{green(s["penutup"])}</div>' if s.get("penutup") else "")
+                   + (f'<div class="sb">Sumber: {html.escape(s["sumber"])}</div>' if s.get("sumber") else "") + "</div>")
+    if layout == "cta-seakun":
+        warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
+        gr = "".join(f'<div><i style="background:{warna[k % len(warna)]}">{html.escape(n[0])}</i>{html.escape(n)}</div>'
+                     for k, n in enumerate(s.get("layanan", ["Netfl1x", "Sp0tify", "YouTub3", "Disn3y+", "ChatGP7", "Canv4"])))
+        out.append(f'<div class="cta2"><div class="jb">{green(s.get("jembatan", ""))}</div>'
+                   f'<div class="mf">{md(s.get("manfaat", "Patungan langganan premium: aman, legal, lebih hemat."))}</div>'
+                   f'<div class="gr">{gr}</div>'
+                   f'<div class="bt">Kunjungi <span>{html.escape(BRAND["website"])}</span></div>'
+                   f'<div class="ss">{html.escape(s.get("ajakan_akhir", "Simpan & bagikan ke teman yang lagi ngerasa pas-pasan juga."))}</div></div>')
     f = s.get("footer", "bar" if berita else BRAND.get("footer_default", "web-ig"))
     if f == "bar":
-        out.append(f'<div class="bar"><span class="a">{html.escape(BRAND["website"])}</span>'
+        padat = (not s.get("foto")) and layout != "cta-seakun"
+        out.append(f'<div class="bar{" padat" if padat else ""}"><span class="a">{html.escape(BRAND["website"])}</span>'
                    f'<span class="m">{"<i></i>".join(html.escape(x) for x in s.get("bar_tengah", BRAND.get("bar_tengah", ["Hemat", "Aman", "Legal"])))}</span>'
                    + (f'<span class="z">{icon("instagram",20,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>' if s.get("bar_kanan") == "ig"
                     else f'<span class="z">{html.escape(s.get("bar_kanan", "Geser"))}<span class="c">{icon("chevron-right",18,"#fff",2.6)}</span></span></div>'))
