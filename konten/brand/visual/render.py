@@ -215,6 +215,15 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .kartu.pita .bd{padding:38px 48px 46px}
 .kartu.pita .bs{margin-top:24px}
 .kartu.pita .bj .g{color:%(pink)s;text-decoration:underline wavy %(label)s;text-decoration-thickness:4px;text-underline-offset:14px;text-decoration-skip-ink:none}
+/* varian tanpa kotak putih: gradasi & kaca */
+.tgrad{position:absolute;left:0;right:0;bottom:0;height:72%%;z-index:1;background:linear-gradient(180deg,rgba(3,38,31,0) 0%%,rgba(3,38,31,.55) 38%%,rgba(3,38,31,.93) 78%%,rgba(3,38,31,.97) 100%%)}
+.kartu.gradasi,.kartu.kaca{background:none;box-shadow:none;border-radius:0;top:auto!important;bottom:118px;padding:0 8px}
+.kartu.gradasi .bj,.kartu.kaca .bj{color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.kartu.gradasi .bj .g,.kartu.kaca .bj .g{color:#7AEBD6}
+.kartu.gradasi .bs,.kartu.kaca .bs{color:rgba(255,255,255,.92);font-size:44px;margin-top:14px}
+.kartu.gradasi .kick,.kartu.kaca .kick{border-radius:30px;padding:8px 20px;display:inline-flex;align-items:center;gap:8px}
+.kartu.gradasi .ln{width:90px;height:6px;border-radius:3px;background:linear-gradient(90deg,%(pink)s,#7AEBD6);margin-top:26px}
+.kartu.kaca{padding:44px 46px 46px;border-radius:36px;background:linear-gradient(135deg,rgba(6,40,33,.42),rgba(6,40,33,.22));backdrop-filter:blur(18px) saturate(150%%);-webkit-backdrop-filter:blur(18px) saturate(150%%);border:1.5px solid rgba(255,255,255,.4);box-shadow:0 18px 50px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.4)}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -355,7 +364,13 @@ def slide_html(s, n=1):
         jdl = f'<div class="bj">{green(s.get("judul", ""))}</div>'
         top = s.get("text_top", 560)
         wm = f'<img class="wm" src="{uri(BRAND.get("logo_ikon", BRAND["logo_header"]))}">'
-        if gaya == "stiker":
+        if gaya in ("gradasi", "kaca"):
+            kick = f'<div class="kick">{icon("star",20,"#fff",2.6)}{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
+            if gaya == "gradasi":
+                out.append('<div class="tgrad"></div>')
+            ln = '<div class="ln"></div>' if gaya == "gradasi" else ""
+            out.append(f'<div class="kartu {gaya}">{kick}{jdl}{sub}{ln}</div>')
+        elif gaya == "stiker":
             kick = f'<div class="kick">{icon("star",20,"#fff",2.6)}{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
             out.append(f'<div class="kartu stiker" style="top:{top}px">{kick}{jdl}{sub}{wm}</div>')
         elif gaya == "pita":
