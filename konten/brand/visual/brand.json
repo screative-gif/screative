@@ -49,5 +49,9 @@
   "Aman",
   "Legal"
  ],
- "kartu_default": "kaca"
+ "kartu_default": "kaca",
+ "fonts_extra": {
+  "SeakunPoster": "Anton-Regular.ttf",
+  "SeakunSerif": "InstrumentSerif-Italic.ttf"
+ }
 }

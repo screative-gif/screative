@@ -250,6 +250,29 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .strp .g{color:#7AEBD6}
 .strp .bs{margin-top:22px}
 .strp .bs span{background:#fff;color:#111;padding:6px 18px;font-size:38px;box-decoration-break:clone;-webkit-box-decoration-break:clone;line-height:1.5}
+/* ---- headline tipografi: lingkar, editorial, poster ---- */
+.tshade{position:absolute;left:0;right:0;top:0;height:62%%;z-index:1;background:linear-gradient(180deg,rgba(3,30,25,.88) 0%%,rgba(3,30,25,.62) 45%%,rgba(3,30,25,0) 100%%)}
+.tipo{position:absolute;z-index:2;left:60px;right:60px;color:#fff;text-align:center}
+.tipo .g{position:relative;display:inline-block}
+.lingkar{top:180px}
+.lingkar .l{font-family:HeadFont,sans-serif;font-size:96px;line-height:1.06;letter-spacing:-1.5px;text-wrap:balance}
+.lingkar .g{color:#fff;padding:0 6px}
+.lingkar .g svg{position:absolute;left:-26px;right:-26px;top:-14px;bottom:-18px;width:calc(100%% + 52px);height:calc(100%% + 32px);overflow:visible}
+.lingkar .s{font-size:34px;margin-top:26px;opacity:.92}
+.ajak{position:absolute;z-index:3;left:50%%;transform:translateX(-50%%);bottom:118px;display:flex;align-items:center;gap:22px;white-space:nowrap;padding:10px 10px 10px 34px;border-radius:44px;color:#fff;font-size:32px;font-weight:500;
+ background:rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1.5px solid rgba(255,255,255,.45)}
+.ajak .ar{width:74px;height:56px;border-radius:16px;background:#AAFFEF;display:flex;align-items:center;justify-content:center}
+.editorial{bottom:120px}
+.editorial .e1{font-family:HeadFont,sans-serif;font-size:42px;letter-spacing:.5px}
+.editorial .e2{font-family:SeakunSerif,Georgia,serif;font-style:normal;font-size:150px;line-height:.95;letter-spacing:-2px;color:#F6EFE6}
+.editorial .g{font-family:HeadFont,sans-serif;font-size:96px;letter-spacing:-1px;color:#fff;background:%(label)s;padding:0 22px 6px;transform:rotate(-2deg);margin:8px 0;line-height:1.15}
+.editorial .s{font-size:30px;letter-spacing:2px;margin-top:26px;opacity:.9}
+.poster{top:168px;text-align:left}
+.poster .p{font-family:SeakunPoster,Impact,sans-serif;white-space:nowrap;font-size:168px;line-height:.92;text-transform:uppercase;letter-spacing:1px}
+.poster .g{color:#7AEBD6}
+.torn{display:inline-block;background:%(label)s;color:#fff;font-weight:700;text-transform:uppercase;font-size:34px;letter-spacing:1px;padding:14px 26px;clip-path:polygon(0%% 2.9%%,4%% 1.4%%,8%% 5.9%%,12%% 0.7%%,16%% 4.8%%,20%% 3.3%%,24%% 0.5%%,28%% 4.6%%,32%% 0.3%%,36%% 3.9%%,40%% 0.6%%,44%% 0.8%%,48%% 3.8%%,52%% 7.4%%,56%% 1.1%%,60%% 2.0%%,64%% 5.6%%,68%% 8.5%%,72%% 5.2%%,76%% 3.6%%,80%% 8.8%%,84%% 0.4%%,88%% 7.7%%,92%% 2.6%%,96%% 1.3%%,100%% 1.1%%,100%% 97.2%%,96%% 92.7%%,92%% 98.4%%,88%% 94.8%%,84%% 94.2%%,80%% 96.6%%,76%% 95.1%%,72%% 99.4%%,68%% 99.5%%,64%% 98.1%%,60%% 93.9%%,56%% 96.2%%,52%% 97.2%%,48%% 94.7%%,44%% 95.9%%,40%% 97.3%%,36%% 92.9%%,32%% 93.7%%,28%% 97.8%%,24%% 94.8%%,20%% 95.3%%,16%% 92.1%%,12%% 93.4%%,8%% 97.4%%,4%% 91.2%%,0%% 98.9%%)}
+.torn.t1{transform:rotate(-2deg);margin-bottom:6px}
+.torn.t2{background:#fff;color:#111;font-weight:600;text-transform:none;font-size:36px;transform:rotate(1.5deg);margin-top:16px}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -271,6 +294,8 @@ def fontfaces():
     out = [f"@font-face{{font-family:HeadFont;src:url('{fd}/{f['heading']}')}}"]
     for w, fn in f["body"].items():
         out.append(f"@font-face{{font-family:BodyFont;font-weight:{w};src:url('{fd}/{fn}')}}")
+    for fam, fn in BRAND.get("fonts_extra", {}).items():
+        out.append(f"@font-face{{font-family:{fam};src:url('{fd}/{fn}')}}")
     return "\n".join(out).replace("%", "%%")
 
 def badge_svg():
@@ -390,7 +415,30 @@ def slide_html(s, n=1):
         jdl = f'<div class="bj">{green(s.get("judul", ""))}</div>'
         top = s.get("text_top", 560)
         wm = f'<img class="wm" src="{uri(BRAND.get("logo_ikon", BRAND["logo_header"]))}">'
-        if gaya in ("tiket", "neo", "strip"):
+        if gaya in ("lingkar", "editorial", "poster"):
+            lines = s.get("judul", "").split("\n")
+            def hk(t, svg=False):
+                h = html.escape(curly(t), quote=False)
+                ring = ('<svg viewBox="0 0 200 100" preserveAspectRatio="none"><path d="M 18,62 C 4,22 120,2 186,30 C 214,48 170,92 96,94 C 30,96 0,70 22,36 C 40,14 110,8 150,14" '
+                        'fill="none" stroke="#7AEBD6" stroke-width="5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>') if svg else ""
+                return re.sub(r"__([\s\S]+?)__", lambda m: f'<span class="g">{m.group(1)}{ring}</span>', h)
+            sub = html.escape(s.get("subjudul", ""))
+            if gaya == "lingkar":
+                out.append('<div class="tshade"></div>')
+                body = "".join(f'<div class="l">{hk(l, True)}</div>' for l in lines)
+                out.append(f'<div class="tipo lingkar">{body}' + (f'<div class="s">{sub}</div>' if sub else "") + "</div>")
+                out.append(f'<div class="ajak">{html.escape(s.get("ajakan", "Simak sampai habis"))}<span class="ar">{icon("chevron-right",30,"#111",2.6)}</span></div>')
+            elif gaya == "editorial":
+                out.append('<div class="tgrad" style="height:80%"></div>')
+                body = f'<div class="e1">{hk(lines[0])}</div>' + "".join(
+                    (f'<div>{hk(l)}</div>' if "__" in l else f'<div class="e2">{hk(l)}</div>') for l in lines[1:])
+                out.append(f'<div class="tipo editorial">{body}' + (f'<div class="s">{sub}</div>' if sub else "") + "</div>")
+            else:
+                out.append('<div class="tshade" style="height:78%"></div>')
+                kick = f'<div class="torn t1">{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
+                body = "".join(f'<div class="p">{hk(l)}</div>' for l in lines)
+                out.append(f'<div class="tipo poster">{kick}{body}' + (f'<div class="torn t2">{sub}</div>' if sub else "") + "</div>")
+        elif gaya in ("tiket", "neo", "strip"):
             kick = f'<div class="kick">{icon("star",20,"#fff",2.6)}{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
             judul = green(s.get("judul", ""))
             subj = green(s.get("subjudul", "")) if s.get("subjudul") else ""
