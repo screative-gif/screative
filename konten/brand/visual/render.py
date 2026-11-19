@@ -332,7 +332,8 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .vz .tb td.s{font-weight:700}
 .vz .ds li{list-style:none;display:flex;gap:16px;align-items:flex-start;font-size:28px;line-height:1.35;margin:14px 0;color:#222}
 .vz .ds li i{flex:none;width:40px;height:40px;border-radius:12px;background:%(pink)s;color:#fff;font-style:normal;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;margin-top:2px}
-.vz .kt{border-left:8px solid %(label)s;padding:8px 0 8px 28px;font-family:HeadFont,sans-serif;font-size:46px;line-height:1.2;color:#111}
+.vz .kt{border-left:8px solid %(label)s;padding:8px 0 8px 28px;font-family:HeadFont,sans-serif;font-size:39px;line-height:1.2;color:#111}
+.vz .kt br+*{}
 .vz .kt small{display:block;font-family:BodyFont,sans-serif;font-size:22px;color:#777;margin-top:12px;font-weight:500}
 .hp{margin:6px auto 0;width:640px;border-radius:46px;background:#111;padding:26px 22px 30px;box-shadow:0 24px 50px rgba(0,0,0,.25)}
 .hp .jam{color:#fff;text-align:center;font-family:HeadFont,sans-serif;font-size:58px;margin-bottom:14px}
@@ -421,6 +422,19 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .ka-m span{display:block;font-size:26px;color:#222;line-height:1.25;margin-top:4px}
 .hp .nt.sorot{outline:4px solid %(or)s;outline-offset:-4px}
 .vnote{text-align:center;font-size:22px;color:#6b6b6b;margin-top:16px;font-style:italic}
+.ctabg{position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;z-index:0}
+.ctabg-v{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(4,41,31,.88) 0%%,rgba(4,41,31,.55) 34%%,rgba(4,41,31,.15) 60%%,rgba(4,41,31,.35) 78%%,rgba(4,30,24,.9) 100%%)}
+.cta2.latar{bottom:70px}
+.cta2 .pvh{margin-top:36px;font-weight:700;font-size:22px;letter-spacing:3px;text-transform:uppercase;color:#4EE77D}
+.cta2 .pvg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.cta2 .pv{background:#fff;border-radius:24px;padding:22px 22px 20px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 12px 26px rgba(0,0,0,.25)}
+.cta2 .pv img{height:58px;max-width:170px;object-fit:contain;object-position:left center}
+.cta2 .pv b{font-family:HeadFont,sans-serif;font-weight:400;font-size:42px;color:#17201D;margin-top:12px;line-height:1}
+.cta2 .pv span{font-size:20px;color:#666;margin-top:4px}
+.cta2 .bt2{margin-top:auto;align-self:stretch;display:flex;align-items:center;justify-content:center;gap:18px;background:#FAD02C;color:#17201D;border-radius:70px;padding:22px 26px;font-family:HeadFont,sans-serif;font-size:46px;box-shadow:0 0 0 8px rgba(250,208,44,.28),0 18px 40px rgba(250,208,44,.35);transform:rotate(-1.5deg)}
+.cta2 .bt2 .w{background:#17201D;color:#FAD02C;border-radius:50px;padding:6px 26px}
+.cta2 .bt2 .ar{width:64px;height:64px;border-radius:50%%;background:#fff;display:flex;align-items:center;justify-content:center}
+.kt-o{font-size:28px;color:#3a3a3a;margin-top:26px}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -557,7 +571,7 @@ def vis_html(v):
     if t == "daftar":
         return '<ul class="ds">' + "".join(f'<li><i>{k + 1}</i><span>{md(x)}</span></li>' for k, x in enumerate(v["items"])) + "</ul>"
     if t == "kutipan":
-        return f'<div class="kt">{md(v["teks"])}' + (f'<small>{e(v["oleh"])}</small>' if v.get("oleh") else "") + "</div>"
+        return f'<div class="kt">{md(v["teks"])}</div>' + (f'<div class="kt-o">{md(v["oleh"])}</div>' if v.get("oleh") else "")
     if t == "notif":
         rows = ""
         for n in v["items"]:
@@ -759,15 +773,23 @@ def slide_html(s, n=1):
         out.append(f'<div class="dt{kelas}"{gaya_dt}>{body}' + (f'<div class="vz">{vz}</div>' if vz else "")
                    + (f'<div class="pt">{green(s["penutup"])}</div>' if s.get("penutup") else "") + "</div>")
     if layout == "cta-seakun":
-        warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
-        gr = "".join(f'<div><i style="background:{warna[k % len(warna)]}">{html.escape(n[0])}</i>{html.escape(n)}</div>'
-                     for k, n in enumerate(s.get("layanan", ["Netfl1x", "Sp0tify", "YouTub3", "Disn3y+", "ChatGP7", "Canv4"])))
-        out.append(f'<div class="cta2"><div class="jb">{green(s.get("jembatan", ""))}</div>'
+        if s.get("gambar_latar"):
+            out.append(f'<img class="ctabg" src="{uri(s["gambar_latar"])}" style="object-position:{s.get("gambar_pos", "center")}"><div class="ctabg-v"></div>')
+        lay = s.get("layanan", [])
+        if lay and isinstance(lay[0], dict):
+            gr = "".join(f'<div class="pv"><img src="{uri(x["logo"])}"><b>{html.escape(x["harga"])}</b><span>/bulan</span></div>' for x in lay)
+            grid = (f'<div class="pvh">{html.escape(s.get("judul_harga", "Harga patungan per bulan"))}</div>' if s.get("judul_harga", True) else "") + f'<div class="pvg">{gr}</div>'
+        else:
+            warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
+            grid = '<div class="gr">' + "".join(f'<div><i style="background:{warna[k % len(warna)]}">{html.escape(n[0])}</i>{html.escape(n)}</div>'
+                                              for k, n in enumerate(lay or ["Netfl1x", "Sp0tify", "YouTub3", "Disn3y+", "ChatGP7", "Canv4"])) + "</div>"
+        gb = (f'<div class="gb" style="height:{s.get("gambar_tinggi", 300)}px"><img src="{uri(s["gambar"])}" style="object-position:{s.get("gambar_pos", "center")}"></div>' if s.get("gambar") else "")
+        arrow = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#17201D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+        out.append(f'<div class="cta2{" latar" if s.get("gambar_latar") else ""}"><div class="jb">{green(s.get("jembatan", ""))}</div>'
                    f'<div class="mf">{md(s.get("manfaat", "Patungan langganan premium: aman, legal, lebih hemat."))}</div>'
-                   + (f'<div class="gb" style="height:{s.get("gambar_tinggi", 300)}px"><img src="{uri(s["gambar"])}" style="object-position:{s.get("gambar_pos", "center")}"></div>' if s.get("gambar") else "")
-                   + f'<div class="gr">{gr}</div>'
-                   f'<div class="bt">Kunjungi <span>{html.escape(BRAND["website"])}</span></div>'
-                   f'<div class="ss">{html.escape(s.get("ajakan_akhir", "Simpan & bagikan ke teman yang lagi ngerasa pas-pasan juga."))}</div></div>')
+                   f'{gb}{grid}'
+                   f'<div class="bt2"><span class="t">Kunjungi</span><span class="w">{html.escape(BRAND["website"])}</span><span class="ar">{arrow}</span></div>'
+                   + (f'<div class="ss">{html.escape(s["ajakan_akhir"])}</div>' if s.get("ajakan_akhir") else "") + '</div>')
     f = s.get("footer", "bar" if berita else BRAND.get("footer_default", "web-ig"))
     if f == "bar":
         padat = (not s.get("foto")) and layout != "cta-seakun"

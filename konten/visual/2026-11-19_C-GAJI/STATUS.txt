@@ -1,1 +1,1 @@
-2026-11-19: 10 slide final, QA Tilik LULUS (putaran 3). Menunggu approve user.
+2026-11-20: revisi besar (layout variatif, palet baru, cover notif, CTA logo+harga). Menunggu QA Tilik.
