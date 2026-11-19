@@ -72,34 +72,49 @@ Busur yang hampir selalu sama:
 - **Satu pertanyaan pendek** yang gampang dijawab dari pengalaman sendiri ("Padahal dulu yg pakai LINE banyak kan ya?", "Sekarang ada gak stasiun TV sebagus NET dulu?").
 - Komentar ramai karena orang bercerita ("Redmi 1s android pertamaku", "Kangen drakor NET").
 
-## Adaptasi untuk Seakun
+## Adaptasi untuk Seakun (pilar 2: "Cerita di balik & fakta unik")
 
-**Topik = cerita bisnis/data di balik hiburan & langganan digital** yang semua orang alami. Jembatan CTA-nya alami: semua cerita berakhir di "sekarang semuanya langganan → patungan biar hemat".
+**Topik = umum**, tidak harus soal hiburan/langganan (keputusan user 19 Nov 2026). Sama seperti @sisasaldocom (aplikasi keuangan yang membahas TV, aplikasi chat, HP), yang penting topiknya **dialami banyak orang** dan punya **cerita + angka** di baliknya. Produk baru masuk di slide CTA.
+
+Sumber topik: tren minggu ini dari laporan Lira, pertanyaan "kenapa" yang sering muncul di komentar/Threads, nostalgia 2005–2020, fenomena ekonomi sehari-hari, cerita naik-turunnya brand yang semua orang kenal.
 
 ### Ide topik (cover sesuai rumus)
-| # | Judul cover | Rumus | Kalimat jembatan CTA |
+| # | Judul cover | Rumus | Jenis |
 |---|---|---|---|
-| 1 | 2016–2020 perang streaming di Indonesia. Kenapa cuma sedikit yang bertahan? | 1 | "Dulu yang perang aplikasinya. Sekarang yang perang dompet kita." |
-| 2 | Kenapa harga langganan streaming naik terus? | 2 (trending) | "Harganya naik, cara bayarnya yang harus lebih pintar." |
-| 3 | Sebelum streaming, 2010 adalah era download lagu & film di warnet | 3 | "Dulu bayar per jam warnet. Sekarang cukup patungan per bulan." |
-| 4 | 2013 harus beli RBT Rp9.000/minggu biar keren | 4 | "Sekarang semua lagu, tanpa iklan, harga patungan." |
-| 5 | Kenapa layanan musik lokal kalah dari Sp0tify? | 2 | |
-| 6 | Kenapa rental VCD & DVD bisa hilang dalam 10 tahun? | 2 | |
-| 7 | Berapa sebenarnya biaya semua langganan digital kita sebulan? Fakta? | 5 | "Total langganan kamu bisa dipotong separuh dengan patungan." |
-| 8 | Kenapa platform streaming mulai larang berbagi akun? | 2 (trending) | "Berbagi akun yang legal & aman: patungan resmi di Seakun." |
-| 9 | 2020 semua orang mendadak langganan streaming. Ke mana mereka sekarang? | 1 | |
-| 10 | Kenapa ChatGP7 Plus jadi langganan wajib anak kantoran? | 2 (trending) | |
+| 1 | 2010 semua orang pakai BlackBerry. Kenapa hilang dalam 5 tahun? | 1 | Naik-turun brand |
+| 2 | Kenapa Indomaret & Alfamart selalu buka bersebelahan? | 2 | Fakta unik bisnis |
+| 3 | Kenapa tiket pesawat domestik bisa lebih mahal dari ke luar negeri? | 2 | Trending/ekonomi |
+| 4 | 2018 tiba-tiba ada kopi susu gula aren di setiap sudut. Kenapa? | 1 | Fenomena |
+| 5 | Sebelum ojek online, 2014 adalah tahun terakhir pangkalan ojek berjaya | 3 | Nostalgia |
+| 6 | Kenapa gaji naik tapi rasanya makin pas-pasan? Fakta? | 5 | Ekonomi sehari-hari |
+| 7 | Ke mana perginya Friendster? | 2 | Nostalgia digital |
+| 8 | Kenapa harga langganan streaming naik terus? | 2 | Dekat produk |
+| 9 | 2016–2020 perang streaming di Indonesia. Kenapa cuma sedikit yang bertahan? | 1 | Dekat produk |
+| 10 | Kenapa platform streaming mulai larang berbagi akun? | 2 | Dekat produk (trending) |
+
+Campur: **± 2 dari 3 topik umum**, 1 dari 3 topik yang dekat dengan produk (lebih gampang dijembatani ke CTA).
+
+### Kalimat jembatan ke CTA (pilih yang paling jujur & nyambung)
+| Tipe | Kapan dipakai | Contoh |
+|---|---|---|
+| **Uang/hemat** | Topik soal harga, biaya hidup, bisnis rugi/untung | "Biaya hidup boleh naik. Langganan kamu jangan ikut bikin boncos." |
+| **Berubahnya kebiasaan** | Topik nostalgia / dulu vs sekarang | "Dulu bayar per jam di warnet. Sekarang cukup patungan per bulan." |
+| **Kebersamaan/patungan** | Topik soal komunitas, berbagi, ramai-ramai | "Dari dulu kita memang jago patungan. Sekarang patungannya yang aman & legal." |
+| **Waktu santai** | Topik ringan/fakta unik murni | "Udah tahu faktanya. Sekarang saatnya rebahan & nonton, lebih hemat lewat patungan." |
+| **Netral** | Kalau tidak ada jembatan yang wajar | "Suka cerita kayak gini? Simpan & bagikan. Dibawakan oleh Seakun, platform patungan No.1 Indonesia." |
+
+**Jangan memaksa jembatan yang tidak masuk akal.** Kalau terasa dipaksakan, pakai tipe Netral.
 
 ### Slide CTA Seakun (usulan)
 1. **Kalimat jembatan** dari topik (wajib, 1–2 baris, tebal).
 2. Visual: tampilan web/aplikasi Seakun (tangkapan layar asli dari user) atau grid layanan yang bisa dipatungin (ikon generik, nama disamarkan).
 3. 2 baris manfaat: "Patungan langganan premium: aman, legal, lebih hemat."
-4. Tombol/label: **"Kunjungi seakun.id"** + "Simpan & bagikan".
+4. Label: **"Kunjungi seakun.id"** + "Simpan & bagikan".
 
 ### Aturan wajib
 - **Angka & tanggal harus bersumber.** Diksa menulis sumber per slide dan menandai `[CEK FAKTA]` kalau belum yakin. Jangan mengarang angka.
 - Nama layanan pihak ketiga **disamarkan** (Netfl1x, Sp0tify, YouTub3, Disn3y+, ChatGP7) sesuai `brand.md`.
-- Hindari politik & SARA (di akun referensi, topik politik selalu sepi).
+- Hindari politik praktis, SARA, tragedi/korban jiwa, klaim kesehatan, dan isu yang belum jelas kebenarannya (di akun referensi, topik politik selalu sepi).
 - Jangan menjelekkan pesaing Seakun secara langsung.
 - Foto/cuplikan/tangkapan layar lama disediakan user atau ilustrasi AI; Rupa tidak memakai logo resmi di ilustrasi AI.
 

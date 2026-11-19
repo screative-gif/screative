@@ -24,10 +24,13 @@ Dibanding patungan manual (grup WA/teman) atau penjual akun tidak resmi, Seakun 
 ## Pilar konten
 | Pilar | Porsi | Isi | Format utama |
 |---|---|---|---|
-| **1. Rekomendasi tontonan** | 35% | List film/series/musik per layanan, mood, atau momen (mis. "5 film yang bikin 2 jam terasa 20 menit") | Carousel, Reels |
-| **2. Edukasi hemat & patungan** | 25% | Kenapa patungan, cara kerja Seakun, keamanan & legalitas, tips hemat langganan, mitos vs fakta | Carousel |
-| **3. Relate / humor** | 25% | Meme, curhat pengguna, situasi sehari-hari soal langganan & dompet boncos | Feed foto, Reels, Threads |
-| **4. Promo & harga** | 15% | Flash sale, harga per layanan, ajakan langganan | Feed foto, Carousel |
+| **1. Rekomendasi tontonan** | 30% | List film/series/musik per layanan, mood, atau momen (mis. "5 film yang bikin 2 jam terasa 20 menit") | Carousel, Reels |
+| **2. Cerita di balik & fakta unik** | 25% | **Topik umum** yang lagi trending, unik, atau nostalgia: cerita bisnis/data di balik hal yang semua orang alami (mis. "Kenapa WhatsApp menang perang aplikasi chat?", "Kenapa harga tiket pesawat domestik mahal?"). Tidak harus soal hiburan. Formula: `konten/brand/formula-carousel.md`. Slide terakhir selalu CTA Seakun dengan kalimat jembatan | Carousel 7–13 slide |
+| **3. Edukasi hemat & patungan** | 15% | Kenapa patungan, cara kerja Seakun, keamanan & legalitas, tips hemat langganan, mitos vs fakta | Carousel |
+| **4. Relate / humor** | 15% | Meme, curhat pengguna, situasi sehari-hari soal langganan & dompet boncos | Feed foto, Reels, Threads |
+| **5. Promo & harga** | 15% | Flash sale, harga per layanan, ajakan langganan | Feed foto, Carousel |
+
+*Pilar 2 ditambahkan & porsi disesuaikan atas keputusan user, 19 Nov 2026.*
 
 Aturan jualan: Maksimal 1 dari 5 post terang-terangan jualan (pilar Promo). Post lain boleh ditutup CTA ringan ke seakun.id ("Langganan Sekarang! www.seakun.id") di slide terakhir. Harga & promo hanya dari data yang dikonfirmasi user.
 
@@ -42,6 +45,7 @@ Aturan jualan: Maksimal 1 dari 5 post terang-terangan jualan (pilar Promo). Post
 - **Cuplikan film/foto meme** disediakan user sendiri; selalu beri keterangan kecil "*gambar cuplikan film: <judul>" di slide. Jangan membuat wajah realistis tokoh/aktor sungguhan dengan AI.
 - **Topik sensitif: keamanan akun & legalitas.** Jangan menjanjikan hal yang tidak pasti (mis. "100% tidak akan kena banned"); klaim aman/legal mengikuti kebijakan resmi Seakun. Jangan mengajarkan cara melanggar syarat & ketentuan layanan.
 - **Keuangan:** jangan tulis harga/diskon tanpa konfirmasi user; hindari kesan pinjaman/utang.
+- **Pilar 2 (topik umum):** hindari politik praktis, SARA, tragedi/korban jiwa, klaim kesehatan/medis, dan isu yang belum jelas kebenarannya (hoaks). Setiap angka/fakta wajib bersumber.
 - Jangan memakai data pribadi pengguna (nama, email, nomor) di konten.
 - Panduan visual (warna, font, layout, karakter ilustrasi) ada di `konten/brand/visual.md`.
 - Jangan memakai foto atau data orang sungguhan tanpa izin.
