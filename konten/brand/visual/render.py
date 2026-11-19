@@ -409,12 +409,9 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .bar{position:absolute;z-index:3;left:56px;right:56px;bottom:34px;height:46px;border-radius:24px;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;
  background:linear-gradient(120deg,rgba(8,160,129,.55),rgba(74,209,185,.30));backdrop-filter:blur(16px) saturate(160%%);-webkit-backdrop-filter:blur(16px) saturate(160%%);
  border:1.5px solid rgba(255,255,255,.45);box-shadow:0 8px 26px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.35)}
-.bar.padat{background:linear-gradient(120deg,rgba(9,161,133,.6),rgba(78,231,125,.38));border-color:rgba(255,255,255,.7);box-shadow:0 10px 26px rgba(9,161,133,.18),inset 0 1px 0 rgba(255,255,255,.5)}
+.bar.padat{background:linear-gradient(120deg,rgba(9,161,133,.9),rgba(78,231,125,.72));border-color:rgba(255,255,255,.7);box-shadow:0 10px 26px rgba(9,161,133,.25),inset 0 1px 0 rgba(255,255,255,.5)}
 .bar .a{font-weight:700;font-size:20px;color:#fff}
-.bar.padat{color:#064E40}
-.bar.padat .a{color:#fff;font-weight:800;text-shadow:0 1px 3px rgba(4,70,58,.4)}
-.bar.padat .m i{background:#064E40}
-.bar.padat .z .c{background:#09A185;border:none}
+.bar.padat .z .c{background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.6)}
 .bar .m{font-size:15px;font-weight:500;letter-spacing:.6px;opacity:.95;display:flex;align-items:center;gap:10px}
 .bar .m.sm{font-size:14px;letter-spacing:.2px;max-width:640px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;opacity:.92}
 .bar .m i{width:5px;height:5px;border-radius:50%%;background:#fff;opacity:.8}
@@ -737,7 +734,7 @@ def slide_html(s, n=1):
         padat = (not s.get("foto")) and layout != "cta-seakun"
         out.append(f'<div class="bar{" padat" if padat else ""}"><span class="a">{html.escape(BRAND["website"])}</span>'
                    + (f'<span class="m sm">Sumber: {html.escape(s["sumber"])}</span>' if s.get("sumber") else f'<span class="m">{"<i></i>".join(html.escape(x) for x in s.get("bar_tengah", BRAND.get("bar_tengah", [])))}</span>')
-                   + (f'<span class="z">{icon("instagram",20,"#064E40" if padat else "#fff",2)} @{html.escape(BRAND["handle"])}</span></div>' if s.get("bar_kanan") == "ig"
+                   + (f'<span class="z">{icon("instagram",20,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>' if s.get("bar_kanan") == "ig"
                     else f'<span class="z">{html.escape(s.get("bar_kanan", "Geser"))}<span class="c">{icon("chevron-right",18,"#fff",2.6)}</span></span></div>'))
     elif f == "kunjungi":
         out.append(f'<div class="kjg"><span class="t">Kunjungi website</span><span class="w">{html.escape(BRAND["website"])}</span></div>')
