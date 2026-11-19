@@ -1,0 +1,32 @@
+{
+ "nama": "{{BRAND}}",
+ "handle": "{{HANDLE}}",
+ "website": "{{WEBSITE}}",
+ "tagline_html": "{{TAGLINE_BARIS_1}}<br><b>{{TAGLINE_BARIS_2}}</b>",
+ "logo_header": "konten/brand/visual/logo/{{LOGO_HEADER}}",
+ "logo_footer": "konten/brand/visual/logo/{{LOGO_FOOTER}}",
+ "fonts": {
+  "heading": "{{FONT_JUDUL}}",
+  "body": {
+   "400": "{{FONT_TEKS_400}}",
+   "500": "{{FONT_TEKS_500}}",
+   "600": "{{FONT_TEKS_600}}",
+   "700": "{{FONT_TEKS_700}}"
+  }
+ },
+ "colors": {
+  "primary": "{{WARNA_PRIMER}}",
+  "primary_soft": "{{WARNA_PRIMER_LEMBUT}}",
+  "secondary": "{{WARNA_SEKUNDER}}",
+  "accent": "{{WARNA_AKSEN}}",
+  "accent_dark": "{{WARNA_AKSEN_GELAP}}",
+  "highlight": "{{WARNA_STABILO}}",
+  "text": "{{WARNA_TEKS}}"
+ },
+ "backgrounds": {
+  "latar1": "{{LATAR_1}}",
+  "latar2": "{{LATAR_2}}",
+  "latar3": "{{LATAR_3}}"
+ },
+ "_catatan": "Semua path relatif ke root proyek. Font ditaruh di konten/brand/visual/font/. 'primary' = judul, label footer, kata tebal. 'accent' = kata kunci di judul & ikon. 'accent_dark' = versi gelap aksen untuk teks (harus terbaca di latar). 'highlight' = stabilo. 'primary_soft' = lingkaran ikon daftar. Latar selalu lembut/pucat."
+}

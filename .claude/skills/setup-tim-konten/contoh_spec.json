@@ -1,0 +1,8 @@
+{
+ "output_dir": "konten/visual/_uji-setup",
+ "slides": [
+  {"layout": "kiri", "headline": "Judul Contoh\n__Dua Warna__", "body": ["Ini kalimat isi dengan ==stabilo kata kunci== di tengahnya.", "Kalimat kedua dengan **kata tebal** untuk penekanan."], "body_gap": 40},
+  {"layout": "tengah", "headline": "MITOS vs __FAKTA__", "badge": {"type": "fakta", "text": "Contoh isi kotak fakta yang muat rapi"}, "body": ["Satu kalimat pendek di bawah kotak."]},
+  {"layout": "kiri", "headline": "1. Daftar Berikon", "items": [{"icon": "heart", "color": "primary", "text": "Poin pertama"}, {"icon": "moon", "color": "accent", "text": "Poin kedua"}, {"icon": "sun", "color": "highlight", "text": "Poin ketiga"}], "cta": "**Bagikan** ke teman yang perlu ini 💗", "cta_icon": "share"}
+ ]
+}
