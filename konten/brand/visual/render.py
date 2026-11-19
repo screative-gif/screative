@@ -200,6 +200,21 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .kartu .bj{font-family:HeadFont,sans-serif;font-size:74px;line-height:1.1;color:#111;letter-spacing:-.5px;text-wrap:balance}
 .kartu .bj .g{color:%(pink)s}
 .kartu .bs{font-size:50px;line-height:1.2;color:#111;margin-top:10px;font-weight:400;text-wrap:balance}
+/* varian kartu: stiker */
+.kartu.stiker{border-radius:40px;padding:70px 50px 46px}
+.kartu.stiker .kick{position:absolute;top:-24px;left:40px;transform:rotate(-4deg);margin:0;border-radius:12px;padding:9px 20px;font-size:22px;box-shadow:0 8px 18px rgba(255,79,47,.35);display:flex;align-items:center;gap:8px}
+.kartu.stiker .bj .g{color:%(pink)s;background:linear-gradient(180deg,transparent 58%%,%(yellow)s 58%%,%(yellow)s 90%%,transparent 90%%);padding:0 6px;margin:0 -6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.kartu .wm{position:absolute;right:-30px;bottom:-30px;width:230px;opacity:.07;pointer-events:none}
+/* varian kartu: pita */
+.kartu.pita{border-radius:34px;padding:0;overflow:hidden}
+.kartu.pita .pt{height:66px;background:linear-gradient(100deg,%(pink)s,#2FBFA5 60%%,#7AEBD6);display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 48px}
+.kartu.pita .pt .kk{color:#fff;font-weight:700;font-size:21px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.kartu.pita .pt .kk i{width:10px;height:10px;border-radius:50%%;background:%(label)s;box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.kartu.pita .pt .dd{display:flex;gap:7px}.kartu.pita .pt .dd i{width:14px;height:14px;border-radius:50%%;background:rgba(255,255,255,.55)}
+.kartu.pita .pt .dd i:first-child{background:#fff}
+.kartu.pita .bd{padding:38px 48px 46px}
+.kartu.pita .bs{margin-top:24px}
+.kartu.pita .bj .g{color:%(pink)s;text-decoration:underline wavy %(label)s;text-decoration-thickness:4px;text-underline-offset:14px;text-decoration-skip-ink:none}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -335,11 +350,22 @@ def slide_html(s, n=1):
             parts.append('<div class="isi">' + "".join(f'<p>{md(p)}</p>' for p in s["body"]) + "</div>")
         out.append(f'<div class="fa" style="top:{s.get("text_top", 672)}px">' + "".join(parts) + "</div>")
     if layout == "berita":
-        strip = "".join(f'<i style="background:{c}"></i>' for c in BRAND.get("dots", [C["pink"]])[:3])
-        kick = f'<div class="kick">{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
+        gaya = s.get("kartu", BRAND.get("kartu_default", "klasik"))
         sub = f'<div class="bs">{green(s["subjudul"])}</div>' if s.get("subjudul") else ""
-        out.append(f'<div class="kartu" style="top:{s.get("text_top", 560)}px"><div class="strip">{strip}</div>{kick}'
-                   f'<div class="bj">{green(s.get("judul", ""))}</div>{sub}</div>')
+        jdl = f'<div class="bj">{green(s.get("judul", ""))}</div>'
+        top = s.get("text_top", 560)
+        wm = f'<img class="wm" src="{uri(BRAND.get("logo_ikon", BRAND["logo_header"]))}">'
+        if gaya == "stiker":
+            kick = f'<div class="kick">{icon("star",20,"#fff",2.6)}{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
+            out.append(f'<div class="kartu stiker" style="top:{top}px">{kick}{jdl}{sub}{wm}</div>')
+        elif gaya == "pita":
+            kk = f'<span class="kk"><i></i>{html.escape(s.get("kicker", ""))}</span>'
+            out.append(f'<div class="kartu pita" style="top:{top}px"><div class="pt">{kk}<span class="dd"><i></i><i></i><i></i></span></div>'
+                       f'<div class="bd">{jdl}{sub}</div></div>')
+        else:
+            strip = "".join(f'<i style="background:{c}"></i>' for c in BRAND.get("dots", [C["pink"]])[:3])
+            kick = f'<div class="kick">{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
+            out.append(f'<div class="kartu" style="top:{top}px"><div class="strip">{strip}</div>{kick}{jdl}{sub}</div>')
     if layout == "berita-isi":
         paras = "".join(f"<p>{md(p).replace('class="tl"', 'class="g"')}</p>" for p in s.get("body", []))
         out.append(f'<div class="bisi" style="top:{s.get("text_top", 770)}px">{paras}</div>')
