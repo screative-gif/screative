@@ -5,7 +5,7 @@
    "layout": "berita",
    "kartu": "editorial",
    "nomor": 1,
-   "foto": "konten/visual/2026-11-19_C-GAJI/foto/cover.png",
+   "foto": "konten/visual/2026-11-19_C-GAJI/foto/cover2-crop.png",
    "foto_pos": "center top",
    "judul": "Gaji udah naik,\nkok tetap\n__pas-pasan?__\nFakta?",
    "subjudul": "Slip gaji bilang naik. Dompet bilang lain."
@@ -36,8 +36,10 @@
    },
    "penutup": "Angkanya memang naik. Pertanyaannya: __naiknya cukup nggak?__",
    "sumber": "Pergub DKI 230/2015; Bisnis.com (24 Des 2025)",
-   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s02.jpg",
-   "gambar_tinggi": 320
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s02b.jpg",
+   "gambar_tinggi": 320,
+   "judul_size": 62,
+   "gambar_pos": "center 55%"
   },
   {
    "layout": "data",
@@ -72,9 +74,10 @@
    },
    "penutup": "Gajinya naik jalan kaki, harga makanan naik ojek.",
    "sumber": "BPS (upah Agt 2024–Agt 2025; inflasi Des 2025 yoy)",
-   "judul_size": 58,
+   "judul_size": 62,
    "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s03.jpg",
-   "gambar_tinggi": 300
+   "gambar_tinggi": 300,
+   "gambar_pos": "center 60%"
   },
   {
    "layout": "data",
@@ -100,7 +103,8 @@
    "penutup": "Gaji kamu mungkin naik. Yang bisa dibeli belum tentu.",
    "sumber": "Bank Dunia, Indonesia Economic Prospects Des 2025",
    "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s04.jpg",
-   "gambar_tinggi": 300
+   "gambar_tinggi": 300,
+   "judul_size": 62
   },
   {
    "layout": "data",
@@ -129,13 +133,15 @@
       "teks": "47,85 juta",
       "sorot": "oranye"
      }
-    ]
+    ],
+    "judul": "Jumlah kelas menengah"
    },
    "penutup": "Banyak yang nggak miskin, tapi juga belum merasa aman.",
    "sumber": "BPS, Susenas Maret 2024",
-   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s05.jpg",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s05b.jpg",
    "gambar_tinggi": 300,
-   "judul_size": 58
+   "judul_size": 62,
+   "gambar_pos": "center 55%"
   },
   {
    "layout": "data",
@@ -151,8 +157,10 @@
    },
    "penutup": "Bukan soal boros. Banyak yang cuma lagi nambal sampai gajian.",
    "sumber": "OJK (Agt 2026); Mandiri Spending Index (Feb 2026)",
-   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s06.jpg",
-   "gambar_tinggi": 300
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s06c.jpg",
+   "gambar_tinggi": 300,
+   "judul_size": 62,
+   "gambar_pos": "15% center"
   },
   {
    "layout": "data",
@@ -186,9 +194,10 @@
    },
    "penutup": "Bukan satu pengeluaran yang bikin boncos, tapi yang kecil-kecil dan rutin.",
    "sumber": "angka ilustrasi, bukan data/harga layanan",
-   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/stok-dompet-struk.jpg",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s07b.jpg",
    "gambar_tinggi": 300,
-   "judul_size": 58
+   "judul_size": 62,
+   "gambar_pos": "center 40%"
   },
   {
    "layout": "data",
@@ -229,9 +238,10 @@
     ]
    },
    "penutup": "Slip gaji makin panjang, napas di akhir bulan makin pendek.",
-   "sumber": "BPS, Pergub DKI, Bank Dunia",
+   "sumber": "BPS; Pergub DKI 230/2015; Bisnis.com",
    "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s08.jpg",
-   "gambar_tinggi": 300
+   "gambar_tinggi": 300,
+   "judul_size": 62
   },
   {
    "layout": "data",
@@ -247,7 +257,8 @@
    "penutup": "Ceritain di komentar, siapa tahu kita senasib.",
    "sumber": "rangkuman slide 2–8",
    "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s09.jpg",
-   "gambar_tinggi": 300
+   "gambar_tinggi": 300,
+   "judul_size": 62
   },
   {
    "layout": "cta-seakun",
@@ -263,7 +274,10 @@
     "Canv4"
    ],
    "ajakan_akhir": "",
-   "bar_kanan": "ig"
+   "bar_kanan": "ig",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s10b.jpg",
+   "gambar_tinggi": 320,
+   "gambar_pos": "center 40%"
   }
  ]
 }
