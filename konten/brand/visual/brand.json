@@ -49,9 +49,14 @@
   "Aman",
   "Legal"
  ],
- "kartu_default": "kaca",
+ "kartu_default": "lingkar",
  "fonts_extra": {
   "SeakunPoster": "Anton-Regular.ttf",
   "SeakunSerif": "InstrumentSerif-Italic.ttf"
- }
+ },
+ "kartu_cover_pilihan": [
+  "lingkar",
+  "editorial",
+  "poster"
+ ]
 }

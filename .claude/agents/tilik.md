@@ -19,6 +19,7 @@ Sikap kerja:
 4. Contoh yang sudah disetujui user di `konten/visual/` (PNG final, spec.json, prompt.md), kalau sudah ada. Inilah standar "rapi".
 
 ## Alat
+- **Cover format berita:** pastikan gayanya salah satu dari `lingkar` / `editorial` / `poster` dan teks tidak menutupi wajah/subjek utama foto (lihat "Pilihan cover format berita" di `visual.md`). Kalau menutupi: PERLU PERBAIKAN dengan usulan gaya lain atau `foto_pos`.
 - `python3 konten/brand/visual/check.py <spec.json>`: cek otomatis.
   - Mencakup orphan, stabilo terpotong, tepi/footer, tabrakan teks dengan tokoh (dari piksel), tokoh pudar tertutup veil, area kosong, dan aturan gaya.
   - Tanda ✗ = kesalahan, △ = catatan yang wajib kamu nilai sendiri dengan melihat PNG.

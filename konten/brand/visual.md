@@ -36,6 +36,16 @@ Semua slide memakai **latar kertas kusut** (`latar/kertas.jpg`), **badge logo bu
 Terinspirasi format portal berita, dimodifikasi untuk Seakun.
 - **Header tengah atas:** logo Seakun putih + tagline "— PLATFORM PATUNGAN NO.1 INDONESIA —" (gradasi gelap tipis di atas foto).
 - **Cover = layout `berita`, kotak headline default `kartu: "kaca"` (disetujui user 2026-11-19):** foto full-bleed, panel kaca buram keputihan (blur + garis putih tipis), label oranye **miring** menempel di tepi atas panel (`kicker`, mis. REKOMENDASI TONTONAN), judul putih tebal, **hook** (`__teks__`) teks hijau mint #7AEBD6 dengan stabilo oranye tipis di separuh bawah huruf (seperti stabilo desain stiker), subjudul putih regular. Varian lain tetap tersedia lewat `kartu`: `klasik` (kartu putih + strip), `stiker`, `pita`, `gradasi`, `tiket` (tiket bioskop hijau tua, garis sobekan + logo), `neo` (kotak mint, garis hitam tebal + bayangan keras), `strip` (setiap baris judul di pita hijau tua, sedikit miring). **Headline tipografi** (tanpa kotak, teks besar langsung di foto): `lingkar` (judul putih tebal di atas, kata hook dilingkari coretan oranye; tombol kaca `ajakan` + panah hanya kalau diisi, default tidak ada), `editorial` (baris 1 sans kecil, baris tengah serif italic besar Instrument Serif, hook di kotak oranye miring, subjudul huruf kapital renggang), `poster` (huruf condensed Anton kapital raksasa, hook mint, label sobek oranye di atas + label sobek putih untuk subjudul). Baris judul dipecah manual dengan `\n`.
+### Pilihan cover format berita (keputusan user 2026-11-19)
+Cover format berita **hanya memakai 3 gaya tipografi: `lingkar` (H), `editorial` (I), `poster` (J)**. Rupa memilih per cover supaya **subjek utama foto tetap terlihat** (wajah/tokoh/objek tidak tertutup teks):
+| Posisi subjek di foto cover | Gaya | Alasan |
+|---|---|---|
+| Subjek di tengah–bawah, area atas relatif kosong (langit, dinding, latar gelap) | `lingkar` | teks di sepertiga atas, gradasi gelap hanya di atas |
+| Subjek di atas–tengah, area bawah relatif kosong/tenang | `editorial` | teks di sepertiga bawah, gradasi gelap hanya di bawah |
+| Subjek di sisi kanan, sisi kiri relatif kosong; atau hook sangat pendek & provokatif | `poster` | teks rata kiri, huruf condensed sempit; geser foto (`foto_pos`) supaya subjek ke kanan |
+- Kalau ragu, render 2 gaya dan pilih yang wajah/subjeknya paling utuh; sebutkan alasan pilihan di laporan.
+- Jangan menaruh teks di atas wajah. Atur `foto_pos` (mis. `"center 70%"`) sebelum mengganti gaya.
+- Gaya lama (`kaca`, `klasik`, `stiker`, `pita`, `gradasi`, `tiket`, `neo`, `strip`) tetap ada di template, tapi tidak dipakai untuk cover kecuali user memintanya.
 - **Slide isi = layout `berita-isi`:** foto di atas (± 700 px), lalu 2–3 paragraf pendek di latar kertas; `**tebal**`, `__hijau__`.
 - **Bar bawah (`footer: "bar"`, otomatis):** pil kaca (glassmorphic: hijau transparan + blur + garis putih tipis), kecil: seakun.id | Hemat • Aman • Legal | Geser ›. Lebar bar sejajar kotak headline (kiri-kanan 56 px). Teks tengah bisa diganti per slide lewat `bar_tengah` (list). **Slide terakhir wajib `bar_kanan: "ig"`** (ikon Instagram + @seakun.id, tanpa "Geser"). Pengecualian dari aturan "Tanpa CTA geser": khusus format berita, disetujui user. Tagline hanya di header (kecil).
 - Contoh spec: `konten/brand/visual/contoh/berita.json`.
