@@ -9,7 +9,8 @@ Spec:
   "slides": [ { ...slide... }, ... ]                 # 1 slide = feed foto, >1 = carousel
 }
 Slide:
-  layout      "kiri" (teks kiri-atas, ilustrasi kanan/bawah) | "tengah" (judul di tengah atas)
+  layout      "foto-atas" (gaya Seakun: foto di atas memudar ke kertas, kotak judul oranye, subjudul, isi rata kanan-kiri)
+              | "kiri" (teks kiri-atas, ilustrasi kanan/bawah) | "tengah" (judul di tengah atas)
               | "threads" (kartu kutipan Threads di atas ilustrasi)
   bg          nama latar dari brand.json "backgrounds" (default: latar pertama)
   illustration path PNG/JPG/WEBP ilustrasi (full-bleed, tanpa teks). Opsional.
@@ -30,7 +31,13 @@ Slide:
   body_size   px ukuran teks isi (default 27); body_gap px jarak ekstra judul -> teks isi
   threads     {"name":"..","avatar":"path opsional","verified":true,"text":["para1","para2"],"stats":["7.2K","304","2.3K","974"]}
   header      true/false (logo kiri atas + tagline kanan atas). Default true
-  footer      "web-ig" (default) | "logo-ig" | "none"
+  footer      "kunjungi" (label "Kunjungi website seakun.id") | "web-ig" | "logo-ig" | "none"; default dari brand.json footer_default
+  --- khusus foto-atas ---
+  foto        path foto/cuplikan (diisi user); foto_height px (default 790); foto_pos object-position (default "center top")
+  judul       teks di kotak oranye, mis. "1. Pablo Escobar"
+  subjudul    mis. "__Narcos__ (2015-2017)"  (__teks__ = hijau, sisanya hitam)
+  text_top    px posisi atas kotak judul (default 672)
+  nomor       angka di titik nomor kanan atas (default = urutan slide)
 Ikon: share, heart, clock, users, smile, check, bookmark, chat, moon, star, book, alert, x, globe, instagram,
       droplet, trending-down, battery, scale, baby, sun, shield
 Tanda kutip lurus "..." otomatis jadi kutip melengkung “...”. Teks memakai text-wrap:pretty (anti 1 kata sendirian di baris terakhir).
@@ -54,7 +61,8 @@ if not os.path.exists(_bp):
 BRAND = json.load(open(_bp, encoding="utf-8"))
 _c = BRAND["colors"]
 C = {"pink": _c["primary"], "pink2": _c["secondary"], "teal": _c["accent"], "teal_dark": _c["accent_dark"],
-     "yellow": _c["highlight"], "text": _c["text"], "soft": _c.get("primary_soft", _c["secondary"])}
+     "yellow": _c["highlight"], "text": _c["text"], "soft": _c.get("primary_soft", _c["secondary"]),
+     "label": _c.get("label", _c["accent"])}
 BG = BRAND["backgrounds"]
 BG_DEFAULT = next(iter(BG))
 
@@ -160,6 +168,23 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .ftr{position:absolute;right:0;bottom:66px;z-index:3;background:%(pink)s;color:#fff;border-radius:40px 0 0 40px;height:62px;padding:0 32px 0 32px;display:flex;align-items:center;gap:12px;font-size:27px;font-weight:500}
 .ftr img{height:34px}
 .ftr .sep{opacity:.9;margin:0 6px}
+/* ---- gaya Seakun: badge logo + titik nomor slide, foto-atas, label kunjungi ---- */
+.hdr2{position:absolute;top:58px;left:74px;right:86px;display:flex;justify-content:space-between;align-items:center;z-index:3}
+.hdr2 .bdg{width:96px;height:96px;margin:6px}
+.dots{display:flex;align-items:center}
+.dots i{width:57px;height:57px;border-radius:50%%;margin-left:-28px;display:flex;align-items:center;justify-content:center;font-style:normal;font-family:HeadFont,sans-serif;color:#fff;font-size:34px}
+.dots i:first-child{margin-left:0}
+.foto{position:absolute;left:0;top:0;width:100%%;object-fit:cover;-webkit-mask-image:linear-gradient(180deg,#000 0%%,#000 62%%,transparent 98%%)}
+.fa{position:absolute;z-index:2;left:108px;right:108px}
+.fa .jdl{display:inline-block;background:%(label)s;color:#fff;font-family:HeadFont,sans-serif;font-size:64px;line-height:1.12;padding:2px 44px 2px 22px}
+.fa .sbj{font-family:HeadFont,sans-serif;font-size:47px;line-height:1.25;color:#111;margin-top:28px;text-wrap:pretty}
+.fa .sbj .g{color:%(pink)s}
+.fa .isi p{font-size:30px;line-height:1.43;text-align:justify;margin-top:42px;letter-spacing:.1px}
+.fa .isi p+p{margin-top:20px}
+.fa .isi b{font-weight:700}
+.kjg{position:absolute;z-index:3;left:50%%;transform:translateX(-50%%);bottom:64px;display:flex;align-items:center;gap:18px;white-space:nowrap;background:#fff;border-radius:60px;padding:9px 9px 9px 40px;box-shadow:0 8px 28px rgba(0,0,0,.10)}
+.kjg .t{font-weight:700;font-size:30px;color:%(pink)s}
+.kjg .w{background:%(pink)s;color:#fff;font-weight:700;font-size:30px;border-radius:50px;padding:12px 34px}
 """
 
 def fontfaces():
@@ -170,15 +195,45 @@ def fontfaces():
         out.append(f"@font-face{{font-family:BodyFont;font-weight:{w};src:url('{fd}/{fn}')}}")
     return "\n".join(out).replace("%", "%%")
 
-def slide_html(s):
+def badge_svg():
+    """Badge logo bulat: teks melingkar 'PLATFORM PATUNGAN #1' + website, ikon di tengah."""
+    ik = uri(BRAND.get("logo_ikon", BRAND["logo_header"]))
+    atas = html.escape(BRAND.get("badge_atas", "PLATFORM PATUNGAN #1"))
+    bawah = html.escape(BRAND.get("badge_bawah", BRAND["website"]))
+    return (f'<svg class="bdg" viewBox="0 0 100 100" overflow="visible"><defs>'
+            f'<path id="ba" d="M 12,50 A 38,38 0 1,1 88,50 A 38,38 0 1,1 12,50"/>'
+            f'<path id="bb" d="M 14,50 A 36,36 0 0,0 86,50"/></defs>'
+            f'<image href="{ik}" x="22" y="22" width="56" height="56"/>'
+            f'<text font-family="BodyFont" font-weight="700" font-size="8.6" fill="#1d1d1d" letter-spacing=".5">'
+            f'<textPath href="#ba" startOffset="4">{atas}</textPath></text>'
+            f'<text font-family="HeadFont" font-size="15" fill="{C["pink"]}" letter-spacing=".2" dominant-baseline="hanging">'
+            f'<textPath href="#bb" startOffset="50%" text-anchor="middle">{bawah}</textPath></text></svg>')
+
+def dots_html(n):
+    cols = BRAND.get("dots", [C["pink"], "#2FBFA5", "#4AD1B9", "#7AEBD6", "#AAFFEF"])
+    out = []
+    for k, c in enumerate(cols):
+        out.append(f'<i style="background:{c};z-index:{len(cols)-k}">{n if k == 0 else ""}</i>')
+    return '<div class="dots">' + "".join(out) + "</div>"
+
+def green(s):
+    s = html.escape(curly(s), quote=False)
+    s = re.sub(r"__([\s\S]+?)__", r'<span class="g">\1</span>', s)
+    return s.replace("\n", "<br>")
+
+def slide_html(s, n=1):
     layout = s.get("layout", "kiri")
     bg = BG.get(s.get("bg", BG_DEFAULT), BG[BG_DEFAULT])
-    veil = s.get("veil", {"kiri": "kiri", "tengah": "atas", "threads": "none"}.get(layout, "kiri"))
+    veil = s.get("veil", {"kiri": "kiri", "tengah": "atas", "threads": "none", "foto-atas": "none"}.get(layout, "kiri"))
     vstop = s.get("veil_until", 62 if veil == "kiri" else 55)
     vcss = {"kiri": f"linear-gradient(90deg,{bg} 0%,{bg}EE 38%,{bg}00 62%)",
             "atas": f"linear-gradient(180deg,{bg} 0%,{bg}F0 {vstop-21}%,{bg}00 {vstop}%)",
             "none": "none"}[veil]
-    out = [f'<body class="{layout}" style="background:{bg}">']
+    tex = BRAND.get("texture") if s.get("texture", True) else None
+    bgcss = f"background:{bg} url('{uri(tex)}') center/cover no-repeat" if tex else f"background:{bg}"
+    out = [f'<body class="{layout}" style="{bgcss}">']
+    if layout == "foto-atas" and s.get("foto"):
+        out.append(f'<img class="foto" src="{uri(s["foto"])}" style="height:{s.get("foto_height", 790)}px;object-position:{s.get("foto_pos", "center top")}">')
     if s.get("illustration"):
         tf = []
         if s.get("flip"): tf.append("scaleX(-1)")
@@ -189,7 +244,9 @@ def slide_html(s):
     mask = (f"-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 {vstop-14}%,transparent {vstop+8}%);"
             if veil == "kiri" else "")
     out.append(f'<div class="veil" style="background:{vcss};{mask}"></div>')
-    if s.get("header", True) and layout != "threads":
+    if s.get("header", True) and BRAND.get("header_style") == "seakun":
+        out.append(f'<div class="hdr2">{badge_svg()}{dots_html(n)}</div>')
+    elif s.get("header", True) and layout != "threads":
         out.append(f'<div class="hdr"><img src="{uri(BRAND["logo_header"])}">'
                    f'<div class="tag">{BRAND.get("tagline_html", "")}</div></div>')
     if layout == "threads" and s.get("threads"):
@@ -203,7 +260,7 @@ def slide_html(s):
             lab = ["♥ ", "💬 ", "🔁 ", "➤ "]
             stats = '<div class="st">' + "".join(f"<span>{lab[i]}{html.escape(v)}</span>" for i, v in enumerate(st[:4])) + "</div>"
         out.append(f'<div class="card"><div class="who">{av}{html.escape(t.get("name",""))} {vf}</div>{paras}{stats}</div>')
-    else:
+    elif layout != "foto-atas":
         bw = s.get("body_width", 900 if layout == "tengah" else 520)
         parts = []
         if s.get("headline"):
@@ -232,8 +289,19 @@ def slide_html(s):
         if s.get("cta"):
             parts.append(f'<div class="cta"><div class="dot">{icon(s.get("cta_icon","bookmark"),30,C["pink"],2.4)}</div><span style="max-width:{s.get("cta_width", bw)}px">{md(s["cta"])}</span></div>')
         out.append('<div class="wrap">' + "".join(parts) + "</div>")
-    f = s.get("footer", "web-ig")
-    if f == "web-ig":
+    if layout == "foto-atas":
+        parts = []
+        if s.get("judul"):
+            parts.append(f'<div><span class="jdl">{html.escape(curly(s["judul"]))}</span></div>')
+        if s.get("subjudul"):
+            parts.append(f'<div class="sbj">{green(s["subjudul"])}</div>')
+        if s.get("body"):
+            parts.append('<div class="isi">' + "".join(f'<p>{md(p)}</p>' for p in s["body"]) + "</div>")
+        out.append(f'<div class="fa" style="top:{s.get("text_top", 672)}px">' + "".join(parts) + "</div>")
+    f = s.get("footer", BRAND.get("footer_default", "web-ig"))
+    if f == "kunjungi":
+        out.append(f'<div class="kjg"><span class="t">Kunjungi website</span><span class="w">{html.escape(BRAND["website"])}</span></div>')
+    elif f == "web-ig":
         out.append(f'<div class="ftr">{icon("globe",30,"#fff",2)} {html.escape(BRAND["website"])} <span class="sep">|</span> {icon("instagram",30,"#fff",2)} @{html.escape(BRAND["handle"])}</div>')
     elif f == "logo-ig":
         out.append(f'<div class="ftr"><img src="{uri(BRAND["logo_footer"])}"><span class="sep">|</span> @{html.escape(BRAND["handle"])}</div>')
@@ -326,7 +394,7 @@ def main():
     tmp = tempfile.mkdtemp()
     for i, s in enumerate(spec["slides"], 1):
         hp = os.path.join(od, f"slide-{i:02d}.html")
-        open(hp, "w").write(slide_html(s))
+        open(hp, "w").write(slide_html(s, s.get("nomor", i)))
         png = os.path.join(od, f"slide-{i:02d}.png")
         subprocess.run([CHROME, "--headless=new", *CHROME_EXTRA, "--disable-gpu", "--hide-scrollbars",
                         "--allow-file-access-from-files", "--force-device-scale-factor=1",

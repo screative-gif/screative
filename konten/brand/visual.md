@@ -26,6 +26,12 @@
 
 Latar (`backgrounds` di brand.json) selalu **lembut/pucat**: #F0F1F2, #F3F5F5, #EAF6F2. Jangan memakai warna jenuh untuk area besar.
 
+## Format carousel Seakun (default, disetujui user 2026-11-19)
+Semua slide memakai **latar kertas kusut** (`latar/kertas.jpg`), **badge logo bulat** "PLATFORM PATUNGAN #1 · seakun.id" di kiri atas, dan **titik nomor slide** (5 lingkaran hijau bertumpuk, angka = nomor slide) di kanan atas. Ini diatur `header_style: "seakun"` di brand.json.
+- **Slide isi = layout `foto-atas`:** foto/cuplikan (disediakan user) di atas memudar ke latar, lalu kotak judul oranye `#FF4F2F` teks putih ("1. Pablo Escobar"), subjudul tebal (`__Judul Series__` hijau + tahun hitam), lalu isi rata kanan-kiri ± 40–60 kata.
+- **Label bawah setiap slide:** "Kunjungi website **seakun.id**" (pil putih + pil hijau), `footer: "kunjungi"` (default).
+- Aturan lama soal footer kanan-bawah & tagline kanan-atas di bawah ini tidak berlaku untuk format ini.
+
 ## Layout wajib (setiap post)
 1. **Kiri atas:** logo brand
 2. **Kanan atas:** tagline brand (dari brand.json). Jangan diganti tanpa izin user.

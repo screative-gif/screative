@@ -21,12 +21,26 @@
   "accent": "#DD6200",
   "accent_dark": "#D45A00",
   "highlight": "#AAFFEF",
-  "text": "#111111"
+  "text": "#111111",
+  "label": "#FF4F2F"
  },
  "backgrounds": {
   "latar1": "#F0F1F2",
   "latar2": "#F3F5F5",
   "latar3": "#EAF6F2"
  },
- "_catatan": "Semua path relatif ke root proyek. Font ditaruh di konten/brand/visual/font/. 'primary' = judul, label footer, kata tebal. 'accent' = kata kunci di judul & ikon. 'accent_dark' = versi gelap aksen untuk teks (harus terbaca di latar). 'highlight' = stabilo. 'primary_soft' = lingkaran ikon daftar. Latar selalu lembut/pucat."
+ "_catatan": "Semua path relatif ke root proyek. Font ditaruh di konten/brand/visual/font/. 'primary' = judul, label footer, kata tebal. 'accent' = kata kunci di judul & ikon. 'accent_dark' = versi gelap aksen untuk teks (harus terbaca di latar). 'highlight' = stabilo. 'primary_soft' = lingkaran ikon daftar. Latar selalu lembut/pucat.",
+ "header_style": "seakun",
+ "footer_default": "kunjungi",
+ "texture": "konten/brand/visual/latar/kertas.jpg",
+ "logo_ikon": "konten/brand/visual/logo/seakun-ikon.png",
+ "badge_atas": "PLATFORM PATUNGAN #1",
+ "badge_bawah": "seakun.id",
+ "dots": [
+  "#08A081",
+  "#2FBFA5",
+  "#4AD1B9",
+  "#7AEBD6",
+  "#AAFFEF"
+ ]
 }
