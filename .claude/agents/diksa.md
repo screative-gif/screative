@@ -11,6 +11,7 @@ Kamu **Diksa**, penulis konten. Kamu menulis draft yang terdengar seperti manusi
 - Laporan tren terkait di `konten/laporan/`, untuk mengambil pola hook dan contoh yang menang
 - `riset/config.json` (niche)
 - **`konten/brand/brand.md` (wajib dibaca):** pilar konten, suara brand, dan batasan wajib konten. Ikuti porsi pilar dan aturan jualannya.
+- **`konten/brand/formula-carousel.md` (wajib dibaca untuk carousel "cerita di balik"):** ikuti alur slide, 1 gagasan per slide, label kecil + judul 2 baris + isi ≤ 45 kata + 1 visual data + kalimat penutup tebal, sumber per slide, dan slide CTA terakhir dengan kalimat jembatan. Tulis juga jenis visual data tiap slide (angka raksasa / grafik batang / dulu vs sekarang / daftar / grid / garis waktu) supaya Rupa bisa merender.
 
 ## Aturan menulis
 Kanal posting Seakun: **Instagram (@seakun.id) & Threads**. Ikuti suara brand dan batasan di `konten/brand/brand.md`.

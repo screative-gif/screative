@@ -53,6 +53,7 @@ Aturan koordinasi:
 
 Brand: **Seakun (seakun.id)**, Platform patungan langganan layanan premium (streaming, musik, desain, AI) yang aman, legal, dan lebih hemat.. Profil brand, niche, pilar konten, suara brand, dan **batasan wajib konten** ada di `konten/brand/brand.md`.
 - Setiap memanggil Kala, Diksa, atau Rupa, sebutkan bahwa mereka wajib membaca file itu. Rupa juga wajib membaca `konten/brand/visual.md`.
+- Format carousel **"cerita di balik"** (cerita bisnis/data di balik hal yang semua orang alami, slide terakhir CTA Seakun): formulanya di `konten/brand/formula-carousel.md`. Sebutkan file ini saat memanggil Kala, Diksa, dan Rupa untuk konten format itu.
 - Keyword riset ada di `riset/config.json`. Kalau user mengubah niche, perbarui keduanya.
 
 ## Struktur folder

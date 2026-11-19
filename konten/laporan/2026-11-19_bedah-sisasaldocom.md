@@ -67,6 +67,9 @@ Seakun punya keunggulan: semua nostalgia **hiburan digital** (TV, film, musik, a
 - Hindari politik, isu SARA, dan saham, sesuai temuan (sepi) dan batasan brand.
 - Foto lama/cuplikan TV disediakan user; jangan memakai logo resmi layanan di ilustrasi.
 
+## Update setelah bedah slide (19 Nov 2026)
+Setelah melihat 56 slide dari 6 post teratas: polanya bukan sekadar nostalgia, tapi **cerita bisnis/data di balik hal yang semua orang alami** (topik unik & trending juga masuk). Formula lengkap: `konten/brand/formula-carousel.md`.
+
 ## Langkah berikutnya
 - @sisasaldocom sudah ditambahkan sebagai **akun referensi** di `riset/config.json` (`ig_akun.accounts`), jadi ikut dipantau setiap riset mingguan.
 - Usulan: tambah **pilar "Nostalgia & tren hiburan digital"** di `konten/brand/brand.md`. Menunggu persetujuan user.
