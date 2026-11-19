@@ -33,7 +33,7 @@ Slide:
   header      true/false (logo kiri atas + tagline kanan atas). Default true
   footer      "kunjungi" (label "Kunjungi website seakun.id") | "web-ig" | "logo-ig" | "none"; default dari brand.json footer_default
   --- slide data ("data") & CTA ("cta-seakun") untuk format "cerita di balik" ---
-  data: label ("01 · GAJINYA"), halaman ("02/10"), judul (__x__ = hijau + stabilo oranye), isi [paragraf], penutup, sumber,
+  data: gambar (path foto, opsional; gambar_tinggi px default 430, gambar_pos), judul (__x__ = hijau + stabilo oranye), isi [paragraf], penutup, sumber (tampil di bar bawah: "Sumber: …"),
         visual {"tipe": "angka-besar" (angka, ket | pembanding:[{angka,ket,warna:"oranye"}]) | "batang" (judul, items:[{label,nilai,teks,sorot:"hijau|oranye"}])
                 | "dulu-vs-sekarang" (kiri/kanan:{judul,isi[]}) | "tabel" (kolom[], baris[[]], sorot_kolom) | "daftar" (items[])
                 | "kutipan" (teks, oleh) | "notif" (jam, items:[{app,teks,rp:"+Rp…/−Rp…",akhir:true}])}
@@ -148,7 +148,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .sub{color:%(pink)s;font-weight:700;font-size:27px;line-height:1.4;margin-top:30px;text-wrap:pretty}
 .body p{font-size:27px;line-height:1.45;margin-top:26px;letter-spacing:.2px;text-wrap:pretty}
 .hl.pill{padding:3px 26px}
-.hl{background:%(yellow)s;color:#2f2f2f;font-weight:700;border-radius:22px;padding:2px 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl{background:rgba(255,79,47,.55);color:#1b1b1b;font-weight:700;border-radius:22px;padding:2px 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .pk{color:%(pink)s;font-weight:700}.tl{color:%(teal_dark)s;font-weight:700}.dk{color:#2f2f2f}
 .items{margin-top:36px}
 .it{display:flex;align-items:center;gap:22px;padding:18px 0;border-bottom:2px dashed %(teal)s}
@@ -280,24 +280,27 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .torn.t1{transform:rotate(-2deg);margin-bottom:6px}
 .torn.t2{background:#fff;color:#111;font-weight:600;text-transform:none;font-size:36px;transform:rotate(1.5deg);margin-top:16px}
 /* ---- slide data & CTA (format "cerita di balik") ---- */
-.dt{position:absolute;z-index:2;left:72px;right:72px;top:172px;bottom:118px;display:flex;flex-direction:column}
+.dt{position:absolute;z-index:2;left:72px;right:72px;top:168px;bottom:118px;display:flex;flex-direction:column}
 .dt .lb{display:flex;justify-content:space-between;font-weight:600;font-size:19px;letter-spacing:3px;text-transform:uppercase;color:#7a7a7a}
 .dt .lb b{color:%(pink)s}
-.dt .jd{font-family:HeadFont,sans-serif;font-size:66px;line-height:1.08;letter-spacing:-1px;color:#111;margin-top:14px;text-wrap:balance}
-.dt .jd .g{color:%(pink)s;background:linear-gradient(180deg,transparent 58%%,rgba(255,79,47,.30) 58%%,rgba(255,79,47,.30) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .jd{font-family:HeadFont,sans-serif;font-size:66px;line-height:1.08;letter-spacing:-1px;color:#111;margin-top:4px;text-wrap:balance}
+.dt .jd .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,79,47,.55) 56%%,rgba(255,79,47,.55) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.dt .gb{border-radius:30px;overflow:hidden;margin:0 0 30px;box-shadow:0 14px 34px rgba(0,0,0,.14);flex:none}
+.dt .gb img{width:100%%;height:100%%;object-fit:cover;display:block}
 .dt .is p{font-size:29px;line-height:1.45;color:#3a3a3a;margin-top:18px;text-wrap:pretty}
 .dt .is b,.dt .is .pk{color:#111;font-weight:700}
-.dt .is .tl{color:%(pink)s;font-weight:700}
+.dt .is .tl{color:#0B5C4B;font-weight:700}
+.dt .is .hl{background:linear-gradient(180deg,transparent 52%%,rgba(255,79,47,.55) 52%%,rgba(255,79,47,.55) 94%%,transparent 94%%);border-radius:0;padding:0 3px}
 .dt .vz{margin-top:30px;flex:1;display:flex;flex-direction:column;justify-content:center}
 .dt .pt{margin-top:auto;font-family:HeadFont,sans-serif;font-size:36px;line-height:1.2;color:#111;text-wrap:balance;padding-top:24px}
-.dt .pt .g{color:%(pink)s}
+.dt .pt .g{color:#0B5C4B;background:linear-gradient(180deg,transparent 56%%,rgba(255,79,47,.55) 56%%,rgba(255,79,47,.55) 92%%,transparent 92%%);padding:0 4px;margin:0 -4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .dt .sb{font-size:15px;color:#8a8a8a;margin-top:12px;line-height:1.35}
-.vz .ab{font-family:HeadFont,sans-serif;font-size:190px;line-height:.95;letter-spacing:-6px;color:%(pink)s}
+.vz .ab{font-family:HeadFont,sans-serif;font-size:190px;line-height:1.05;letter-spacing:-6px;color:%(pink)s}
 .vz .ab.o{color:%(label)s}
-.vz .ak{font-size:27px;color:#444;margin-top:6px}
+.vz .ak{font-size:27px;color:#444;margin-top:14px}
 .vz .ab2{display:flex;gap:28px}
 .vz .ab2 > div{flex:1;border-radius:30px;padding:40px 34px;background:rgba(255,255,255,.65);border:2px solid rgba(0,0,0,.06)}
-.vz .ab2 .n{font-family:HeadFont,sans-serif;font-size:120px;line-height:1;letter-spacing:-3px}
+.vz .ab2 .n{font-family:HeadFont,sans-serif;font-size:120px;line-height:1.12;letter-spacing:-3px}
 .vz .ab2 .k{font-size:24px;color:#555;margin-top:8px}
 .vz .br{display:flex;align-items:center;gap:18px;margin:20px 0}
 .vz .br .l{width:130px;font-weight:600;font-size:25px;color:#444;flex:none}
@@ -334,10 +337,10 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .cta2 .jb{font-family:HeadFont,sans-serif;font-size:68px;line-height:1.1;letter-spacing:-1px;text-wrap:balance}
 .cta2 .jb .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 58%%,rgba(255,79,47,.75) 58%%,rgba(255,79,47,.75) 92%%,transparent 92%%);padding:0 6px;margin:0 -6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .cta2 .mf{font-size:30px;line-height:1.45;margin-top:22px;opacity:.92}
-.cta2 .gr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.cta2 .gr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:auto 0}
 .cta2 .gr div{border-radius:24px;padding:22px 20px;background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.28);display:flex;align-items:center;gap:14px;font-weight:600;font-size:24px}
 .cta2 .gr i{flex:none;width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-style:normal;font-family:HeadFont,sans-serif;font-size:24px;color:#fff}
-.cta2 .bt{margin-top:auto;align-self:flex-start;display:flex;align-items:center;gap:18px;background:#AAFFEF;color:#06352C;border-radius:60px;padding:16px 18px 16px 38px;font-weight:700;font-size:34px}
+.cta2 .bt{align-self:flex-start;display:flex;align-items:center;gap:18px;background:#AAFFEF;color:#06352C;border-radius:60px;padding:16px 18px 16px 38px;font-weight:700;font-size:34px}
 .cta2 .bt span{background:#06352C;color:#fff;border-radius:40px;padding:10px 26px;font-size:30px}
 .cta2 .ss{font-size:22px;opacity:.75;margin-top:18px}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
@@ -350,6 +353,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .bar.padat{background:linear-gradient(120deg,rgba(8,160,129,.96),rgba(47,191,165,.92));border-color:rgba(255,255,255,.6)}
 .bar .a{font-weight:700;font-size:20px}
 .bar .m{font-size:15px;font-weight:500;letter-spacing:.6px;opacity:.95;display:flex;align-items:center;gap:10px}
+.bar .m.sm{font-size:14px;letter-spacing:.2px;max-width:640px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;opacity:.92}
 .bar .m i{width:5px;height:5px;border-radius:50%%;background:#fff;opacity:.8}
 .bar .z{display:flex;align-items:center;gap:8px;font-weight:600;font-size:18px}
 .bar .z .c{width:28px;height:28px;border-radius:50%%;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center}
@@ -590,11 +594,13 @@ def slide_html(s, n=1):
         hal = s.get("halaman", "")
         vz = vis_html(s.get("visual"))
         isi = "".join(f"<p>{md(p)}</p>" for p in s.get("isi", []))
-        out.append(f'<div class="dt"><div class="lb"><span>{html.escape(lb)}</span><span>{html.escape(hal)}</span></div>'
+        gb = (f'<div class="gb" style="height:{s.get("gambar_tinggi", 430)}px"><img src="{uri(s["gambar"])}" style="object-position:{s.get("gambar_pos", "center")}"></div>'
+              if s.get("gambar") else "")
+        out.append(f'<div class="dt">{gb}'
                    f'<div class="jd" style="font-size:{s.get("judul_size", 66)}px">{jdl(s.get("judul", ""))}</div>'
                    + (f'<div class="is">{isi}</div>' if isi else "") + (f'<div class="vz">{vz}</div>' if vz else "")
                    + (f'<div class="pt">{green(s["penutup"])}</div>' if s.get("penutup") else "")
-                   + (f'<div class="sb">Sumber: {html.escape(s["sumber"])}</div>' if s.get("sumber") else "") + "</div>")
+                   + "</div>")
     if layout == "cta-seakun":
         warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
         gr = "".join(f'<div><i style="background:{warna[k % len(warna)]}">{html.escape(n[0])}</i>{html.escape(n)}</div>'
@@ -608,7 +614,7 @@ def slide_html(s, n=1):
     if f == "bar":
         padat = (not s.get("foto")) and layout != "cta-seakun"
         out.append(f'<div class="bar{" padat" if padat else ""}"><span class="a">{html.escape(BRAND["website"])}</span>'
-                   f'<span class="m">{"<i></i>".join(html.escape(x) for x in s.get("bar_tengah", BRAND.get("bar_tengah", ["Hemat", "Aman", "Legal"])))}</span>'
+                   + (f'<span class="m sm">Sumber: {html.escape(s["sumber"])}</span>' if s.get("sumber") else f'<span class="m">{"<i></i>".join(html.escape(x) for x in s.get("bar_tengah", BRAND.get("bar_tengah", [])))}</span>')
                    + (f'<span class="z">{icon("instagram",20,"#fff",2)} @{html.escape(BRAND["handle"])}</span></div>' if s.get("bar_kanan") == "ig"
                     else f'<span class="z">{html.escape(s.get("bar_kanan", "Geser"))}<span class="c">{icon("chevron-right",18,"#fff",2.6)}</span></span></div>'))
     elif f == "kunjungi":
@@ -705,9 +711,10 @@ def main():
     os.makedirs(od, exist_ok=True)
     tmp = tempfile.mkdtemp()
     for i, s in enumerate(spec["slides"], 1):
-        hp = os.path.join(od, f"slide-{i:02d}.html")
+        no = s.get("nomor", i)
+        hp = os.path.join(od, f"slide-{no:02d}.html")
         open(hp, "w").write(slide_html(s, s.get("nomor", i)))
-        png = os.path.join(od, f"slide-{i:02d}.png")
+        png = os.path.join(od, f"slide-{no:02d}.png")
         subprocess.run([CHROME, "--headless=new", *CHROME_EXTRA, "--disable-gpu", "--hide-scrollbars",
                         "--allow-file-access-from-files", "--force-device-scale-factor=1",
                         f"--user-data-dir={tmp}", f"--window-size={W},{H}",

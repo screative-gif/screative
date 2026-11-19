@@ -1,0 +1,2 @@
+2026-11-19: slide 2–10 dirender (slide-02.png … slide-10.png); cover menunggu foto.
+Catatan: render.py menamai file menurut urutan di spec (spec sekarang hanya berisi slide 2–10, jadi keluaran mentahnya slide-01..09 dan sudah diganti nama ke slide-02..10). Saat cover ditambahkan sebagai slide pertama di spec.json, render ulang semua supaya nama file otomatis cocok.

@@ -44,11 +44,7 @@
   "#AAFFEF"
  ],
  "tagline_pendek": "Platform Patungan No.1 Indonesia",
- "bar_tengah": [
-  "Hemat",
-  "Aman",
-  "Legal"
- ],
+ "bar_tengah": [],
  "kartu_default": "lingkar",
  "fonts_extra": {
   "SeakunPoster": "Anton-Regular.ttf",
