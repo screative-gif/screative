@@ -228,6 +228,28 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .kartu.kaca .bj{text-shadow:0 2px 14px rgba(0,0,0,.30)}
 .kartu.kaca .bj .g{color:#7AEBD6;background:linear-gradient(180deg,transparent 56%%,%(label)s 56%%,%(label)s 90%%,transparent 90%%);padding:0 8px;margin:0 -8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .kartu.kaca .bs{text-shadow:0 1px 10px rgba(0,0,0,.35)}
+/* varian tambahan: tiket, neo, strip (label miring di luar kotak) */
+.kbox{position:absolute;z-index:2;left:56px;right:56px;bottom:118px}
+.kbox .kick{position:absolute;z-index:3;top:-24px;left:40px;transform:rotate(-4deg);background:%(label)s;color:#fff;font-weight:700;font-size:22px;letter-spacing:1.5px;text-transform:uppercase;border-radius:12px;padding:9px 20px;box-shadow:0 8px 18px rgba(255,79,47,.35);display:flex;align-items:center;gap:8px}
+.kbox .bj{font-family:HeadFont,sans-serif;font-size:74px;line-height:1.1;letter-spacing:-.5px;text-wrap:balance}
+.kbox .bs{font-size:44px;line-height:1.2;margin-top:14px}
+.kbox .g{background:linear-gradient(180deg,transparent 56%%,%(label)s 56%%,%(label)s 90%%,transparent 90%%);padding:0 8px;margin:0 -8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.tiket{background:linear-gradient(160deg,#07463A,#04291F);border-radius:30px;padding:66px 50px 0;color:#fff;
+ -webkit-mask:radial-gradient(circle 24px at left calc(100%% - 122px),#0000 97%%,#000),radial-gradient(circle 24px at right calc(100%% - 122px),#0000 97%%,#000);-webkit-mask-composite:source-in;mask-composite:intersect;filter:drop-shadow(0 16px 30px rgba(0,0,0,.35))}
+.tiket .g{color:#7AEBD6}
+.tiket .perf{margin:30px -26px 0;border-top:3px dashed rgba(255,255,255,.28)}
+.tiket .bs{color:rgba(255,255,255,.9);margin:0;height:119px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:34px;white-space:nowrap}
+.tiket .bs .ik{flex:none;width:58px;opacity:.9}
+.neo{background:#AAFFEF;border:4px solid #111;border-radius:24px;box-shadow:12px 12px 0 #111;padding:64px 46px 42px;color:#111}
+.neo .g{color:#04503F}
+.neo .bs{color:#111}
+.strp{transform:rotate(-2deg);transform-origin:left bottom;padding-left:6px;margin-top:40px}
+.kbox.k-strip .kick{top:-30px}
+.strp .bj{line-height:1.32}
+.strp .bj .ln{background:#05362C;color:#fff;padding:2px 22px 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.strp .g{color:#7AEBD6}
+.strp .bs{margin-top:22px}
+.strp .bs span{background:#fff;color:#111;padding:6px 18px;font-size:38px;box-decoration-break:clone;-webkit-box-decoration-break:clone;line-height:1.5}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -368,7 +390,20 @@ def slide_html(s, n=1):
         jdl = f'<div class="bj">{green(s.get("judul", ""))}</div>'
         top = s.get("text_top", 560)
         wm = f'<img class="wm" src="{uri(BRAND.get("logo_ikon", BRAND["logo_header"]))}">'
-        if gaya in ("gradasi", "kaca"):
+        if gaya in ("tiket", "neo", "strip"):
+            kick = f'<div class="kick">{icon("star",20,"#fff",2.6)}{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
+            judul = green(s.get("judul", ""))
+            subj = green(s.get("subjudul", "")) if s.get("subjudul") else ""
+            if gaya == "tiket":
+                ik = f'<img class="ik" src="{uri(BRAND["logo_footer"])}" style="width:128px">'
+                inner = f'<div class="tiket"><div class="bj">{judul}</div><div class="perf"></div><div class="bs"><span>{subj}</span>{ik}</div></div>'
+            elif gaya == "neo":
+                inner = f'<div class="neo"><div class="bj">{judul}</div>' + (f'<div class="bs">{subj}</div>' if subj else "") + "</div>"
+            else:
+                inner = (f'<div class="strp"><div class="bj"><span class="ln">{judul}</span></div>'
+                         + (f'<div class="bs"><span>{subj}</span></div>' if subj else "") + "</div>")
+            out.append(f'<div class="kbox k-{gaya}">{kick}{inner}</div>')
+        elif gaya in ("gradasi", "kaca"):
             kick = f'<div class="kick">{icon("star",20,"#fff",2.6)}{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""
             if gaya == "gradasi":
                 out.append('<div class="tgrad"></div>')
