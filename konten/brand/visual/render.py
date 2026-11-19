@@ -611,7 +611,9 @@ def slide_html(s, n=1):
     berita = layout in ("berita", "berita-isi", "data", "cta-seakun")
     if berita and s.get("foto"):
         fh = s.get("foto_height", H if layout == "berita" else 700)
-        out.append(f'<img class="bfoto" src="{uri(s["foto"])}" style="height:{fh}px;object-position:{s.get("foto_pos", "center center")}">')
+        geser = s.get("foto_geser", 0)
+        tf = f";transform:scale({1 + geser / 400:.3f});transform-origin:center top" if geser else ""  # zoom dari atas: isi foto turun tanpa celah
+        out.append(f'<img class="bfoto" src="{uri(s["foto"])}" style="height:{fh}px;object-position:{s.get("foto_pos", "center center")}{tf}">')
         out.append('<div class="bshade"></div>')
     if berita and s.get("header", True):
         terang = bool(s.get("foto")) or layout == "cta-seakun" or (layout == "data" and s.get("gambar_mode") == "latar" and s.get("gambar"))
@@ -695,7 +697,7 @@ def slide_html(s, n=1):
                 out.append('<div class="tgrad" style="height:80%"></div>')
                 body = f'<div class="e1">{hk(lines[0])}</div>' + "".join(
                     (f'<div>{hk(l)}</div>' if "__" in l else f'<div class="e2">{hk(l)}</div>') for l in lines[1:])
-                out.append(f'<div class="tipo editorial">{body}' + (f'<div class="s">{sub}</div>' if sub else "") + "</div>")
+                out.append(f'<div class="tipo editorial" style="bottom:{120 + s.get("teks_naik", 0)}px">{body}' + (f'<div class="s">{sub}</div>' if sub else "") + "</div>")
             else:
                 out.append('<div class="tshade" style="height:78%"></div>')
                 kick = f'<div class="torn t1">{html.escape(s["kicker"])}</div>' if s.get("kicker") else ""

@@ -8,7 +8,9 @@
    "foto": "konten/visual/2026-11-19_C-GAJI/foto/cover3.png",
    "foto_pos": "center top",
    "judul": "Gaji udah naik,\nkok tetap\n__pas-pasan?__\nFakta?",
-   "subjudul": "Slip gaji bilang naik. Dompet bilang lain."
+   "subjudul": "Slip gaji bilang naik. Dompet bilang lain.",
+   "foto_geser": 50,
+   "teks_naik": 40
   },
   {
    "layout": "data",
