@@ -39,7 +39,9 @@ Slide:
                 | "kutipan" (teks, oleh) | "notif" (jam, items:[{app,teks,rp:"+Rp…/−Rp…",akhir:true}])
                 | "versus" (kiri/kanan:{label,angka,ket}, badge "+85%", catatan) — perbandingan 2 angka + panah
                 | "balapan" (items:[{label,nilai,teks,warna:"hijau|kuning|oranye|gelap"}], garis:{nilai,teks}, anotasi) — batang + garis acuan
-                | "turun" (angka, ket, pendamping:[{angka,ket}]) — angka turun + panah besar}
+                | "turun" (angka, ket, pendamping:[{angka,ket}]) — angka turun + panah besar
+                | "kolom" (judul, items:[{label,nilai,teks,warna}], selisih "−9,48 juta", tinggi) — kolom vertikal + garis selisih
+                | "kartu-angka" (angka, ket, mini:[{angka,ket}]) — kartu hijau angka besar + kartu mini}
         gambar_mode: "atas" (default) | "polaroid" (foto kecil miring di pojok kanan atas, gambar_ket, gambar_miring)
                 | "lingkaran" (badge bulat di pojok) | "sisi" (panel di samping judul) | "strip" (gambar: [3 path] berjejer)
   cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), layanan [nama disamarkan], ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
@@ -402,6 +404,22 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .dt.m-latar .is p{color:rgba(255,255,255,.92)}
 .dt.m-latar .is b,.dt.m-latar .is .pk{color:#fff}
 .dt.m-latar .vz{margin-top:56px}
+.kol{position:relative;display:flex;align-items:flex-end;gap:46px;padding:0 20px}
+.kol .kc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%%}
+.kol .kv{font-family:HeadFont,sans-serif;font-size:40px;margin-bottom:10px;white-space:nowrap}
+.kol .kb{width:100%%;border-radius:22px 22px 6px 6px}
+.kol .kl{font-weight:700;font-size:26px;color:#17201D;margin-top:12px}
+.kol .ksel{position:absolute;left:20px;right:20px;border-top:4px dashed %(or)s}
+.kol .kchip{position:absolute;right:20px;bottom:76px;width:calc((100%% - 40px - 92px)/3);text-align:center;font-family:HeadFont,sans-serif;font-size:44px;color:#fff}
+.ka{border-radius:34px;background:%(hj)s;color:#fff;padding:34px 40px}
+.ka .n{font-family:HeadFont,sans-serif;font-size:150px;line-height:1.02;letter-spacing:-4px}
+.ka .k{font-size:28px;margin-top:6px;opacity:.95}
+.ka .k *{color:#fff!important;background:none!important}
+.ka-m{display:flex;gap:18px;margin-top:18px}
+.ka-m div{flex:1;border-radius:26px;background:#fff;border:3px solid #17201D;padding:20px 24px}
+.ka-m b{display:block;font-family:HeadFont,sans-serif;font-size:50px;color:%(or)s;font-weight:400;line-height:1.1}
+.ka-m span{display:block;font-size:26px;color:#222;line-height:1.25;margin-top:4px}
+.hp .nt.sorot{outline:4px solid %(or)s;outline-offset:-4px}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -466,6 +484,25 @@ def vis_html(v):
         return ""
     t = v.get("tipe")
     e = lambda x: html.escape(str(x))
+    if t == "kolom":
+        mx = max(float(i["nilai"]) for i in v["items"]) or 1
+        H = v.get("tinggi", 360)
+        warna = {"hijau": C["hj"], "oranye": C["or"]}
+        cols = ""
+        for i in v["items"]:
+            h = max(60, float(i["nilai"]) / mx * H)
+            col = warna.get(i.get("warna", "hijau"), C["hj"])
+            cols += (f'<div class="kc"><div class="kv" style="color:{col}">{e(i.get("teks", i["nilai"]))}</div>'
+                     f'<div class="kb" style="height:{h:.0f}px;background:{col}"></div><div class="kl">{e(i["label"])}</div></div>')
+        sel = ""
+        if v.get("selisih"):
+            sel = f'<div class="kchip">{e(v["selisih"])}</div>'
+        jd = f'<div class="bj">{e(v["judul"])}</div>' if v.get("judul") else ""
+        return f'{jd}<div class="kol" style="height:{H + 110}px">{cols}{sel}</div>'
+    if t == "kartu-angka":
+        mini = "".join(f'<div><b>{e(m["angka"])}</b><span>{md(m.get("ket", ""))}</span></div>' for m in v.get("mini", []))
+        return (f'<div class="ka"><div class="n">{e(v["angka"])}</div><div class="k">{md(v.get("ket", ""))}</div></div>'
+                + (f'<div class="ka-m">{mini}</div>' if mini else ""))
     if t == "versus":
         a, b = v["kiri"], v["kanan"]
         arrow = '<svg width="44" height="30" viewBox="0 0 44 30" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h36M28 4l11 11-11 11"/></svg>'
@@ -523,7 +560,7 @@ def vis_html(v):
     if t == "notif":
         rows = ""
         for n in v["items"]:
-            cls = " akhir" if n.get("akhir") else ""
+            cls = (" akhir" if n.get("akhir") else "") + (" sorot" if n.get("sorot") else "")
             rp = n.get("rp", "")
             rows += (f'<div class="nt{cls}"><div><div class="ap">{e(n.get("app", ""))}</div><div class="tx">{md(n.get("teks", ""))}</div></div>'
                      + (f'<div class="rp {"p" if rp.startswith("+") else "m"}">{e(rp)}</div>' if rp else "") + "</div>")
