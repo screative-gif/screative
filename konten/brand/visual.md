@@ -35,10 +35,10 @@ Semua slide memakai **latar kertas kusut** (`latar/kertas.jpg`), **badge logo bu
 ## Format carousel "berita" (alternatif, 2026-11-19)
 Terinspirasi format portal berita, dimodifikasi untuk Seakun.
 - **Header tengah atas:** logo Seakun putih + tagline "— PLATFORM PATUNGAN NO.1 INDONESIA —" (gradasi gelap tipis di atas foto).
-- **Cover = layout :** foto full-bleed, kartu putih (sudut kanan-bawah membulat) dengan strip 3 warna hijau di atasnya, label oranye (, mis. REKOMENDASI TONTONAN), judul tebal hitam ( = hijau), subjudul regular.
-- **Slide isi = layout :** foto di atas (± 700 px), lalu 2–3 paragraf pendek di latar kertas; , .
-- **Bar bawah (, otomatis):** pil hijau penuh: seakun.id | PLATFORM PATUNGAN NO.1 INDONESIA | @seakun.id. Tidak ada "Swipe".
-- Contoh spec: .
+- **Cover = layout `berita`:** foto full-bleed, kartu putih (sudut kanan-bawah membulat) dengan strip 3 warna hijau di atasnya, label oranye (`kicker`, mis. REKOMENDASI TONTONAN), judul tebal hitam (`__teks__` = hijau), subjudul regular.
+- **Slide isi = layout `berita-isi`:** foto di atas (± 700 px), lalu 2–3 paragraf pendek di latar kertas; `**tebal**`, `__hijau__`.
+- **Bar bawah (`footer: "bar"`, otomatis):** pil hijau penuh: seakun.id | PLATFORM PATUNGAN NO.1 INDONESIA | @seakun.id. Tidak ada "Swipe".
+- Contoh spec: `konten/brand/visual/contoh/berita.json`.
 
 ## Layout wajib (setiap post)
 1. **Kiri atas:** logo brand
