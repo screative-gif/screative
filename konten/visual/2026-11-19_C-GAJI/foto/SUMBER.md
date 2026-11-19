@@ -18,4 +18,5 @@
 | cover2.png | Magnific AI (Mystic) | task 1ef41ad2-3c44-42d4-ac5b-a5a6c690bf73; prompt: top-down cinematic photo, dark wooden desk at night, warm desk lamp, hand holding smartphone in upper-middle, long crump | hasil AI milik user | 2026-11-19 | dipakai lewat potongan cover2-crop.png (dipotong lokal agar HP di atas judul) |
 | s05b.jpg | Magnific stok | id 172588829 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/172588829) | 2026-11-19 |
 | s06c.jpg | Magnific stok | id 233809960 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/233809960) | 2026-11-19 |
-| s10b.jpg | Magnific stok | id 298806616 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/298806616) | 2026-11-19 |
+| s10b.jpg | Magnific stok | id 298806616 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/298806616) | 2026-11-19 | tidak dipakai, file dihapus — tokoh tampak paruh baya (QA Tilik putaran 2) |
+| s10c.jpg | Magnific stok | id 378909158 | lisensi Magnific (https://www.magnific.com/profile/license/pdf/378909158) | 2026-11-19 |

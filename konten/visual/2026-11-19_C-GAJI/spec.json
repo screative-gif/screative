@@ -139,7 +139,7 @@
    "penutup": "Banyak yang nggak miskin, tapi juga belum merasa aman.",
    "sumber": "BPS, Susenas Maret 2024",
    "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s05b.jpg",
-   "gambar_tinggi": 300,
+   "gambar_tinggi": 268,
    "judul_size": 62,
    "gambar_pos": "center 55%"
   },
@@ -275,9 +275,9 @@
    ],
    "ajakan_akhir": "",
    "bar_kanan": "ig",
-   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s10b.jpg",
+   "gambar": "konten/visual/2026-11-19_C-GAJI/foto/s10c.jpg",
    "gambar_tinggi": 320,
-   "gambar_pos": "center 40%"
+   "gambar_pos": "center 35%"
   }
  ]
 }
