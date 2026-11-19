@@ -425,7 +425,7 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .ctabg{position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;z-index:0}
 .ctabg-v{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(4,41,31,.88) 0%%,rgba(4,41,31,.55) 34%%,rgba(4,41,31,.15) 60%%,rgba(4,41,31,.35) 78%%,rgba(4,30,24,.9) 100%%)}
 .cta2.latar{bottom:70px}
-.cta2 .pvh{margin-top:36px;font-weight:700;font-size:22px;letter-spacing:3px;text-transform:uppercase;color:#4EE77D}
+.cta2 .pvh{margin-top:76px;font-weight:700;font-size:22px;letter-spacing:3px;text-transform:uppercase;color:#4EE77D}
 .cta2 .pvg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
 .cta2 .pv{background:#fff;border-radius:24px;padding:22px 22px 20px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 12px 26px rgba(0,0,0,.25)}
 .cta2 .pv img{height:58px;max-width:170px;object-fit:contain;object-position:left center}
@@ -435,6 +435,19 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .cta2 .bt2 .w{background:#fff;color:#09A185;border-radius:50px;padding:6px 26px}
 .cta2 .bt2 .ar{width:64px;height:64px;border-radius:50%%;background:#FAD02C;display:flex;align-items:center;justify-content:center}
 .kt-o{font-size:28px;color:#3a3a3a;margin-top:26px}
+.btk{margin-top:auto;display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:36px;padding:22px 22px 22px 40px;border:4px solid #09A185;box-shadow:0 0 0 10px rgba(9,161,133,.3),0 20px 44px rgba(0,0,0,.35)}
+.btk .s{font-size:26px;color:#4a4a4a}
+.btk .u{font-family:HeadFont,sans-serif;font-size:58px;color:#09A185;line-height:1.05}
+.btk .go{width:104px;height:104px;border-radius:50%%;background:#09A185;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(9,161,133,.5)}
+.btk .go svg{width:48px;height:48px}
+.btb{margin-top:auto;background:#fff;border-radius:28px;padding:16px 16px 16px 26px;display:flex;align-items:center;gap:20px;box-shadow:0 0 0 8px rgba(78,231,125,.3),0 20px 44px rgba(0,0,0,.35)}
+.btb .dots{display:flex;gap:8px;flex:none}.btb .dots i{width:14px;height:14px;border-radius:50%%;background:#d9d9d9}
+.btb .dots i:first-child{background:#FF4F2F}.btb .dots i:nth-child(2){background:#FAD02C}.btb .dots i:nth-child(3){background:#4EE77D}
+.btb .url{flex:1;display:flex;align-items:center;gap:12px;background:#F1F4F3;border-radius:18px;padding:16px 22px;font-family:HeadFont,sans-serif;font-size:40px;color:#17201D}
+.btb .go{display:flex;align-items:center;gap:10px;background:#09A185;color:#fff;border-radius:18px;padding:18px 26px;font-family:HeadFont,sans-serif;font-size:36px}
+.btt{margin-top:auto;position:relative;align-self:center;background:#09A185;color:#fff;border-radius:999px;padding:26px 64px;font-family:HeadFont,sans-serif;font-size:46px;border:3px solid #4EE77D;box-shadow:0 0 0 14px rgba(9,161,133,.28),0 0 0 28px rgba(9,161,133,.14),0 20px 44px rgba(0,0,0,.35)}
+.btt b{font-weight:400;color:#FAD02C}
+.btt .tap{position:absolute;right:-10px;bottom:-56px;width:96px;height:96px;transform:rotate(-12deg);filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
 .bisi b,.bisi .pk{font-weight:700;color:#111}
@@ -582,6 +595,21 @@ def vis_html(v):
         note = f'<div class="vnote">{e(v["catatan"])}</div>' if v.get("catatan") else ""
         return f'<div class="hp"><div class="jam">{e(v.get("jam", "09.41"))}</div>{rows}</div>{note}'
     return ""
+
+def tombol_cta(gaya, arrow):
+    w = html.escape(BRAND["website"])
+    ar_w = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+    lock = '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#09A185" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>'
+    tap = '<svg class="tap" width="70" height="70" viewBox="0 0 24 24" fill="#fff" stroke="#17201D" stroke-width="1.2" stroke-linejoin="round"><path d="M9 11V4.5a1.5 1.5 0 0 1 3 0V10l.5-.1a1.5 1.5 0 0 1 2.5 1.1v.3a1.5 1.5 0 0 1 2.6 1V13a1.5 1.5 0 0 1 2.4 1.2V17a5 5 0 0 1-5 5h-2.2a5 5 0 0 1-4-2L5.5 16.4a1.6 1.6 0 0 1 2.3-2.2L9 15.3z"/></svg>'
+    if gaya == "kartu":
+        return (f'<div class="btk"><div><div class="s">Mulai hemat sekarang di</div><div class="u">{w}</div></div>'
+                f'<div class="go">{ar_w}</div></div>')
+    if gaya == "browser":
+        return (f'<div class="btb"><div class="dots"><i></i><i></i><i></i></div><div class="url">{lock}<span>{w}</span></div>'
+                f'<div class="go">Buka {ar_w}</div></div>')
+    if gaya == "tap":
+        return f'<div class="btt"><span>Kunjungi <b>{w}</b></span>{tap}</div>'
+    return f'<div class="bt2"><span class="t">Kunjungi</span><span class="w">{w}</span><span class="ar">{arrow}</span></div>'
 
 def slide_html(s, n=1):
     layout = s.get("layout", "kiri")
@@ -790,7 +818,7 @@ def slide_html(s, n=1):
         out.append(f'<div class="cta2{" latar" if s.get("gambar_latar") else ""}"><div class="jb">{green(s.get("jembatan", ""))}</div>'
                    f'<div class="mf">{md(s.get("manfaat", "Patungan langganan premium: aman, legal, lebih hemat."))}</div>'
                    f'{gb}{grid}'
-                   f'<div class="bt2"><span class="t">Kunjungi</span><span class="w">{html.escape(BRAND["website"])}</span><span class="ar">{arrow}</span></div>'
+                   + tombol_cta(s.get("tombol", "pil"), arrow)
                    + (f'<div class="ss">{html.escape(s["ajakan_akhir"])}</div>' if s.get("ajakan_akhir") else "") + '</div>')
     f = s.get("footer", "bar" if berita else BRAND.get("footer_default", "web-ig"))
     if f == "bar":
