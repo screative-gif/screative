@@ -328,7 +328,8 @@
      "logo": "konten/brand/visual/logo/provider/canva.svg",
      "harga": "Rp100.000"
     }
-   ]
+   ],
+   "tombol": "tap"
   }
  ]
 }

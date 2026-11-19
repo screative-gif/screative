@@ -446,7 +446,8 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .btb .url{flex:1;display:flex;align-items:center;gap:12px;background:#F1F4F3;border-radius:18px;padding:16px 22px;font-family:HeadFont,sans-serif;font-size:40px;color:#17201D}
 .btb .go{display:flex;align-items:center;gap:10px;background:#09A185;color:#fff;border-radius:18px;padding:18px 26px;font-family:HeadFont,sans-serif;font-size:36px}
 .btt{margin-top:auto;position:relative;align-self:center;background:#09A185;color:#fff;border-radius:999px;padding:26px 64px;font-family:HeadFont,sans-serif;font-size:46px;border:3px solid #4EE77D;box-shadow:0 0 0 14px rgba(9,161,133,.28),0 0 0 28px rgba(9,161,133,.14),0 20px 44px rgba(0,0,0,.35)}
-.btt b{font-weight:400;color:#FAD02C}
+.btt{display:flex;align-items:center;gap:18px;padding:20px 26px 20px 56px}
+.btt .w{background:#fff;color:#09A185;border-radius:50px;padding:6px 28px}
 .btt .tap{position:absolute;right:-10px;bottom:-56px;width:96px;height:96px;transform:rotate(-12deg);filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
 .bisi{position:absolute;z-index:2;left:64px;right:64px}
 .bisi p{font-size:31px;line-height:1.5;color:#151515;margin-bottom:32px;text-wrap:pretty}
@@ -608,7 +609,7 @@ def tombol_cta(gaya, arrow):
         return (f'<div class="btb"><div class="dots"><i></i><i></i><i></i></div><div class="url">{lock}<span>{w}</span></div>'
                 f'<div class="go">Buka {ar_w}</div></div>')
     if gaya == "tap":
-        return f'<div class="btt"><span>Kunjungi <b>{w}</b></span>{tap}</div>'
+        return f'<div class="btt"><span>Kunjungi</span><span class="w">{w}</span>{tap}</div>'
     return f'<div class="bt2"><span class="t">Kunjungi</span><span class="w">{w}</span><span class="ar">{arrow}</span></div>'
 
 def slide_html(s, n=1):
