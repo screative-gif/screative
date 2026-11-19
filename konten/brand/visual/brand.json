@@ -8,21 +8,24 @@
  "fonts": {
   "heading": "Poppins-Bold.ttf",
   "body": {
-   "400": "Inter-Variable.ttf",
-   "500": "Inter-Variable.ttf",
-   "600": "Inter-Variable.ttf",
-   "700": "Inter-Variable.ttf"
+   "400": "OpenSauceSans-Medium.ttf",
+   "500": "OpenSauceSans-Medium.ttf",
+   "600": "OpenSauceSans-Bold.ttf",
+   "700": "OpenSauceSans-Bold.ttf"
   }
  },
  "colors": {
-  "primary": "#08A081",
+  "primary": "#09A185",
   "primary_soft": "#2FBFA5",
-  "secondary": "#4AD1B9",
+  "secondary": "#4EE77D",
   "accent": "#DD6200",
   "accent_dark": "#D45A00",
   "highlight": "#AAFFEF",
   "text": "#111111",
-  "label": "#FF4F2F"
+  "label": "#FF4F2F",
+  "kuning": "#FAD02C",
+  "oranye_terang": "#FF4F2F",
+  "hijau_tua": "#09A185"
  },
  "backgrounds": {
   "latar1": "#F0F1F2",
@@ -37,11 +40,11 @@
  "badge_atas": "PLATFORM PATUNGAN #1",
  "badge_bawah": "seakun.id",
  "dots": [
-  "#08A081",
-  "#2FBFA5",
-  "#4AD1B9",
-  "#7AEBD6",
-  "#AAFFEF"
+  "#09A185",
+  "#2FC08A",
+  "#4EE77D",
+  "#9FF2B8",
+  "#D6FADF"
  ],
  "tagline_pendek": "Platform Patungan No.1 Indonesia",
  "bar_tengah": [],
