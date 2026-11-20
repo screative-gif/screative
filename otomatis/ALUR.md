@@ -42,7 +42,15 @@ python3 otomatis/discord.py cek
 4. Produksi (sama dengan alur manual di `CLAUDE.md`, dengan penyesuaian mode otomatis):
    - **Riset fakta oleh Naka** (WebSearch/WebFetch): kumpulkan angka & tanggal bersumber untuk "Data yang perlu dicari" di baris radar. Simpan catatan sumber di draft. Jangan mengarang angka; yang tidak terverifikasi ditandai `[CEK FAKTA]` lalu dibuang atau diganti sebelum render final.
    - **Diksa** → `konten/draft/<tanggal posting>_<slug>.md` (wajib baca `brand.md` + `formula-carousel.md`; contoh lulus: `konten/draft/2026-11-19_gaji-naik-pas-pasan.md`).
-   - **Rupa, mode otomatis**: format berita/data seperti C-GAJI (`konten/visual/2026-11-19_C-GAJI/spec.json`). Gambar per slide diambil otomatis dengan `konten/brand/visual/gambar.py` (stok Magnific, `ai` untuk cover, `wiki` untuk foto faktual), **tidak menunggu ilustrasi ChatGPT dari user**. Izin pakai kredit Magnific: maks 1 unduhan per slide + maks 2 generate `ai`. Wajib baca `visual.md`, `brand.md`, `formula-carousel.md`. Hasil: `slide-*.png` + `caption.txt` + `spec.json` + `foto/SUMBER.md`.
+   - **Rupa, mode otomatis**: format berita/data seperti C-GAJI (`konten/visual/2026-11-19_C-GAJI/spec.json`), **tidak menunggu ilustrasi ChatGPT dari user**. Wajib baca `visual.md`, `brand.md`, `formula-carousel.md`. Hasil: `slide-*.png` + `caption.txt` + `spec.json` + `foto/SUMBER.md`.
+     - **Cover (slide 1) → ElevenLabs** (keputusan user 20 Nov 2026), anggaran **± 1.000 kredit per cover**:
+       1. Catat kredit awal: `account_get_usage` (connector ElevenLabs, `character_count`).
+       2. `creative_generate_image` model `gpt-image-2.5-sunburst`, `generations_count` 2 (± 190 kredit per gambar; jangan lewat 1.000 total, jangan memanggil ulang untuk "retry" karena tiap panggilan ditagih). Prompt: foto sinematik 4:5, subjek sesuai posisi gaya cover, **tanpa teks, tanpa logo, tanpa wajah orang sungguhan**.
+       3. Tunggu `creative_get_flow_run_status`, unduh hasil ke `foto/cover-el.png`, pilih yang terbaik.
+       4. Catat kredit akhir; tulis selisihnya di `foto/SUMBER.md` (asal ElevenLabs, model, flow_id, kredit) dan di pesan Discord saat kirim hasil.
+       5. Gambar asli dari internet (mis. poster FTV/sinetron lama) **hanya boleh sebagai acuan gaya** dalam prompt, bukan di-upscale lalu diposting: poster & cuplikan berhak cipta. Foto faktual berlisensi bebas tetap lewat `gambar.py wiki` (wajib kredit).
+       6. Kalau tool ElevenLabs tidak tersedia di sesi ini atau unduhan diblokir proxy, pakai `gambar.py ai`/stok Magnific untuk cover, dan sebutkan alasannya + host yang diblokir di pesan Discord.
+     - **Slide 2 dst. → Magnific** lewat `konten/brand/visual/gambar.py` (stok, `wiki` untuk foto faktual). Izin kredit Magnific: maks 1 unduhan per slide + maks 1 generate `ai` (hanya kalau stok tidak ada).
    - **Tilik titik cek 3** pada PNG final (+ cek 2 pada foto yang diunduh). Temuan → Rupa perbaiki → Tilik lagi, maks 3 putaran.
    - Versi Canva: kalau `konten/brand/visual/canva.py` ada, `python3 konten/brand/visual/canva.py <folder>/spec.json`.
    - `echo "MENUNGGU REVIEW $(TZ=Asia/Jakarta date +%F) (Discord)" > <folder>/STATUS.txt`
