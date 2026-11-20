@@ -68,8 +68,16 @@
     }
    ],
    "pesan_topik": "1573193817593745479",
-   "status": "menunggu-pilihan",
-   "dikirim": "2026-11-20T11:30+07:00"
+   "status": "produksi",
+   "dikirim": "2026-11-20T11:30+07:00",
+   "terpilih": {
+    "no": 2,
+    "judul": "2026 sinetron TV ikut tayang di YouTub3 Shorts. Kenapa TV sekarang ngejar penonton ke HP?",
+    "cara": "suara-tim",
+    "oleh": "aadilah",
+    "kode": "C-SINETRON",
+    "folder": "konten/visual/2026-11-21_C-SINETRON"
+   }
   }
  }
 }
