@@ -38,6 +38,7 @@ Untuk produksi visual:
 | "revisi C1: …" | Teruskan feedback user apa adanya ke Rupa (atau Diksa kalau soal isi teks) → Tilik titik cek 3 → lapor ke user |
 | "render C1" (setelah user menaruh ilustrasi di `konten/visual/<folder>/ilustrasi/`) | **Tilik titik cek 2** (ilustrasi vs area kosong; kalau perlu generate ulang, berhenti dan kirim kalimat koreksi ke user) → Rupa tahap render → **Tilik titik cek 3** → (temuan? Rupa perbaiki → Tilik lagi) → lapor ke user |
 | "render reels R1" | Diksa (kalau belum ada draft) → skill motion-format (ikuti warna & karakter di `konten/brand/visual.md`) |
+| sesi terjadwal "carousel otomatis" (prompt menyebut `otomatis/ALUR.md`) / "status discord", "cek feedback discord" | Ikuti `otomatis/ALUR.md` langkah demi langkah; komunikasi ke tim lewat `python3 otomatis/discord.py`. Setup & jadwal: `otomatis/README.md` |
 | "ganti niche/keyword" | edit `riset/config.json` sendiri (tidak perlu agent) |
 | pertanyaan singkat soal hasil yang sudah ada | jawab sendiri dari file di `konten/` |
 
@@ -69,4 +70,5 @@ konten/feed/         ← feeding mingguan IG & Threads dari Kala
 konten/ide/          ← arsip (format lama)
 konten/draft/        ← draft siap posting dari Diksa
 konten/visual/       ← visual siap posting dari Rupa
+otomatis/            ← workflow carousel otomatis via Discord (discord.py, ALUR.md, state.json)
 ```

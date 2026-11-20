@@ -1,0 +1,71 @@
+# Alur otomatis carousel pilar 2 via Discord
+
+Panduan untuk **Naka di sesi cloud terjadwal**. Setiap sesi terjadwal mulai dari nol (repo baru di-clone, tanpa ingatan), jadi semua langkah dan state ada di sini dan di `otomatis/state.json`.
+
+- Produksi: **Senin & Jumat**. Posting: **Selasa & Sabtu**. Semua jam WIB (Asia/Jakarta, UTC+7).
+- Channel, user yang boleh respon, dan jadwal: `otomatis/config.json`. Respon orang lain **diabaikan** (skrip sudah menyaring).
+- Semua komunikasi ke tim lewat `python3 otomatis/discord.py …` (bot). Tidak ada orang yang membaca sesi ini, jadi **semua kabar penting (termasuk kegagalan) dikirim ke Discord**, singkat dan dalam Bahasa Indonesia santai.
+- Jangan pernah mencetak token (Discord, Apify, Magnific). Token disisipkan oleh network secret environment, bukan file.
+
+## 0. Persiapan di setiap sesi (wajib, sebelum langkah lain)
+```bash
+git fetch origin main otomatis/carousel 2>/dev/null
+if git rev-parse --verify -q origin/otomatis/carousel >/dev/null; then
+  git checkout -B otomatis/carousel origin/otomatis/carousel && git merge --no-edit origin/main
+else
+  git checkout -B otomatis/carousel origin/main
+fi
+python3 otomatis/discord.py cek
+```
+- Branch kerja **`otomatis/carousel`** (izin user: semua hasil otomatis di-commit & push ke branch ini, bukan ke `main`).
+- Kalau `cek` gagal (401/403/tunnel 403): bot belum siap. Berhenti; tidak ada yang bisa dikirim. Tulis ringkasan error di akhir sesi.
+- Di akhir setiap sesi yang mengubah file: `git add -A otomatis konten && git commit -m "…" && git push -u origin otomatis/carousel` (ulang sampai 4× kalau jaringan gagal).
+
+## A. Kirim topik (Senin & Jumat, mulai ± 06.35, target terkirim ± 07.00)
+1. `SIKLUS=$(TZ=Asia/Jakarta date +%F)`. Kalau `python3 otomatis/discord.py status --siklus $SIKLUS` sudah punya `pesan_topik`, **berhenti** (sudah terkirim).
+2. Radar topik:
+   - Kalau `konten/laporan/$SIKLUS_radar-topik.md` sudah ada, pakai itu.
+   - Kalau belum: panggil **Sera** (radar saja: `trends.py` + `APIFY_LEWAT_PROXY=1 python3 collect.py --only ig_akun` + `analyze.py`, ± $0,2) → **Lira** tulis `konten/laporan/$SIKLUS_radar-topik.md` (10 topik + skor, format tabel sama dengan radar sebelumnya). Beri tahu Lira topik yang **sudah dipakai** (lihat `terpilih` di `otomatis/state.json` dan folder `konten/visual/`) supaya tidak diulang, dan kalender pemicu 2 minggu ke depan.
+   - Kalau Sera gagal (mis. kredit Apify < $1 atau host ditolak): Lira tetap menulis radar dari Google Trends + topik radar sebelumnya yang belum dipakai + cadangan, dan menulis keyakinan "rendah". Kalau semuanya gagal, kirim ke Discord: radar gagal dibuat + alasannya, lalu berhenti.
+3. `python3 otomatis/discord.py kirim-topik konten/laporan/${SIKLUS}_radar-topik.md --siklus $SIKLUS`
+4. Commit + push.
+
+## B. Eksekusi (Senin & Jumat, 10.00)
+1. Ambil siklus hari ini. Kalau status bukan `menunggu-pilihan`, berhenti.
+2. `python3 otomatis/discord.py baca-pilihan` → JSON. Putuskan:
+   - `usulan` (balasan "usul: …") dari user yang boleh → pakai usulan terbaru, **asal lolos batasan** `konten/brand/brand.md` + aturan wajib `formula-carousel.md`. Kalau tidak lolos, pakai pilihan berikutnya dan jelaskan alasannya di Discord dengan sopan.
+   - Baca juga `komentar_lain`: pilihan dalam kata-kata ("nomor 3 aja") dihitung seperti suara.
+   - Suara terbanyak (seri → bobot lebih tinggi). Tidak ada respon → **bobot tertinggi** (`keputusan_otomatis`).
+3. Buat KODE `C-<SATU-KATA-KUNCI>` (huruf besar, mis. `C-HARBOLNAS`) dan folder `konten/visual/<tanggal posting>_<KODE>/` (tanggal posting = besoknya: Selasa/Sabtu).
+   `python3 otomatis/discord.py tandai --status produksi --terpilih '{"judul":"…","cara":"…","kode":"C-…","folder":"konten/visual/…"}'`
+   `python3 otomatis/discord.py kirim "🗳️ Topik terpilih: **…** (alasan singkat: suara tim / usulan X / bobot tertinggi). Carousel lagi dikerjakan, hasilnya aku kirim ke sini."`
+4. Produksi (sama dengan alur manual di `CLAUDE.md`, dengan penyesuaian mode otomatis):
+   - **Riset fakta oleh Naka** (WebSearch/WebFetch): kumpulkan angka & tanggal bersumber untuk "Data yang perlu dicari" di baris radar. Simpan catatan sumber di draft. Jangan mengarang angka; yang tidak terverifikasi ditandai `[CEK FAKTA]` lalu dibuang atau diganti sebelum render final.
+   - **Diksa** → `konten/draft/<tanggal posting>_<slug>.md` (wajib baca `brand.md` + `formula-carousel.md`; contoh lulus: `konten/draft/2026-11-19_gaji-naik-pas-pasan.md`).
+   - **Rupa, mode otomatis**: format berita/data seperti C-GAJI (`konten/visual/2026-11-19_C-GAJI/spec.json`). Gambar per slide diambil otomatis dengan `konten/brand/visual/gambar.py` (stok Magnific, `ai` untuk cover, `wiki` untuk foto faktual), **tidak menunggu ilustrasi ChatGPT dari user**. Izin pakai kredit Magnific: maks 1 unduhan per slide + maks 2 generate `ai`. Wajib baca `visual.md`, `brand.md`, `formula-carousel.md`. Hasil: `slide-*.png` + `caption.txt` + `spec.json` + `foto/SUMBER.md`.
+   - **Tilik titik cek 3** pada PNG final (+ cek 2 pada foto yang diunduh). Temuan → Rupa perbaiki → Tilik lagi, maks 3 putaran.
+   - Versi Canva: kalau `konten/brand/visual/canva.py` ada, `python3 konten/brand/visual/canva.py <folder>/spec.json`.
+   - `echo "MENUNGGU REVIEW $(TZ=Asia/Jakarta date +%F) (Discord)" > <folder>/STATUS.txt`
+5. `python3 otomatis/discord.py kirim-hasil <folder>` (slide, caption, PDF Canva, pesan review dengan ✅).
+   Kalau masih ada temuan Tilik yang belum beres setelah 3 putaran, tetap kirim dengan `--catatan "⚠️ Catatan QA: …"`.
+6. Commit + push. Kalau produksi gagal di tengah jalan: `tandai --status gagal`, kirim ke Discord apa yang gagal dan apa yang dibutuhkan, commit yang sudah jadi.
+
+## C. Cek feedback (Senin & Jumat 12.00/15.00/18.00/21.00, Selasa & Sabtu 08.00)
+1. Cari siklus terbaru dengan status `menunggu-review` atau `revisi` (`python3 otomatis/discord.py status`). Kalau tidak ada, **berhenti tanpa mengirim apa pun**.
+2. `python3 otomatis/discord.py baca-feedback` → JSON.
+3. Ada `feedback_baru` → **revisi dulu** (feedback menang atas ✅ yang lebih lama):
+   - `tandai --status revisi`. Kirim: "📝 Feedback diterima dari …, lagi aku kerjakan."
+   - Teruskan poin feedback **apa adanya** ke Rupa (visual) atau Diksa (isi teks/angka; lalu Rupa render ulang) → Tilik titik cek 3 → canva.py lagi.
+   - Lampiran gambar dari tim (URL `cdn.discordapp.com`) boleh diunduh ke `<folder>/foto/` kalau diminta dipakai.
+   - Kalau feedback tidak jelas atau melanggar batasan brand, tanyakan balik di Discord (`kirim "…" --balas <id pesan>`) dan jangan menebak.
+   - `kirim-hasil <folder> --revisi <N+1> --catatan "Yang diubah: …"`, lalu `tandai --feedback <id1,id2,…>`.
+4. Tidak ada feedback baru dan ada `approve` (✅) atau `approve_lewat_teks` → **APPROVED**:
+   - `echo "APPROVED $(TZ=Asia/Jakarta date +%F) (Discord: <nama>)" > <folder>/STATUS.txt`, `tandai --status approved`.
+   - Kirim: "✅ Approved oleh …. Siap diposting <Selasa/Sabtu>. Posting ke IG masih manual (jadwal otomatis ke @seakun.id = tahap 2)."
+5. Tidak ada apa-apa:
+   - Sesi 08.00 di hari posting dan status masih `menunggu-review` → kirim pengingat singkat ("Carousel hari ini belum di-approve, tolong cek ya 🙏").
+   - Selain itu, berhenti tanpa mengirim apa pun.
+6. Commit + push kalau ada perubahan.
+
+## Tahap 2 (belum aktif)
+Jadwal posting otomatis ke Instagram @seakun.id menunggu akses Meta (akun IG Business + Facebook Page + Graph API). Sampai itu siap, status APPROVED = siap diposting manual.
