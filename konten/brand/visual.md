@@ -144,3 +144,12 @@ Aturan ini lahir dari banyak putaran revisi di proyek sebelumnya. Ikuti semuanya
 1. "Naka, siapkan visual <KODE>". Rupa menulis `spec.json` + `caption.txt`, mengukur `--zones`, lalu menulis `prompt.md`. Tilik memeriksa (titik cek 1).
 2. User membuat ilustrasi di ChatGPT (satu chat, rasio 4:5). Cara cepat: `python3 konten/brand/visual/ilustrasi.py <KODE>`; helper menyalin prompt ke clipboard satu per satu dan memindahkan gambar yang diunduh ke `ilustrasi/A.png`, `B.png`, …
 3. "Naka, render <KODE>". Tilik cek ilustrasi (titik cek 2) → Rupa render → Tilik cek PNG final (titik cek 3) → baru dilaporkan ke user.
+
+## Versi editable di Canva (setelah APPROVED, uji coba mulai 2026-11-20)
+
+Setiap desain yang sudah APPROVED dibuatkan versi Canva yang bisa diedit per elemen (teks, warna, posisi).
+1. `python3 konten/brand/visual/canva.py konten/visual/<folder>/spec.json` → `konten/visual/<folder>/<KODE>_canva.pdf`
+   (HTML yang sama dengan render.py, dicetak ke PDF vektor; tampilan identik dengan PNG approved; foto diperkecil maks 1600 px).
+2. User: Canva → Beranda → **Upload** → pilih PDF itu → buka → jadi desain editable. Poppins & Open Sauce Sans tersedia di Canva; kalau ada teks yang fontnya tertukar, pilih teksnya lalu ganti font dari toolbar.
+
+Catatan (hasil uji C-GAJI): konektor Canva tidak bisa mengimpor PDF lokal jadi desain secara langsung. `create-design` dengan file referensi justru membuat desain AI baru (palet & ukuran berubah), jadi **jangan dipakai** untuk langkah ini. `import-design-from-url` hanya menerima URL publik, dan file hasil generate tidak boleh diunggah ke hosting publik hanya demi membuat URL.

@@ -34,6 +34,7 @@ Untuk produksi visual:
 | "tulis R1 / C2 / F1 / T3" (kode dari file feed) | Diksa. Kalau beberapa sekaligus, panggil paralel |
 | "siapkan visual F1 / C1", "bikin visual C2" | Diksa (kalau belum ada draft) → Rupa tahap prompt → **Tilik titik cek 1** → (temuan? Rupa perbaiki → Tilik lagi) → baru kirim prompt ke user. Beberapa kode → Rupa paralel |
 | (setelah Rupa tahap prompt selesai + Tilik LULUS) | Kirim prompt ke user. User membuat ilustrasi di ChatGPT; cara cepat: `python3 konten/brand/visual/ilustrasi.py <KODE>` (menyalin prompt ke clipboard dan memindahkan gambar yang diunduh ke `ilustrasi/`). Revisi gambar: `--hanya A,F`. |
+| "canva C1", "bikin versi Canva" (setelah APPROVED) | `python3 konten/brand/visual/canva.py konten/visual/<folder>/spec.json` → kirim `<KODE>_canva.pdf` ke user untuk di-Upload di Canva (jadi desain editable). Detail di `konten/brand/visual.md` bagian "Versi editable di Canva". |
 | "approve C1" | Catat `APPROVED <tanggal>` di `konten/visual/<folder>/STATUS.txt`. Posting dilakukan user sendiri (modul auto-posting belum dipasang di brand ini). |
 | "revisi C1: …" | Teruskan feedback user apa adanya ke Rupa (atau Diksa kalau soal isi teks) → Tilik titik cek 3 → lapor ke user |
 | "render C1" (setelah user menaruh ilustrasi di `konten/visual/<folder>/ilustrasi/`) | **Tilik titik cek 2** (ilustrasi vs area kosong; kalau perlu generate ulang, berhenti dan kirim kalimat koreksi ke user) → Rupa tahap render → **Tilik titik cek 3** → (temuan? Rupa perbaiki → Tilik lagi) → lapor ke user |
