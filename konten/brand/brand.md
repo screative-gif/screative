@@ -62,4 +62,4 @@ Akun @seakun.id sudah aktif dengan gaya visual mapan: latar kertas kusut abu ter
 | **Feed foto (single)** | 1 | Empati / quote |
 | **Threads** | 5 (1/hari kerja) | Pertanyaan dan curhat pendek; komentarnya jadi bahan ide |
 
-**Jadwal tetap:** Carousel pilar 2 (cerita di balik & fakta unik) terbit **setiap Senin & Jumat** (keputusan user, 20 Nov 2026). Jadwal pilar lain belum ditetapkan, masih akan didiskusikan dengan user.
+**Jadwal tetap:** Carousel pilar 2 (cerita di balik & fakta unik) **diproduksi Senin & Jumat** (topik dikirim ke tim pagi hari) dan **terbit Selasa & Sabtu** (keputusan user, 20 Nov 2026). Jadwal pilar lain belum ditetapkan, masih akan didiskusikan dengan user.
