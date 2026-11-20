@@ -154,7 +154,7 @@ def siklus_aktif(st, nama=None):
 
 
 # ------------------------------------------------------------------ radar topik
-def baca_radar(path):
+def baca_radar(path, maks=10):
     """Ambil 10 baris pertama tabel radar: nomor, judul (teks tebal pertama), skor, pemicu."""
     topik = []
     for baris in Path(path).read_text(encoding="utf-8").splitlines():
@@ -167,7 +167,7 @@ def baca_radar(path):
         jenis = re.search(r"·\s*([^|·]+)$", sel.strip())
         topik.append({"no": int(m.group(1)), "judul": judul, "skor": int(m.group(3)),
                       "jenis": jenis.group(1).strip() if jenis else "", "pemicu": m.group(4).strip()})
-        if len(topik) == 10:
+        if len(topik) == maks:
             break
     if not topik:
         sys.exit(f"Tidak menemukan tabel topik di {path}")
@@ -183,7 +183,8 @@ def cmd_cek(a):
 
 
 def cmd_kirim_topik(a):
-    topik = baca_radar(a.radar)
+    lewati = {int(x) for x in (a.lewati or "").split(",") if x.strip()}
+    topik = [t for t in baca_radar(a.radar, 10 + len(lewati)) if t["no"] not in lewati][:10]
     siklus = a.siklus or dt.datetime.now(WIB).strftime("%Y-%m-%d")
     hari = {0: "Senin", 4: "Jumat"}.get(dt.date.fromisoformat(siklus).weekday(), "")
     posting = {0: "Selasa", 4: "Sabtu"}.get(dt.date.fromisoformat(siklus).weekday(), "besok")
@@ -193,10 +194,10 @@ def cmd_kirim_topik(a):
         jenis = f" · _{t['jenis']}_" if t["jenis"] else ""
         baris.append(f"{ANGKA[i]} **{t['judul']}** · bobot **{t['skor']}**{jenis}")
     baris += ["",
-              "**Cara pilih (sampai 10.00 WIB):**",
+              f"**Cara pilih (sampai {a.batas} WIB):**",
               "• Klik reaksi nomor topik yang kamu mau (boleh lebih dari satu).",
               "• Atau **balas pesan ini** dengan topik lain, misalnya: `usul: Kenapa Indomaret & Alfamart selalu bersebelahan?`",
-              "Kalau sampai 10.00 belum ada respon, aku pakai topik dengan bobot tertinggi."]
+              f"Kalau sampai {a.batas} belum ada respon, aku pakai topik dengan bobot tertinggi."]
     m = kirim_pesan("\n".join(baris))
     for i in range(len(topik)):
         reaksi(m["id"], ANGKA[i])
@@ -357,6 +358,8 @@ def main():
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("cek")
     x = sub.add_parser("kirim-topik"); x.add_argument("radar"); x.add_argument("--siklus")
+    x.add_argument("--lewati", help="nomor topik radar yang sudah dipakai, dipisah koma")
+    x.add_argument("--batas", default="10.00", help="jam batas pilih (WIB), default 10.00")
     x = sub.add_parser("baca-pilihan"); x.add_argument("--siklus")
     x = sub.add_parser("kirim-hasil"); x.add_argument("folder"); x.add_argument("--siklus")
     x.add_argument("--revisi", type=int); x.add_argument("--catatan")
