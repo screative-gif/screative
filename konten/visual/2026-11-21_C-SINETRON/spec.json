@@ -5,10 +5,9 @@
       "layout": "berita",
       "kartu": "lingkar",
       "nomor": 1,
-      "foto": "konten/visual/2026-11-21_C-SINETRON/foto/cover-el.png",
+      "foto": "konten/visual/2026-11-21_C-SINETRON/foto/cover-el-layar.jpg",
       "foto_pos": "center 70%",
-      "judul": "2026 sinetron TV\nikut tayang di\n__YouTub3 Shorts.__\nKenapa TV ngejar\npenonton ke HP?",
-      "subjudul": "Dulu kita yang datang ke TV.\nSekarang tontonannya yang datang ke kita."
+      "judul": "2026 sinetron TV\nikut tayang di\n__YouTub3 Shorts.__\nKenapa TV ngejar\npenonton ke HP?"
     },
     {
       "layout": "data",
@@ -261,7 +260,7 @@
       "jembatan": "Dulu nunggu jam tayang.\nSekarang tontonan ikut\nkamu __ke mana-mana.__",
       "manfaat": "Patungan langganan premium: aman, legal, lebih hemat.",
       "gambar_latar": "konten/visual/2026-11-21_C-SINETRON/foto/s10.jpg",
-      "gambar_pos": "center 35%",
+      "gambar_pos": "0% 35%",
       "footer": "none",
       "tombol": "tap"
     }

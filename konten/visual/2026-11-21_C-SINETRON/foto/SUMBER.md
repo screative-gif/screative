@@ -25,3 +25,4 @@
 - `cover-el-1.png`, `cover-el-2.png`: percobaan pertama, keluar 16:9 1K karena node belum diatur (2 × 190 = **380 kredit**), tidak dipakai.
 - Total kredit ElevenLabs untuk cover ini: **851** (anggaran ± 1.000).
 - Gambar AI orisinal: tanpa poster/cuplikan berhak cipta, tanpa wajah orang sungguhan, tanpa logo.
+- `cover-el-layar.jpg` (dipakai di slide 1): `cover-el.png` dengan layar TV diburamkan lokal (adegan AI berwajah dihapus), tanpa kredit tambahan.

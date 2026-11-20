@@ -79,7 +79,7 @@ Berlaku untuk semua carousel format berita/data berikutnya, manual maupun otomat
 - **Cover (slide 1)**: dibuat **Naka** lewat connector ElevenLabs (`creative_generate_image`, model `gpt-image-2.5-sunburst`), lalu disimpan di `<folder>/foto/cover-el.png`. Rupa tinggal memakainya di spec slide 1.
   - Wajib set node ke **4:5, 2K, high** (`creative_update_node` → `model_parameters {"aspect_ratio":"4:5","resolution":"2K","quality":"high"}`, lalu `creative_run_flow_nodes`). Default model 16:9 1K, dan tulisan "4:5" di prompt **tidak** mengubah rasio.
   - Biaya ± 471 kredit per gambar 2K. Anggaran ± 1.000 kredit per cover → maks 2 gambar. Jangan memanggil ulang untuk "retry".
-  - Prompt: foto sinematik nyata, suasana Indonesia, subjek di bagian bawah/tengah-bawah (atas dipakai judul), tanpa teks, tanpa logo, tanpa wajah orang sungguhan, tanpa tulisan di layar.
+  - Prompt: foto sinematik nyata, suasana Indonesia, subjek di bagian bawah/tengah-bawah (atas dipakai judul), tanpa teks, tanpa logo, tanpa wajah orang sungguhan, layar TV/HP hanya cahaya buram (tanpa orang, wajah, atau tulisan). Ingat area atas ± 50% tertutup judul cover: subjek penting jangan di sana.
   - Poster/cuplikan film/sinetron berhak cipta **hanya acuan gaya** di prompt, tidak diunduh lalu di-upscale untuk diposting.
   - Catat model, flow_id, dan kredit terpakai di `foto/SUMBER.md`.
   - ElevenLabs tidak tersedia/unduhan diblokir → cadangan Magnific (`gambar.py` stok atau `ai`), sebutkan alasannya.
