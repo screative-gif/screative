@@ -131,7 +131,7 @@ Aturan ini lahir dari banyak putaran revisi di proyek sebelumnya. Ikuti semuanya
 - **Kotak FAKTA warna aksen, kotak MITOS warna primer** (otomatis).
 - **Ikon daftar kecil** (60 px) dan **bervariasi sesuai makna** (`scale`, `droplet`, `battery`, `trending-down`, `moon`, `sun`, `heart`, `book`, `shield`, …). Jangan pakai ikon yang sama untuk semua poin.
 - **Tanpa CTA geser.** Jangan pakai "Geser →", "swipe", dan sejenisnya.
-- **Sumber dan disclaimer cukup di caption**, tidak di slide, kecuali user memintanya di slide.
+- **Sumber tidak ditulis di caption, dan caption tanpa hashtag** (keputusan user 20 Nov 2026). Sumber cukup di footer slide data ("Sumber: …"), draft, dan `foto/SUMBER.md`.
 - **Emoji hati pakai 💗** (🤍 tidak terlihat di latar terang).
 - **Pakai tanda kutip melengkung** “…”. Template mengonversinya otomatis; di caption tulis manual.
 - **Satu gambar per slide.** Pemakaian ulang ilustrasi hanya untuk pasangan MITOS/FAKTA. Cover dan penutup harus beda gambar.
