@@ -68,7 +68,7 @@
     }
    ],
    "pesan_topik": "1573193817593745479",
-   "status": "produksi",
+   "status": "menunggu-review",
    "dikirim": "2026-11-20T11:30+07:00",
    "terpilih": {
     "no": 2,
@@ -77,7 +77,16 @@
     "oleh": "aadilah",
     "kode": "C-SINETRON",
     "folder": "konten/visual/2026-11-21_C-SINETRON"
-   }
+   },
+   "hasil": [
+    {
+     "revisi": 0,
+     "folder": "konten/visual/2026-11-21_C-SINETRON",
+     "pesan_awal": "1573264781979160637",
+     "pesan_review": "1573264799301767251",
+     "dikirim": "2026-11-20T16:12+07:00"
+    }
+   ]
   }
  }
 }

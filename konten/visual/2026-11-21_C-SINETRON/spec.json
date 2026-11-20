@@ -8,20 +8,18 @@
    "foto": "konten/visual/2026-11-21_C-SINETRON/foto/cover-crop.jpg",
    "foto_pos": "center bottom",
    "judul": "2026 sinetron TV\nikut tayang di\n__YouTub3 Shorts.__\nKenapa TV ngejar\npenonton ke HP?",
-   "subjudul": "Dulu kita yang datang ke TV. Sekarang tontonannya yang datang ke kita."
+   "subjudul": "Dulu kita yang datang ke TV.\nSekarang tontonannya yang datang ke kita."
   },
   {
    "layout": "data",
    "nomor": 2,
-   "judul": "Satu sinetron, sekarang\n__banyak pintunya.__",
-   "judul_size": 46,
+   "judul": "Satu sinetron,\nsekarang __banyak pintunya.__",
+   "judul_size": 56,
    "isi": [
     "Terikat Janji tayang perdana 6 April 2026\ndi **RCTI** dan **Netfl1x** sekaligus.\n18 November kemarin,\njudulnya jadi pencarian __#1__\ndi Googl3 Trends Indonesia."
    ],
    "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s02.jpg",
-   "gambar_mode": "polaroid",
-   "gambar_ket": "Layarnya makin banyak",
-   "gambar_miring": 5,
+   "gambar_mode": "atas",
    "gambar_pos": "center",
    "visual": {
     "tipe": "daftar",
@@ -32,7 +30,8 @@
     ]
    },
    "penutup": "Episode perdananya meraih share __7,6%__ (TVR 1,8).",
-   "sumber": "Tabloid Bintang (7 Apr 2026); kumparan & Googl3 Trends (18 Nov 2026)"
+   "sumber": "Tabloid Bintang (7 Apr 2026); kumparan & Googl3 Trends (18 Nov 2026)",
+   "gambar_tinggi": 300
   },
   {
    "layout": "data",
@@ -42,11 +41,11 @@
    "isi": [
     "Survei Nielsen kuartal III 2019: hampir semua responden nonton TV “kemarin”, alias sehari sebelum ditanya."
    ],
-   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s03.jpg",
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s03-ai-layar.png",
    "gambar_mode": "latar",
    "gambar_tinggi": 740,
    "teks_dalam": 330,
-   "gambar_pos": "center 75%",
+   "gambar_pos": "center 55%",
    "visual": {
     "tipe": "angka-besar",
     "pembanding": [
@@ -85,7 +84,7 @@
      },
      {
       "angka": "± 109 jam",
-      "ket": "dari episode 1 sampai tamat"
+      "ket": "total durasi 87 episode"
      }
     ]
    },
@@ -99,7 +98,7 @@
    "isi": [
     "Kuartal III 2022: yang nonton TV “kemarin” turun ke **81,1%**, yang akses internet naik ke **76,7%**."
    ],
-   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s05.jpg",
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s05-layar.jpg",
    "gambar_mode": "sisi",
    "gambar_tinggi": 400,
    "gambar_pos": "center 60%",
@@ -163,7 +162,7 @@
    ],
    "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s07.jpg",
    "gambar_mode": "polaroid",
-   "gambar_ket": "Tontonan pindah ke genggaman",
+   "gambar_ket": "Tontonan di genggaman",
    "gambar_miring": -4,
    "gambar_pos": "45% center",
    "visual": {
@@ -184,7 +183,7 @@
      {
       "app": "YouTub3 Shorts · global",
       "teks": "Rata-rata view per hari",
-      "rp": "200 M"
+      "rp": "200 miliar"
      }
     ]
    },
@@ -269,7 +268,8 @@
     "Vid1o",
     "YouTub3",
     "Disn3y+",
-    "Sp0tify"
+    "Sp0tify",
+    "ChatGP7"
    ],
    "tombol": "tap"
   }

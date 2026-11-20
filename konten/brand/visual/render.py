@@ -715,7 +715,7 @@ def slide_html(s, n=1):
                 ring = ('<svg viewBox="0 0 200 100" preserveAspectRatio="none"><path d="M 18,62 C 4,22 120,2 186,30 C 214,48 170,92 96,94 C 30,96 0,70 22,36 C 40,14 110,8 150,14" '
                         'fill="none" stroke="#FF4F2F" stroke-width="5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>') if svg else ""
                 return re.sub(r"__([\s\S]+?)__", lambda m: f'<span class="g">{m.group(1)}{ring}</span>', h)
-            sub = html.escape(s.get("subjudul", ""))
+            sub = html.escape(s.get("subjudul", "")).replace("\n", "<br>")
             if gaya == "lingkar":
                 out.append('<div class="tshade"></div>')
                 body = "".join(f'<div class="l">{hk(l, True)}</div>' for l in lines)
