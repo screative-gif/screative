@@ -5,20 +5,21 @@
       "layout": "berita",
       "kartu": "lingkar",
       "nomor": 1,
-      "foto": "konten/visual/2026-11-21_C-SINETRON/foto/cover-el-layar.jpg",
-      "foto_pos": "center 70%",
-      "judul": "2026 sinetron TV\nikut tayang di\n__YouTub3 Shorts.__\nKenapa TV ngejar\npenonton ke HP?"
+      "foto": "konten/visual/2026-11-21_C-SINETRON/foto/tim/cover-blur.jpg",
+      "foto_pos": "center top",
+      "judul": "2026 sinetron TV\nikut tayang di\n__YouTub3 Shorts.__\nKenapa TV ngejar\npenonton ke HP?",
+      "kredit": "*gambar cuplikan film: Cinta Fitri Season 3"
     },
     {
       "layout": "data",
       "nomor": 2,
-      "judul": "Satu sinetron,\nsekarang __banyak pintunya.__",
-      "judul_size": 56,
+      "judul": "Satu sinetron, sekarang\n__banyak pintunya.__",
+      "judul_size": 42,
       "isi": [
-        "Terikat Janji tayang perdana 6 April 2026\ndi **RCTI** dan **Netfl1x** sekaligus.\n18 November kemarin,\njudulnya jadi pencarian __#1__\ndi Googl3 Trends Indonesia."
+        "Terikat Janji tayang perdana\n6 April 2026 di **RCTI** dan\n**Netfl1x** sekaligus.\n18 November kemarin, judulnya\njadi pencarian __#1__\ndi Googl3 Trends Indonesia."
       ],
-      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s02.jpg",
-      "gambar_mode": "atas",
+      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/tim/1.png",
+      "gambar_mode": "sisi",
       "gambar_pos": "center",
       "visual": {
         "tipe": "daftar",
@@ -30,7 +31,9 @@
       },
       "penutup": "Episode perdananya meraih share __7,6%__ (TVR 1,8).",
       "sumber": "Tabloid Bintang (7 Apr 2026); kumparan & Googl3 Trends (18 Nov 2026)",
-      "gambar_tinggi": 300
+      "kredit": "*gambar cuplikan film: Heart Series",
+      "gambar_tinggi": 490,
+      "kredit_pos": "top:12px;bottom:auto"
     },
     {
       "layout": "data",
@@ -40,11 +43,10 @@
       "isi": [
         "Survei Nielsen kuartal III 2019: hampir semua responden nonton TV “kemarin”, alias sehari sebelum ditanya."
       ],
-      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s03-ai-layar.png",
-      "gambar_mode": "latar",
-      "gambar_tinggi": 740,
-      "teks_dalam": 330,
-      "gambar_pos": "center 55%",
+      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/tim/2-crop.jpg",
+      "gambar_mode": "atas",
+      "gambar_tinggi": 410,
+      "gambar_pos": "center 5%",
       "visual": {
         "tipe": "angka-besar",
         "pembanding": [
@@ -59,7 +61,8 @@
           }
         ]
       },
-      "sumber": "Nielsen Q3 2019 (via detikInet, 8 Des 2022)"
+      "sumber": "Nielsen Q3 2019 (via detikInet, 8 Des 2022)",
+      "kredit": "*gambar cuplikan film: Inikah Rasanya"
     },
     {
       "layout": "data",
@@ -69,9 +72,6 @@
       "isi": [
         "Kalau mau ikut ceritanya, kamu yang harus duduk di depan TV tepat waktu. Kelewatan satu episode? Nanya tetangga atau tunggu tayang ulang."
       ],
-      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s04.jpg",
-      "gambar_mode": "lingkaran",
-      "gambar_pos": "center 45%",
       "visual": {
         "tipe": "kartu-angka",
         "angka": "± 75 menit",
@@ -87,7 +87,10 @@
           }
         ]
       },
-      "sumber": "Tabloid Bintang, 7 Apr 2026 (via Wikipedia)"
+      "sumber": "Tabloid Bintang, 7 Apr 2026 (via Wikipedia)",
+      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s04.jpg",
+      "gambar_mode": "lingkaran",
+      "gambar_pos": "center 45%"
     },
     {
       "layout": "data",
@@ -97,10 +100,10 @@
       "isi": [
         "Kuartal III 2022: yang nonton TV “kemarin” turun ke **81,1%**, yang akses internet naik ke **76,7%**."
       ],
-      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s05-layar.jpg",
+      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/tim/4.png",
       "gambar_mode": "sisi",
       "gambar_tinggi": 400,
-      "gambar_pos": "center 60%",
+      "gambar_pos": "center 0%",
       "visual": {
         "tipe": "versus",
         "kiri": {
@@ -117,7 +120,9 @@
         "catatan": "Jarak penonton TV dan pengguna internet tinggal tipis"
       },
       "penutup": "TV didominasi usia __40 tahun ke atas__, internet usia di bawah 30.",
-      "sumber": "Nielsen Q3 2019 & Q3 2022 (via detikInet, 8 Des 2022)"
+      "sumber": "Nielsen Q3 2019 & Q3 2022 (via detikInet, 8 Des 2022)",
+      "kredit": "*gambar cuplikan film: Cinta Terbagi 5",
+      "kredit_pos": "top:12px;bottom:auto"
     },
     {
       "layout": "data",
@@ -127,10 +132,10 @@
       "isi": [
         "Belanja iklan Indonesia 2025 **diproyeksikan**\nmencapai __US$6,445 miliar__. Iklan biasanya\nmengikuti ke mana mata penonton pergi."
       ],
-      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s06.jpg",
+      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/tim/5.png",
       "gambar_mode": "atas",
-      "gambar_tinggi": 280,
-      "gambar_pos": "center 88%",
+      "gambar_tinggi": 340,
+      "gambar_pos": "center top",
       "visual": {
         "tipe": "batang",
         "judul": "Proyeksi porsi belanja iklan 2025",
@@ -149,7 +154,8 @@
           }
         ]
       },
-      "sumber": "GroupM, proyeksi 2025 (via Campaign Indonesia, 12 Des 2024)"
+      "sumber": "GroupM, proyeksi 2025 (via Campaign Indonesia, 12 Des 2024)",
+      "kredit": "*gambar cuplikan film: Si Cecep"
     },
     {
       "layout": "data",
@@ -159,11 +165,10 @@
       "isi": [
         "**229,43 juta** orang Indonesia online di 2025, dan hampir semuanya lewat ponsel."
       ],
-      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s07.jpg",
+      "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/tim/6-crop.jpg",
       "gambar_mode": "polaroid",
-      "gambar_ket": "Tontonan di genggaman",
       "gambar_miring": -4,
-      "gambar_pos": "45% center",
+      "gambar_pos": "center",
       "visual": {
         "tipe": "notif",
         "jam": "Di HP kamu",
@@ -187,7 +192,8 @@
         ]
       },
       "penutup": "29% milenial & Gen Z bahkan nonton mikro drama __hampir tiap hari.__",
-      "sumber": "APJII 2025; IDN Research Institute 2026; Tubefilter (18 Jun 2025)"
+      "sumber": "APJII 2025; IDN Research Institute 2026; Tubefilter (18 Jun 2025)",
+      "kredit": "*gambar cuplikan film: Buku Harian Nayla"
     },
     {
       "layout": "data",

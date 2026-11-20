@@ -26,3 +26,20 @@
 - Total kredit ElevenLabs untuk cover ini: **851** (anggaran ± 1.000).
 - Gambar AI orisinal: tanpa poster/cuplikan berhak cipta, tanpa wajah orang sungguhan, tanpa logo.
 - `cover-el-layar.jpg` (dipakai di slide 1): `cover-el.png` dengan layar TV diburamkan lokal (adegan AI berwajah dihapus), tanpa kredit tambahan.
+
+## Revisi 2 (20 Nov 2026): gambar dari tim
+Sumber: **gambar dari tim (aadilah, Google Drive, 20 Nov 2026)**, feedback Discord "gambarnya pake ini dong biar lebih relate". Disediakan tim sendiri (brand.md: cuplikan film/foto disediakan user), tanpa unduhan/generate baru, tanpa kredit Magnific/ElevenLabs. Tiap slide memakai keterangan kecil "*gambar cuplikan film: <judul>" (field `kredit` di spec).
+
+| File | Isi | Dipakai di | Olahan lokal |
+|---|---|---|---|
+| `tim/cover.png` → `tim/cover-blur.jpg` | poster Cinta Fitri Season 3 | slide 1 (cover, gaya `lingkar`) | area langit + judul/credit poster (y < ± 655 px) diburamkan supaya judul slide terbaca; wajah tidak disentuh |
+| `tim/1.png` | poster Heart Series | slide 2 (`sisi`) | tidak ada (poster utuh) |
+| `tim/2.png` → `tim/2-crop.jpg` | poster Inikah Rasanya | slide 3 (`latar`) | potong 8 px atas (sisa elemen biru di pojok) |
+| `tim/3.png` | poster Kepompong | slide 4 (`polaroid`) | tidak ada (dipotong lewat `gambar_pos`) |
+| `tim/4.png` | poster Cinta Terbagi 5 | slide 5 (`sisi`) | tidak ada |
+| `tim/5.png` | key art Si Cecep (750×500, resolusi rendah) | slide 6 (`atas`) | tidak ada; tampil ± 1,25× sehingga agak lembut |
+| `tim/6.png` → `tim/6-crop.jpg` | cuplikan Buku Harian Nayla (screenshot HP) | slide 7 (`polaroid`) | potong ikon X/share/bookmark di atas serta judul + logo "now" di bawah |
+
+Gambar slide 1–7 sebelumnya (cover-el-layar.jpg, s02.jpg, s03-ai-layar.png, s04.jpg, s05-layar.jpg, s06.jpg, s07.jpg) tidak dipakai lagi tapi file tetap disimpan. Slide 8–10 tidak berubah.
+
+**Koreksi QA Tilik (20 Nov 2026):** `tim/3.png` (poster Kepompong) **tidak dipakai** — poster buatan AI dengan wajah dan nama aktor sungguhan (melanggar brand.md). Slide 4 kembali memakai `s04.jpg` (Magnific, seperti sebelum revisi 2), tanpa keterangan cuplikan. Menunggu versi poster asli dari tim.

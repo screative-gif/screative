@@ -92,7 +92,17 @@
      "pesan_awal": "1573356885971837091",
      "pesan_review": "1573356896918970499",
      "dikirim": "2026-11-20T22:18+07:00"
+    },
+    {
+     "revisi": 2,
+     "folder": "konten/visual/2026-11-21_C-SINETRON",
+     "pesan_awal": "1573366704887562270",
+     "pesan_review": "1573366722579407007",
+     "dikirim": "2026-11-20T22:57+07:00"
     }
+   ],
+   "feedback_diproses": [
+    "1573362729715105824"
    ]
   }
  }
