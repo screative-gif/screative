@@ -1,61 +1,91 @@
 {
- "nama": "Seakun",
- "handle": "seakun.id",
- "website": "seakun.id",
- "tagline_html": "Platform Patungan<br><b>No. 1 di Indonesia</b>",
- "logo_header": "konten/brand/visual/logo/seakun-logo.png",
- "logo_footer": "konten/brand/visual/logo/seakun-logo-putih.png",
- "fonts": {
-  "heading": "Poppins-Bold.ttf",
-  "body": {
-   "400": "OpenSauceSans-Medium.ttf",
-   "500": "OpenSauceSans-Medium.ttf",
-   "600": "OpenSauceSans-Bold.ttf",
-   "700": "OpenSauceSans-Bold.ttf"
+  "nama": "Seakun",
+  "handle": "seakun.id",
+  "website": "seakun.id",
+  "tagline_html": "Platform Patungan<br><b>No. 1 di Indonesia</b>",
+  "logo_header": "konten/brand/visual/logo/seakun-logo.png",
+  "logo_footer": "konten/brand/visual/logo/seakun-logo-putih.png",
+  "fonts": {
+    "heading": "Poppins-Bold.ttf",
+    "body": {
+      "400": "OpenSauceSans-Medium.ttf",
+      "500": "OpenSauceSans-Medium.ttf",
+      "600": "OpenSauceSans-Bold.ttf",
+      "700": "OpenSauceSans-Bold.ttf"
+    }
+  },
+  "colors": {
+    "primary": "#09A185",
+    "primary_soft": "#2FBFA5",
+    "secondary": "#4EE77D",
+    "accent": "#DD6200",
+    "accent_dark": "#D45A00",
+    "highlight": "#AAFFEF",
+    "text": "#111111",
+    "label": "#FF4F2F",
+    "kuning": "#FAD02C",
+    "oranye_terang": "#FF4F2F",
+    "hijau_tua": "#09A185"
+  },
+  "backgrounds": {
+    "latar1": "#F0F1F2",
+    "latar2": "#F3F5F5",
+    "latar3": "#EAF6F2"
+  },
+  "_catatan": "Semua path relatif ke root proyek. Font ditaruh di konten/brand/visual/font/. 'primary' = judul, label footer, kata tebal. 'accent' = kata kunci di judul & ikon. 'accent_dark' = versi gelap aksen untuk teks (harus terbaca di latar). 'highlight' = stabilo. 'primary_soft' = lingkaran ikon daftar. Latar selalu lembut/pucat.",
+  "header_style": "seakun",
+  "footer_default": "kunjungi",
+  "texture": "konten/brand/visual/latar/kertas.jpg",
+  "logo_ikon": "konten/brand/visual/logo/seakun-ikon.png",
+  "badge_atas": "PLATFORM PATUNGAN #1",
+  "badge_bawah": "seakun.id",
+  "dots": [
+    "#09A185",
+    "#2FC08A",
+    "#4EE77D",
+    "#9FF2B8",
+    "#D6FADF"
+  ],
+  "tagline_pendek": "Platform Patungan No.1 Indonesia",
+  "bar_tengah": [],
+  "kartu_default": "lingkar",
+  "fonts_extra": {
+    "SeakunPoster": "Anton-Regular.ttf",
+    "SeakunSerif": "InstrumentSerif-Italic.ttf"
+  },
+  "kartu_cover_pilihan": [
+    "lingkar",
+    "editorial",
+    "poster"
+  ],
+  "cta_harga": {
+    "_catatan": "Kotak harga slide CTA (layout cta-seakun) SELALU sama dengan C-GAJI (keputusan user 20 Nov 2026). Ubah harga di sini saja, jangan per carousel.",
+    "judul_harga": "Harga patungan di Seakun",
+    "layanan": [
+      {
+        "logo": "konten/brand/visual/logo/provider/netflix.svg",
+        "harga": "Rp47.500"
+      },
+      {
+        "logo": "konten/brand/visual/logo/provider/spotify.svg",
+        "harga": "Rp31.633"
+      },
+      {
+        "logo": "konten/brand/visual/logo/provider/youtube.svg",
+        "harga": "Rp39.900"
+      },
+      {
+        "logo": "konten/brand/visual/logo/provider/disneyplus.svg",
+        "harga": "Rp30.567"
+      },
+      {
+        "logo": "konten/brand/visual/logo/provider/chatgpt.svg",
+        "harga": "Rp80.000"
+      },
+      {
+        "logo": "konten/brand/visual/logo/provider/canva.svg",
+        "harga": "Rp100.000"
+      }
+    ]
   }
- },
- "colors": {
-  "primary": "#09A185",
-  "primary_soft": "#2FBFA5",
-  "secondary": "#4EE77D",
-  "accent": "#DD6200",
-  "accent_dark": "#D45A00",
-  "highlight": "#AAFFEF",
-  "text": "#111111",
-  "label": "#FF4F2F",
-  "kuning": "#FAD02C",
-  "oranye_terang": "#FF4F2F",
-  "hijau_tua": "#09A185"
- },
- "backgrounds": {
-  "latar1": "#F0F1F2",
-  "latar2": "#F3F5F5",
-  "latar3": "#EAF6F2"
- },
- "_catatan": "Semua path relatif ke root proyek. Font ditaruh di konten/brand/visual/font/. 'primary' = judul, label footer, kata tebal. 'accent' = kata kunci di judul & ikon. 'accent_dark' = versi gelap aksen untuk teks (harus terbaca di latar). 'highlight' = stabilo. 'primary_soft' = lingkaran ikon daftar. Latar selalu lembut/pucat.",
- "header_style": "seakun",
- "footer_default": "kunjungi",
- "texture": "konten/brand/visual/latar/kertas.jpg",
- "logo_ikon": "konten/brand/visual/logo/seakun-ikon.png",
- "badge_atas": "PLATFORM PATUNGAN #1",
- "badge_bawah": "seakun.id",
- "dots": [
-  "#09A185",
-  "#2FC08A",
-  "#4EE77D",
-  "#9FF2B8",
-  "#D6FADF"
- ],
- "tagline_pendek": "Platform Patungan No.1 Indonesia",
- "bar_tengah": [],
- "kartu_default": "lingkar",
- "fonts_extra": {
-  "SeakunPoster": "Anton-Regular.ttf",
-  "SeakunSerif": "InstrumentSerif-Italic.ttf"
- },
- "kartu_cover_pilihan": [
-  "lingkar",
-  "editorial",
-  "poster"
- ]
 }

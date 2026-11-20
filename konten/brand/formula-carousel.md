@@ -107,7 +107,7 @@ Campur: **± 2 dari 3 topik umum**, 1 dari 3 topik yang dekat dengan produk (leb
 
 ### Slide CTA Seakun (usulan)
 1. **Kalimat jembatan** dari topik (wajib, 1–2 baris, tebal).
-2. Visual: tampilan web/aplikasi Seakun (tangkapan layar asli dari user) atau grid layanan yang bisa dipatungin (ikon generik, nama disamarkan).
+2. Visual: **kotak harga baku desain C-GAJI** (otomatis dari `brand.json` `cta_harga`, aturan tetap 20 Nov 2026, lihat `visual.md`). Jangan ganti dengan grid nama disamarkan.
 3. 2 baris manfaat: "Patungan langganan premium: aman, legal, lebih hemat."
 4. Label: **"Kunjungi seakun.id"** + "Simpan & bagikan".
 

@@ -19,3 +19,9 @@
 | s03.jpg | (lihat atas) | id 307593193 | | 2026-11-20 | tidak dipakai lagi — QA Tilik: ruang tamu bergaya Barat 70-an (radiator, wallpaper bunga); diganti s03-ai.png |
 | s05-layar.jpg | olahan lokal dari s05.jpg (id 424255290) | layar TV putih diisi potongan buram layar TV dari cover.jpg (id 401555884), skrip foto/layar-s05.py | lisensi kedua foto stok di atas | 2026-11-20 | QA Tilik: layar putih seperti placeholder |
 | s03-ai-layar.png | olahan lokal dari s03-ai.png (task 493758df) | layar CRT polos diisi potongan buram layar TV dari cover.jpg (id 401555884) + vignette & garis scan; badge bezel & label panel kontrol palsu diburamkan; skrip foto/layar-s03.py | hasil AI milik user + lisensi Magnific 401555884 | 2026-11-20 | QA Tilik putaran 2; dipakai di slide 3 |
+
+## Cover revisi 1 (20 Nov 2026): ElevenLabs
+- `cover-el.png` (dipakai di slide 1): ElevenLabs, model `gpt-image-2.5-sunburst`, flow `8OT128ivA44tVAhRMKZB`, 4:5 2K high, 1664×2080. **471 kredit.**
+- `cover-el-1.png`, `cover-el-2.png`: percobaan pertama, keluar 16:9 1K karena node belum diatur (2 × 190 = **380 kredit**), tidak dipakai.
+- Total kredit ElevenLabs untuk cover ini: **851** (anggaran ± 1.000).
+- Gambar AI orisinal: tanpa poster/cuplikan berhak cipta, tanpa wajah orang sungguhan, tanpa logo.

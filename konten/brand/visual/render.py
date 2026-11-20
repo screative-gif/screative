@@ -44,7 +44,7 @@ Slide:
                 | "kartu-angka" (angka, ket, mini:[{angka,ket}]) — kartu hijau angka besar + kartu mini}
         gambar_mode: "atas" (default) | "polaroid" (foto kecil miring di pojok kanan atas, gambar_ket, gambar_miring)
                 | "lingkaran" (badge bulat di pojok) | "sisi" (panel di samping judul) | "strip" (gambar: [3 path] berjejer)
-  cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), layanan [nama disamarkan], ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
+  cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), kotak harga OTOMATIS dari brand.json cta_harga (desain C-GAJI; layanan di spec diabaikan kecuali harga_khusus:true), ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
   --- khusus foto-atas ---
   foto        path foto/cuplikan (diisi user); foto_height px (default 790); foto_pos object-position (default "center top")
   judul       teks di kotak oranye, mis. "1. Pablo Escobar"
@@ -806,10 +806,16 @@ def slide_html(s, n=1):
     if layout == "cta-seakun":
         if s.get("gambar_latar"):
             out.append(f'<img class="ctabg" src="{uri(s["gambar_latar"])}" style="object-position:{s.get("gambar_pos", "center")}"><div class="ctabg-v"></div>')
-        lay = s.get("layanan", [])
+        # Aturan tetap (user, 20 Nov 2026): kotak harga = brand.json "cta_harga" (desain C-GAJI).
+        # "layanan"/"judul_harga" di spec diabaikan, kecuali spec menulis "harga_khusus": true.
+        baku = BRAND.get("cta_harga")
+        if baku and not s.get("harga_khusus"):
+            lay, judul_h = baku["layanan"], baku.get("judul_harga", "Harga patungan per bulan")
+        else:
+            lay, judul_h = s.get("layanan", []), s.get("judul_harga", "Harga patungan per bulan")
         if lay and isinstance(lay[0], dict):
             gr = "".join(f'<div class="pv"><img src="{uri(x["logo"])}"><b>{html.escape(x["harga"])}</b><span>/bulan</span></div>' for x in lay)
-            grid = (f'<div class="pvh">{html.escape(s.get("judul_harga", "Harga patungan per bulan"))}</div>' if s.get("judul_harga", True) else "") + f'<div class="pvg">{gr}</div>'
+            grid = (f'<div class="pvh">{html.escape(judul_h)}</div>' if judul_h else "") + f'<div class="pvg">{gr}</div>'
         else:
             warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
             grid = '<div class="gr">' + "".join(f'<div><i style="background:{warna[k % len(warna)]}">{html.escape(n[0])}</i>{html.escape(n)}</div>'

@@ -31,11 +31,13 @@ def kecilkan(path, tmp):
     if not os.path.exists(p) or not p.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
         return path
     im = Image.open(p)
-    if max(im.size) <= MAX_PX:
+    alfa = im.mode in ("RGBA", "LA", "P") and "A" in im.convert("RGBA").getbands() and im.convert("RGBA").getextrema()[3][0] < 255
+    # Foto PNG tanpa transparansi (mis. hasil AI) dijadikan JPG supaya PDF muat di Discord (< 9 MB).
+    if max(im.size) <= MAX_PX and (alfa or not p.lower().endswith(".png")):
         return path
     im.thumbnail((MAX_PX, MAX_PX))
     out = os.path.join(tmp, f"{len(os.listdir(tmp))}_{os.path.basename(p)}")
-    if out.lower().endswith(".png"):
+    if alfa:
         im.save(out, optimize=True)
     else:
         out = os.path.splitext(out)[0] + ".jpg"
