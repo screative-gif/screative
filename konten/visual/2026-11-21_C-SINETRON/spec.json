@@ -1,0 +1,277 @@
+{
+ "output_dir": "konten/visual/2026-11-21_C-SINETRON",
+ "slides": [
+  {
+   "layout": "berita",
+   "kartu": "lingkar",
+   "nomor": 1,
+   "foto": "konten/visual/2026-11-21_C-SINETRON/foto/cover-crop.jpg",
+   "foto_pos": "center bottom",
+   "judul": "2026 sinetron TV\nikut tayang di\n__YouTub3 Shorts.__\nKenapa TV ngejar\npenonton ke HP?",
+   "subjudul": "Dulu kita yang datang ke TV. Sekarang tontonannya yang datang ke kita."
+  },
+  {
+   "layout": "data",
+   "nomor": 2,
+   "judul": "Satu sinetron, sekarang\n__banyak pintunya.__",
+   "judul_size": 46,
+   "isi": [
+    "Terikat Janji tayang perdana 6 April 2026\ndi **RCTI** dan **Netfl1x** sekaligus.\n18 November kemarin,\njudulnya jadi pencarian __#1__\ndi Googl3 Trends Indonesia."
+   ],
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s02.jpg",
+   "gambar_mode": "polaroid",
+   "gambar_ket": "Layarnya makin banyak",
+   "gambar_miring": 5,
+   "gambar_pos": "center",
+   "visual": {
+    "tipe": "daftar",
+    "items": [
+     "**Jam tayang TV** di RCTI",
+     "**Streaming** lewat aplikasi RCTI & Netfl1x",
+     "**Cuplikan pendek** di YouTub3 Shorts"
+    ]
+   },
+   "penutup": "Episode perdananya meraih share __7,6%__ (TVR 1,8).",
+   "sumber": "Tabloid Bintang (7 Apr 2026); kumparan & Googl3 Trends (18 Nov 2026)"
+  },
+  {
+   "layout": "data",
+   "nomor": 3,
+   "judul": "Dan jangan salah,\nTV dulu __rajanya.__",
+   "judul_size": 64,
+   "isi": [
+    "Survei Nielsen kuartal III 2019: hampir semua responden nonton TV “kemarin”, alias sehari sebelum ditanya."
+   ],
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s03.jpg",
+   "gambar_mode": "latar",
+   "gambar_tinggi": 740,
+   "teks_dalam": 330,
+   "gambar_pos": "center 75%",
+   "visual": {
+    "tipe": "angka-besar",
+    "pembanding": [
+     {
+      "angka": "93,7%",
+      "ket": "nonton TV “kemarin” (2019)",
+      "warna": "oranye"
+     },
+     {
+      "angka": "55,1%",
+      "ket": "akses internet di hari yang sama"
+     }
+    ]
+   },
+   "sumber": "Nielsen Q3 2019 (via detikInet, 8 Des 2022)"
+  },
+  {
+   "layout": "data",
+   "nomor": 4,
+   "judul": "Dulu nonton sinetron\nitu __janjian.__",
+   "judul_size": 50,
+   "isi": [
+    "Kalau mau ikut ceritanya, kamu yang harus duduk di depan TV tepat waktu. Kelewatan satu episode? Nanya tetangga atau tunggu tayang ulang."
+   ],
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s04.jpg",
+   "gambar_mode": "lingkaran",
+   "gambar_pos": "center 45%",
+   "visual": {
+    "tipe": "kartu-angka",
+    "angka": "± 75 menit",
+    "ket": "durasi satu episode Terikat Janji",
+    "mini": [
+     {
+      "angka": "87 episode",
+      "ket": "total penayangan"
+     },
+     {
+      "angka": "± 109 jam",
+      "ket": "dari episode 1 sampai tamat"
+     }
+    ]
+   },
+   "sumber": "Tabloid Bintang, 7 Apr 2026 (via Wikipedia)"
+  },
+  {
+   "layout": "data",
+   "nomor": 5,
+   "judul": "Tiga tahun kemudian,\njaraknya __tinggal tipis.__",
+   "judul_size": 46,
+   "isi": [
+    "Kuartal III 2022: yang nonton TV “kemarin” turun ke **81,1%**, yang akses internet naik ke **76,7%**."
+   ],
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s05.jpg",
+   "gambar_mode": "sisi",
+   "gambar_tinggi": 400,
+   "gambar_pos": "center 60%",
+   "visual": {
+    "tipe": "versus",
+    "kiri": {
+     "label": "2019",
+     "angka": "38,6 poin",
+     "ket": "selisih TV vs internet"
+    },
+    "kanan": {
+     "label": "2022",
+     "angka": "4,4 poin",
+     "ket": "selisih TV vs internet"
+    },
+    "badge": "−34,2",
+    "catatan": "Jarak penonton TV dan pengguna internet tinggal tipis"
+   },
+   "penutup": "TV didominasi usia __40 tahun ke atas__, internet usia di bawah 30.",
+   "sumber": "Nielsen Q3 2019 & Q3 2022 (via detikInet, 8 Des 2022)"
+  },
+  {
+   "layout": "data",
+   "nomor": 6,
+   "judul": "Penonton bergeser,\n__iklannya ikut.__",
+   "judul_size": 62,
+   "isi": [
+    "Belanja iklan Indonesia 2025 **diproyeksikan**\nmencapai __US$6,445 miliar__. Iklan biasanya\nmengikuti ke mana mata penonton pergi."
+   ],
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s06.jpg",
+   "gambar_mode": "atas",
+   "gambar_tinggi": 280,
+   "gambar_pos": "center 88%",
+   "visual": {
+    "tipe": "batang",
+    "judul": "Proyeksi porsi belanja iklan 2025",
+    "items": [
+     {
+      "label": "Digital",
+      "nilai": 75,
+      "teks": "75%",
+      "sorot": "oranye"
+     },
+     {
+      "label": "TV",
+      "nilai": 16,
+      "teks": "16%",
+      "sorot": "hijau"
+     }
+    ]
+   },
+   "sumber": "GroupM, proyeksi 2025 (via Campaign Indonesia, 12 Des 2024)"
+  },
+  {
+   "layout": "data",
+   "nomor": 7,
+   "judul": "Jawabannya simpel:\n__penontonnya di sana.__",
+   "judul_size": 46,
+   "isi": [
+    "**229,43 juta** orang Indonesia online di 2025, dan hampir semuanya lewat ponsel."
+   ],
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s07.jpg",
+   "gambar_mode": "polaroid",
+   "gambar_ket": "Tontonan pindah ke genggaman",
+   "gambar_miring": -4,
+   "gambar_pos": "45% center",
+   "visual": {
+    "tipe": "notif",
+    "jam": "Di HP kamu",
+    "items": [
+     {
+      "app": "APJII · 2025",
+      "teks": "Pengguna internet online lewat ponsel",
+      "rp": "95%"
+     },
+     {
+      "app": "IDN Research · 2026",
+      "teks": "Milenial & Gen Z rutin nonton mikro drama",
+      "rp": "61%",
+      "sorot": true
+     },
+     {
+      "app": "YouTub3 Shorts · global",
+      "teks": "Rata-rata view per hari",
+      "rp": "200 M"
+     }
+    ]
+   },
+   "penutup": "29% milenial & Gen Z bahkan nonton mikro drama __hampir tiap hari.__",
+   "sumber": "APJII 2025; IDN Research Institute 2026; Tubefilter (18 Jun 2025)"
+  },
+  {
+   "layout": "data",
+   "nomor": 8,
+   "judul": "Sinetronnya sama,\n__jalannya__ yang nambah.",
+   "judul_size": 44,
+   "isi": [
+    "Bukan berarti TV ditinggal. Cara nontonnya saja yang makin banyak pilihan."
+   ],
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s08.jpg",
+   "gambar_mode": "sisi",
+   "gambar_tinggi": 400,
+   "gambar_pos": "center",
+   "visual": {
+    "tipe": "tabel",
+    "kolom": [
+     "",
+     "Dulu",
+     "Sekarang"
+    ],
+    "sorot_kolom": 2,
+    "baris": [
+     [
+      "Nonton TV “kemarin”",
+      "93,7% (2019)",
+      "81,1% (2022)"
+     ],
+     [
+      "Akses internet",
+      "55,1% (2019)",
+      "76,7% (2022)"
+     ],
+     [
+      "Cara nonton",
+      "Jam tayang TV",
+      "TV + streaming + Shorts"
+     ],
+     [
+      "Akses lewat HP",
+      "–",
+      "95% (2025)"
+     ]
+    ]
+   },
+   "sumber": "Nielsen via detikInet; kumparan; APJII via Bisnis.com"
+  },
+  {
+   "layout": "data",
+   "nomor": 9,
+   "judul": "TV dan HP\n__bukan musuhan.__",
+   "judul_size": 64,
+   "isi": [
+    "Menurut Nielsen, TV dan internet justru **saling melengkapi**. Yang berubah bukan ceritanya, tapi tempat kita menontonnya."
+   ],
+   "gambar": "konten/visual/2026-11-21_C-SINETRON/foto/s09.jpg",
+   "gambar_mode": "latar",
+   "gambar_tinggi": 740,
+   "teks_dalam": 360,
+   "gambar_pos": "center",
+   "visual": {
+    "tipe": "kutipan",
+    "teks": "“Kamu terakhir nonton sinetron lewat TV,\nstreaming, atau potongannya di HP?”",
+    "oleh": "Ceritain di komentar, siapa tahu kita satu tontonan."
+   },
+   "sumber": "Nielsen, Hellen Katherina (via detikInet, 8 Des 2022)"
+  },
+  {
+   "layout": "cta-seakun",
+   "nomor": 10,
+   "jembatan": "Dulu nunggu jam tayang.\nSekarang tontonan ikut\nkamu __ke mana-mana.__",
+   "manfaat": "Patungan langganan premium: aman, legal, lebih hemat.",
+   "gambar_latar": "konten/visual/2026-11-21_C-SINETRON/foto/s10.jpg",
+   "gambar_pos": "center 35%",
+   "footer": "none",
+   "layanan": [
+    "Netfl1x",
+    "Vid1o",
+    "YouTub3",
+    "Disn3y+",
+    "Sp0tify"
+   ],
+   "tombol": "tap"
+  }
+ ]
+}
