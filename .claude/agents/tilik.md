@@ -93,7 +93,7 @@ Naka menyebut folder `konten/visual/<folder>/`. Periksa:
    - **Konsistensi antarslide:** gaya, ukuran judul, posisi teks, dan tokoh sama sepanjang carousel.
    - **Isi:**
      - tidak ada "geser"/"swipe"
-     - sumber dan disclaimer ada di `caption.txt`, bukan di slide
+     - sumber tidak di badan slide; `caption.txt` **tanpa sumber dan tanpa hashtag** (keputusan user 20 Nov 2026)
      - kutip melengkung “…”
      - bagian [CEK FAKTA] dicatat
 3. Bandingkan teks slide dengan draft Diksa (`konten/draft/…`). Perubahan makna, sumber yang hilang, atau arahan ke ahli (untuk topik sensitif di `brand.md`) yang hilang = temuan.

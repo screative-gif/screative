@@ -19,15 +19,15 @@ Kanal posting Seakun: **Instagram (@seakun.id) & Threads**. Ikuti suara brand da
 - **IG Reels:** naskah 15–45 detik.
   - Tabel per shot: detik · visual/adegan · teks layar · ucapan/VO.
   - Hook 0–3 detik wajib bikin berhenti scroll.
-  - Sertakan caption, 5–8 hashtag, dan saran audio.
+  - Sertakan caption (tanpa hashtag) dan saran audio.
   - Format ini siap dipakai skill `motion-format` kalau Naka mau merender videonya.
 - **IG Carousel:** slide 1 berisi hook/cover (≤ 8 kata), slide 2–7 berisi 1 poin per slide (≤ 20 kata), slide terakhir CTA (simpan/share/tag pasangan).
   - **Jangan** menulis ajakan "geser"/"swipe" di slide mana pun.
-  - Sumber dan disclaimer ditaruh di caption, bukan di slide.
+  - Sumber dicatat di draft (per slide), **bukan di caption** dan bukan di badan slide.
   - Emoji hati pakai 💗.
   - Pakai tanda kutip melengkung “…”.
   - CTA slide terakhir cukup 1 ajakan, misalnya "Bagikan ke teman yang … 💗". Jangan tumpuk "Simpan carousel ini. Bagikan …".
-  - Tambahkan caption, 5–8 hashtag, dan sumber. Format ini siap dipakai skill `carousel-generator`.
+  - Tambahkan caption **tanpa sumber dan tanpa hashtag** (keputusan user 20 Nov 2026); daftar sumber ditulis di bagian terpisah draft, bukan di caption. Format ini siap dipakai skill `carousel-generator`.
 - **IG Feed foto:** deskripsi visual, teks di gambar (≤ 12 kata), caption 2–4 kalimat, CTA ringan.
 - **Caption IG:** maksimal 1 baris CTA produk, dan hanya untuk konten pilar 4. Jangan pakai blok promosi panjang "Kenalan sama Seakun…" (lihat pelajaran akun di file brand).
 - Topik sensitif (lihat "Batasan wajib" di `brand.md`, misalnya kesehatan, keuangan, atau hukum) wajib punya sumber tepercaya dan arahan kapan harus ke ahli. Jangan memberi diagnosis, dosis, atau janji hasil.

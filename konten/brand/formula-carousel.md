@@ -71,6 +71,7 @@ Busur yang hampir selalu sama:
 ## 5. Caption
 - **Satu pertanyaan pendek** yang gampang dijawab dari pengalaman sendiri ("Padahal dulu yg pakai LINE banyak kan ya?", "Sekarang ada gak stasiun TV sebagus NET dulu?").
 - Komentar ramai karena orang bercerita ("Redmi 1s android pertamaku", "Kangen drakor NET").
+- **Caption tanpa sumber dan tanpa hashtag** (keputusan user 20 Nov 2026): cukup pertanyaan pembuka + 1–2 paragraf singkat. Sumber tetap dicatat di draft dan `foto/SUMBER.md`, plus baris "Sumber: …" di footer slide data.
 
 ## Adaptasi untuk Seakun (pilar 2: "Cerita di balik & fakta unik")
 
