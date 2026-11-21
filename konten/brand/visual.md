@@ -85,6 +85,16 @@ Berlaku untuk semua carousel format berita/data berikutnya, manual maupun otomat
   - ElevenLabs tidak tersedia/unduhan diblokir → cadangan Magnific (`gambar.py` stok atau `ai`), sebutkan alasannya.
 - **Slide 2 dst.**: Magnific lewat `konten/brand/visual/gambar.py` (stok; `wiki` untuk foto faktual berlisensi, wajib kredit). Maks 1 unduhan per slide + maks 1 `ai` per carousel kalau stok tidak ada.
 
+**3. Gambar harus menunjukkan hal yang dibahas slide itu (keputusan user 21 Nov 2026).**
+- Kalau judul/isi slide menyebut nama spesifik (judul sinetron/film, acara, produk, tokoh, tempat, peristiwa), gambarnya harus **benda/judul yang sama**, bukan contoh lain yang mirip. Contoh salah: slide 2 C-SINETRON membahas sinetron *Terikat Janji*, tapi memakai poster *Heart Series*. Yang benar: poster/cuplikan *Terikat Janji*.
+- Gambar dari tim (Drive/Discord) juga dicocokkan per slide dengan isinya, bukan dipasang berurutan nomor file. Kalau tidak ada gambar yang cocok untuk slide dengan nama spesifik: pakai gambar generik yang tidak menyiratkan judul lain (mis. foto suasana), lalu minta gambar yang tepat ke tim lewat Naka. Gambar bertema umum (mis. poster nostalgia) hanya untuk slide yang memang membahas hal umum (mis. "dulu TV rajanya").
+- Kredit "*gambar cuplikan film: <judul>" wajib sama dengan hal yang dibahas di slide; kalau kreditnya menyebut judul yang tidak ada di teks slide, itu tanda gambarnya salah tempat.
+
+**4. Paragraf isi penuh selebar kolom (keputusan user 21 Nov 2026).**
+- Kalau gambar tidak berada di samping teks (`gambar_mode` `atas`, `latar`, `strip`, atau tanpa gambar), paragraf `isi` **tidak dipenggal manual dengan `\n`**; biarkan teks mengalir selebar kolom. Penggalan manual hanya untuk kolom sempit (`sisi`, `polaroid`, `lingkaran`).
+- Saat mengganti `gambar_mode` dari mode sempit ke mode lebar, hapus semua `\n` di `isi`. Contoh salah: slide 6 C-SINETRON (mode `atas`, paragraf dipenggal 3 baris pendek, separuh kanan kosong).
+- `check.py` menandai ini sebagai ✗ `KOSONG: paragraf isi dipenggal manual`.
+
 ## Layout wajib (setiap post)
 1. **Kiri atas:** logo brand
 2. **Kanan atas:** tagline brand (dari brand.json). Jangan diganti tanpa izin user.
