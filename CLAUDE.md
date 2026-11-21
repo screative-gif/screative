@@ -35,7 +35,8 @@ Untuk produksi visual:
 | "tulis R1 / C2 / F1 / T3" (kode dari file feed) | Diksa. Kalau beberapa sekaligus, panggil paralel |
 | "siapkan visual F1 / C1", "bikin visual C2" | Diksa (kalau belum ada draft) → Rupa tahap prompt → **Tilik titik cek 1** → (temuan? Rupa perbaiki → Tilik lagi) → baru kirim prompt ke user. Beberapa kode → Rupa paralel |
 | (setelah Rupa tahap prompt selesai + Tilik LULUS) | Kirim prompt ke user. User membuat ilustrasi di ChatGPT; cara cepat: `python3 konten/brand/visual/ilustrasi.py <KODE>` (menyalin prompt ke clipboard dan memindahkan gambar yang diunduh ke `ilustrasi/`). Revisi gambar: `--hanya A,F`. |
-| "approve C1" | Catat `APPROVED <tanggal>` di `konten/visual/<folder>/STATUS.txt`. Posting dilakukan user sendiri (modul auto-posting belum dipasang di brand ini). |
+| "canva C1", "bikin versi Canva" (setelah APPROVED) | `python3 konten/brand/visual/canva.py konten/visual/<folder>/spec.json` → kirim `<KODE>_canva.pdf` ke user untuk di-Upload di Canva (jadi desain editable). Detail di `konten/brand/visual.md` bagian "Versi editable di Canva". |
+| "approve C1" | Catat `APPROVED <tanggal>` di `konten/visual/<folder>/STATUS.txt`. Carousel pilar 2 dari alur Discord tayang otomatis Selasa & Sabtu lewat `otomatis/instagram.py` (lihat `otomatis/ALUR.md` bagian D); konten lain diposting user sendiri. |
 | "revisi C1: …" | Teruskan feedback user apa adanya ke Rupa (atau Diksa kalau soal isi teks) → Tilik titik cek 3 → lapor ke user |
 | "render C1" (setelah user menaruh ilustrasi di `konten/visual/<folder>/ilustrasi/`) | **Tilik titik cek 2** (ilustrasi vs area kosong; kalau perlu generate ulang, berhenti dan kirim kalimat koreksi ke user) → Rupa tahap render → **Tilik titik cek 3** → (temuan? Rupa perbaiki → Tilik lagi) → lapor ke user |
 | "cari gambar untuk C1", "gambarnya kurang relate", gambar slide tidak sesuai nama yang dibahas | **Sidik** (Google Images via Apify, ± $0,015 per slide) → Rupa pasang gambar + `kredit` → Tilik titik cek 3 |
@@ -52,6 +53,7 @@ Aturan koordinasi:
 - **Cek hasil** sebelum lapor ke user: buka file yang dihasilkan, pastikan ada dan masuk akal. Jangan mengarang hasil agent.
 - **Keputusan kreatif tetap di user.** Setelah Kala memberi ide, tanyakan ide mana yang mau ditulis, kecuali user sudah bilang "kerjain semua".
 - Jangan pernah menampilkan isi `riset/.env` (token Apify).
+- **Semua update yang sudah fix langsung masuk `main`** (aturan user 21 Nov 2026), tanpa menunggu konfirmasi: commit di branch kerja, buka PR ke `main`, lalu merge sendiri. Sesi terjadwal dan akun Claude lain yang konek ke repo membaca dari `main`, jadi aturan, agent, dan skrip baru baru berlaku setelah masuk `main`.
 
 ## Konteks brand & niche
 

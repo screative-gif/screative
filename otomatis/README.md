@@ -8,7 +8,7 @@ Carousel pilar 2 (fakta / cerita unik / tren): produksi Senin & Jumat, posting S
 | sampai 10.00 | Tim klik reaksi nomor topik, atau balas `usul: <topik lain>`. Hanya user di `config.json` yang dihitung |
 | 10.00 | Topik dipilih (usulan > suara terbanyak > bobot tertinggi), carousel + caption + PDF Canva dikerjakan, lalu dikirim ke Discord |
 | 12.00, 15.00, 18.00, 21.00 + besok 08.00 | Bot cek respon: balasan = feedback → direvisi & dikirim ulang; klik ✅ = APPROVED |
-| Selasa & Sabtu | Posting ke IG (masih manual; jadwal otomatis = tahap 2) |
+| Selasa & Sabtu 17.00 | Carousel yang APPROVED tayang otomatis di IG @seakun.id (`otomatis/instagram.py`), link dikirim ke Discord. Belum approved = tidak tayang |
 
 Langkah detail untuk sesi terjadwal: `otomatis/ALUR.md`. Hasil otomatis di-commit ke branch `otomatis/carousel`.
 
@@ -26,6 +26,7 @@ Token **jangan** ditempel di chat atau di-commit. Simpan sebagai **Network secre
 | `discord.com` | `Authorization` | `Bot <token bot Discord>` |
 | `api.apify.com` | `Authorization` | `Bearer <token Apify>` |
 | `api.magnific.com` | `x-magnific-api-key` | `<API key Magnific>` |
+| `graph.facebook.com` | `Authorization` | `Bearer <System-user token Meta>` |
 
 Host yang perlu diizinkan: `discord.com`, `cdn.discordapp.com`, `media.discordapp.net`, `api.apify.com`, `trends.google.com`, `api.magnific.com` (+ host CDN unduhan Magnific), `commons.wikimedia.org`, `upload.wikimedia.org`.
 
@@ -33,6 +34,8 @@ Alternatif kalau Network secret tidak tersedia: environment variable `DISCORD_BO
 
 ### 3. Tes
 `python3 otomatis/discord.py cek` → harus menampilkan nama bot dan nama channel, tanpa mengirim pesan.
+`python3 otomatis/instagram.py cek` → menampilkan akun @seakun.id + kuota posting, tanpa memposting.
+`python3 otomatis/instagram.py posting --uji` → menyiapkan carousel di Meta tanpa menayangkannya.
 
 ## Perintah manual
 ```bash

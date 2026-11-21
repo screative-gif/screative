@@ -14,10 +14,17 @@
   },
   "jadwal": {
     "produksi": "Senin & Jumat",
-    "posting": "Selasa & Sabtu",
+    "posting": "Selasa & Sabtu (otomatis ke IG lewat otomatis/instagram.py)",
     "kirim_topik": "07.00 WIB",
     "batas_pilih": "10.00 WIB",
-    "cek_feedback": "12.00, 15.00, 18.00, 21.00 WIB di hari produksi + 08.00 WIB di hari posting"
+    "cek_feedback": "12.00, 15.00, 18.00, 21.00 WIB di hari produksi + 08.00 WIB di hari posting",
+    "jam_posting": "17.00 WIB",
+    "cek_posting_ulang": "21.00 WIB di hari posting"
   },
-  "branch_kerja": "otomatis/carousel"
+  "branch_kerja": "otomatis/carousel",
+  "instagram": {
+    "akun": "@seakun.id",
+    "ig_user_id": "17841459636109092",
+    "host_api": "graph.facebook.com"
+  }
 }

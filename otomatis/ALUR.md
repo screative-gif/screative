@@ -20,6 +20,7 @@ python3 otomatis/discord.py cek
 - Branch kerja **`otomatis/carousel`** (izin user: semua hasil otomatis di-commit & push ke branch ini, bukan ke `main`).
 - Kalau `cek` gagal (401/403/tunnel 403): bot belum siap. Berhenti; tidak ada yang bisa dikirim. Tulis ringkasan error di akhir sesi.
 - Di akhir setiap sesi yang mengubah file: `git add -A otomatis konten && git commit -m "…" && git push -u origin otomatis/carousel` (ulang sampai 4× kalau jaringan gagal).
+- Lalu **langsung bawa ke `main`** (aturan user 21 Nov 2026: semua update harus ada di main tanpa menunggu konfirmasi): `git fetch origin main && git merge --no-edit origin/main && git push origin HEAD:main` (lalu push lagi ke `otomatis/carousel`). Kalau push ke main ditolak karena main berubah, ulangi fetch + merge + push. Kalau ada konflik yang tidak jelas, jangan paksa: tulis ke Discord bahwa hasil ada di branch `otomatis/carousel` dan belum masuk main.
 
 ## A. Kirim topik (Senin & Jumat, mulai ± 06.35, target terkirim ± 07.00)
 1. `SIKLUS=$(TZ=Asia/Jakarta date +%F)`. Kalau `python3 otomatis/discord.py status --siklus $SIKLUS` sudah punya `pesan_topik`, **berhenti** (sudah terkirim).
@@ -70,11 +71,23 @@ python3 otomatis/discord.py cek
    - `kirim-hasil <folder> --revisi <N+1> --catatan "Yang diubah: …"`, lalu `tandai --feedback <id1,id2,…>`.
 4. Tidak ada feedback baru dan ada `approve` (✅) atau `approve_lewat_teks` → **APPROVED**:
    - `echo "APPROVED $(TZ=Asia/Jakarta date +%F) (Discord: <nama>)" > <folder>/STATUS.txt`, `tandai --status approved`.
-   - Kirim: "✅ Approved oleh …. Siap diposting <Selasa/Sabtu>. Posting ke IG masih manual (jadwal otomatis ke @seakun.id = tahap 2)."
+   - Kirim: "✅ Approved oleh …. Tayang otomatis di IG @seakun.id <Selasa/Sabtu> jam <jam_posting di config.json> WIB."
 5. Tidak ada apa-apa:
    - Sesi 08.00 di hari posting dan status masih `menunggu-review` → kirim pengingat singkat ("Carousel hari ini belum di-approve, tolong cek ya 🙏").
    - Selain itu, berhenti tanpa mengirim apa pun.
 6. Commit + push kalau ada perubahan.
 
-## Tahap 2 (belum aktif)
-Jadwal posting otomatis ke Instagram @seakun.id menunggu akses Meta (akun IG Business + Facebook Page + Graph API). Sampai itu siap, status APPROVED = siap diposting manual.
+## D. Posting ke Instagram (Selasa & Sabtu, jam `jadwal.jam_posting` di `config.json`)
+1. Persiapan langkah 0, lalu `python3 otomatis/instagram.py cek` (token + kuota). Gagal (401/190/tunnel 403) → kirim ke Discord "⚠️ Posting IG gagal: token/akses Meta bermasalah (…)", berhenti.
+2. Cari siklus terbaru (`python3 otomatis/discord.py status`):
+   - status `tayang` → berhenti tanpa mengirim apa pun.
+   - status `approved` → lanjut.
+   - status lain (`menunggu-review`, `revisi`, …) → **jangan posting**. Kirim: "⏸️ Carousel hari ini belum di-approve, jadi belum tayang. Klik ✅ di pesan review; aku cek lagi jam 21.00." Berhenti.
+3. `python3 otomatis/instagram.py posting` → memakai slide dari pesan hasil Discord terakhir + `caption.txt`, menulis `posting` di state dan `TAYANG …` di `STATUS.txt`.
+4. Kirim: "📣 Sudah tayang di IG @seakun.id: <permalink>".
+5. Commit + push.
+- Sesi 21.00 di hari posting: ulangi langkah 2–5 (untuk carousel yang baru di-approve sore). Kalau masih belum approved, berhenti diam-diam.
+- **Jangan** memakai `--paksa` kecuali user memintanya langsung. Posting tidak bisa dibatalkan dari sini; kalau salah tayang, minta tim menghapus manual di app Instagram.
+
+## Akses Meta (sudah aktif sejak 21 Nov 2026)
+App Meta "Seakun Autopost" (use case Instagram API, Unified login) di business portfolio Seakun; System-user token (tidak kedaluwarsa) dengan izin `instagram_basic` + `instagram_content_publish`, disimpan sebagai network secret untuk `graph.facebook.com`. IG user ID: lihat `config.json` → `instagram.ig_user_id`. Kuota API: 100 posting / 24 jam.
