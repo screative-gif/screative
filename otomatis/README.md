@@ -1,16 +1,17 @@
 # Workflow carousel otomatis (Discord)
 
-Carousel pilar 2 (fakta / cerita unik / tren): produksi Senin & Jumat, posting Selasa & Sabtu.
+Carousel pilar 2 (fakta / cerita unik / tren): **tayang setiap hari 17.00 WIB** (keputusan user 21 Nov 2026).
 
 | Kapan (WIB) | Yang terjadi |
 |---|---|
-| Senin & Jumat ± 07.00 | Bot kirim 10 topik + bobot ke Discord, dengan reaksi 1️⃣–🔟 |
-| sampai 10.00 | Tim klik reaksi nomor topik, atau balas `usul: <topik lain>`. Hanya user di `config.json` yang dihitung |
-| 10.00 | Topik dipilih (usulan > suara terbanyak > bobot tertinggi), carousel + caption + PDF Canva dikerjakan, lalu dikirim ke Discord |
-| 12.00, 15.00, 18.00, 21.00 + besok 08.00 | Bot cek respon: balasan = feedback → direvisi & dikirim ulang; klik ✅ = APPROVED |
-| Selasa & Sabtu 17.00 | Carousel yang APPROVED tayang otomatis di IG @seakun.id (`otomatis/instagram.py`), link dikirim ke Discord. Belum approved = tidak tayang |
+| Senin & Jumat ± 07.00 | Bot kirim 10 topik radar + bobot ke Discord, dengan reaksi 1️⃣–🔟 |
+| Senin & Jumat sampai 10.00 | Tim klik reaksi topik (boleh banyak) atau balas `usul: <topik lain>`. Hanya user di `config.json` yang dihitung |
+| Senin & Jumat 10.00 | 4 topik teratas (radar Senin) → Senin–Kamis, 3 topik teratas (radar Jumat) → Jumat–Minggu. Suara kurang → bobot tertinggi. Jadwal dikirim ke Discord; balas `ganti <hari>: …` untuk tukar |
+| Setiap hari 10.00 | Carousel hari itu dikerjakan (slide + caption + PDF Canva), dikirim ke Discord |
+| Setiap hari 12.00, 15.00, 16.50 | Bot cek respon: balasan = feedback → direvisi & dikirim ulang (termasuk `ganti topik: …`); ✅ = approved |
+| Setiap hari 17.00 | Tayang otomatis di IG @seakun.id (`otomatis/instagram.py`), **walau belum ada ✅**. Link dikirim ke Discord |
 
-Langkah detail untuk sesi terjadwal: `otomatis/ALUR.md`. Hasil otomatis di-commit ke branch `otomatis/carousel`.
+Langkah detail untuk sesi terjadwal: `otomatis/ALUR.md`. Hasil otomatis di-commit ke branch `otomatis/carousel` lalu langsung di-merge ke `main`.
 
 ## Setup sekali saja
 
