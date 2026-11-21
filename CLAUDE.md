@@ -7,7 +7,7 @@ Gaya Naka: santai, to the point, Bahasa Indonesia. Sebelum mulai, bilang rencana
 
 ## Tim
 
-Panggil anggota tim lewat Agent tool dengan `subagent_type` = nama mereka dalam huruf kecil (`sera`, `lira`, `kala`, `diksa`, `rupa`, `tilik`).
+Panggil anggota tim lewat Agent tool dengan `subagent_type` = nama mereka dalam huruf kecil (`sera`, `lira`, `kala`, `diksa`, `rupa`, `tilik`, `sidik`).
 
 | Nama | Peran | Panggil kalau… | Hasil |
 |---|---|---|---|
@@ -16,6 +16,7 @@ Panggil anggota tim lewat Agent tool dengan `subagent_type` = nama mereka dalam 
 | **Kala** | Perencana Feeding Konten | butuh feeding mingguan IG (Reels/Carousel/Feed) + Threads dari laporan tren | `konten/feed/<tanggal>_feed-minggu.md` |
 | **Diksa** | Penulis Konten | ide sudah dipilih dan perlu ditulis jadi draft siap posting | `konten/draft/<tanggal>_<judul>.md` |
 | **Rupa** | Desainer Visual | draft Feed foto / Carousel / cover Reels perlu jadi gambar siap posting sesuai brand | `konten/visual/<tanggal>_<kode>/` (PNG 1080×1350 + caption.txt) |
+| **Sidik** | Pemburu Gambar | slide carousel menyebut nama spesifik (sinetron/film, produk, tokoh, tempat, peristiwa) dan butuh gambar asli dari Google Images, atau Tilik menemukan gambar yang tidak sesuai slide | `konten/visual/<folder>/foto/<slug>.jpg` + `foto/SUMBER.md` + teks kredit |
 | **Tilik** | Pemeriksa Visual (QA) | setiap Rupa selesai satu tahap (prompt / ilustrasi masuk / render final), sebelum hasil dilaporkan ke user | laporan vonis LULUS / PERLU PERBAIKAN (tidak mengubah file) |
 
 Untuk produksi visual:
@@ -38,6 +39,7 @@ Untuk produksi visual:
 | "approve C1" | Catat `APPROVED <tanggal>` di `konten/visual/<folder>/STATUS.txt`. Carousel pilar 2 dari alur Discord tayang otomatis Selasa & Sabtu lewat `otomatis/instagram.py` (lihat `otomatis/ALUR.md` bagian D); konten lain diposting user sendiri. |
 | "revisi C1: …" | Teruskan feedback user apa adanya ke Rupa (atau Diksa kalau soal isi teks) → Tilik titik cek 3 → lapor ke user |
 | "render C1" (setelah user menaruh ilustrasi di `konten/visual/<folder>/ilustrasi/`) | **Tilik titik cek 2** (ilustrasi vs area kosong; kalau perlu generate ulang, berhenti dan kirim kalimat koreksi ke user) → Rupa tahap render → **Tilik titik cek 3** → (temuan? Rupa perbaiki → Tilik lagi) → lapor ke user |
+| "cari gambar untuk C1", "gambarnya kurang relate", gambar slide tidak sesuai nama yang dibahas | **Sidik** (Google Images via Apify, ± $0,015 per slide) → Rupa pasang gambar + `kredit` → Tilik titik cek 3 |
 | "render reels R1" | Diksa (kalau belum ada draft) → skill motion-format (ikuti warna & karakter di `konten/brand/visual.md`) |
 | sesi terjadwal "carousel otomatis" (prompt menyebut `otomatis/ALUR.md`) / "status discord", "cek feedback discord" | Ikuti `otomatis/ALUR.md` langkah demi langkah; komunikasi ke tim lewat `python3 otomatis/discord.py`. Setup & jadwal: `otomatis/README.md` |
 | "ganti niche/keyword" | edit `riset/config.json` sendiri (tidak perlu agent) |
@@ -64,7 +66,7 @@ Brand: **Seakun (seakun.id)**, Platform patungan langganan layanan premium (stre
 
 ```
 CLAUDE.md            ← Naka (file ini)
-.claude/agents/      ← Sera, Lira, Kala, Diksa, Rupa, Tilik
+.claude/agents/      ← Sera, Lira, Kala, Diksa, Rupa, Tilik, Sidik
 riset/               ← script & data (collect.py, analyze.py, config.json, .env)
 konten/brand/        ← profil brand Seakun (brand.md) + panduan visual (visual.md, visual/: brand.json, logo, font, referensi, render.py, check.py, ilustrasi.py)
 konten/laporan/      ← laporan tren dari Lira

@@ -51,7 +51,8 @@ python3 otomatis/discord.py cek
        4. Total maks ± 1.000 kredit; jangan memanggil ulang untuk "retry". Catat model, flow_id, kredit (`price.credits` tiap generation) di `foto/SUMBER.md` dan di pesan Discord saat kirim hasil.
        5. Kalau tool ElevenLabs tidak tersedia di sesi ini atau unduhan diblokir proxy, pakai `gambar.py ai`/stok Magnific untuk cover, dan sebutkan alasannya + host yang diblokir di pesan Discord.
      - **Slide CTA**: kotak harga otomatis dari `brand.json` `cta_harga` (desain C-GAJI). Jangan menulis `layanan` di spec.
-     - **Slide 2 dst. → Magnific** lewat `konten/brand/visual/gambar.py` (stok, `wiki` untuk foto faktual). Izin kredit Magnific: maks 1 unduhan per slide + maks 1 generate `ai` (hanya kalau stok tidak ada).
+     - **Slide 2 dst. yang menyebut nama spesifik → Sidik** (Google Images via Apify, ± $0,1 per carousel; panggil sebelum Rupa, teruskan path draft + folder + daftar slide). Rupa memasang `foto/<slug>.jpg` + `kredit` dari laporan Sidik. Gambar dari tim di Discord/Drive tetap didahulukan kalau ada.
+     - **Slide 2 dst. bertema umum → Magnific** lewat `konten/brand/visual/gambar.py` (stok, `wiki` untuk foto faktual). Izin kredit Magnific: maks 1 unduhan per slide + maks 1 generate `ai` (hanya kalau stok tidak ada).
    - **Tilik titik cek 3** pada PNG final (+ cek 2 pada foto yang diunduh). Temuan → Rupa perbaiki → Tilik lagi, maks 3 putaran.
    - Versi Canva: kalau `konten/brand/visual/canva.py` ada, `python3 konten/brand/visual/canva.py <folder>/spec.json`.
    - `echo "MENUNGGU REVIEW $(TZ=Asia/Jakarta date +%F) (Discord)" > <folder>/STATUS.txt`

@@ -7,6 +7,12 @@ Pakai (dari root proyek):
   python3 konten/brand/visual/gambar.py unduh <id> <folder> [--nama x]                           # unduh foto stok Magnific berdasarkan id
   python3 konten/brand/visual/gambar.py ai    "<prompt bahasa Inggris>" <folder> [--nama x] [--rasio social_post_4_5|widescreen_16_9|square_1_1]
   python3 konten/brand/visual/gambar.py wiki  "<kata kunci>" <folder> [--nama x] [--pilih 1]    # foto Wikimedia Commons + catat kredit
+  python3 konten/brand/visual/gambar.py google "<kata kunci>" <folder> [--nama x] [--kandidat 4] # Google Images (Apify): unduh N kandidat ke <folder>/kandidat/
+  python3 konten/brand/visual/gambar.py pakai <folder>/kandidat/<nama>-<n>.jpg [--nama x]      # pakai kandidat terpilih: salin ke <folder>/ + catat SUMBER.md
+
+Google Images (dipakai agent Sidik): cari lewat actor Apify johnvc/google-images-api (± $0,005 per kata kunci,
+50 hasil minimum), unduh lewat s_actors/bulk-image-downloader (± $0,002 per gambar, file lewat api.apify.com karena
+situs asal gambar diblokir proxy). Gambar dari Google tetap milik pemiliknya: wajib kredit di slide (field `kredit`).
 
 Setiap unduhan dicatat di <folder>/SUMBER.md (asal, id/URL, lisensi/kredit) — wajib untuk audit lisensi.
 Key Magnific dikirim otomatis oleh proxy environment (header x-magnific-api-key); jangan menaruh key di file.
@@ -97,15 +103,80 @@ def wiki(term, folder, nama, pilih):
     return path
 
 
+APIFY = "https://api.apify.com/v2"
+APIFY_HDR = {"Authorization": "Bearer " + os.environ.get("APIFY_TOKEN", "proxy-injected")}
+LEWATI = ("lookaside.", "fbsbx.com", "tiktok.com/api", "x-raw-image")  # sering gagal / bukan file gambar
+
+
+def apify(actor, data, biaya_maks):
+    url = f"{APIFY}/acts/{actor}/run-sync-get-dataset-items?timeout=240&maxTotalChargeUsd={biaya_maks}"
+    return json.loads(req(url, data, APIFY_HDR, timeout=300))
+
+
+def google(term, folder, nama, n):
+    hasil = apify("johnvc~google-images-api", {"queries": [term], "maxResultsPerQuery": 50, "gl": "id", "hl": "id"}, 0.03)
+    hasil = [h for h in hasil if h.get("imageUrl") and not any(x in h["imageUrl"] for x in LEWATI)]
+    if not hasil:
+        sys.exit("Tidak ada hasil Google Images.")
+    print(f"{len(hasil)} hasil. 10 teratas:")
+    for i, h in enumerate(hasil[:10], 1):
+        print(f"  {i}. {h.get('domain')} | {(h.get('title') or '')[:90]}")
+    pilih = hasil[:n]
+    dl = apify("s_actors~bulk-image-downloader", {"imageUrls": [h["imageUrl"] for h in pilih], "downloadImages": True,
+               "saveFiles": True, "createZip": False, "thumbnailFallback": True, "minWidth": 300,
+               "convertTo": "jpeg"}, round(0.002 * n + 0.01, 3))
+    per_url = {d.get("imageUrl"): d for d in dl}
+    kdir = os.path.join(folder, "kandidat")
+    os.makedirs(kdir, exist_ok=True)
+    meta = {}
+    for i, h in enumerate(pilih, 1):
+        d = per_url.get(h["imageUrl"], {})
+        if not d.get("downloaded"):
+            print(f"  ✗ kandidat {i} ({h.get('domain')}): {d.get('error', 'gagal diunduh')}")
+            continue
+        ext = {"JPEG": ".jpg", "PNG": ".png", "WEBP": ".webp", "GIF": ".gif"}.get(d.get("format"), ".jpg")
+        path = os.path.join(kdir, f"{nama}-{i}{ext}")
+        open(path, "wb").write(req(d["fileUrl"], timeout=120))
+        meta[os.path.basename(path)] = {"kata_kunci": term, "judul": h.get("title"), "situs": h.get("source"), "domain": h.get("domain"),
+                                        "halaman": h.get("link"), "gambar": h["imageUrl"], "ukuran": f"{d.get('fileWidth')}x{d.get('fileHeight')}",
+                                        "thumbnail": d.get("downloadedFrom") == "thumbnail"}
+        tag = " (thumbnail, resolusi kecil)" if meta[os.path.basename(path)]["thumbnail"] else ""
+        print(f"  ✓ {path}  {d.get('fileWidth')}x{d.get('fileHeight')}  {h.get('domain')}{tag}")
+    mp = os.path.join(kdir, "kandidat.json")
+    lama = json.load(open(mp)) if os.path.exists(mp) else {}
+    lama.update(meta)
+    json.dump(lama, open(mp, "w"), ensure_ascii=False, indent=1)
+    print("Lihat kandidatnya, lalu: gambar.py pakai <file kandidat> [--nama x]")
+
+
+def pakai(path, nama):
+    kdir = os.path.dirname(path)
+    folder = os.path.dirname(kdir)
+    m = json.load(open(os.path.join(kdir, "kandidat.json")))[os.path.basename(path)]
+    nama = nama or re.sub(r"-\d+$", "", os.path.splitext(os.path.basename(path))[0])
+    tujuan = os.path.join(folder, nama + os.path.splitext(path)[1])
+    open(tujuan, "wb").write(open(path, "rb").read())
+    kredit = m.get("situs") or m.get("domain")
+    catat(folder, [os.path.basename(tujuan), "Google Images (Apify)",
+                   f"{m.get('halaman')} ; gambar {m.get('gambar')} ; kata kunci: {m.get('kata_kunci')}".replace("|", "/"),
+                   f"© pemilik asli ({kredit}); hak cipta pihak lain, wajib kredit di slide"])
+    print("✓", tujuan)
+    print(f"Situs asal: {kredit}. Tulis kredit slide atas nama PEMILIK HAK (stasiun TV / rumah produksi / fotografer),")
+    print("bukan situs perantara, mis. \"*poster: RCTI / MNC Pictures\". Kalau pemiliknya tidak jelas: \"*gambar: " + (kredit or "") + "\"")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["stok", "cari", "unduh", "ai", "wiki"])
+    ap.add_argument("mode", choices=["stok", "cari", "unduh", "ai", "wiki", "google", "pakai"])
     ap.add_argument("isi")
     ap.add_argument("folder", nargs="?")
     ap.add_argument("--nama", default=None)
     ap.add_argument("--pilih", type=int, default=1)
     ap.add_argument("--rasio", default="social_post_4_5")
+    ap.add_argument("--kandidat", type=int, default=4)
     a = ap.parse_args()
+    if a.mode == "pakai":
+        return pakai(a.isi, a.nama)
     nama = a.nama or re.sub(r"[^a-z0-9]+", "-", a.isi.lower())[:40].strip("-")
     if a.mode == "cari":
         for r in cari(a.isi):
@@ -122,6 +193,8 @@ def main():
         print("✓", unduh(r["id"], a.folder, nama))
     elif a.mode == "unduh":
         print("✓", unduh(a.isi, a.folder, nama))
+    elif a.mode == "google":
+        google(a.isi, a.folder, nama, max(1, min(a.kandidat, 8)))
     elif a.mode == "ai":
         print("✓", ai(a.isi, a.folder, nama, a.rasio))
     else:
