@@ -88,6 +88,7 @@ Naka menyebut folder `konten/visual/<folder>/`. Periksa:
      - teks tidak menabrak atau menutupi tokoh
      - tidak ada tokoh pudar seperti hantu di bawah veil
      - tidak ada ruang kosong mencolok (kiri kosong, celah besar antara teks dan tokoh)
+     - **paragraf isi penuh selebar kolom** (aturan user 21 Nov 2026): di mode `atas`/`latar`/`strip`/tanpa gambar, paragraf yang dipenggal pendek sehingga sisi kanan kosong = temuan → perbaikan: hapus `\n` di `isi`. Ukur dari PNG: baris paragraf yang berhenti jauh sebelum tepi kanan kolom (> ± 25% lebar kolom kosong) padahal kalimat masih berlanjut.
      - tokoh cukup besar
      - layout tengah memang seimbang di tengah
    - **Konsistensi antarslide:** gaya, ukuran judul, posisi teks, dan tokoh sama sepanjang carousel.
@@ -96,7 +97,12 @@ Naka menyebut folder `konten/visual/<folder>/`. Periksa:
      - sumber tidak di badan slide; `caption.txt` **tanpa sumber dan tanpa hashtag** (keputusan user 20 Nov 2026)
      - kutip melengkung “…”
      - bagian [CEK FAKTA] dicatat
-3. Bandingkan teks slide dengan draft Diksa (`konten/draft/…`). Perubahan makna, sumber yang hilang, atau arahan ke ahli (untuk topik sensitif di `brand.md`) yang hilang = temuan.
+3. **Gambar sesuai isi slide** (aturan user 21 Nov 2026, `visual.md` aturan 3). Untuk setiap slide, baca judul + isi, lalu lihat gambarnya (dan kreditnya):
+   - Slide menyebut nama spesifik (judul sinetron/film, acara, produk, tokoh, tempat, peristiwa) → gambar wajib menunjukkan hal yang **sama**. Gambar hal lain yang mirip = temuan. Contoh: slide membahas sinetron *Terikat Janji* tapi memasang poster *Heart Series* → temuan.
+   - Kredit "*gambar cuplikan film: <judul>" menyebut judul yang tidak ada di teks slide = tanda gambar salah tempat → temuan.
+   - Gambar menyiratkan hal yang berlawanan atau tidak berhubungan dengan pesan slide (mis. foto ramai di slide "penonton turun") → temuan.
+   - Perbaikan konkret: tukar dengan gambar lain di folder yang cocok (sebut file + slide tujuan), atau ganti ke gambar generik dan minta Naka meminta gambar yang tepat ke tim (sebut persis gambar apa, mis. "poster/cuplikan Terikat Janji RCTI").
+4. Bandingkan teks slide dengan draft Diksa (`konten/draft/…`). Perubahan makna, sumber yang hilang, atau arahan ke ahli (untuk topik sensitif di `brand.md`) yang hilang = temuan.
 
 ## Format laporan (ke Naka)
 ```
