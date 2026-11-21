@@ -25,7 +25,7 @@ Dibanding patungan manual (grup WA/teman) atau penjual akun tidak resmi, Seakun 
 | Pilar | Porsi | Isi | Format utama |
 |---|---|---|---|
 | **1. Rekomendasi tontonan** | 30% | List film/series/musik per layanan, mood, atau momen (mis. "5 film yang bikin 2 jam terasa 20 menit") | Carousel, Reels |
-| **2. Cerita di balik & fakta unik** | 25% | **Topik umum** yang lagi trending, unik, atau nostalgia: cerita bisnis/data di balik hal yang semua orang alami (mis. "Kenapa WhatsApp menang perang aplikasi chat?", "Kenapa harga tiket pesawat domestik mahal?"). Tidak harus soal hiburan. Formula: `konten/brand/formula-carousel.md`. Slide terakhir selalu CTA Seakun dengan kalimat jembatan | Carousel 7–13 slide |
+| **2. Fakta Unik** | 25% | **Topik umum** yang lagi trending, unik, atau nostalgia: cerita bisnis/data di balik hal yang semua orang alami (mis. "Kenapa WhatsApp menang perang aplikasi chat?", "Kenapa harga tiket pesawat domestik mahal?"). Tidak harus soal hiburan. Formula: `konten/pilar/fakta-unik/formula.md`. Slide terakhir selalu CTA Seakun dengan kalimat jembatan | Carousel 7–13 slide |
 | **3. Edukasi hemat & patungan** | 15% | Kenapa patungan, cara kerja Seakun, keamanan & legalitas, tips hemat langganan, mitos vs fakta | Carousel |
 | **4. Relate / humor** | 15% | Meme, curhat pengguna, situasi sehari-hari soal langganan & dompet boncos | Feed foto, Reels, Threads |
 | **5. Promo & harga** | 15% | Flash sale, harga per layanan, ajakan langganan | Feed foto, Carousel |
@@ -62,4 +62,4 @@ Akun @seakun.id sudah aktif dengan gaya visual mapan: latar kertas kusut abu ter
 | **Feed foto (single)** | 1 | Empati / quote |
 | **Threads** | 5 (1/hari kerja) | Pertanyaan dan curhat pendek; komentarnya jadi bahan ide |
 
-**Jadwal tetap:** Carousel pilar 2 (cerita di balik & fakta unik) **terbit setiap hari 17.00 WIB** dan diproduksi pagi di hari yang sama (keputusan user, 21 Nov 2026; menggantikan Selasa & Sabtu). Radar topik dikirim ke tim Senin & Jumat 07.00: 4 topik untuk Senin–Kamis, 3 topik untuk Jumat–Minggu. Jadwal pilar lain belum ditetapkan, masih akan didiskusikan dengan user.
+**Jadwal tetap:** Carousel pilar 2 **Fakta Unik** **terbit setiap hari 17.00 WIB** dan diproduksi pagi di hari yang sama (keputusan user, 21 Nov 2026; menggantikan Selasa & Sabtu). Radar topik dikirim ke tim Senin & Jumat 07.00: 4 topik untuk Senin–Kamis, 3 topik untuk Jumat–Minggu. Jadwal pilar lain belum ditetapkan, masih akan didiskusikan dengan user.

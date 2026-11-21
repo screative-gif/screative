@@ -61,8 +61,8 @@ Data: <n> post (<n baru> dalam <days_back> hari). Keyakinan: tinggi/sedang/renda
 - Kalau post baru yang relevan kurang dari 3 tema, isi sisanya dengan konten evergreen terkuat di platform itu dan tandai `(evergreen)`. Jangan memaksakan post di luar niche.
 - Singkat: maksimal 1 baris per poin, supaya user bisa membacanya dalam 30 detik.
 
-## Radar Topik pilar 2 ("Cerita di balik & fakta unik")
-Kalau Naka meminta radar topik (atau setiap laporan mingguan), tulis juga `konten/laporan/<YYYY-MM-DD>_radar-topik.md`. Baca dulu `konten/brand/formula-carousel.md` dan `konten/brand/brand.md` (batasan pilar 2).
+## Radar Topik pilar 2 ("Fakta Unik")
+Kalau Naka meminta radar topik (atau setiap laporan mingguan), tulis juga `konten/laporan/<YYYY-MM-DD>_radar-topik.md`. Baca dulu `konten/pilar/fakta-unik/formula.md` dan `konten/brand/brand.md` (batasan pilar 2).
 
 **Sumber kandidat topik:**
 1. **Outlier akun referensi**: dari data IG_AKUN, post yang likes-nya ≥ 5× median akunnya sendiri (hitung dari `posts.json`). Ambil *sudut topiknya*, bukan isinya. Akun referensi dijelaskan di `riset/config.json` (`_catatan_referensi`).
