@@ -68,8 +68,26 @@
     }
    ],
    "pesan_topik": "1573193817593745479",
-   "status": "tayang",
+   "status": "terplot",
    "dikirim": "2026-11-20T11:30+07:00",
+   "plot": {
+    "2026-11-21": {
+     "no": 2,
+     "judul": "2026 sinetron TV ikut tayang di YouTub3 Shorts. Kenapa TV sekarang ngejar penonton ke HP?",
+     "cara": "suara-tim",
+     "oleh": "aadilah"
+    },
+    "2026-11-22": {
+     "no": 8,
+     "judul": "Tiap Desember semua orang pamer rekap lagu setahun. Kenapa kita suka banget?",
+     "cara": "suara-tim",
+     "oleh": "Silvia Nur Chairina"
+    }
+   }
+  }
+ },
+ "harian": {
+  "2026-11-21": {
    "terpilih": {
     "no": 2,
     "judul": "2026 sinetron TV ikut tayang di YouTub3 Shorts. Kenapa TV sekarang ngejar penonton ke HP?",
@@ -109,6 +127,18 @@
     "permalink": "https://www.instagram.com/p/Df_CnhalGuo/",
     "waktu": "2026-11-21T08:23+07:00",
     "slide": 10
+   },
+   "status": "tayang",
+   "siklus": "2026-11-20"
+  },
+  "2026-11-22": {
+   "status": "belum-produksi",
+   "siklus": "2026-11-20",
+   "terpilih": {
+    "no": 8,
+    "judul": "Tiap Desember semua orang pamer rekap lagu setahun. Kenapa kita suka banget?",
+    "cara": "suara-tim",
+    "oleh": "Silvia Nur Chairina"
    }
   }
  }

@@ -13,13 +13,12 @@
     ]
   },
   "jadwal": {
-    "produksi": "Senin & Jumat",
-    "posting": "Selasa & Sabtu (otomatis ke IG lewat otomatis/instagram.py)",
-    "kirim_topik": "07.00 WIB",
-    "batas_pilih": "10.00 WIB",
-    "cek_feedback": "12.00, 15.00, 18.00, 21.00 WIB di hari produksi + 08.00 WIB di hari posting",
-    "jam_posting": "17.00 WIB",
-    "cek_posting_ulang": "21.00 WIB di hari posting"
+    "_catatan": "Keputusan user 21 Nov 2026: carousel tayang setiap hari.",
+    "radar_topik": "Senin & Jumat 07.00 WIB (radar Senin -> Sen–Kam, radar Jumat -> Jum–Min)",
+    "batas_pilih": "10.00 WIB (Senin & Jumat)",
+    "produksi": "setiap hari 10.00 WIB",
+    "cek_feedback": "12.00, 15.00, 16.50 WIB setiap hari",
+    "jam_posting": "17.00 WIB setiap hari (tanpa approve tetap tayang)"
   },
   "branch_kerja": "otomatis/carousel",
   "instagram": {

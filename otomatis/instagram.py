@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Posting carousel APPROVED ke Instagram @seakun.id lewat Instagram Graph API (tahap 2 workflow).
+"""Posting carousel harian ke Instagram @seakun.id lewat Instagram Graph API (tahap 2 workflow).
 
 Pakai (dari root proyek):
   python3 otomatis/instagram.py cek                       # tes token + kuota posting (tidak memposting apa pun)
-  python3 otomatis/instagram.py posting [--siklus …] --uji # siapkan container saja, TIDAK tayang
-  python3 otomatis/instagram.py posting [--siklus …]       # posting carousel siklus yang APPROVED
+  python3 otomatis/instagram.py posting [--hari …] --uji   # siapkan container saja, TIDAK tayang
+  python3 otomatis/instagram.py posting [--hari …]         # posting carousel hari itu (default hari ini WIB)
+
+Aturan user 21 Nov 2026: tayang tiap hari 17.00 WIB. Tanpa ✅ sampai 17.00 tetap diposting, asal status
+`approved` atau `menunggu-review` (revisi/produksi yang belum selesai = tidak diposting).
 
 Gambar: Instagram mengambil gambar dari URL publik. Skrip memakai URL lampiran slide di pesan hasil
 Discord terakhir (revisi yang di-approve), jadi tidak perlu hosting lain. Caption dari caption.txt di folder.
@@ -13,7 +16,7 @@ Token: System-user token (tidak kedaluwarsa) disisipkan network secret environme
 graph.facebook.com (`Authorization: Bearer …`). Kalau env IG_ACCESS_TOKEN ada, itu yang dipakai.
 Token tidak pernah dicetak.
 
-Aman diulang: kalau siklus sudah punya `posting.media_id` di state.json, skrip berhenti tanpa posting lagi.
+Aman diulang: kalau hari itu sudah punya `posting.media_id` di state.json, skrip berhenti tanpa posting lagi.
 """
 import argparse, datetime as dt, json, os, re, sys, time
 from pathlib import Path
@@ -80,18 +83,18 @@ def url_slide(hasil):
 
 def cmd_posting(a):
     st = dc.muat_state()
-    nama, s = dc.siklus_aktif(st, a.siklus)
+    nama, s = dc.hari_aktif(st, a.hari)
     if s.get("posting", {}).get("media_id"):
-        print(json.dumps({"siklus": nama, "sudah_tayang": s["posting"]}, ensure_ascii=False)); return
-    if s.get("status") != "approved" and not a.paksa:
-        sys.exit(f"Siklus {nama} berstatus '{s.get('status')}', bukan 'approved'. Tidak diposting.")
+        print(json.dumps({"hari": nama, "sudah_tayang": s["posting"]}, ensure_ascii=False)); return
+    boleh = ("approved", "menunggu-review")
+    if s.get("status") not in boleh and not a.paksa:
+        sys.exit(f"Carousel {nama} berstatus '{s.get('status')}', bukan {' / '.join(boleh)}. Tidak diposting.")
     if not s.get("hasil"):
-        sys.exit(f"Siklus {nama} belum punya hasil di Discord.")
+        sys.exit(f"Carousel {nama} belum punya hasil di Discord.")
     hasil = s["hasil"][-1]
     folder = dc.ROOT / hasil["folder"]
     status_txt = folder / "STATUS.txt"
-    if not a.paksa and not (status_txt.exists() and status_txt.read_text().startswith("APPROVED")):
-        sys.exit(f"{status_txt} belum APPROVED. Tidak diposting.")
+    tanpa_approve = s.get("status") != "approved"
     caption = (folder / "caption.txt").read_text(encoding="utf-8").strip()
     urls = url_slide(hasil)
     if not 2 <= len(urls) <= MAKS_SLIDE:
@@ -106,27 +109,29 @@ def cmd_posting(a):
               data={"media_type": "CAROUSEL", "children": ",".join(anak), "caption": caption})["id"]
     tunggu_siap(induk)
     if a.uji:
-        print(json.dumps({"siklus": nama, "uji": True, "slide": len(anak), "container": induk,
+        print(json.dumps({"hari": nama, "uji": True, "slide": len(anak), "container": induk,
                           "catatan": "Container siap tapi TIDAK dipublikasikan (kedaluwarsa sendiri dalam 24 jam)."},
                          ensure_ascii=False)); return
 
     media = g("POST", f"/{IG_USER}/media_publish", data={"creation_id": induk})["id"]
     link = g("GET", f"/{media}", params={"fields": "permalink"}).get("permalink", "")
     waktu = dt.datetime.now(dc.WIB).isoformat(timespec="minutes")
-    s["posting"] = {"media_id": media, "permalink": link, "waktu": waktu, "slide": len(anak)}
+    s["posting"] = {"media_id": media, "permalink": link, "waktu": waktu, "slide": len(anak),
+                    "tanpa_approve": tanpa_approve}
     s["status"] = "tayang"
     dc.simpan_state(st)
-    status_txt.write_text(status_txt.read_text().rstrip("\n") + f"\nTAYANG {waktu} {link}\n")
-    print(json.dumps({"siklus": nama, "media_id": media, "permalink": link}, ensure_ascii=False))
+    lama = status_txt.read_text().rstrip("\n") + "\n" if status_txt.exists() else ""
+    status_txt.write_text(lama + f"TAYANG {waktu} {link}{' (tanpa approve)' if tanpa_approve else ''}\n")
+    print(json.dumps({"hari": nama, "tanpa_approve": tanpa_approve, "media_id": media, "permalink": link}, ensure_ascii=False))
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("cek")
-    x = sub.add_parser("posting"); x.add_argument("--siklus")
+    x = sub.add_parser("posting"); x.add_argument("--hari", help="tanggal posting YYYY-MM-DD, default hari ini WIB")
     x.add_argument("--uji", action="store_true", help="siapkan container tanpa mempublikasikan")
-    x.add_argument("--paksa", action="store_true", help="abaikan cek status APPROVED (hanya atas perintah user)")
+    x.add_argument("--paksa", action="store_true", help="abaikan cek status (hanya atas perintah user)")
     a = p.parse_args()
     {"cek": cmd_cek, "posting": cmd_posting}[a.cmd](a)
 
