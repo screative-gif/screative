@@ -71,6 +71,7 @@ Busur yang hampir selalu sama:
 ## 5. Caption
 - **Satu pertanyaan pendek** yang gampang dijawab dari pengalaman sendiri ("Padahal dulu yg pakai LINE banyak kan ya?", "Sekarang ada gak stasiun TV sebagus NET dulu?").
 - Komentar ramai karena orang bercerita ("Redmi 1s android pertamaku", "Kangen drakor NET").
+- **Caption tanpa sumber dan tanpa hashtag** (keputusan user 20 Nov 2026): cukup pertanyaan pembuka + 1–2 paragraf singkat. Sumber tetap dicatat di draft dan `foto/SUMBER.md`, plus baris "Sumber: …" di footer slide data.
 
 ## Adaptasi untuk Seakun (pilar 2: "Cerita di balik & fakta unik")
 
@@ -107,7 +108,7 @@ Campur: **± 2 dari 3 topik umum**, 1 dari 3 topik yang dekat dengan produk (leb
 
 ### Slide CTA Seakun (usulan)
 1. **Kalimat jembatan** dari topik (wajib, 1–2 baris, tebal).
-2. Visual: tampilan web/aplikasi Seakun (tangkapan layar asli dari user) atau grid layanan yang bisa dipatungin (ikon generik, nama disamarkan).
+2. Visual: **kotak harga baku desain C-GAJI** (otomatis dari `brand.json` `cta_harga`, aturan tetap 20 Nov 2026, lihat `visual.md`). Jangan ganti dengan grid nama disamarkan.
 3. 2 baris manfaat: "Patungan langganan premium: aman, legal, lebih hemat."
 4. Label: **"Kunjungi seakun.id"** + "Simpan & bagikan".
 

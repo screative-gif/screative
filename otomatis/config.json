@@ -1,0 +1,30 @@
+{
+  "_catatan": "Konfigurasi workflow carousel otomatis lewat Discord (pilar 2: fakta/cerita unik/tren). Token bot TIDAK disimpan di sini: lihat otomatis/README.md.",
+  "zona_waktu": "Asia/Jakarta",
+  "discord": {
+    "channel_id": "1572869528201859143",
+    "user_boleh_respon": [
+      "698500195364896818",
+      "898785995590348800",
+      "1321304632152162304",
+      "756920803290775573",
+      "731470826804609045",
+      "699892949382594671"
+    ]
+  },
+  "jadwal": {
+    "produksi": "Senin & Jumat",
+    "posting": "Selasa & Sabtu (otomatis ke IG lewat otomatis/instagram.py)",
+    "kirim_topik": "07.00 WIB",
+    "batas_pilih": "10.00 WIB",
+    "cek_feedback": "12.00, 15.00, 18.00, 21.00 WIB di hari produksi + 08.00 WIB di hari posting",
+    "jam_posting": "17.00 WIB",
+    "cek_posting_ulang": "21.00 WIB di hari posting"
+  },
+  "branch_kerja": "otomatis/carousel",
+  "instagram": {
+    "akun": "@seakun.id",
+    "ig_user_id": "17841459636109092",
+    "host_api": "graph.facebook.com"
+  }
+}
