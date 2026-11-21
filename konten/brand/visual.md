@@ -83,11 +83,12 @@ Berlaku untuk semua carousel format berita/data berikutnya, manual maupun otomat
   - Poster/cuplikan film/sinetron berhak cipta **hanya acuan gaya** di prompt, tidak diunduh lalu di-upscale untuk diposting.
   - Catat model, flow_id, dan kredit terpakai di `foto/SUMBER.md`.
   - ElevenLabs tidak tersedia/unduhan diblokir → cadangan Magnific (`gambar.py` stok atau `ai`), sebutkan alasannya.
-- **Slide 2 dst.**: Magnific lewat `konten/brand/visual/gambar.py` (stok; `wiki` untuk foto faktual berlisensi, wajib kredit). Maks 1 unduhan per slide + maks 1 `ai` per carousel kalau stok tidak ada.
+- **Slide 2 dst. yang menyebut nama spesifik** (judul sinetron/film, produk, tokoh, tempat, peristiwa): gambar asli dari **Google Images, dicari agent Sidik** (`gambar.py google` lalu `pakai`; keputusan user 21 Nov 2026). Dipakai sebagai cuplikan pendukung, **wajib `kredit` atas nama pemilik hak** (mis. `*poster: RCTI / MNC Pictures`), tidak untuk cover, tidak di-upscale/dipotong untuk menghapus logo pemilik.
+- **Slide 2 dst. bertema umum**: Magnific lewat `konten/brand/visual/gambar.py` (stok; `wiki` untuk foto faktual berlisensi, wajib kredit). Maks 1 unduhan per slide + maks 1 `ai` per carousel kalau stok tidak ada.
 
 **3. Gambar harus menunjukkan hal yang dibahas slide itu (keputusan user 21 Nov 2026).**
 - Kalau judul/isi slide menyebut nama spesifik (judul sinetron/film, acara, produk, tokoh, tempat, peristiwa), gambarnya harus **benda/judul yang sama**, bukan contoh lain yang mirip. Contoh salah: slide 2 C-SINETRON membahas sinetron *Terikat Janji*, tapi memakai poster *Heart Series*. Yang benar: poster/cuplikan *Terikat Janji*.
-- Gambar dari tim (Drive/Discord) juga dicocokkan per slide dengan isinya, bukan dipasang berurutan nomor file. Kalau tidak ada gambar yang cocok untuk slide dengan nama spesifik: pakai gambar generik yang tidak menyiratkan judul lain (mis. foto suasana), lalu minta gambar yang tepat ke tim lewat Naka. Gambar bertema umum (mis. poster nostalgia) hanya untuk slide yang memang membahas hal umum (mis. "dulu TV rajanya").
+- Gambar untuk slide dengan nama spesifik dicari otomatis oleh **Sidik** dari Google Images. Gambar dari tim (Drive/Discord) tetap boleh dan didahulukan kalau ada; juga dicocokkan per slide dengan isinya, bukan dipasang berurutan nomor file. Kalau tidak ada gambar yang cocok untuk slide dengan nama spesifik: pakai gambar generik yang tidak menyiratkan judul lain (mis. foto suasana), lalu minta gambar yang tepat ke tim lewat Naka. Gambar bertema umum (mis. poster nostalgia) hanya untuk slide yang memang membahas hal umum (mis. "dulu TV rajanya").
 - Kredit "*gambar cuplikan film: <judul>" wajib sama dengan hal yang dibahas di slide; kalau kreditnya menyebut judul yang tidak ada di teks slide, itu tanda gambarnya salah tempat.
 
 **4. Paragraf isi penuh selebar kolom (keputusan user 21 Nov 2026).**

@@ -101,7 +101,8 @@ Naka menyebut folder `konten/visual/<folder>/`. Periksa:
    - Slide menyebut nama spesifik (judul sinetron/film, acara, produk, tokoh, tempat, peristiwa) → gambar wajib menunjukkan hal yang **sama**. Gambar hal lain yang mirip = temuan. Contoh: slide membahas sinetron *Terikat Janji* tapi memasang poster *Heart Series* → temuan.
    - Kredit "*gambar cuplikan film: <judul>" menyebut judul yang tidak ada di teks slide = tanda gambar salah tempat → temuan.
    - Gambar menyiratkan hal yang berlawanan atau tidak berhubungan dengan pesan slide (mis. foto ramai di slide "penonton turun") → temuan.
-   - Perbaikan konkret: tukar dengan gambar lain di folder yang cocok (sebut file + slide tujuan), atau ganti ke gambar generik dan minta Naka meminta gambar yang tepat ke tim (sebut persis gambar apa, mis. "poster/cuplikan Terikat Janji RCTI").
+   - Gambar dari Google Images (baris "Google Images (Apify)" di `foto/SUMBER.md`) wajib punya `kredit` di slide atas nama pemilik hak; tanpa kredit = temuan. Gambar Google di cover = temuan.
+   - Perbaikan konkret: tukar dengan gambar lain di folder yang cocok (sebut file + slide tujuan), atau minta Naka memanggil **Sidik** dengan kata kunci yang tepat (sebut persis gambar apa, mis. "poster sinetron Terikat Janji RCTI").
 4. Bandingkan teks slide dengan draft Diksa (`konten/draft/…`). Perubahan makna, sumber yang hilang, atau arahan ke ahli (untuk topik sensitif di `brand.md`) yang hilang = temuan.
 
 ## Format laporan (ke Naka)
