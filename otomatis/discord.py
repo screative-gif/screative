@@ -15,7 +15,7 @@ Pakai (dari root proyek):
   python3 otomatis/discord.py baca-feedback [--hari …]             # baca ✅ & balasan tim setelah hasil terakhir -> JSON
   python3 otomatis/discord.py baca-balasan <id-pesan>              # pesan tim (yang boleh) setelah id-pesan -> JSON
   python3 otomatis/discord.py tandai [--hari …] [--status …] [--terpilih JSON] [--feedback ids]
-  python3 otomatis/discord.py kirim "<teks>" [--balas <id>]         # pesan bebas
+  python3 otomatis/discord.py kirim "<teks>" [--balas <id>] [--sebut-grup Growth]  # pesan bebas
   python3 otomatis/discord.py status [--hari …]                     # state hari ini + siklus radar yang berlaku
 
 `--hari` = tanggal posting (YYYY-MM-DD), default hari ini WIB. `--siklus` = tanggal radar (Senin/Jumat).
@@ -78,12 +78,12 @@ def api(method, path, **kw):
     sys.exit("Discord terus membalas rate limit, coba lagi nanti.")
 
 
-def kirim_pesan(teks, reply_to=None, files=None):
-    """Kirim teks (dipotong per 2000 karakter). files = [(nama, bytes)]. Return pesan pertama."""
+def kirim_pesan(teks, reply_to=None, files=None, roles=None):
+    """Kirim teks (dipotong per 2000 karakter). files = [(nama, bytes)]. roles = id role yang boleh di-mention. Return pesan pertama."""
     potongan = _potong(teks, 2000) if teks else [""]
     pertama = None
     for i, bagian in enumerate(potongan):
-        payload = {"content": bagian, "allowed_mentions": {"parse": []}}
+        payload = {"content": bagian, "allowed_mentions": {"parse": [], "roles": list(roles or [])}}
         if reply_to and i == 0:
             payload["message_reference"] = {"message_id": reply_to, "fail_if_not_exists": False}
         if files and i == len(potongan) - 1:
@@ -441,7 +441,14 @@ def cmd_tandai(a):
 
 
 def cmd_kirim(a):
-    m = kirim_pesan(a.teks, reply_to=a.balas)
+    roles = []
+    if a.sebut_grup:
+        rid = CFG["discord"].get("role_grup", {}).get(a.sebut_grup)
+        if not rid:
+            sys.exit(f"Grup '{a.sebut_grup}' tidak ada di config.json discord.role_grup")
+        a.teks = f"<@&{rid}> " + a.teks
+        roles = [rid]
+    m = kirim_pesan(a.teks, reply_to=a.balas, roles=roles)
     print(json.dumps({"id": m["id"]}))
 
 
@@ -475,6 +482,7 @@ def main():
     x.add_argument("--status", help="belum-produksi | produksi | menunggu-review | revisi | approved | tayang | gagal")
     x.add_argument("--terpilih", help='JSON, mis. {"judul":"…","cara":"suara-tim","kode":"C-HARBOLNAS"}')
     x = sub.add_parser("kirim"); x.add_argument("teks"); x.add_argument("--balas")
+    x.add_argument("--sebut-grup", help="nama grup di config.json discord.role_grup, mis. Growth (di-mention di awal pesan)")
     x = sub.add_parser("status"); x.add_argument("--hari")
     a = p.parse_args()
     {"cek": cmd_cek, "kirim-topik": cmd_kirim_topik, "baca-pilihan": cmd_baca_pilihan, "plot": cmd_plot,
