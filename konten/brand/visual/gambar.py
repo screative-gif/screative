@@ -25,8 +25,8 @@ import argparse, datetime, json, os, re, sys, time, urllib.parse, urllib.request
 
 API = "https://api.magnific.com/v1"
 HDR = {"x-magnific-api-key": os.environ.get("MAGNIFIC_API_KEY", "proxy-injected"), "Accept-Language": "id-ID"}
-UA = "screative-content-research/1.0 (personal, non-commercial tooling)" + (f" {os.environ['KONTAK_UA']}" if os.environ.get("KONTAK_UA") else "")
-# Wikimedia membatasi klien tanpa kontak (HTTP 429). Kalau user setuju, isi env KONTAK_UA (mis. URL situs/email tim) di environment.
+UA = "SeakunContentBot/1.0 (https://seakun.id; content image research)" + (f" {os.environ['KONTAK_UA']}" if os.environ.get("KONTAK_UA") else "")
+# Wikimedia membatasi klien tanpa kontak (HTTP 429); kontak seakun.id disetujui user 21 Nov 2026.
 
 
 def req(url, data=None, headers=None, timeout=60):
