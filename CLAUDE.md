@@ -39,7 +39,7 @@ Untuk produksi visual:
 | "approve C1" | Catat `APPROVED <tanggal>` di `konten/visual/<folder>/STATUS.txt`. Carousel pilar 2 dari alur Discord tayang otomatis Selasa & Sabtu lewat `otomatis/instagram.py` (lihat `otomatis/ALUR.md` bagian D); konten lain diposting user sendiri. |
 | "revisi C1: …" | Teruskan feedback user apa adanya ke Rupa (atau Diksa kalau soal isi teks) → Tilik titik cek 3 → lapor ke user |
 | "render C1" (setelah user menaruh ilustrasi di `konten/visual/<folder>/ilustrasi/`) | **Tilik titik cek 2** (ilustrasi vs area kosong; kalau perlu generate ulang, berhenti dan kirim kalimat koreksi ke user) → Rupa tahap render → **Tilik titik cek 3** → (temuan? Rupa perbaiki → Tilik lagi) → lapor ke user |
-| "cari gambar untuk C1", "gambarnya kurang relate", gambar slide tidak sesuai nama yang dibahas | **Sidik** (Google Images via Apify, ± $0,015 per slide) → Rupa pasang gambar + `kredit` → Tilik titik cek 3 |
+| "cari gambar untuk C1", "gambarnya kurang relate", gambar slide tidak sesuai nama yang dibahas | **Sidik** (Wikipedia dulu, gratis; kalau tidak cocok Google Images via Apify, ± $0,015 per slide) → Rupa pasang gambar + `kredit` → Tilik titik cek 3 |
 | "render reels R1" | Diksa (kalau belum ada draft) → skill motion-format (ikuti warna & karakter di `konten/brand/visual.md`) |
 | sesi terjadwal "carousel otomatis" (prompt menyebut `otomatis/ALUR.md`) / "status discord", "cek feedback discord" | Ikuti `otomatis/ALUR.md` langkah demi langkah; komunikasi ke tim lewat `python3 otomatis/discord.py`. Setup & jadwal: `otomatis/README.md` |
 | "ganti niche/keyword" | edit `riset/config.json` sendiri (tidak perlu agent) |
