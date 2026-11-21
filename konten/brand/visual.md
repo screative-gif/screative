@@ -83,7 +83,7 @@ Berlaku untuk semua carousel format berita/data berikutnya, manual maupun otomat
   - Poster/cuplikan film/sinetron berhak cipta **hanya acuan gaya** di prompt, tidak diunduh lalu di-upscale untuk diposting.
   - Catat model, flow_id, dan kredit terpakai di `foto/SUMBER.md`.
   - ElevenLabs tidak tersedia/unduhan diblokir → cadangan Magnific (`gambar.py` stok atau `ai`), sebutkan alasannya.
-- **Slide 2 dst. yang menyebut nama spesifik** (judul sinetron/film, produk, tokoh, tempat, peristiwa): gambar asli dari **Google Images, dicari agent Sidik** (`gambar.py google` lalu `pakai`; keputusan user 21 Nov 2026). Dipakai sebagai cuplikan pendukung, **wajib `kredit` atas nama pemilik hak** (mis. `*poster: RCTI / MNC Pictures`), tidak untuk cover, tidak di-upscale/dipotong untuk menghapus logo pemilik.
+- **Slide 2 dst. yang menyebut nama spesifik** (judul sinetron/film, produk, tokoh, tempat, peristiwa): gambar asli dicari agent **Sidik**: **Wikipedia dulu** (`gambar.py wikipedia`, gratis), kalau tidak ada yang bagus dan sesuai baru **Google Images** via Apify (`gambar.py google`), lalu `pakai` (keputusan user 21 Nov 2026). Dipakai sebagai cuplikan pendukung, **wajib `kredit` atas nama pemilik hak** (mis. `*poster: RCTI / MNC Pictures`), tidak untuk cover, tidak di-upscale/dipotong untuk menghapus logo pemilik.
 - **Slide 2 dst. bertema umum**: Magnific lewat `konten/brand/visual/gambar.py` (stok; `wiki` untuk foto faktual berlisensi, wajib kredit). Maks 1 unduhan per slide + maks 1 `ai` per carousel kalau stok tidak ada.
 
 **3. Gambar harus menunjukkan hal yang dibahas slide itu (keputusan user 21 Nov 2026).**

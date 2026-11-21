@@ -7,10 +7,12 @@ Pakai (dari root proyek):
   python3 konten/brand/visual/gambar.py unduh <id> <folder> [--nama x]                           # unduh foto stok Magnific berdasarkan id
   python3 konten/brand/visual/gambar.py ai    "<prompt bahasa Inggris>" <folder> [--nama x] [--rasio social_post_4_5|widescreen_16_9|square_1_1]
   python3 konten/brand/visual/gambar.py wiki  "<kata kunci>" <folder> [--nama x] [--pilih 1]    # foto Wikimedia Commons + catat kredit
+  python3 konten/brand/visual/gambar.py wikipedia "<judul/subjek>" <folder> [--nama x] [--kandidat 4] # GRATIS: gambar utama artikel Wikipedia id/en ke <folder>/kandidat/
   python3 konten/brand/visual/gambar.py google "<kata kunci>" <folder> [--nama x] [--kandidat 4] # Google Images (Apify): unduh N kandidat ke <folder>/kandidat/
   python3 konten/brand/visual/gambar.py pakai <folder>/kandidat/<nama>-<n>.jpg [--nama x]      # pakai kandidat terpilih: salin ke <folder>/ + catat SUMBER.md
 
-Google Images (dipakai agent Sidik): cari lewat actor Apify johnvc/google-images-api (± $0,005 per kata kunci,
+Urutan agent Sidik: `wikipedia` dulu (gratis, poster resmi sering ada di infobox), baru `google` kalau tidak ada yang cocok.
+Google Images: cari lewat actor Apify johnvc/google-images-api (± $0,005 per kata kunci,
 50 hasil minimum), unduh lewat s_actors/bulk-image-downloader (± $0,002 per gambar, file lewat api.apify.com karena
 situs asal gambar diblokir proxy). Gambar dari Google tetap milik pemiliknya: wajib kredit di slide (field `kredit`).
 
@@ -23,7 +25,8 @@ import argparse, datetime, json, os, re, sys, time, urllib.parse, urllib.request
 
 API = "https://api.magnific.com/v1"
 HDR = {"x-magnific-api-key": os.environ.get("MAGNIFIC_API_KEY", "proxy-injected"), "Accept-Language": "id-ID"}
-UA = "screative-content-research/1.0 (personal, non-commercial tooling)"
+UA = "screative-content-research/1.0 (personal, non-commercial tooling)" + (f" {os.environ['KONTAK_UA']}" if os.environ.get("KONTAK_UA") else "")
+# Wikimedia membatasi klien tanpa kontak (HTTP 429). Kalau user setuju, isi env KONTAK_UA (mis. URL situs/email tim) di environment.
 
 
 def req(url, data=None, headers=None, timeout=60):
@@ -149,15 +152,52 @@ def google(term, folder, nama, n):
     print("Lihat kandidatnya, lalu: gambar.py pakai <file kandidat> [--nama x]")
 
 
+def wikipedia(term, folder, nama, n):
+    kdir = os.path.join(folder, "kandidat")
+    os.makedirs(kdir, exist_ok=True)
+    meta, i = {}, 0
+    for lang in ("id", "en"):
+        q = urllib.parse.urlencode({"action": "query", "generator": "search", "gsrsearch": term, "gsrlimit": 6, "prop": "pageimages|info",
+                                    "piprop": "original|thumbnail", "pithumbsize": 1600, "pilicense": "any",
+                                    "inprop": "url", "format": "json", "maxlag": 5})
+        try:
+            pages = json.loads(req(f"https://{lang}.wikipedia.org/w/api.php?{q}")).get("query", {}).get("pages", {}).values()
+        except Exception as e:
+            print(f"  ✗ {lang}.wikipedia: {e}" + (" (dibatasi Wikimedia; lanjut ke google)" if "429" in str(e) else ""))
+            continue
+        for p in sorted(pages, key=lambda p: p.get("index", 99)):
+            o = p.get("thumbnail") or p.get("original")  # thumbnail 1600px lebih ringan & lebih jarang dibatasi
+            if not o or o["source"].lower().endswith((".svg", ".ogg", ".webm")) or i >= n:
+                continue
+            i += 1
+            try:
+                path = simpan(o["source"], kdir, f"{nama}-w{i}")
+            except Exception as e:
+                print(f"  ✗ {p['title']}: {e}"); i -= 1; continue
+            meta[os.path.basename(path)] = {"asal": f"Wikipedia ({lang})", "kata_kunci": term, "judul": p["title"], "situs": f"{lang}.wikipedia.org",
+                                            "domain": f"{lang}.wikipedia.org", "halaman": p.get("fullurl"), "gambar": o["source"],
+                                            "ukuran": f"{o.get('width')}x{o.get('height')}", "thumbnail": False}
+            time.sleep(1)
+            print(f"  ✓ {path}  {o.get('width')}x{o.get('height')}  {lang}: {p['title']}")
+    if not meta:
+        print("Tidak ada gambar di Wikipedia untuk kata kunci ini. Lanjut ke: gambar.py google …")
+        return
+    mp = os.path.join(kdir, "kandidat.json")
+    lama = json.load(open(mp)) if os.path.exists(mp) else {}
+    lama.update(meta)
+    json.dump(lama, open(mp, "w"), ensure_ascii=False, indent=1)
+    print("Lihat kandidatnya. Cocok → gambar.py pakai <file>. Tidak cocok → gambar.py google …")
+
+
 def pakai(path, nama):
     kdir = os.path.dirname(path)
     folder = os.path.dirname(kdir)
     m = json.load(open(os.path.join(kdir, "kandidat.json")))[os.path.basename(path)]
-    nama = nama or re.sub(r"-\d+$", "", os.path.splitext(os.path.basename(path))[0])
+    nama = nama or re.sub(r"-w?\d+$", "", os.path.splitext(os.path.basename(path))[0])
     tujuan = os.path.join(folder, nama + os.path.splitext(path)[1])
     open(tujuan, "wb").write(open(path, "rb").read())
     kredit = m.get("situs") or m.get("domain")
-    catat(folder, [os.path.basename(tujuan), "Google Images (Apify)",
+    catat(folder, [os.path.basename(tujuan), m.get("asal", "Google Images (Apify)"),
                    f"{m.get('halaman')} ; gambar {m.get('gambar')} ; kata kunci: {m.get('kata_kunci')}".replace("|", "/"),
                    f"© pemilik asli ({kredit}); hak cipta pihak lain, wajib kredit di slide"])
     print("✓", tujuan)
@@ -167,7 +207,7 @@ def pakai(path, nama):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["stok", "cari", "unduh", "ai", "wiki", "google", "pakai"])
+    ap.add_argument("mode", choices=["stok", "cari", "unduh", "ai", "wiki", "wikipedia", "google", "pakai"])
     ap.add_argument("isi")
     ap.add_argument("folder", nargs="?")
     ap.add_argument("--nama", default=None)
@@ -193,6 +233,8 @@ def main():
         print("✓", unduh(r["id"], a.folder, nama))
     elif a.mode == "unduh":
         print("✓", unduh(a.isi, a.folder, nama))
+    elif a.mode == "wikipedia":
+        wikipedia(a.isi, a.folder, nama, max(1, min(a.kandidat, 8)))
     elif a.mode == "google":
         google(a.isi, a.folder, nama, max(1, min(a.kandidat, 8)))
     elif a.mode == "ai":
