@@ -446,7 +446,8 @@ def cmd_kirim(a):
         rid = CFG["discord"].get("role_grup", {}).get(a.sebut_grup)
         if not rid:
             sys.exit(f"Grup '{a.sebut_grup}' tidak ada di config.json discord.role_grup")
-        a.teks = f"<@&{rid}> " + a.teks
+        tanda = f"@{a.sebut_grup}"
+        a.teks = a.teks.replace(tanda, f"<@&{rid}>") if tanda in a.teks else f"<@&{rid}> " + a.teks
         roles = [rid]
     m = kirim_pesan(a.teks, reply_to=a.balas, roles=roles)
     print(json.dumps({"id": m["id"]}))
@@ -482,7 +483,7 @@ def main():
     x.add_argument("--status", help="belum-produksi | produksi | menunggu-review | revisi | approved | tayang | gagal")
     x.add_argument("--terpilih", help='JSON, mis. {"judul":"…","cara":"suara-tim","kode":"C-HARBOLNAS"}')
     x = sub.add_parser("kirim"); x.add_argument("teks"); x.add_argument("--balas")
-    x.add_argument("--sebut-grup", help="nama grup di config.json discord.role_grup, mis. Growth (di-mention di awal pesan)")
+    x.add_argument("--sebut-grup", help="nama grup di config.json discord.role_grup, mis. Growth (tulisan @Growth di teks diganti mention; kalau tidak ada, mention ditaruh di awal)")
     x = sub.add_parser("status"); x.add_argument("--hari")
     a = p.parse_args()
     {"cek": cmd_cek, "kirim-topik": cmd_kirim_topik, "baca-pilihan": cmd_baca_pilihan, "plot": cmd_plot,
