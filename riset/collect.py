@@ -93,7 +93,8 @@ def run_actor(actor_id, run_input, token, max_usd, timeout_s=300):
     req = urllib.request.Request(
         f"{API}/acts/{actor}/run-sync-get-dataset-items?{qs}",
         data=json.dumps(run_input).encode(),
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {token}"},
+        # Tanpa token lokal, header Authorization disisipkan oleh network secret environment (sesi cloud terjadwal).
+        headers={"Content-Type": "application/json", **({"Authorization": f"Bearer {token}"} if token else {})},
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=timeout_s + 30) as r:
@@ -226,7 +227,10 @@ def main():
 
     token = "" if args.dry_run else load_token()
     if not args.dry_run and not token:
-        sys.exit("APIFY_TOKEN belum diisi. Salin .env.example jadi .env lalu isi token-nya (lihat README.md).")
+        if os.environ.get("APIFY_LEWAT_PROXY") != "1":
+            sys.exit("APIFY_TOKEN belum diisi. Salin .env.example jadi .env lalu isi token-nya (lihat README.md).\n"
+                     "Di sesi cloud dengan network secret untuk api.apify.com, jalankan dengan APIFY_LEWAT_PROXY=1.")
+        print("APIFY_TOKEN kosong: memakai header dari network secret environment.")
 
     stamp = dt.datetime.now().strftime("%Y-%m-%d_%H%M")
     out_dir = ROOT / "data" / stamp

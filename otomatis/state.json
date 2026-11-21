@@ -1,0 +1,115 @@
+{
+ "siklus": {
+  "2026-11-20": {
+   "radar": "konten/laporan/2026-11-19_radar-topik.md",
+   "topik": [
+    {
+     "no": 2,
+     "judul": "2026 sinetron TV ikut tayang di YouTub3 Shorts. Kenapa TV sekarang ngejar penonton ke HP?",
+     "skor": 22,
+     "jenis": "dekat produk",
+     "pemicu": "Google Trends ID #1 hari ini: \"sinetron terikat janji rcti\" (2000+ pencarian)"
+    },
+    {
+     "no": 3,
+     "judul": "2012 lahir Harbolnas 12.12. Kenapa kita rela begadang demi tanggal kembar?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "Harbolnas 12.12 (3 minggu lagi)"
+    },
+    {
+     "no": 4,
+     "judul": "2011 orang rela antre semalaman demi BlackB3rry. Kenapa hilang dalam 5 tahun?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "15 tahun antrean peluncuran BlackBerry di Pacific Place, Jakarta (setahuku 25 Nov 2011, **perlu dicek**)"
+    },
+    {
+     "no": 5,
+     "judul": "Pelanggan Telk0msel berkurang 6,5 juta, tapi tiap pelanggan bayar makin mahal. Fakta?",
+     "skor": 22,
+     "jenis": "umum (dekat ke tema langganan bulanan)",
+     "pemicu": "Sedang dibahas (post 8 Nov, komentar sangat ramai)"
+    },
+    {
+     "no": 6,
+     "judul": "Tiket ke luar negeri lebih murah dari pulang kampung Natal? Fakta?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "Libur Natal & tahun baru (tiket dibeli sekarang)"
+    },
+    {
+     "no": 7,
+     "judul": "2026 orang nonton orang main game bareng-bareng. Kenapa streaming game bisa serame siaran TV?",
+     "skor": 20,
+     "jenis": "dekat produk",
+     "pemicu": "Google Trends \"gta6 cheat codes\" (200+) + Windah puncak penonton serentak GTA 6 (18 Nov)"
+    },
+    {
+     "no": 8,
+     "judul": "Tiap Desember semua orang pamer rekap lagu setahun. Kenapa kita suka banget?",
+     "skor": 20,
+     "jenis": "dekat produk",
+     "pemicu": "Rekap tahunan musik biasanya keluar awal Desember (perlu dicek tanggal 2026)"
+    },
+    {
+     "no": 9,
+     "judul": "Kuliah 4 tahun, kerjanya nggak nyambung sama jurusan. Kenapa ini normal? Fakta?",
+     "skor": 20,
+     "jenis": "umum",
+     "pemicu": "Sedang ramai (berawal dari post Threads, diangkat 17 Nov)"
+    },
+    {
+     "no": 10,
+     "judul": "Kenapa Gi4nt nggak bertahan?",
+     "skor": 19,
+     "jenis": "umum",
+     "pemicu": "Lemah: belanja bulanan saat gajian (penutupan 2021 jatuh di pertengahan tahun, bukan bulan ini)"
+    }
+   ],
+   "pesan_topik": "1573193817593745479",
+   "status": "tayang",
+   "dikirim": "2026-11-20T11:30+07:00",
+   "terpilih": {
+    "no": 2,
+    "judul": "2026 sinetron TV ikut tayang di YouTub3 Shorts. Kenapa TV sekarang ngejar penonton ke HP?",
+    "cara": "suara-tim",
+    "oleh": "aadilah",
+    "kode": "C-SINETRON",
+    "folder": "konten/visual/2026-11-21_C-SINETRON"
+   },
+   "hasil": [
+    {
+     "revisi": 0,
+     "folder": "konten/visual/2026-11-21_C-SINETRON",
+     "pesan_awal": "1573264781979160637",
+     "pesan_review": "1573264799301767251",
+     "dikirim": "2026-11-20T16:12+07:00"
+    },
+    {
+     "revisi": 1,
+     "folder": "konten/visual/2026-11-21_C-SINETRON",
+     "pesan_awal": "1573356885971837091",
+     "pesan_review": "1573356896918970499",
+     "dikirim": "2026-11-20T22:18+07:00"
+    },
+    {
+     "revisi": 2,
+     "folder": "konten/visual/2026-11-21_C-SINETRON",
+     "pesan_awal": "1573366704887562270",
+     "pesan_review": "1573366722579407007",
+     "dikirim": "2026-11-20T22:57+07:00"
+    }
+   ],
+   "feedback_diproses": [
+    "1573362729715105824"
+   ],
+   "posting": {
+    "media_id": "17886993399624369",
+    "permalink": "https://www.instagram.com/p/Df_CnhalGuo/",
+    "waktu": "2026-11-21T08:23+07:00",
+    "slide": 10
+   }
+  }
+ }
+}

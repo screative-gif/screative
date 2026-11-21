@@ -104,6 +104,10 @@ def style_checks(s, i):
     if re.search(r"sumber\s*:", txt, re.I): f.append("GAYA: sumber ada di slide, pindahkan ke caption")
     if s.get("cta") and re.search(r"simpan", s["cta"], re.I) and re.search(r"bagikan|tag|share", s["cta"], re.I):
         f.append("GAYA: CTA berisi 2 ajakan (simpan + bagikan/tag), cukup 1")
+    # Aturan user 21 Nov 2026: paragraf isi di kolom penuh tidak boleh dipenggal manual (sisa ruang kosong di kanan).
+    if s.get("layout") == "data" and (not s.get("gambar") or s.get("gambar_mode", "atas") in ("atas", "latar", "strip")):
+        if any("\n" in p for p in s.get("isi", [])):
+            f.append("KOSONG: paragraf isi dipenggal manual (\\n) padahal kolom teks selebar slide; hapus \\n supaya paragraf penuh (full width)")
     return f
 
 def check(spec_path, use_ill=True):

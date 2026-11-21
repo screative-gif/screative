@@ -44,7 +44,10 @@ Slide:
                 | "kartu-angka" (angka, ket, mini:[{angka,ket}]) — kartu hijau angka besar + kartu mini}
         gambar_mode: "atas" (default) | "polaroid" (foto kecil miring di pojok kanan atas, gambar_ket, gambar_miring)
                 | "lingkaran" (badge bulat di pojok) | "sisi" (panel di samping judul) | "strip" (gambar: [3 path] berjejer)
-  cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), layanan [nama disamarkan], ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
+  cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), kotak harga OTOMATIS dari brand.json cta_harga (desain C-GAJI; layanan di spec diabaikan kecuali harga_khusus:true), ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
+  kredit      keterangan kecil gambar, mis. "*gambar cuplikan film: Cinta Fitri Season 3" (wajib untuk cuplikan film/foto dari user, brand.md).
+              Tampil sebagai pil kecil di pojok kanan-bawah gambar (berita/foto, data: atas, sisi, latar), di bawah lingkaran (lingkaran),
+              atau menggantikan gambar_ket (polaroid). kredit_pos (opsional, CSS) untuk menggeser, mis. "left:12px;right:auto".
   --- khusus foto-atas ---
   foto        path foto/cuplikan (diisi user); foto_height px (default 790); foto_pos object-position (default "center top")
   judul       teks di kotak oranye, mis. "1. Pablo Escobar"
@@ -202,6 +205,10 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .kjg .t{font-weight:700;font-size:30px;color:%(pink)s}
 /* ---- layout berita (cover = "berita", isi = "berita-isi") ---- */
 .bfoto{position:absolute;left:0;top:0;width:100%%;object-fit:cover}
+.kr{position:absolute;right:12px;bottom:12px;z-index:4;background:rgba(10,20,17,.62);color:#fff;font-size:15px;font-weight:500;line-height:1.25;padding:4px 11px;border-radius:999px;white-space:nowrap;letter-spacing:.2px}
+.krb{position:absolute;top:324px;right:0;width:310px;text-align:center;font-size:15px;line-height:1.3;color:#6b6b6b;font-weight:500}
+.dt .gb,.sisi .gsi{position:relative}
+.gpo span.krp{font-size:14px;font-weight:500;line-height:1.25;bottom:12px;padding:0 10px}
 .bshade{position:absolute;left:0;right:0;top:0;height:260px;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0))}
 .hdr3{position:absolute;top:50px;left:0;right:0;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px}
 .hdr3 img{height:46px}
@@ -644,6 +651,8 @@ def slide_html(s, n=1):
         tf = f";transform:scale({1 + geser / 400:.3f});transform-origin:center top" if geser else ""  # zoom dari atas: isi foto turun tanpa celah
         out.append(f'<img class="bfoto" src="{uri(s["foto"])}" style="height:{fh}px;object-position:{s.get("foto_pos", "center center")}{tf}">')
         out.append('<div class="bshade"></div>')
+        if s.get("kredit"):
+            out.append(f'<div class="kr" style="bottom:96px;right:56px;{s.get("kredit_pos", "")}">{html.escape(s["kredit"])}</div>')
     if berita and s.get("header", True):
         terang = bool(s.get("foto")) or layout == "cta-seakun" or (layout == "data" and s.get("gambar_mode") == "latar" and s.get("gambar"))
         out.append(f'<div class="hdr3{"" if terang else " gelap"}"><img src="{uri(BRAND["logo_footer"] if terang else BRAND["logo_header"])}">'
@@ -715,7 +724,7 @@ def slide_html(s, n=1):
                 ring = ('<svg viewBox="0 0 200 100" preserveAspectRatio="none"><path d="M 18,62 C 4,22 120,2 186,30 C 214,48 170,92 96,94 C 30,96 0,70 22,36 C 40,14 110,8 150,14" '
                         'fill="none" stroke="#FF4F2F" stroke-width="5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>') if svg else ""
                 return re.sub(r"__([\s\S]+?)__", lambda m: f'<span class="g">{m.group(1)}{ring}</span>', h)
-            sub = html.escape(s.get("subjudul", ""))
+            sub = html.escape(s.get("subjudul", "")).replace("\n", "<br>")
             if gaya == "lingkar":
                 out.append('<div class="tshade"></div>')
                 body = "".join(f'<div class="l">{hk(l, True)}</div>' for l in lines)
@@ -775,13 +784,16 @@ def slide_html(s, n=1):
         mode = s.get("gambar_mode", "atas")
         gl = s.get("gambar") if isinstance(s.get("gambar"), list) else ([s["gambar"]] if s.get("gambar") else [])
         img = lambda g: f'<img src="{uri(g)}" style="object-position:{s.get("gambar_pos", "center")}">'
+        kr = s.get("kredit", "")
+        krs = f'<span class="kr" style="{s.get("kredit_pos", "")}">{html.escape(kr)}</span>' if kr else ""
         gb, kelas, body_top = "", "", 0
         if gl and mode == "atas":
-            gb = f'<div class="gb" style="height:{s.get("gambar_tinggi", 430)}px">{img(gl[0])}</div>'
+            gb = f'<div class="gb" style="height:{s.get("gambar_tinggi", 430)}px">{img(gl[0])}{krs}</div>'
         elif gl and mode == "polaroid":
-            gb = f'<div class="gpo" style="transform:rotate({s.get("gambar_miring", 4)}deg)">{img(gl[0])}<span>{html.escape(s.get("gambar_ket", ""))}</span></div>'; kelas = " m-pojok"
+            ket = f'<span class="krp">{html.escape(kr)}</span>' if kr else f'<span>{html.escape(s.get("gambar_ket", ""))}</span>'
+            gb = f'<div class="gpo" style="transform:rotate({s.get("gambar_miring", 4)}deg)">{img(gl[0])}{ket}</div>'; kelas = " m-pojok"
         elif gl and mode == "lingkaran":
-            gb = f'<div class="gli">{img(gl[0])}</div>'; kelas = " m-pojok"
+            gb = f'<div class="gli">{img(gl[0])}</div>' + (f'<div class="krb">{html.escape(kr)}</div>' if kr else ""); kelas = " m-pojok"
         elif gl and mode == "strip":
             labs = s.get("gambar_label", [])
             gb = '<div class="gst">' + "".join(f'<div style="transform:rotate({r}deg)">{img(g)}' + (f'<span>{html.escape(labs[k])}</span>' if k < len(labs) else "") + '</div>'
@@ -791,10 +803,12 @@ def slide_html(s, n=1):
         if gl and mode == "latar":
             out.append(f'<img class="glt" src="{uri(gl[0])}" style="height:{s.get("gambar_tinggi", 640)}px;object-position:{s.get("gambar_pos", "center")}">'
                        f'<div class="glt-v" style="height:{s.get("gambar_tinggi", 640)}px"></div>')
+            if kr:
+                out.append(f'<div class="kr" style="top:{s.get("gambar_tinggi", 640) - 44}px;bottom:auto;right:40px;z-index:2;{s.get("kredit_pos", "")}">{html.escape(kr)}</div>')
             kelas = " m-latar"
             body_top = s.get("gambar_tinggi", 640) - s.get("teks_dalam", 280)
         if gl and mode == "sisi":
-            head = f'<div class="sisi"><div class="tx">{head}</div><div class="gsi" style="height:{s.get("gambar_tinggi", 420)}px">{img(gl[0])}</div></div>'
+            head = f'<div class="sisi"><div class="tx">{head}</div><div class="gsi" style="height:{s.get("gambar_tinggi", 420)}px">{img(gl[0])}{krs}</div></div>'
             gb = ""
         if mode == "strip":
             body = head + gb
@@ -806,10 +820,16 @@ def slide_html(s, n=1):
     if layout == "cta-seakun":
         if s.get("gambar_latar"):
             out.append(f'<img class="ctabg" src="{uri(s["gambar_latar"])}" style="object-position:{s.get("gambar_pos", "center")}"><div class="ctabg-v"></div>')
-        lay = s.get("layanan", [])
+        # Aturan tetap (user, 20 Nov 2026): kotak harga = brand.json "cta_harga" (desain C-GAJI).
+        # "layanan"/"judul_harga" di spec diabaikan, kecuali spec menulis "harga_khusus": true.
+        baku = BRAND.get("cta_harga")
+        if baku and not s.get("harga_khusus"):
+            lay, judul_h = baku["layanan"], baku.get("judul_harga", "Harga patungan per bulan")
+        else:
+            lay, judul_h = s.get("layanan", []), s.get("judul_harga", "Harga patungan per bulan")
         if lay and isinstance(lay[0], dict):
             gr = "".join(f'<div class="pv"><img src="{uri(x["logo"])}"><b>{html.escape(x["harga"])}</b><span>/bulan</span></div>' for x in lay)
-            grid = (f'<div class="pvh">{html.escape(s.get("judul_harga", "Harga patungan per bulan"))}</div>' if s.get("judul_harga", True) else "") + f'<div class="pvg">{gr}</div>'
+            grid = (f'<div class="pvh">{html.escape(judul_h)}</div>' if judul_h else "") + f'<div class="pvg">{gr}</div>'
         else:
             warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
             grid = '<div class="gr">' + "".join(f'<div><i style="background:{warna[k % len(warna)]}">{html.escape(n[0])}</i>{html.escape(n)}</div>'
