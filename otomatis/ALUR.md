@@ -20,6 +20,7 @@ python3 otomatis/discord.py cek
 - Branch kerja **`otomatis/carousel`** (izin user: semua hasil otomatis di-commit & push ke branch ini, bukan ke `main`).
 - Kalau `cek` gagal (401/403/tunnel 403): bot belum siap. Berhenti; tidak ada yang bisa dikirim. Tulis ringkasan error di akhir sesi.
 - Di akhir setiap sesi yang mengubah file: `git add -A otomatis konten && git commit -m "…" && git push -u origin otomatis/carousel` (ulang sampai 4× kalau jaringan gagal).
+- Lalu **langsung bawa ke `main`** (aturan user 21 Nov 2026: semua update harus ada di main tanpa menunggu konfirmasi): `git fetch origin main && git merge --no-edit origin/main && git push origin HEAD:main` (lalu push lagi ke `otomatis/carousel`). Kalau push ke main ditolak karena main berubah, ulangi fetch + merge + push. Kalau ada konflik yang tidak jelas, jangan paksa: tulis ke Discord bahwa hasil ada di branch `otomatis/carousel` dan belum masuk main.
 
 ## A. Kirim topik (Senin & Jumat, mulai ± 06.35, target terkirim ± 07.00)
 1. `SIKLUS=$(TZ=Asia/Jakarta date +%F)`. Kalau `python3 otomatis/discord.py status --siklus $SIKLUS` sudah punya `pesan_topik`, **berhenti** (sudah terkirim).

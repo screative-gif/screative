@@ -51,6 +51,7 @@ Aturan koordinasi:
 - **Cek hasil** sebelum lapor ke user: buka file yang dihasilkan, pastikan ada dan masuk akal. Jangan mengarang hasil agent.
 - **Keputusan kreatif tetap di user.** Setelah Kala memberi ide, tanyakan ide mana yang mau ditulis, kecuali user sudah bilang "kerjain semua".
 - Jangan pernah menampilkan isi `riset/.env` (token Apify).
+- **Semua update yang sudah fix langsung masuk `main`** (aturan user 21 Nov 2026), tanpa menunggu konfirmasi: commit di branch kerja, buka PR ke `main`, lalu merge sendiri. Sesi terjadwal dan akun Claude lain yang konek ke repo membaca dari `main`, jadi aturan, agent, dan skrip baru baru berlaku setelah masuk `main`.
 
 ## Konteks brand & niche
 
