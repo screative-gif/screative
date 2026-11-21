@@ -36,7 +36,7 @@ Untuk produksi visual:
 | "siapkan visual F1 / C1", "bikin visual C2" | Diksa (kalau belum ada draft) → Rupa tahap prompt → **Tilik titik cek 1** → (temuan? Rupa perbaiki → Tilik lagi) → baru kirim prompt ke user. Beberapa kode → Rupa paralel |
 | (setelah Rupa tahap prompt selesai + Tilik LULUS) | Kirim prompt ke user. User membuat ilustrasi di ChatGPT; cara cepat: `python3 konten/brand/visual/ilustrasi.py <KODE>` (menyalin prompt ke clipboard dan memindahkan gambar yang diunduh ke `ilustrasi/`). Revisi gambar: `--hanya A,F`. |
 | "canva C1", "bikin versi Canva" (setelah APPROVED) | `python3 konten/brand/visual/canva.py konten/visual/<folder>/spec.json` → kirim `<KODE>_canva.pdf` ke user untuk di-Upload di Canva (jadi desain editable). Detail di `konten/brand/visual.md` bagian "Versi editable di Canva". |
-| "approve C1" | Catat `APPROVED <tanggal>` di `konten/visual/<folder>/STATUS.txt`. Carousel pilar 2 dari alur Discord tayang otomatis setiap hari 17.00 WIB (tanpa ✅ pun tetap tayang) lewat `otomatis/instagram.py` (lihat `otomatis/ALUR.md` bagian D); konten lain diposting user sendiri. |
+| "approve C1" | Catat `APPROVED <tanggal>` di `konten/visual/<folder>/STATUS.txt`. Carousel pilar 2 Fakta Unik dari alur Discord tayang otomatis setiap hari 17.00 WIB (tanpa ✅ pun tetap tayang) lewat `otomatis/instagram.py` (lihat `otomatis/ALUR.md` bagian D); konten lain diposting user sendiri. |
 | "revisi C1: …" | Teruskan feedback user apa adanya ke Rupa (atau Diksa kalau soal isi teks) → Tilik titik cek 3 → lapor ke user |
 | "render C1" (setelah user menaruh ilustrasi di `konten/visual/<folder>/ilustrasi/`) | **Tilik titik cek 2** (ilustrasi vs area kosong; kalau perlu generate ulang, berhenti dan kirim kalimat koreksi ke user) → Rupa tahap render → **Tilik titik cek 3** → (temuan? Rupa perbaiki → Tilik lagi) → lapor ke user |
 | "cari gambar untuk C1", "gambarnya kurang relate", gambar slide tidak sesuai nama yang dibahas | **Sidik** (Wikipedia dulu, gratis; kalau tidak cocok Google Images via Apify, ± $0,015 per slide) → Rupa pasang gambar + `kredit` → Tilik titik cek 3 |
@@ -59,7 +59,7 @@ Aturan koordinasi:
 
 Brand: **Seakun (seakun.id)**, Platform patungan langganan layanan premium (streaming, musik, desain, AI) yang aman, legal, dan lebih hemat.. Profil brand, niche, pilar konten, suara brand, dan **batasan wajib konten** ada di `konten/brand/brand.md`.
 - Setiap memanggil Kala, Diksa, atau Rupa, sebutkan bahwa mereka wajib membaca file itu. Rupa juga wajib membaca `konten/brand/visual.md`.
-- Format carousel **"cerita di balik"** (pilar 2: topik umum trending/unik/nostalgia, cerita bisnis/data di balik hal yang semua orang alami, slide terakhir CTA Seakun): formulanya di `konten/brand/formula-carousel.md`. Sebutkan file ini saat memanggil Kala, Diksa, dan Rupa untuk konten format itu.
+- **Aturan per pilar ada di `konten/pilar/<pilar>/`** (README, formula, aturan). Pilar 2 **Fakta Unik** (topik umum trending/unik/nostalgia, cerita bisnis/data di balik hal yang semua orang alami, slide terakhir CTA Seakun): `konten/pilar/fakta-unik/formula.md` + `aturan.md`. Sebutkan kedua file itu saat memanggil Kala, Diksa, Rupa, Tilik, dan Sidik untuk pilar ini.
 - Keyword riset ada di `riset/config.json`. Kalau user mengubah niche, perbarui keduanya.
 
 ## Struktur folder
@@ -69,6 +69,7 @@ CLAUDE.md            ← Naka (file ini)
 .claude/agents/      ← Sera, Lira, Kala, Diksa, Rupa, Tilik, Sidik
 riset/               ← script & data (collect.py, analyze.py, config.json, .env)
 konten/brand/        ← profil brand Seakun (brand.md) + panduan visual (visual.md, visual/: brand.json, logo, font, referensi, render.py, check.py, ilustrasi.py)
+konten/pilar/        ← aturan per pilar konten (fakta-unik/: README, formula, aturan)
 konten/laporan/      ← laporan tren dari Lira
 konten/feed/         ← feeding mingguan IG & Threads dari Kala
 konten/ide/          ← arsip (format lama)

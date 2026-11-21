@@ -46,7 +46,7 @@ Cover format berita **hanya memakai 3 gaya tipografi: `lingkar` (H), `editorial`
 - Kalau ragu, render 2 gaya dan pilih yang wajah/subjeknya paling utuh; sebutkan alasan pilihan di laporan.
 - Jangan menaruh teks di atas wajah. Atur `foto_pos` (mis. `"center 70%"`) sebelum mengganti gaya.
 - Gaya lama (`kaca`, `klasik`, `stiker`, `pita`, `gradasi`, `tiket`, `neo`, `strip`) tetap ada di template, tapi tidak dipakai untuk cover kecuali user memintanya.
-- **Slide data = layout `data`** (format "cerita di balik", lihat `formula-carousel.md`; revisi user 19 Nov 2026): **tanpa label kecil & tanpa nomor halaman**, **gambar di atas** (`gambar`, wajib di setiap slide kalau tersedia), judul 2 baris (`__teks__` hijau tua + **stabilo oranye**; semua stabilo oranye), isi singkat, **1 visual data** (`angka-besar`, `batang`, `dulu-vs-sekarang`, `tabel`, `daftar`, `kutipan`, `notif` untuk slide kejutan), kalimat penutup tebal. **Sumber tampil di tengah bar footer** ("Sumber: …", isi field `sumber`, singkat 1 baris). Bar footer otomatis versi padat. Dengan gambar, ruang visual data lebih sempit: maks 3 batang / 4 baris tabel / 5 notif. **Slide CTA = layout `cta-seakun`** (hijau tua, kalimat jembatan, kotak harga baku C-GAJI dari `brand.json` `cta_harga`, tombol Kunjungi seakun.id, `bar_kanan: "ig"`).
+- **Slide data = layout `data`** (pilar Fakta Unik, lihat `konten/pilar/fakta-unik/formula.md`; revisi user 19 Nov 2026): **tanpa label kecil & tanpa nomor halaman**, **gambar di atas** (`gambar`, wajib di setiap slide kalau tersedia), judul 2 baris (`__teks__` hijau tua + **stabilo oranye**; semua stabilo oranye), isi singkat, **1 visual data** (`angka-besar`, `batang`, `dulu-vs-sekarang`, `tabel`, `daftar`, `kutipan`, `notif` untuk slide kejutan), kalimat penutup tebal. **Sumber tampil di tengah bar footer** ("Sumber: …", isi field `sumber`, singkat 1 baris). Bar footer otomatis versi padat. Dengan gambar, ruang visual data lebih sempit: maks 3 batang / 4 baris tabel / 5 notif. **Slide CTA = layout `cta-seakun`** (hijau tua, kalimat jembatan, kotak harga baku C-GAJI dari `brand.json` `cta_harga`, tombol Kunjungi seakun.id, `bar_kanan: "ig"`).
 - **Variasi wajib slide data (revisi user 20 Nov 2026):**
   - Setiap slide **menyorot 1 pesan utama**; sisanya pendukung. Perbandingan angka → `versus` (kartu + panah + badge selisih) atau `balapan` (batang + **garis acuan** + anotasi). Penurunan → `turun` (angka besar + panah) atau `kolom` (kolom vertikal, selisih ditulis di kolom yang disorot). Satu angka besar + pendukung → `kartu-angka`. Notif HP: item penting diberi `sorot: true`. Selalu beri **label, panah, atau anotasi** yang menjelaskan perbandingannya.
   - Gambar pendukung dibuat **kecil** (`gambar_mode`: `polaroid`, `lingkaran`, `sisi`, `strip` + `gambar_label`). Gambar besar (`atas`, `latar`) hanya kalau gambarnya ikut membawa pesan. **Jangan pakai mode gambar & jenis visual yang sama di 2 slide berurutan.**
@@ -67,34 +67,8 @@ Cover format berita **hanya memakai 3 gaya tipografi: `lingkar` (H), `editorial`
 - **Bar bawah (`footer: "bar"`, otomatis):** pil kaca (glassmorphic: hijau transparan + blur + garis putih tipis), kecil: seakun.id | Hemat • Aman • Legal | Geser ›. Lebar bar sejajar kotak headline (kiri-kanan 56 px). Teks tengah bisa diganti per slide lewat `bar_tengah` (list). **Slide terakhir wajib `bar_kanan: "ig"`** (ikon Instagram + @seakun.id, tanpa "Geser"). Pengecualian dari aturan "Tanpa CTA geser": khusus format berita, disetujui user. Tagline hanya di header (kecil).
 - Contoh spec: `konten/brand/visual/contoh/berita.json`.
 
-## Aturan tetap carousel berita / "cerita di balik" (keputusan user 20 Nov 2026)
-Berlaku untuk semua carousel format berita/data berikutnya, manual maupun otomatis (`otomatis/ALUR.md`).
-
-**1. Kotak harga di slide CTA selalu sama dengan C-GAJI** (`konten/visual/2026-11-19_C-GAJI/slide-10.png`).
-- Isinya (judul "Harga patungan di Seakun", 6 logo layanan + harga + "/bulan") disimpan sekali di `konten/brand/visual/brand.json` → `cta_harga`. `render.py` memasangnya otomatis di layout `cta-seakun`.
-- Jangan menulis `layanan`/`judul_harga` di spec; kalau ditulis pun diabaikan. Yang boleh beda per carousel hanya kalimat jembatan, `manfaat`, dan foto latar.
-- Harga berubah? Ubah `brand.json` `cta_harga` saja (atas izin user), jangan per carousel. Pengecualian hanya kalau user minta, lewat `"harga_khusus": true`.
-
-**2. Gambar: cover pakai ElevenLabs, slide lain Magnific.**
-- **Cover (slide 1)**: dibuat **Naka** lewat connector ElevenLabs (`creative_generate_image`, model `gpt-image-2.5-sunburst`), lalu disimpan di `<folder>/foto/cover-el.png`. Rupa tinggal memakainya di spec slide 1.
-  - Wajib set node ke **4:5, 2K, high** (`creative_update_node` → `model_parameters {"aspect_ratio":"4:5","resolution":"2K","quality":"high"}`, lalu `creative_run_flow_nodes`). Default model 16:9 1K, dan tulisan "4:5" di prompt **tidak** mengubah rasio.
-  - Biaya ± 471 kredit per gambar 2K. Anggaran ± 1.000 kredit per cover → maks 2 gambar. Jangan memanggil ulang untuk "retry".
-  - Prompt: foto sinematik nyata, suasana Indonesia, subjek di bagian bawah/tengah-bawah (atas dipakai judul), tanpa teks, tanpa logo, tanpa wajah orang sungguhan, layar TV/HP hanya cahaya buram (tanpa orang, wajah, atau tulisan). Ingat area atas ± 50% tertutup judul cover: subjek penting jangan di sana.
-  - Poster/cuplikan film/sinetron berhak cipta **hanya acuan gaya** di prompt, tidak diunduh lalu di-upscale untuk diposting.
-  - Catat model, flow_id, dan kredit terpakai di `foto/SUMBER.md`.
-  - ElevenLabs tidak tersedia/unduhan diblokir → cadangan Magnific (`gambar.py` stok atau `ai`), sebutkan alasannya.
-- **Slide 2 dst. yang menyebut nama spesifik** (judul sinetron/film, produk, tokoh, tempat, peristiwa): gambar asli dicari agent **Sidik**: **Wikipedia dulu** (`gambar.py wikipedia`, gratis), kalau tidak ada yang bagus dan sesuai baru **Google Images** via Apify (`gambar.py google`), lalu `pakai` (keputusan user 21 Nov 2026). Dipakai sebagai cuplikan pendukung, **wajib `kredit` atas nama pemilik hak** (mis. `*poster: RCTI / MNC Pictures`), tidak untuk cover, tidak di-upscale/dipotong untuk menghapus logo pemilik.
-- **Slide 2 dst. bertema umum**: Magnific lewat `konten/brand/visual/gambar.py` (stok; `wiki` untuk foto faktual berlisensi, wajib kredit). Maks 1 unduhan per slide + maks 1 `ai` per carousel kalau stok tidak ada.
-
-**3. Gambar harus menunjukkan hal yang dibahas slide itu (keputusan user 21 Nov 2026).**
-- Kalau judul/isi slide menyebut nama spesifik (judul sinetron/film, acara, produk, tokoh, tempat, peristiwa), gambarnya harus **benda/judul yang sama**, bukan contoh lain yang mirip. Contoh salah: slide 2 C-SINETRON membahas sinetron *Terikat Janji*, tapi memakai poster *Heart Series*. Yang benar: poster/cuplikan *Terikat Janji*.
-- Gambar untuk slide dengan nama spesifik dicari otomatis oleh **Sidik** dari Google Images. Gambar dari tim (Drive/Discord) tetap boleh dan didahulukan kalau ada; juga dicocokkan per slide dengan isinya, bukan dipasang berurutan nomor file. Kalau tidak ada gambar yang cocok untuk slide dengan nama spesifik: pakai gambar generik yang tidak menyiratkan judul lain (mis. foto suasana), lalu minta gambar yang tepat ke tim lewat Naka. Gambar bertema umum (mis. poster nostalgia) hanya untuk slide yang memang membahas hal umum (mis. "dulu TV rajanya").
-- Kredit "*gambar cuplikan film: <judul>" wajib sama dengan hal yang dibahas di slide; kalau kreditnya menyebut judul yang tidak ada di teks slide, itu tanda gambarnya salah tempat.
-
-**4. Paragraf isi penuh selebar kolom (keputusan user 21 Nov 2026).**
-- Kalau gambar tidak berada di samping teks (`gambar_mode` `atas`, `latar`, `strip`, atau tanpa gambar), paragraf `isi` **tidak dipenggal manual dengan `\n`**; biarkan teks mengalir selebar kolom. Penggalan manual hanya untuk kolom sempit (`sisi`, `polaroid`, `lingkaran`).
-- Saat mengganti `gambar_mode` dari mode sempit ke mode lebar, hapus semua `\n` di `isi`. Contoh salah: slide 6 C-SINETRON (mode `atas`, paragraf dipenggal 3 baris pendek, separuh kanan kosong).
-- `check.py` menandai ini sebagai ✗ `KOSONG: paragraf isi dipenggal manual`.
+## Aturan khusus per pilar
+Aturan tetap carousel **Fakta Unik** (kotak harga CTA = C-GAJI, cover ElevenLabs, slide lain Sidik/Magnific, caption tanpa sumber & hashtag) ada di `konten/pilar/fakta-unik/aturan.md`. Wajib dibaca saat mengerjakan pilar itu.
 
 ## Layout wajib (setiap post)
 1. **Kiri atas:** logo brand

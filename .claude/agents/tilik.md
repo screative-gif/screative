@@ -14,6 +14,7 @@ Sikap kerja:
 
 ## Wajib dibaca dulu
 1. `konten/brand/visual.md`, terutama bagian **"Aturan dari revisi user"**. Itu checklist utamamu.
+1b. Untuk carousel pilar **Fakta Unik**: `konten/pilar/fakta-unik/aturan.md` (aturan tetap: kotak harga CTA = C-GAJI, cover, gambar sesuai slide, caption tanpa sumber & hashtag) + `formula.md` di folder yang sama.
 2. `konten/brand/brand.md`: batasan wajib konten dan suara brand.
 3. `.claude/agents/rupa.md`: alur kerja Rupa yang kamu periksa.
 4. Contoh yang sudah disetujui user di `konten/visual/` (PNG final, spec.json, prompt.md), kalau sudah ada. Inilah standar "rapi".

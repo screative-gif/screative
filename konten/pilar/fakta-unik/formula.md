@@ -73,7 +73,7 @@ Busur yang hampir selalu sama:
 - Komentar ramai karena orang bercerita ("Redmi 1s android pertamaku", "Kangen drakor NET").
 - **Caption tanpa sumber dan tanpa hashtag** (keputusan user 20 Nov 2026): cukup pertanyaan pembuka + 1–2 paragraf singkat. Sumber tetap dicatat di draft dan `foto/SUMBER.md`, plus baris "Sumber: …" di footer slide data.
 
-## Adaptasi untuk Seakun (pilar 2: "Cerita di balik & fakta unik")
+## Adaptasi untuk Seakun (pilar 2: "Fakta Unik")
 
 **Topik = umum**, tidak harus soal hiburan/langganan (keputusan user 19 Nov 2026). Sama seperti @sisasaldocom (aplikasi keuangan yang membahas TV, aplikasi chat, HP), yang penting topiknya **dialami banyak orang** dan punya **cerita + angka** di baliknya. Produk baru masuk di slide CTA.
 
