@@ -259,7 +259,7 @@ def cmd_baca_pilihan(a):
     suara = []
     for i, t in enumerate(topik):
         pemilih = siapa_reaksi(s["pesan_topik"], ANGKA[i])
-        suara.append({"no": t["no"], "judul": t["judul"], "skor": t["skor"], "suara": len(pemilih),
+        suara.append({"emoji": ANGKA[i], "urut": i + 1, "no": t["no"], "judul": t["judul"], "skor": t["skor"], "suara": len(pemilih),
                       "pemilih": [u.get("global_name") or u["username"] for u in pemilih]})
     usulan, komentar = [], []
     for m in pesan_setelah(s["pesan_topik"]):
@@ -322,8 +322,9 @@ def cmd_plot(a):
         baris = [f"🗓️ **Jadwal carousel {label_hari(min(s['plot']))} – {label_hari(max(s['plot']))}** (tayang tiap hari 17.00 WIB)", ""]
         for tgl, p in sorted(s["plot"].items()):
             ket = alasan.get(p.get("cara"), p.get("cara", "")).format(oleh=p.get("oleh", "tim"))
-            baris.append(f"• **{label_hari(tgl)}** · {p['judul']} _({ket})_")
-        baris += ["", "Mau tukar topik suatu hari? **Balas pesan ini**: `ganti Rabu: <topik lain / nomor radar>`."]
+            urut = next((ANGKA[i] + " " for i, x in enumerate(s["topik"]) if x["no"] == p.get("no")), "")
+            baris.append(f"• **{label_hari(tgl)}** · {urut}{p['judul']} _({ket})_")
+        baris += ["", "Mau tukar topik suatu hari? **Balas pesan ini**: `ganti Rabu: <topik lain / nomor emoji di daftar topik>`."]
         s["pesan_jadwal"] = kirim_pesan("\n".join(baris))["id"]
     simpan_state(st)
     print(json.dumps({"siklus": nama, "plot": s["plot"], "pesan_jadwal": s.get("pesan_jadwal")}, ensure_ascii=False, indent=1))
