@@ -84,6 +84,84 @@
      "oleh": "Silvia Nur Chairina"
     }
    }
+  },
+  "2026-11-23": {
+   "radar": "konten/laporan/2026-11-23_radar-topik.md",
+   "topik": [
+    {
+     "no": 1,
+     "judul": "2011 orang rela antre semalaman demi BlackB3rry. Kenapa hilang dalam 5 tahun?",
+     "skor": 23,
+     "jenis": "umum",
+     "pemicu": "15 tahun antrean peluncuran BlackBerry di Pacific Place, Jakarta: Rabu 25 Nov (setahuku 25 Nov 2011, **perlu dicek**). Paling pas tayang Selasa/Rabu"
+    },
+    {
+     "no": 2,
+     "judul": "2026 ojek listrik tutup cuma 2 bulan setelah buka. Kenapa bisnis ojol susah ditembus pendatang baru?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "Baru terjadi: Gr3en SM Bike berhenti beroperasi 20 Nov 2026"
+    },
+    {
+     "no": 3,
+     "judul": "Banyak orang tetap bayar langganan yang jarang dibuka. Fakta?",
+     "skor": 22,
+     "jenis": "dekat produk",
+     "pemicu": "Gajian akhir November + 1 Desember (Selasa) tanggal banyak tagihan langganan bulanan"
+    },
+    {
+     "no": 4,
+     "judul": "Tiket ke luar negeri lebih murah dari pulang kampung Natal? Fakta?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "Libur Natal & Tahun Baru (tiket dibeli sekarang; tanggal cuti bersama 2026 **perlu dicek**)"
+    },
+    {
+     "no": 5,
+     "judul": "2012 lahir Harbolnas 12.12. Kenapa kita rela begadang demi tanggal kembar?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "Harbolnas 12.12 (Sabtu 12 Des, ± 3 minggu lagi; promo pemanasan biasanya mulai awal Desember)"
+    },
+    {
+     "no": 6,
+     "judul": "Pelanggan Telk0msel berkurang 6,5 juta, tapi tiap pelanggan bayar makin mahal. Fakta?",
+     "skor": 22,
+     "jenis": "umum (dekat ke tema langganan bulanan)",
+     "pemicu": "Lemah-sedang: tagihan/paket data awal bulan 1 Desember. Post pemicunya sudah 2 minggu"
+    },
+    {
+     "no": 7,
+     "judul": "2026 orang nonton orang main game bareng-bareng. Kenapa streaming game bisa serame siaran TV?",
+     "skor": 21,
+     "jenis": "dekat produk",
+     "pemicu": "GTA 6 baru rilis, rekor penonton serentak 18 Nov masih dibahas"
+    },
+    {
+     "no": 8,
+     "judul": "Nonton film berbahasa sendiri tapi tetap nyalain subtitle. Fakta?",
+     "skor": 21,
+     "jenis": "dekat produk",
+     "pemicu": "Hari Disabilitas Internasional, Kamis 3 Des (subtitle/teks tertutup awalnya dibuat untuk teman Tuli)"
+    },
+    {
+     "no": 9,
+     "judul": "Tiap 25 November kita ingat guru favorit. Kenapa Hari Guru jatuh di tanggal ini?",
+     "skor": 21,
+     "jenis": "umum",
+     "pemicu": "Hari Guru Nasional, Rabu 25 Nov. Harus tayang Selasa/Rabu"
+    },
+    {
+     "no": 10,
+     "judul": "Kuliah 4 tahun, kerjanya nggak nyambung sama jurusan. Kenapa ini normal? Fakta?",
+     "skor": 19,
+     "jenis": "umum",
+     "pemicu": "Lemah: akhir semester/UAS Desember (jadwal per kampus beda, **perlu dicek**). Post pemicunya 17 Nov"
+    }
+   ],
+   "pesan_topik": "1574208066843582465",
+   "status": "menunggu-pilihan",
+   "dikirim": "2026-11-23T06:40+07:00"
   }
  },
  "harian": {
