@@ -48,6 +48,8 @@ Slide:
   kredit      keterangan kecil gambar, mis. "*gambar cuplikan film: Cinta Fitri Season 3" (wajib untuk cuplikan film/foto dari user, brand.md).
               Tampil sebagai pil kecil di pojok kanan-bawah gambar (berita/foto, data: atas, sisi, latar), di bawah lingkaran (lingkaran),
               atau menggantikan gambar_ket (polaroid). kredit_pos (opsional, CSS) untuk menggeser, mis. "left:12px;right:auto".
+  berita (cover): kartu lingkar|editorial|poster; judul, subjudul, foto, foto_pos, foto_geser (zoom dari atas, isi foto turun);
+              judul_size (khusus lingkar, default 96 px) untuk judul panjang supaya baris tidak pecah & subjek foto tetap terlihat
   --- khusus foto-atas ---
   foto        path foto/cuplikan (diisi user); foto_height px (default 790); foto_pos object-position (default "center top")
   judul       teks di kotak oranye, mis. "1. Pablo Escobar"
@@ -727,7 +729,8 @@ def slide_html(s, n=1):
             sub = html.escape(s.get("subjudul", "")).replace("\n", "<br>")
             if gaya == "lingkar":
                 out.append('<div class="tshade"></div>')
-                body = "".join(f'<div class="l">{hk(l, True)}</div>' for l in lines)
+                fs = f' style="font-size:{s["judul_size"]}px"' if s.get("judul_size") else ""  # opsional, default 96 px (CSS)
+                body = "".join(f'<div class="l"{fs}>{hk(l, True)}</div>' for l in lines)
                 out.append(f'<div class="tipo lingkar">{body}' + (f'<div class="s">{sub}</div>' if sub else "") + "</div>")
                 if s.get("ajakan"):  # tombol ajakan opsional (default: tidak ada)
                     out.append(f'<div class="ajak">{html.escape(s["ajakan"])}<span class="ar">{icon("chevron-right",30,"#111",2.6)}</span></div>')

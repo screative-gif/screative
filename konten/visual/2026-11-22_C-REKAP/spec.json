@@ -1,0 +1,264 @@
+{
+  "output_dir": "konten/visual/2026-11-22_C-REKAP",
+  "slides": [
+    {
+      "layout": "berita",
+      "kartu": "lingkar",
+      "nomor": 1,
+      "foto": "konten/visual/2026-11-22_C-REKAP/foto/cover-el.png",
+      "foto_pos": "center top",
+      "judul": "Tiap Desember\nsemua orang pamer\n__rekap lagu__ setahun.\nKenapa kita\nsuka banget?",
+      "subjudul": "Ternyata ada alasan psikologisnya,\ndan angkanya bikin geleng-geleng.",
+      "judul_size": 80,
+      "foto_geser": 40
+    },
+    {
+      "layout": "data",
+      "nomor": 2,
+      "judul": "Dulu namanya bukan\n__rekap yang kita kenal.__",
+      "judul_size": 56,
+      "isi": [
+        "Rekap lagu tahunan Sp0tify lahir tahun **2015** dengan nama **“Year in Music”**, dan dibuka **lebih dari 5 juta** pengguna. Desember **2016**, namanya berganti jadi **Wr4pped**. Sejak itu, tiap akhir tahun selalu ada yang ditunggu."
+      ],
+      "gambar": "konten/visual/2026-11-22_C-REKAP/foto/s02.jpg",
+      "gambar_mode": "atas",
+      "gambar_tinggi": 150,
+      "gambar_pos": "center 100%",
+      "visual": {
+        "tipe": "tabel",
+        "kolom": [
+          "Tahun",
+          "Yang terjadi"
+        ],
+        "sorot_kolom": 1,
+        "baris": [
+          [
+            "2015",
+            "“Year in Music”, 5 juta+ pengguna"
+          ],
+          [
+            "2016",
+            "Ganti nama jadi Wr4pped"
+          ],
+          [
+            "2019",
+            "Jadi format story"
+          ],
+          [
+            "2025",
+            "200 juta pengguna dalam ± 24 jam"
+          ]
+        ]
+      },
+      "penutup": "Awalnya fitur kecil. Sekarang punya __musimnya sendiri.__",
+      "sumber": "Sp0tify Newsroom (2024); Wikipedia; Music Business Worldwide (8 Des 2025)"
+    },
+    {
+      "layout": "data",
+      "nomor": 3,
+      "judul": "Lalu rekapnya\n__berubah jadi story.__",
+      "judul_size": 54,
+      "isi": [
+        "Tahun **2019**, rekap pindah ke dalam aplikasi dengan format **story**, persis seperti yang biasa kita unggah. Desember tahun itu, ada **lebih dari 1,2 juta** posting di Twitt3r yang membahasnya."
+      ],
+      "gambar": "konten/visual/2026-11-22_C-REKAP/foto/s03.jpg",
+      "gambar_mode": "latar",
+      "gambar_tinggi": 790,
+      "teks_dalam": 320,
+      "gambar_pos": "0% center",
+      "visual": {
+        "tipe": "angka-besar",
+        "angka": "1,2 juta+",
+        "ket": "posting di Twitt3r yang membahas rekap, Desember 2019",
+        "warna": "oranye"
+      },
+      "penutup": "Dibuat seukuran layar story. Wajar kalau __langsung diunggah.__",
+      "sumber": "Wikipedia; Sp0tify Newsroom (2024)"
+    },
+    {
+      "layout": "data",
+      "nomor": 4,
+      "judul": "Sekarang 200 juta orang\nbuka __dalam sehari.__",
+      "judul_size": 56,
+      "isi": [
+        "Rekap **2025** dibuka **200 juta** pengguna hanya dalam __± 24 jam__. Setahun sebelumnya, angka yang sama baru tercapai setelah **± 62 jam**. Bandingkan dengan 2015: pembukanya baru **lebih dari 5 juta** orang."
+      ],
+      "visual": {
+        "tipe": "kolom",
+        "judul": "Waktu sampai 200 juta pengguna lihat min. 1 story rekap",
+        "tinggi": 340,
+        "items": [
+          {
+            "label": "2024",
+            "nilai": 62,
+            "teks": "± 62 jam",
+            "warna": "hijau"
+          },
+          {
+            "label": "2025",
+            "nilai": 24,
+            "teks": "± 24 jam",
+            "warna": "oranye"
+          }
+        ]
+      },
+      "penutup": "Orang bukan cuma nunggu. Mereka __buru-buru buka.__",
+      "sumber": "Music Business Worldwide (8 Des 2025); Sp0tify Newsroom (2024)"
+    },
+    {
+      "layout": "data",
+      "nomor": 5,
+      "judul": "Bukan cuma dilihat,\ntapi __dipamerkan.__",
+      "judul_size": 56,
+      "isi": [
+        "Di hari pertama rekap 2025, ada\n**± 500 juta** kali berbagi: lewat tombol\nshare, unduhan, sampai screenshot.\nDua tahun sebelumnya, tagar rekapnya\nditonton **73,7 miliar kali** di TikT0k."
+      ],
+      "gambar": "konten/visual/2026-11-22_C-REKAP/foto/s05.jpg",
+      "gambar_mode": "polaroid",
+      "gambar_ket": "Rame-rame pamer di HP",
+      "gambar_miring": 4,
+      "gambar_pos": "center",
+      "visual": {
+        "tipe": "kartu-angka",
+        "angka": "± 500 juta",
+        "ket": "kali dibagikan di hari pertama rekap 2025",
+        "mini": [
+          {
+            "angka": "73,7 miliar",
+            "ket": "view tagar rekap di TikT0k (2023)"
+          }
+        ]
+      },
+      "penutup": "Isinya pribadi, tapi tempatnya di __beranda semua orang.__",
+      "sumber": "Music Business Worldwide (8 Des 2025); Fortune (3 Des 2025)"
+    },
+    {
+      "layout": "data",
+      "nomor": 6,
+      "judul": "Rahasianya: kita pengin\n__sama sekaligus beda.__",
+      "judul_size": 56,
+      "isi": [
+        "Psikolog **Marilynn Brewer** (1991) menyebutnya **optimal distinctiveness**: manusia butuh merasa **bagian dari kelompok**, tapi juga ingin **terlihat unik**. Rekap lagu kasih dua-duanya. Semua ikut tren yang sama, tapi isinya beda-beda."
+      ],
+      "visual": {
+        "tipe": "notif",
+        "jam": "Story kamu",
+        "items": [
+          {
+            "app": "SAMA",
+            "teks": "Semua posting di minggu yang sama"
+          },
+          {
+            "app": "BEDA",
+            "teks": "Lagu teratasnya punya masing-masing",
+            "sorot": true
+          }
+        ]
+      },
+      "penutup": "Ikut rame, tapi tetap jadi __diri sendiri.__",
+      "sumber": "Ishani Banerji, The Conversation via Fortune (3 Des 2025)",
+      "gambar": "konten/visual/2026-11-22_C-REKAP/foto/s06.jpg",
+      "gambar_mode": "atas",
+      "gambar_tinggi": 250,
+      "gambar_pos": "center"
+    },
+    {
+      "layout": "data",
+      "nomor": 7,
+      "judul": "Rekap juga jadi cara\n__cerita tanpa curhat.__",
+      "judul_size": 56,
+      "isi": [
+        "Psikolog **Sareena Chadha** (University\nof Virginia) menyebutnya **self-disclosure**:\nmembuka diri lewat lagu. Hari rilisnya\npun terasa seperti **acara bersama**.\nPihak Sp0tify sendiri pernah menyebutnya\nefek **FOMO**: nggak mau ketinggalan\nikut posting."
+      ],
+      "gambar": "konten/visual/2026-11-22_C-REKAP/foto/s07.jpg",
+      "gambar_mode": "lingkaran",
+      "gambar_pos": "60% center",
+      "visual": {
+        "tipe": "daftar",
+        "items": [
+          "**Merasa sama**, sekaligus unik",
+          "**Membuka diri** lewat lagu",
+          "**Nggak mau ketinggalan** (FOMO)"
+        ]
+      },
+      "penutup": "Lagu jadi cara halus bilang, “ini lho aku tahun ini.”",
+      "sumber": "UVA Today (3 Des 2025); Wikipedia"
+    },
+    {
+      "layout": "data",
+      "nomor": 8,
+      "judul": "Lagu teratasmu\nbelum tentu __favoritmu.__",
+      "judul_size": 56,
+      "isi": [
+        "Kata **Jack Hamilton**, peneliti media di UVA, lagu yang paling sering diputar belum tentu yang paling disukai. Lagipula, yang dihitung cuma **1 Januari sampai ± pertengahan November**. Lagu yang kamu putar setelahnya, termasuk sepanjang Desember, nggak masuk."
+      ],
+      "visual": {
+        "tipe": "dulu-vs-sekarang",
+        "kiri": {
+          "judul": "DIHITUNG",
+          "isi": [
+            "1 Januari sampai",
+            "± pertengahan November"
+          ]
+        },
+        "kanan": {
+          "judul": "NGGAK MASUK REKAP",
+          "isi": [
+            "Sisa November",
+            "Sepanjang Desember"
+          ]
+        }
+      },
+      "penutup": "Lagu galau akhir Desember __aman dari rekap.__",
+      "sumber": "UVA Today (3 Des 2025); Wikipedia; Official Charts (20 Nov 2026)",
+      "gambar": "konten/visual/2026-11-22_C-REKAP/foto/s08.jpg",
+      "gambar_mode": "atas",
+      "gambar_tinggi": 300,
+      "gambar_pos": "center"
+    },
+    {
+      "layout": "data",
+      "nomor": 9,
+      "judul": "Tahun lalu, Indonesia\n__paling sering muter__ ini.",
+      "judul_size": 56,
+      "isi": [
+        "Di rekap 2025, artis lokal teratas Indonesia adalah **Hindia**. Lagu lokal teratasnya **“Mangu”** dari Fourtwnty & Charita Utami, disusul **“Nina”** dari .Feast. Rekap 2026 diperkirakan keluar **Rabu, 2 Desember**, tapi tanggal resminya belum diumumkan."
+      ],
+      "visual": {
+        "tipe": "tabel",
+        "kolom": [
+          "",
+          "Rekap lagu Indonesia"
+        ],
+        "sorot_kolom": 1,
+        "baris": [
+          [
+            "2025 · Artis #1",
+            "Hindia"
+          ],
+          [
+            "2025 · Lagu #1",
+            "“Mangu” (Fourtwnty & Charita Utami)"
+          ],
+          [
+            "2025 · Lagu #2",
+            "“Nina” (.Feast)"
+          ],
+          [
+            "2026 · Rilis",
+            "perkiraan Rabu, 2 Des (belum resmi)"
+          ]
+        ]
+      },
+      "penutup": "Kalau rekapmu keluar besok, __lagu nomor satunya apa?__",
+      "sumber": "iNews (15 Des 2025); Official Charts (20 Nov 2026, perkiraan)"
+    },
+    {
+      "layout": "cta-seakun",
+      "nomor": 10,
+      "jembatan": "Rekap lagumu\nboleh __beda-beda.__\nLangganannya bisa\npatungan bareng.",
+      "manfaat": "Patungan langganan premium: aman, legal, lebih hemat.",
+      "bar_kanan": "ig"
+    }
+  ]
+}

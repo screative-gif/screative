@@ -132,14 +132,25 @@
    "siklus": "2026-11-20"
   },
   "2026-11-22": {
-   "status": "belum-produksi",
+   "status": "menunggu-review",
    "siklus": "2026-11-20",
    "terpilih": {
     "no": 8,
     "judul": "Tiap Desember semua orang pamer rekap lagu setahun. Kenapa kita suka banget?",
     "cara": "suara-tim",
-    "oleh": "Silvia Nur Chairina"
-   }
+    "oleh": "Silvia Nur Chairina",
+    "kode": "C-REKAP",
+    "folder": "konten/visual/2026-11-22_C-REKAP"
+   },
+   "hasil": [
+    {
+     "revisi": 0,
+     "folder": "konten/visual/2026-11-22_C-REKAP",
+     "pesan_awal": "1573901377959366720",
+     "pesan_review": "1573901404425158668",
+     "dikirim": "2026-11-22T10:22+07:00"
+    }
+   ]
   }
  }
 }
