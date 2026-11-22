@@ -132,7 +132,7 @@
    "siklus": "2026-11-20"
   },
   "2026-11-22": {
-   "status": "menunggu-review",
+   "status": "tayang",
    "siklus": "2026-11-20",
    "terpilih": {
     "no": 8,
@@ -154,7 +154,14 @@
    "feedback_diproses": [
     "1573902433518747820",
     "1573902691082575883"
-   ]
+   ],
+   "posting": {
+    "media_id": "18191306815415502",
+    "permalink": "https://www.instagram.com/p/DgCirnIFMZx/",
+    "waktu": "2026-11-22T17:01+07:00",
+    "slide": 10,
+    "tanpa_approve": true
+   }
   }
  }
 }
