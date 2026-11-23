@@ -1,0 +1,274 @@
+{
+  "output_dir": "konten/visual/2026-11-23_C-OJOL",
+  "slides": [
+    {
+      "layout": "berita",
+      "kartu": "lingkar",
+      "nomor": 1,
+      "foto": "konten/visual/2026-11-23_C-OJOL/foto/cover-el.png",
+      "foto_pos": "center bottom",
+      "judul": "2026 OJEK LISTRIK\nTUTUP CUMA 2 BULAN\nSETELAH BUKA.\nKENAPA OJOL SUSAH\nDITEMBUS __PEMAIN BARU?__",
+      "subjudul": "Masalahnya bukan cuma soal motornya.",
+      "judul_size": 72
+    },
+    {
+      "layout": "data",
+      "nomor": 2,
+      "judul": "Datang dengan\nmotor listrik, pamit\n__65 hari kemudian.__",
+      "judul_size": 46,
+      "isi": [
+        "Gr3en SM Bike meluncur di Jakarta pada **16 September 2026**, mulai dari Jakarta Selatan, Barat, dan Pusat. Driver ditawari **sewa-milik mulai Rp39.000/hari**. Jumat, **20 November 2026**, layanan ojeknya berhenti. Totalnya **± 65 hari**."
+      ],
+      "gambar": "konten/visual/2026-11-23_C-OJOL/foto/s2-greensm-bike.jpg",
+      "gambar_mode": "sisi",
+      "gambar_tinggi": 420,
+      "gambar_pos": "12% center",
+      "kredit": "*foto: Gr3en SM / Autonesian",
+      "visual": {
+        "tipe": "versus",
+        "kiri": {
+          "label": "16 Sep 2026",
+          "angka": "Meluncur",
+          "ket": "di Jakarta"
+        },
+        "kanan": {
+          "label": "20 Nov 2026",
+          "angka": "Berhenti",
+          "ket": "layanan ojeknya"
+        },
+        "badge": "±65",
+        "catatan": "± 65 hari dari meluncur sampai layanan ojeknya berhenti"
+      },
+      "penutup": "Rencana ekspansinya pun __batal.__",
+      "sumber": "IDN Times; CNBC Indonesia (20 Nov 2026)"
+    },
+    {
+      "layout": "data",
+      "nomor": 3,
+      "judul": "Yang tutup ojeknya,\nmobilnya __tetap jalan.__",
+      "judul_size": 50,
+      "isi": [
+        "Alasan resminya: **“menyempurnakan layanan agar semakin sesuai dengan kebutuhan pasar Indonesia.”** Deposit dan sewa yang belum terpakai dikembalikan, begitu juga **saldo & voucher** pelanggan."
+      ],
+      "gambar": "konten/visual/2026-11-23_C-OJOL/foto/s3-greensm-mobil.jpg",
+      "gambar_mode": "polaroid",
+      "gambar_miring": 4,
+      "gambar_pos": "55% 60%",
+      "kredit": "*foto: taksi Gr3en SM, SunDawn / Wikimedia Commons (CC BY-SA 4.0)",
+      "visual": {
+        "tipe": "dulu-vs-sekarang",
+        "kiri": {
+          "judul": "UNTUK DRIVER",
+          "isi": [
+            "Deposit & sewa di muka yang belum terpakai: **dikembalikan**",
+            "Pendapatan & insentif yang tertunda: **dibayar**",
+            "Yang memenuhi syarat: **diprioritaskan pindah**"
+          ]
+        },
+        "kanan": {
+          "judul": "UNTUK PELANGGAN",
+          "isi": [
+            "Saldo & voucher dikembalikan",
+            "Layanan mobil tetap jalan"
+          ]
+        }
+      },
+      "penutup": "Tutupnya rapi. Tapi pertanyaannya tetap: __kenapa secepat itu?__",
+      "sumber": "CNBC Indonesia (20 Nov 2026); IDN Times"
+    },
+    {
+      "layout": "data",
+      "nomor": 4,
+      "judul": "Sebelumnya sudah ada\n__tujuh nama__ lain.",
+      "judul_size": 56,
+      "isi": [
+        "Ada yang sempat punya **500 mitra**, ada yang sempat punya **hampir 3.300 pengemudi**. Menurut catatan CNBC Indonesia, persaingan yang makin ketat membuat sejumlah ojol akhirnya **menghentikan operasionalnya**."
+      ],
+      "visual": {
+        "tipe": "daftar",
+        "items": [
+          "**C4ll Jack** · Yogyakarta",
+          "**Ojekk0e** · sempat 500 mitra",
+          "**T0pjek** · batasi 10.000 driver",
+          "**Ub3r** · keluar 2018",
+          "**Lady-J3k** · hampir 3.300 pengemudi",
+          "**Bluj3k** · juga berhenti",
+          "**OjekArg0** · tidak aktif sejak 2017",
+          "__Gr3en SM Bike · 20 Nov 2026__"
+        ]
+      },
+      "penutup": "Masuknya gampang. __Bertahannya yang susah.__",
+      "sumber": "CNBC Indonesia (21 Nov 2026)"
+    },
+    {
+      "layout": "data",
+      "nomor": 5,
+      "judul": "Kue terbesarnya sudah\n__dipegang dua pemain.__",
+      "judul_size": 56,
+      "isi": [
+        "Berdasarkan volume pesanan transportasi online, **Gr4b ± 63%** dan **G0To ± 36%**. Di pesan-antar makanan posisinya hampir seimbang: **G0To ± 52%**, **Gr4b ± 47%**. Pemain lain berbagi sisanya."
+      ],
+      "visual": {
+        "tipe": "kolom",
+        "judul": "Berdasarkan volume pesanan (LPEM FEB UI, laporan Mediana 2025)",
+        "tinggi": 300,
+        "items": [
+          {
+            "label": "Transportasi Gr4b",
+            "nilai": 63,
+            "teks": "± 63%",
+            "warna": "oranye"
+          },
+          {
+            "label": "Transportasi G0To",
+            "nilai": 36,
+            "teks": "± 36%"
+          },
+          {
+            "label": "Pesan-antar G0To",
+            "nilai": 52,
+            "teks": "± 52%",
+            "warna": "oranye"
+          },
+          {
+            "label": "Pesan-antar Gr4b",
+            "nilai": 47,
+            "teks": "± 47%"
+          }
+        ]
+      },
+      "penutup": "Pendatang baru bukan rebutan pasar kosong. Mereka masuk ke __pasar yang sudah penuh.__",
+      "sumber": "Katadata (15 Jun 2026), mengutip LPEM FEB UI & Mediana 2025"
+    },
+    {
+      "layout": "data",
+      "nomor": 6,
+      "judul": "Penumpang ikut driver,\ndriver __ikut penumpang.__",
+      "judul_size": 46,
+      "isi": [
+        "LPEM UI menyebutnya **efek jaringan**: makin banyak pengguna dan mitra di satu platform, **makin sulit disaingi**. Penumpang memilih aplikasi yang driver-nya cepat datang. Driver memilih aplikasi yang penumpangnya banyak."
+      ],
+      "gambar": "konten/visual/2026-11-23_C-OJOL/foto/s6-penumpang-ojek.jpg",
+      "gambar_mode": "lingkaran",
+      "gambar_pos": "40% center",
+      "visual": {
+        "tipe": "daftar",
+        "items": [
+          "Driver banyak",
+          "Jemputan cepat datang",
+          "Penumpang makin banyak",
+          "Makin banyak driver ikut gabung → **kembali ke 1**"
+        ]
+      },
+      "penutup": "Pemain baru harus menarik dua kelompok sekaligus, __dari nol.__",
+      "sumber": "Katadata (15 Jun 2026), mengutip LPEM FEB UI"
+    },
+    {
+      "layout": "data",
+      "nomor": 7,
+      "judul": "Menarik orang pindah\nbutuh __promo, banyak.__",
+      "judul_size": 56,
+      "isi": [
+        "Al Jazeera mencatat pemain ride-hailing di Asia **sangat bergantung pada diskon dan promo** karena persaingannya ketat. Tahun **2018**, pemain global Ub3r pun menjual bisnis Asia Tenggaranya ke Gr4b, lalu mendapat **27,5% saham** Gr4b."
+      ],
+      "gambar": "konten/visual/2026-11-23_C-OJOL/foto/s7-uber.jpg",
+      "gambar_mode": "atas",
+      "gambar_tinggi": 260,
+      "gambar_pos": "center 40%",
+      "kredit": "*foto: aplikasi Ub3r, picture-alliance/dpa (via DW)",
+      "visual": {
+        "tipe": "angka-besar",
+        "angka": "27,5%",
+        "ket": "saham Gr4b yang diterima Ub3r setelah menjual bisnis Asia Tenggara (Maret 2018)",
+        "warna": "oranye"
+      },
+      "penutup": "Kalau pemain sebesar itu memilih bergabung, bayangkan __beratnya buat yang baru mulai.__",
+      "sumber": "Al Jazeera (26 Mar 2018)"
+    },
+    {
+      "layout": "data",
+      "nomor": 8,
+      "judul": "Pindah aplikasi itu\n__nggak semudah uninstall.__",
+      "judul_size": 54,
+      "isi": [
+        "LPEM UI juga menyebut **efek lock-in**: saldo pembayaran dan riwayat transaksi yang sudah tersimpan bikin pengguna **sulit pindah**. Mau coba aplikasi baru, isi saldonya dari nol lagi."
+      ],
+      "visual": {
+        "tipe": "notif",
+        "jam": "Aplikasimu",
+        "items": [
+          {
+            "app": "Saldo",
+            "teks": "Ini yang bikin balik lagi",
+            "rp": "Rp87.500",
+            "sorot": true
+          },
+          {
+            "app": "Riwayat perjalanan",
+            "teks": "Kantor → Rumah"
+          },
+          {
+            "app": "Riwayat perjalanan",
+            "teks": "Rumah → Stasiun"
+          },
+          {
+            "app": "Riwayat perjalanan",
+            "teks": "Kos → Kampus"
+          }
+        ],
+        "catatan": "Note: angka ilustrasi, bukan data"
+      },
+      "penutup": "Yang bikin bertahan sering bukan cuma harga, __tapi kebiasaan.__",
+      "sumber": "Katadata (15 Jun 2026), mengutip LPEM FEB UI"
+    },
+    {
+      "layout": "data",
+      "nomor": 9,
+      "judul": "Pendatang baru harus\nmulai __semuanya dari nol.__",
+      "judul_size": 54,
+      "isi": [
+        "Bukan soal motornya listrik atau bensin. Pemain baru harus mencari penumpang, driver, dan alasan untuk pindah sekaligus, sementara pemain besar sudah punya semuanya."
+      ],
+      "visual": {
+        "tipe": "tabel",
+        "kolom": [
+          "",
+          "Pemain baru",
+          "Yang sudah besar"
+        ],
+        "sorot_kolom": 1,
+        "baris": [
+          [
+            "Penumpang",
+            "dicari dari nol",
+            "sudah terbiasa"
+          ],
+          [
+            "Driver",
+            "direkrut dari nol",
+            "sudah banyak"
+          ],
+          [
+            "Alasan pindah",
+            "promo butuh modal",
+            "jaringan sudah jalan"
+          ],
+          [
+            "Saldo & riwayat",
+            "masih kosong",
+            "sudah tersimpan"
+          ]
+        ]
+      },
+      "penutup": "Ceritain di komentar, __aplikasi ojol pertama kamu apa?__",
+      "sumber": "Katadata/LPEM FEB UI; Al Jazeera; CNBC Indonesia; IDN Times"
+    },
+    {
+      "layout": "cta-seakun",
+      "nomor": 10,
+      "jembatan": "Pemain baru boleh datang\ndan pergi. Yang penting\n__dompet tetap aman.__",
+      "manfaat": "Patungan langganan premium: aman, legal, lebih hemat.",
+      "bar_kanan": "ig"
+    }
+  ]
+}

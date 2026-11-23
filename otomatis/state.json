@@ -273,7 +273,7 @@
    }
   },
   "2026-11-23": {
-   "status": "produksi",
+   "status": "menunggu-review",
    "siklus": "2026-11-23",
    "terpilih": {
     "cara": "suara-tim",
@@ -283,7 +283,16 @@
     "oleh": "aadilah",
     "kode": "C-OJOL",
     "folder": "konten/visual/2026-11-23_C-OJOL"
-   }
+   },
+   "hasil": [
+    {
+     "revisi": 0,
+     "folder": "konten/visual/2026-11-23_C-OJOL",
+     "pesan_awal": "1574264335092424805",
+     "pesan_review": "1574264346169573417",
+     "dikirim": "2026-11-23T10:24+07:00"
+    }
+   ]
   },
   "2026-11-24": {
    "status": "belum-produksi",
