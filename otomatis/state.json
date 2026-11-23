@@ -160,8 +160,39 @@
     }
    ],
    "pesan_topik": "1574208066843582465",
-   "status": "menunggu-pilihan",
-   "dikirim": "2026-11-23T06:40+07:00"
+   "status": "terplot",
+   "dikirim": "2026-11-23T06:40+07:00",
+   "plot": {
+    "2026-11-23": {
+     "cara": "suara-tim",
+     "no": 2,
+     "judul": "2026 ojek listrik tutup cuma 2 bulan setelah buka. Kenapa bisnis ojol susah ditembus pendatang baru?",
+     "suara": 1,
+     "oleh": "aadilah"
+    },
+    "2026-11-24": {
+     "cara": "suara-tim",
+     "no": 4,
+     "judul": "Tiket ke luar negeri lebih murah dari pulang kampung Natal? Fakta?",
+     "suara": 1,
+     "oleh": "aadilah"
+    },
+    "2026-11-25": {
+     "cara": "suara-tim",
+     "no": 6,
+     "judul": "Pelanggan Telk0msel berkurang 6,5 juta, tapi tiap pelanggan bayar makin mahal. Fakta?",
+     "suara": 1,
+     "oleh": "aadilah"
+    },
+    "2026-11-26": {
+     "cara": "suara-tim",
+     "no": 10,
+     "judul": "Kuliah 4 tahun, kerjanya nggak nyambung sama jurusan. Kenapa ini normal? Fakta?",
+     "suara": 1,
+     "oleh": "aadilah"
+    }
+   },
+   "pesan_jadwal": "1574259111154155612"
   }
  },
  "harian": {
@@ -239,6 +270,52 @@
     "waktu": "2026-11-22T17:01+07:00",
     "slide": 10,
     "tanpa_approve": true
+   }
+  },
+  "2026-11-23": {
+   "status": "produksi",
+   "siklus": "2026-11-23",
+   "terpilih": {
+    "cara": "suara-tim",
+    "no": 2,
+    "judul": "2026 ojek listrik tutup cuma 2 bulan setelah buka. Kenapa bisnis ojol susah ditembus pendatang baru?",
+    "suara": 1,
+    "oleh": "aadilah",
+    "kode": "C-OJOL",
+    "folder": "konten/visual/2026-11-23_C-OJOL"
+   }
+  },
+  "2026-11-24": {
+   "status": "belum-produksi",
+   "siklus": "2026-11-23",
+   "terpilih": {
+    "cara": "suara-tim",
+    "no": 4,
+    "judul": "Tiket ke luar negeri lebih murah dari pulang kampung Natal? Fakta?",
+    "suara": 1,
+    "oleh": "aadilah"
+   }
+  },
+  "2026-11-25": {
+   "status": "belum-produksi",
+   "siklus": "2026-11-23",
+   "terpilih": {
+    "cara": "suara-tim",
+    "no": 6,
+    "judul": "Pelanggan Telk0msel berkurang 6,5 juta, tapi tiap pelanggan bayar makin mahal. Fakta?",
+    "suara": 1,
+    "oleh": "aadilah"
+   }
+  },
+  "2026-11-26": {
+   "status": "belum-produksi",
+   "siklus": "2026-11-23",
+   "terpilih": {
+    "cara": "suara-tim",
+    "no": 10,
+    "judul": "Kuliah 4 tahun, kerjanya nggak nyambung sama jurusan. Kenapa ini normal? Fakta?",
+    "suara": 1,
+    "oleh": "aadilah"
    }
   }
  }
