@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Jembatan Discord untuk workflow carousel otomatis Seakun (pilar 2).
 
-Jadwal (keputusan user 21 Nov 2026): carousel tayang SETIAP HARI 17.00 WIB. Radar topik hanya Senin & Jumat;
-suara tim radar Senin -> topik Senin–Kamis (4), radar Jumat -> Jumat–Minggu (3).
+Jadwal (keputusan user 26 Nov 2026, menggantikan jadwal harian 21 Nov): carousel tayang SABTU, SENIN, KAMIS 17.00 WIB.
+Radar topik Senin & Jumat; suara tim radar Senin -> Senin + Kamis (2 topik), radar Jumat -> Sabtu (1 topik).
 
 Pakai (dari root proyek):
   python3 otomatis/discord.py cek                                  # tes koneksi bot + akses channel (tidak mengirim apa pun)
   python3 otomatis/discord.py kirim-topik <radar-topik.md> [--siklus 2026-11-23]
                                                                     # kirim 10 topik + bobot, pasang reaksi 1️⃣–🔟
   python3 otomatis/discord.py baca-pilihan [--siklus …]            # baca reaksi & balasan tim -> JSON + usulan plot harian
-  python3 otomatis/discord.py plot [--siklus …] [--pilihan JSON]   # simpan topik per hari (4 atau 3 hari) ke state
+  python3 otomatis/discord.py plot [--siklus …] [--pilihan JSON]   # simpan topik per hari tayang (2 atau 1) ke state
   python3 otomatis/discord.py kirim-hasil <folder-visual> [--hari …] [--revisi N] [--catatan "…"]
                                                                     # kirim slide + caption + PDF Canva, pasang ✅
   python3 otomatis/discord.py baca-feedback [--hari …]             # baca ✅ & balasan tim setelah hasil terakhir -> JSON
@@ -180,17 +180,28 @@ def hari_aktif(st, tanggal=None, buat=False):
 
 
 NAMA_HARI = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+HARI_TAYANG = (0, 3, 5)   # Senin, Kamis, Sabtu (keputusan user 26 Nov 2026)
+HARI_RADAR = (0, 4)       # Senin, Jumat
+LABEL_TAYANG = "Sabtu, Senin & Kamis 17.00 WIB"
+
+
+def hari_tayang(tanggal):
+    return dt.date.fromisoformat(tanggal).weekday() in HARI_TAYANG
 
 
 def jangkauan(siklus):
-    """Tanggal posting yang dilayani radar ini: Senin -> Sen..Kam (4), Jumat -> Jum..Min (3), lainnya s.d. radar berikutnya."""
+    """Tanggal tayang yang dilayani radar ini: dari tanggal radar sampai sebelum radar berikutnya, hanya hari tayang.
+    Senin -> Senin + Kamis, Jumat -> Sabtu."""
     d0 = dt.date.fromisoformat(siklus)
-    n = {0: 4, 4: 3}.get(d0.weekday())
-    if n is None:  # radar di luar Senin/Jumat: sampai sebelum Senin/Jumat berikutnya
-        n = 1
-        while (d0 + dt.timedelta(days=n)).weekday() not in (0, 4):
-            n += 1
-    return [(d0 + dt.timedelta(days=i)).isoformat() for i in range(n)]
+    out, n = [], 0
+    while True:
+        d = d0 + dt.timedelta(days=n)
+        if n and d.weekday() in HARI_RADAR:
+            break
+        if d.weekday() in HARI_TAYANG:
+            out.append(d.isoformat())
+        n += 1
+    return out
 
 
 def label_hari(tanggal):
@@ -232,16 +243,18 @@ def cmd_kirim_topik(a):
     topik = [t for t in baca_radar(a.radar, 10 + len(lewati)) if t["no"] not in lewati][:10]
     siklus = a.siklus or hari_ini()
     hari = jangkauan(siklus)
-    baris = [f"📌 **Radar topik carousel {label_hari(siklus)}** · untuk posting {label_hari(hari[0])} – {label_hari(hari[-1])} ({len(hari)} carousel, tayang tiap hari 17.00 WIB)",
+    # Radar Jumat: tidak ada produksi Jumat, suara dikumpulkan sampai produksi Sabtu 10.00.
+    batas = a.batas if not hari or hari[0] == siklus else f"{label_hari(hari[0])} {a.batas}"
+    baris = [f"📌 **Radar topik carousel {label_hari(siklus)}** · untuk posting {label_hari(hari[0])} – {label_hari(hari[-1])} ({len(hari)} carousel, tayang {LABEL_TAYANG})",
              "Bobot = skor radar (maks 25). Makin tinggi, makin berpotensi ramai.", ""]
     for i, t in enumerate(topik):
         jenis = f" · _{t['jenis']}_" if t["jenis"] else ""
         baris.append(f"{ANGKA[i]} **{t['judul']}** · bobot **{t['skor']}**{jenis}")
     baris += ["",
-              f"**Cara pilih (sampai {a.batas} WIB):**",
-              f"• Klik reaksi nomor topik yang kamu mau (boleh lebih dari satu). **{len(hari)} topik dengan suara terbanyak** jadi carousel {label_hari(hari[0])} – {label_hari(hari[-1])}.",
+              f"**Cara pilih (sampai {batas} WIB):**",
+              f"• Klik reaksi nomor topik yang kamu mau (boleh lebih dari satu). **{len(hari)} topik dengan suara terbanyak** jadi carousel {' & '.join(label_hari(h) for h in hari)}.",
               "• Atau **balas pesan ini** dengan topik lain, misalnya: `usul: Kenapa Indomaret & Alfamart selalu bersebelahan?`",
-              f"Kalau suaranya kurang, sisanya aku isi dengan topik berbobot tertinggi. Jadwal per hari aku kirim jam {a.batas}."]
+              f"Kalau suaranya kurang, sisanya aku isi dengan topik berbobot tertinggi. Jadwalnya aku kirim {batas} WIB."]
     m = kirim_pesan("\n".join(baris))
     for i in range(len(topik)):
         reaksi(m["id"], ANGKA[i])
@@ -319,7 +332,7 @@ def cmd_plot(a):
             h["terpilih"] = dict(p)
     if a.kirim:
         alasan = {"usulan-tim": "usulan {oleh}", "suara-tim": "suara tim", "bobot-tertinggi": "bobot tertinggi"}
-        baris = [f"🗓️ **Jadwal carousel {label_hari(min(s['plot']))} – {label_hari(max(s['plot']))}** (tayang tiap hari 17.00 WIB)", ""]
+        baris = [f"🗓️ **Jadwal carousel {label_hari(min(s['plot']))} – {label_hari(max(s['plot']))}** (tayang {LABEL_TAYANG})", ""]
         for tgl, p in sorted(s["plot"].items()):
             ket = alasan.get(p.get("cara"), p.get("cara", "")).format(oleh=p.get("oleh", "tim"))
             urut = next((ANGKA[i] + " " for i, x in enumerate(s["topik"]) if x["no"] == p.get("no")), "")
@@ -456,7 +469,7 @@ def cmd_kirim(a):
 def cmd_status(a):
     st = muat_state()
     tgl = a.hari or hari_ini()
-    out = {"hari": tgl, "carousel": st["harian"].get(tgl)}
+    out = {"hari": tgl, "hari_tayang": hari_tayang(tgl), "carousel": st["harian"].get(tgl)}
     if st["siklus"]:
         nama, s = siklus_aktif(st)
         out["siklus_radar"] = {"siklus": nama, **{k: v for k, v in s.items() if k != "topik"}}

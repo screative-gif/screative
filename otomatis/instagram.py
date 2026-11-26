@@ -6,7 +6,7 @@ Pakai (dari root proyek):
   python3 otomatis/instagram.py posting [--hari …] --uji   # siapkan container saja, TIDAK tayang
   python3 otomatis/instagram.py posting [--hari …]         # posting carousel hari itu (default hari ini WIB)
 
-Aturan user 21 Nov 2026: tayang tiap hari 17.00 WIB. Tanpa ✅ sampai 17.00 tetap diposting, asal status
+Aturan user 26 Nov 2026: tayang Sabtu, Senin, Kamis 17.00 WIB. Tanpa ✅ sampai 17.00 tetap diposting, asal status
 `approved` atau `menunggu-review` (revisi/produksi yang belum selesai = tidak diposting).
 
 Gambar: Instagram mengambil gambar dari URL publik. Skrip memakai URL lampiran slide di pesan hasil

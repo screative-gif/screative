@@ -2,14 +2,15 @@
 
 Panduan untuk **Naka di sesi cloud terjadwal**. Setiap sesi terjadwal mulai dari nol (repo baru di-clone, tanpa ingatan), jadi semua langkah dan state ada di sini dan di `otomatis/state.json`.
 
-- **Jadwal harian (keputusan user 21 Nov 2026).** Carousel tayang **setiap hari 17.00 WIB**. Semua jam WIB (Asia/Jakarta, UTC+7).
+- **Jadwal (keputusan user 26 Nov 2026, menggantikan jadwal harian 21 Nov).** Carousel tayang **Sabtu, Senin, dan Kamis 17.00 WIB** (3× seminggu). Semua jam WIB (Asia/Jakarta, UTC+7).
   | Jam | Sesi | Kapan |
   |---|---|---|
   | 06.35 (target terkirim 07.00) | A. kirim radar topik | Senin & Jumat |
-  | 10.02 | B. kumpulkan suara (Senin & Jumat) + produksi carousel hari ini | setiap hari |
-  | 12.07, 15.07 | C. cek feedback & revisi | setiap hari |
-  | 16.50 | C lalu D. posting ke IG (target 17.00) | setiap hari |
-- Radar Senin → 4 topik untuk **Senin–Kamis**; radar Jumat → 3 topik untuk **Jumat–Minggu**. Topik per hari ada di `state.json` → `harian.<tanggal>.terpilih` (diisi `discord.py plot`).
+  | 10.02 | B. kumpulkan suara + plot (kalau belum) + produksi carousel hari ini | Senin, Kamis, Sabtu |
+  | 12.07, 15.07 | C. cek feedback & revisi | Senin, Kamis, Sabtu |
+  | 16.50 | C lalu D. posting ke IG (target 17.00) | Senin, Kamis, Sabtu |
+- Radar Senin → 2 topik untuk **Senin + Kamis** (suara sampai Senin 10.00); radar Jumat → 1 topik untuk **Sabtu** (suara sampai Sabtu 10.00, diplot di sesi produksi Sabtu). Topik per hari ada di `state.json` → `harian.<tanggal>.terpilih` (diisi `discord.py plot`).
+- **Bukan hari tayang (Selasa, Rabu, Jumat, Minggu) → sesi B, C, D langsung berhenti** tanpa mengirim apa pun (`discord.py status` → `hari_tayang: false`). Ini pengaman kalau tugas terjadwal masih berjalan setiap hari.
 - **Tidak ada ✅ sampai 17.00 → tetap tayang** (keputusan user). Feedback tim tetap dikerjakan dulu, termasuk permintaan ganti topik hari itu.
 - Channel, user yang boleh respon, dan jadwal: `otomatis/config.json`. Respon orang lain **diabaikan** (skrip sudah menyaring).
 - Semua komunikasi ke tim lewat `python3 otomatis/discord.py …` (bot). Tidak ada orang yang membaca sesi ini, jadi **semua kabar penting (termasuk kegagalan) dikirim ke Discord**, singkat dan dalam Bahasa Indonesia santai.
@@ -40,11 +41,12 @@ python3 otomatis/discord.py cek
 3. `python3 otomatis/discord.py kirim-topik konten/laporan/${SIKLUS}_radar-topik.md --siklus $SIKLUS`
 4. Commit + push.
 
-## B. Produksi harian (setiap hari, 10.02)
+## B. Produksi (Senin, Kamis, Sabtu, 10.02)
 `HARI=$(TZ=Asia/Jakarta date +%F)`
-1. **Senin & Jumat: plot topik dulu.** Kalau siklus radar hari ini statusnya `menunggu-pilihan`:
+0. `python3 otomatis/discord.py status` → kalau `hari_tayang` false, **berhenti** tanpa mengirim apa pun.
+1. **Plot topik dulu kalau belum.** Kalau siklus radar terbaru (`status` → `siklus_radar`) statusnya `menunggu-pilihan` (Senin: radar pagi ini; Sabtu: radar Jumat kemarin):
    - `python3 otomatis/discord.py baca-pilihan` → JSON (`suara`, `usulan`, `komentar_lain`, `plot_otomatis`).
-   - `plot_otomatis` = usulan tim ("usul: …", terbaru dulu) → suara terbanyak (seri → bobot lebih tinggi) → bobot tertinggi, satu topik per hari (Senin: 4 hari, Jumat: 3 hari). Urutan hari tidak penting (keputusan user).
+   - `plot_otomatis` = usulan tim ("usul: …", terbaru dulu) → suara terbanyak (seri → bobot lebih tinggi) → bobot tertinggi, satu topik per hari tayang (radar Senin: Senin + Kamis; radar Jumat: Sabtu). Urutan hari tidak penting (keputusan user).
    - **Nomor yang dilihat tim = urutan emoji di pesan Discord (`urut`/`emoji` di JSON), bukan `no` radar.** Selalu sebut topik dengan emoji + judul di Discord. Baca `komentar_lain`: pilihan dalam kata-kata ("nomor 3 aja" = emoji 3️⃣) dihitung seperti suara. Usulan harus **lolos batasan** `konten/brand/brand.md` + aturan wajib `konten/pilar/fakta-unik/formula.md`; kalau tidak, ganti dengan topik berikutnya dan jelaskan dengan sopan di Discord.
    - Simpan + umumkan: `python3 otomatis/discord.py plot --kirim` (pakai `plot_otomatis`), atau `plot --kirim --pilihan '[{"tanggal":"…","no":3,"judul":"…","cara":"suara-tim"}, …]'` kalau Naka menyesuaikan. Pesan jadwal tersimpan sebagai `pesan_jadwal`.
 2. **Cek permintaan tukar topik.** `python3 otomatis/discord.py baca-balasan <siklus_radar.pesan_jadwal>` (dari `status`). Permintaan "ganti <hari>: …" untuk hari ini atau hari lain dalam siklus → `tandai --hari <tgl> --terpilih '{"judul":"…","cara":"permintaan-tim","oleh":"…","no":null}'` (hanya kalau hari itu belum `produksi`/`tayang`; kalau hari ini sudah diproduksi, kerjakan di C). Lalu `tandai --balasan <id,…>`.
@@ -75,9 +77,9 @@ python3 otomatis/discord.py cek
    Kalau masih ada temuan Tilik yang belum beres setelah 3 putaran, tetap kirim dengan `--catatan "⚠️ Catatan QA: …"`.
 6. Commit + push. Kalau produksi gagal di tengah jalan: `tandai --status gagal`, kirim ke Discord apa yang gagal dan apa yang dibutuhkan, commit yang sudah jadi.
 
-## C. Cek feedback (setiap hari 12.07, 15.07, dan awal sesi 16.50)
+## C. Cek feedback (Senin, Kamis, Sabtu 12.07, 15.07, dan awal sesi 16.50)
 `HARI=$(TZ=Asia/Jakarta date +%F)`
-1. `python3 otomatis/discord.py status`. Kalau carousel hari ini belum punya `hasil` atau status `tayang`, **berhenti tanpa mengirim apa pun** (sesi B belum selesai / sudah tayang).
+1. `python3 otomatis/discord.py status`. Kalau `hari_tayang` false, carousel hari ini belum punya `hasil`, atau status `tayang`, **berhenti tanpa mengirim apa pun** (sesi B belum selesai / sudah tayang).
 2. `python3 otomatis/discord.py baca-feedback` → JSON. Cek juga `baca-balasan <pesan_jadwal>` untuk permintaan tukar topik hari ini.
 3. Ada `feedback_baru` → **revisi dulu** (feedback menang atas ✅ yang lebih lama):
    - `tandai --status revisi`. Kirim: "📝 Feedback diterima dari …, lagi aku kerjakan."
@@ -92,10 +94,10 @@ python3 otomatis/discord.py cek
 5. Tidak ada apa-apa → berhenti tanpa mengirim apa pun (di sesi 16.50 lanjut ke D).
 6. Commit + push kalau ada perubahan.
 
-## D. Posting ke Instagram (setiap hari, sesi 16.50 → tayang ± 17.00)
+## D. Posting ke Instagram (Senin, Kamis, Sabtu, sesi 16.50 → tayang ± 17.00)
 1. Jalankan C dulu (feedback terakhir dikerjakan sebelum tayang). Lalu `python3 otomatis/instagram.py cek` (token + kuota). Gagal (401/190/tunnel 403) → kirim ke Discord "⚠️ Posting IG gagal: token/akses Meta bermasalah (…)", berhenti.
 2. `python3 otomatis/discord.py status`:
-   - status `tayang` → berhenti tanpa mengirim apa pun.
+   - `hari_tayang` false atau status `tayang` → berhenti tanpa mengirim apa pun.
    - status `approved` atau `menunggu-review` → lanjut. **Tanpa ✅ tetap tayang** (keputusan user 21 Nov 2026).
    - status `produksi`/`revisi` (masih dikerjakan) → selesaikan dulu di sesi ini (B/C), kirim hasilnya, lalu posting. Kalau gagal total (`gagal`/tidak ada hasil), kirim "⚠️ Carousel hari ini batal tayang: …" dan berhenti.
 3. Kalau sesi selesai sebelum 17.00, tunggu sampai 17.00 WIB (`python3 -c "import time; time.sleep(N)"`, maks ± 10 menit), lalu `python3 otomatis/instagram.py posting` → slide dari pesan hasil Discord terakhir + `caption.txt`, menulis `posting` di state dan `TAYANG …` di `STATUS.txt`.
