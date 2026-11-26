@@ -62,4 +62,4 @@ Akun @seakun.id sudah aktif dengan gaya visual mapan: latar kertas kusut abu ter
 | **Feed foto (single)** | 1 | Empati / quote |
 | **Threads** | 5 (1/hari kerja) | Pertanyaan dan curhat pendek; komentarnya jadi bahan ide |
 
-**Jadwal tetap:** Carousel pilar 2 **Fakta Unik** **terbit setiap hari 17.00 WIB** dan diproduksi pagi di hari yang sama (keputusan user, 21 Nov 2026; menggantikan Selasa & Sabtu). Radar topik dikirim ke tim Senin & Jumat 07.00: 4 topik untuk Senin–Kamis, 3 topik untuk Jumat–Minggu. Jadwal pilar lain belum ditetapkan, masih akan didiskusikan dengan user.
+**Jadwal tetap:** Carousel pilar 2 **Fakta Unik** **terbit Sabtu, Senin, dan Kamis 17.00 WIB** dan diproduksi pagi di hari yang sama (keputusan user, 26 Nov 2026; menggantikan jadwal harian 21 Nov). Radar topik dikirim ke tim Senin & Jumat 07.00: radar Senin → topik Senin + Kamis, radar Jumat → topik Sabtu. Jadwal pilar lain belum ditetapkan, masih akan didiskusikan dengan user.

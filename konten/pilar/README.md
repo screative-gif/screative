@@ -5,7 +5,7 @@ Satu folder per pilar. Aturan **umum** brand tetap di `konten/brand/` (`brand.md
 | Pilar | Folder | Status |
 |---|---|---|
 | 1. Rekomendasi tontonan | (belum ada) | rules belum dibuat |
-| 2. **Fakta Unik** | [`fakta-unik/`](fakta-unik/) | jalan otomatis, tayang setiap hari 17.00 WIB |
+| 2. **Fakta Unik** | [`fakta-unik/`](fakta-unik/) | jalan otomatis, tayang Sabtu, Senin, Kamis 17.00 WIB |
 | 3. Edukasi hemat & patungan | (belum ada) | rules belum dibuat |
 | 4. Relate / humor | (belum ada) | rules belum dibuat |
 | 5. Promo | (belum ada) | rules belum dibuat |

@@ -16,12 +16,12 @@
     }
   },
   "jadwal": {
-    "_catatan": "Keputusan user 21 Nov 2026: carousel tayang setiap hari.",
-    "radar_topik": "Senin & Jumat 07.00 WIB (radar Senin -> Sen–Kam, radar Jumat -> Jum–Min)",
-    "batas_pilih": "10.00 WIB (Senin & Jumat)",
-    "produksi": "setiap hari 10.00 WIB",
-    "cek_feedback": "12.00, 15.00, 16.50 WIB setiap hari",
-    "jam_posting": "17.00 WIB setiap hari (tanpa approve tetap tayang)"
+    "_catatan": "Keputusan user 26 Nov 2026: carousel tayang Sabtu, Senin, Kamis (menggantikan setiap hari).",
+    "radar_topik": "Senin & Jumat 07.00 WIB (radar Senin -> Senin + Kamis, radar Jumat -> Sabtu)",
+    "batas_pilih": "Senin 10.00 WIB (radar Senin), Sabtu 10.00 WIB (radar Jumat)",
+    "produksi": "Senin, Kamis, Sabtu 10.00 WIB",
+    "cek_feedback": "12.00, 15.00, 16.50 WIB (Senin, Kamis, Sabtu)",
+    "jam_posting": "17.00 WIB Senin, Kamis, Sabtu (tanpa approve tetap tayang)"
   },
   "branch_kerja": "otomatis/carousel",
   "instagram": {
