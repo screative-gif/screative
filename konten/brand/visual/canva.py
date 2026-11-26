@@ -60,7 +60,7 @@ def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
     spec_path = sys.argv[1]
-    spec = json.load(open(spec_path, encoding="utf-8"))
+    spec = render.siapkan_spec(json.load(open(spec_path, encoding="utf-8")))
     od = spec["output_dir"]
     od = od if os.path.isabs(od) else os.path.join(render.ROOT, od)
     kode = os.path.basename(od.rstrip("/")).split("_", 1)[-1]
