@@ -193,6 +193,84 @@
     }
    },
    "pesan_jadwal": "1574259111154155612"
+  },
+  "2026-11-27": {
+   "radar": "konten/laporan/2026-11-27_radar-topik.md",
+   "topik": [
+    {
+     "no": 1,
+     "judul": "Dolar tembus Rp18.300. Kenapa harga yang nggak ada urusannya sama dolar ikut naik? Fakta?",
+     "skor": 22,
+     "jenis": "umum (jembatan dekat produk: sebagian langganan digital ditagih/dipatok dolar)",
+     "pemicu": "Baru terjadi: rupiah di atas Rp18.300 per USD, Rabu 25 Nov (menurut post; **perlu dicek** ke kurs resmi)"
+    },
+    {
+     "no": 2,
+     "judul": "Banyak merek yang kamu kira impor ternyata asli Indonesia. Fakta?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "Tren minggu ini di akun referensi: pola \"sejarah merek\" @otakplastisin (#sejarahmerek di 2 post, outlier 12,6×)"
+    },
+    {
+     "no": 3,
+     "judul": "2012 lahir Harbolnas 12.12. Kenapa kita rela begadang demi tanggal kembar?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "Black Friday Jumat 27 Nov (sehari sebelum tayang) + Cyber Monday 30 Nov + Harbolnas 12.12 Sabtu 12 Des (2 minggu lagi; promo pemanasan biasanya mulai awal Desember)"
+    },
+    {
+     "no": 4,
+     "judul": "Banyak orang tetap bayar langganan yang jarang dibuka. Fakta?",
+     "skor": 22,
+     "jenis": "dekat produk",
+     "pemicu": "Gajian akhir November baru lewat + Selasa 1 Des tanggal banyak tagihan langganan bulanan. Sabtu = waktu orang beres-beres keuangan"
+    },
+    {
+     "no": 5,
+     "judul": "Tiket ke luar negeri lebih murah dari pulang kampung Natal? Fakta?",
+     "skor": 22,
+     "jenis": "umum",
+     "pemicu": "Libur Natal & Tahun Baru (tiket dibeli sekarang; tanggal cuti bersama 2026 **perlu dicek**). Akhir pekan = waktu orang cek tiket"
+    },
+    {
+     "no": 6,
+     "judul": "1968 mi instan pertama lahir di Indonesia. Kenapa sekarang kita makan miliaran bungkus setahun?",
+     "skor": 21,
+     "jenis": "umum",
+     "pemicu": "Musim hujan (cuaca dingin = mi instan) + post sejarah mi instan yang baru ramai di akun referensi"
+    },
+    {
+     "no": 7,
+     "judul": "2011 orang rela antre semalaman demi BlackB3rry. Kenapa hilang dalam 5 tahun?",
+     "skor": 21,
+     "jenis": "umum",
+     "pemicu": "15 tahun antrean peluncuran di Pacific Place, Jakarta (setahuku 25 Nov 2011, **perlu dicek**). Tanggalnya sudah lewat 3 hari, jadi pemicunya turun dari 5 ke 3; sudut \"15 tahun lalu minggu ini\" masih bisa"
+    },
+    {
+     "no": 8,
+     "judul": "Nonton film berbahasa sendiri tapi tetap nyalain subtitle. Fakta?",
+     "skor": 21,
+     "jenis": "dekat produk",
+     "pemicu": "Hari Disabilitas Internasional, Kamis 3 Des (subtitle/teks tertutup awalnya dibuat untuk teman Tuli). Lebih pas tayang Senin 30 Nov / Kamis 3 Des"
+    },
+    {
+     "no": 9,
+     "judul": "Pelanggan Telk0msel berkurang 6,5 juta, tapi tiap pelanggan bayar makin mahal. Fakta?",
+     "skor": 21,
+     "jenis": "umum (dekat ke tema tagihan bulanan)",
+     "pemicu": "Lemah: tagihan/paket data awal bulan 1 Des. Post pemicunya sudah ± 3 minggu, tidak ada bukti baru"
+    },
+    {
+     "no": 10,
+     "judul": "2026 orang nonton orang main game bareng-bareng. Kenapa streaming game bisa serame siaran TV?",
+     "skor": 19,
+     "jenis": "dekat produk",
+     "pemicu": "Makin lemah: rekor penonton serentak GTA 6 (18 Nov) sudah ± 10 hari. Akhir pekan = jam ramai live streaming"
+    }
+   ],
+   "pesan_topik": "1575658104572481661",
+   "status": "menunggu-pilihan",
+   "dikirim": "2026-11-27T06:42+07:00"
   }
  },
  "harian": {
