@@ -3,13 +3,12 @@
   "slides": [
     {
       "layout": "berita",
-      "kartu": "lingkar",
+      "kartu": "editorial",
       "nomor": 1,
-      "foto": "konten/visual/2026-11-26_C-JURUSAN/foto/cover-el.png",
-      "foto_pos": "center bottom",
-      "judul": "KULIAH 4 TAHUN,\nKERJANYA NGGAK NYAMBUNG\nSAMA JURUSAN.\nKATANYA __NORMAL.__ FAKTA?",
-      "subjudul": "Ternyata ini terjadi hampir di mana-mana.",
-      "judul_size": 62
+      "foto": "konten/visual/2026-11-26_C-JURUSAN/foto/cover-el-editorial.png",
+      "foto_pos": "center top",
+      "judul": "Kuliah 4 tahun, kerjanya\n__nggak nyambung__\nsama jurusan?",
+      "subjudul": "Katanya normal. Ternyata terjadi hampir di mana-mana."
     },
     {
       "layout": "data",
@@ -213,11 +212,11 @@
     {
       "layout": "data",
       "nomor": 9,
-      "judul": "Kuliah hukum, lalu\n__“kecelakaan” jadi jurnalis.__",
+      "judul": "Kuliah hukum,\nlalu __“kecelakaan”__\n__jadi jurnalis.__",
       "judul_size": 54,
       "isi": [
         "**Najwa Shihab** kuliah di **Fakultas Hukum UI** dan awalnya ingin jadi pengacara, hakim, atau jaksa. Di semester akhir dia magang di media, lalu jatuh cinta. Katanya sendiri:",
-        "__“Jadi jurnalis sebenarnya kecelakaan.”__"
+        "__“Jadi jurnalis\nsebenarnya kecelakaan.”__"
       ],
       "visual": {
         "tipe": "versus",
@@ -233,7 +232,12 @@
         }
       },
       "penutup": "Kadang belokan terbaik __ketemu di semester akhir.__",
-      "sumber": "JawaPos (17 Sep 2022), dari podcast Najwa Shihab bersama Ashanty"
+      "sumber": "JawaPos (17 Sep 2022), dari podcast Najwa Shihab bersama Ashanty",
+      "gambar": "konten/visual/2026-11-26_C-JURUSAN/foto/s9-najwa-shihab.jpg",
+      "gambar_mode": "sisi",
+      "gambar_tinggi": 420,
+      "gambar_pos": "center 25%",
+      "kredit": "*foto: Wikimedia Commons"
     },
     {
       "layout": "data",
@@ -276,7 +280,9 @@
       "layout": "cta-seakun",
       "nomor": 11,
       "jembatan": "Suka cerita kayak gini?\nDibawakan oleh __Seakun,__\nplatform patungan\nNo.1 Indonesia.",
-      "manfaat": "Patungan langganan premium: aman, legal, lebih hemat."
+      "manfaat": "Patungan langganan premium: aman, legal, lebih hemat.",
+      "logo_blur": 3,
+      "gambar_latar": "konten/visual/2026-11-26_C-JURUSAN/foto/cover-el.png"
     }
   ]
 }
