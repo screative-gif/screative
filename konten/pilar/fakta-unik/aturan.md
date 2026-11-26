@@ -8,6 +8,12 @@ Berlaku untuk semua carousel Fakta Unik, manual maupun otomatis (`otomatis/ALUR.
 - Jangan menulis `layanan`/`judul_harga` di spec; kalau ditulis pun diabaikan. Yang boleh beda per carousel hanya kalimat jembatan, `manfaat`, dan foto latar.
 - Harga berubah? Ubah `brand.json` `cta_harga` saja (atas izin user), jangan per carousel. Pengecualian hanya kalau user minta, lewat `"harga_khusus": true`.
 
+**1b. Gaya slide CTA selalu seperti C-SINETRON** (`konten/visual/2026-11-21_C-SINETRON/slide-10.png`, keputusan user 26 Nov 2026).
+- **Latar = foto yang di-blur**, bukan hijau polos. `render.py` otomatis memakai foto cover (slide 1) kalau `gambar_latar` tidak diisi, dan selalu mem-blur latar (`latar_blur`, default 12). Boleh isi `gambar_latar` dengan foto lain yang nyambung dengan topik.
+- **Logo provider di kotak harga di-blur** (`logo_blur`, default 5). Jangan dimatikan kecuali user minta.
+- Tombol "Kunjungi seakun.id" gaya `tap` (ikon tangan), tanpa bar footer. Keduanya sudah default; jangan menulis `tombol`, `footer`, atau `bar_kanan` di slide CTA.
+- Contoh salah: slide 10 C-OJOL versi 23 Nov (latar hijau polos, tombol panah kuning, bar footer, logo tajam).
+
 **2. Gambar: cover pakai ElevenLabs, slide lain Magnific.**
 - **Cover (slide 1)**: dibuat **Naka** lewat connector ElevenLabs (`creative_generate_image`, model `gpt-image-2.5-sunburst`), lalu disimpan di `<folder>/foto/cover-el.png`. Rupa tinggal memakainya di spec slide 1.
   - Wajib set node ke **4:5, 2K, high** (`creative_update_node` → `model_parameters {"aspect_ratio":"4:5","resolution":"2K","quality":"high"}`, lalu `creative_run_flow_nodes`). Default model 16:9 1K, dan tulisan "4:5" di prompt **tidak** mengubah rasio.
