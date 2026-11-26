@@ -317,15 +317,21 @@
    }
   },
   "2026-11-26": {
-   "status": "belum-produksi",
+   "status": "produksi",
    "siklus": "2026-11-23",
    "terpilih": {
     "cara": "suara-tim",
     "no": 10,
     "judul": "Kuliah 4 tahun, kerjanya nggak nyambung sama jurusan. Kenapa ini normal? Fakta?",
     "suara": 1,
-    "oleh": "aadilah"
+    "oleh": "aadilah",
+    "kode": "C-JURUSAN",
+    "folder": "konten/visual/2026-11-26_C-JURUSAN"
    }
   }
- }
+ },
+ "balasan_diproses": [
+  "1574286453234729042",
+  "1574322310821842964"
+ ]
 }
