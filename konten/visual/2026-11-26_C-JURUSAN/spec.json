@@ -1,0 +1,282 @@
+{
+  "output_dir": "konten/visual/2026-11-26_C-JURUSAN",
+  "slides": [
+    {
+      "layout": "berita",
+      "kartu": "lingkar",
+      "nomor": 1,
+      "foto": "konten/visual/2026-11-26_C-JURUSAN/foto/cover-el.png",
+      "foto_pos": "center bottom",
+      "judul": "KULIAH 4 TAHUN,\nKERJANYA NGGAK NYAMBUNG\nSAMA JURUSAN.\nKATANYA __NORMAL.__ FAKTA?",
+      "subjudul": "Ternyata ini terjadi hampir di mana-mana.",
+      "judul_size": 62
+    },
+    {
+      "layout": "data",
+      "nomor": 2,
+      "judul": "Kerja beda jurusan itu\n__bukan cuma kamu.__",
+      "judul_size": 56,
+      "isi": [
+        "Tahun **2021**, Mendikbud saat itu menyebut **80%** lulusan tidak bekerja di sektor sesuai prodinya. Itu pernyataan, bukan survei. Data lulusan **SMK** (Sakernas 2022) lebih terukur: **72,71%** bekerja di bidang yang beda dari keahliannya."
+      ],
+      "gambar": "konten/visual/2026-11-26_C-JURUSAN/foto/s2-wisudawan-gelap.jpg",
+      "gambar_mode": "latar",
+      "gambar_tinggi": 720,
+      "teks_dalam": 370,
+      "gambar_pos": "center 25%",
+      "visual": {
+        "tipe": "angka-besar",
+        "pembanding": [
+          {
+            "angka": "80%",
+            "ket": "kata Mendikbud, 2021 (pernyataan, bukan survei)"
+          },
+          {
+            "angka": "72,71%",
+            "ket": "lulusan SMK yang kerjanya beda bidang (Sakernas Agustus 2022)",
+            "warna": "oranye"
+          }
+        ]
+      },
+      "penutup": "Kalau kerjaanmu beda dari jurusanmu, kamu justru __mayoritas.__",
+      "sumber": "detikEdu (2 Nov 2021); Setiyana & Oktora, JKI BRIN 2024"
+    },
+    {
+      "layout": "data",
+      "nomor": 3,
+      "judul": "Di negara maju pun,\n__cuma ± 27%__ yang nyambung.",
+      "judul_size": 56,
+      "isi": [
+        "Riset **Federal Reserve Bank of New York (2013)**: hampir **dua pertiga** lulusan sarjana di AS bekerja di posisi yang butuh gelar sarjana. Tapi yang pekerjaannya **terkait langsung dengan jurusannya** hanya sedikit di atas seperempat, **± 27%**."
+      ],
+      "visual": {
+        "tipe": "versus",
+        "kiri": {
+          "label": "BUTUH GELAR SARJANA",
+          "angka": "± 2/3",
+          "ket": "lulusan bekerja di posisi yang butuh gelar"
+        },
+        "kanan": {
+          "label": "SESUAI JURUSAN",
+          "angka": "± 27%",
+          "ket": "pekerjaannya terkait langsung dengan jurusan"
+        },
+        "catatan": "Lulusan sarjana di AS, riset NY Fed 2013"
+      },
+      "penutup": "Gelarnya kepakai. __Jurusannya belum tentu.__",
+      "sumber": "Abel & Deitz, Liberty Street Economics, NY Fed (20 Mei 2013)"
+    },
+    {
+      "layout": "data",
+      "nomor": 4,
+      "judul": "Nyasar ada dua: beda bidang\ndan __beda tingkat.__",
+      "judul_size": 54,
+      "isi": [
+        "Beda bidang: kuliah A, kerja di B. Beda tingkat: pendidikannya lebih tinggi dari yang dibutuhkan pekerjaannya. Data **BPS 2024** ini mengukur **tingkat pendidikan**, bukan kecocokan jurusan."
+      ],
+      "visual": {
+        "tipe": "kartu-angka",
+        "angka": "22,36%",
+        "ket": "pekerja muda **overeducated**: pendidikannya lebih tinggi dari kebutuhan pekerjaan (BPS 2024)",
+        "mini": [
+          {
+            "angka": "64,64%",
+            "ket": "sesuai kualifikasi"
+          },
+          {
+            "angka": "13%",
+            "ket": "undereducated"
+          }
+        ]
+      },
+      "penutup": "Dua-duanya sering kejadian. Tapi __dampaknya beda.__",
+      "sumber": "BPS 2024, via CNBC Indonesia (4 Nov 2025) & GoodStats (26 Des 2025)"
+    },
+    {
+      "layout": "data",
+      "nomor": 5,
+      "judul": "Jurusannya dipilih waktu\nkita __masih 17 tahun.__",
+      "judul_size": 56,
+      "isi": [
+        "Kebanyakan dari kita menentukan jurusan di akhir SMA, sering sebelum tahu pekerjaan apa saja yang ada. Wajar kalau minatnya berubah setelah ketemu dunia kerja yang sebenarnya."
+      ],
+      "visual": {
+        "tipe": "notif",
+        "jam": "Formulir Pendaftaran",
+        "items": [
+          {
+            "app": "Usia",
+            "teks": "17 tahun"
+          },
+          {
+            "app": "Pilihan jurusan 1",
+            "teks": "dicoret, ganti lagi"
+          },
+          {
+            "app": "Pilihan jurusan 2",
+            "teks": "“yang penting keterima dulu”",
+            "sorot": true
+          },
+          {
+            "app": "Cita-cita",
+            "teks": "“belum tahu”"
+          }
+        ],
+        "catatan": "Note: ilustrasi, bukan data"
+      },
+      "penutup": "Kita memilih jurusan __sebelum kenal diri sendiri.__"
+    },
+    {
+      "layout": "data",
+      "nomor": 6,
+      "judul": "Dunia kerja berubah\n__lebih cepat dari kurikulum.__",
+      "judul_size": 54,
+      "isi": [
+        "Banyak pekerjaan tidak butuh jurusan tertentu, tapi butuh kemampuan yang bisa dibawa dari jurusan mana pun. Yang kepakai bukan cuma isi mata kuliah, tapi cara berpikir dan cara kerja yang terbentuk selama kuliah."
+      ],
+      "gambar": "konten/visual/2026-11-26_C-JURUSAN/foto/s6-diskusi-tim.jpg",
+      "gambar_mode": "atas",
+      "gambar_pos": "center 45%",
+      "visual": {
+        "tipe": "daftar",
+        "items": [
+          "Komunikasi",
+          "Menganalisis masalah",
+          "Belajar hal baru dengan cepat",
+          "Kerja bareng orang lain"
+        ]
+      },
+      "penutup": "Jurusan itu pintu masuk, __bukan peta seumur hidup.__",
+      "gambar_tinggi": 330
+    },
+    {
+      "layout": "data",
+      "nomor": 7,
+      "judul": "Kerja di bawah kualifikasi,\n__upahnya ikut turun.__",
+      "judul_size": 54,
+      "isi": [
+        "Kajian dari data **Sakernas 2024**: pekerja yang pendidikannya **lebih tinggi dari kebutuhan** pekerjaannya berpotensi menerima upah **± 7,57% lebih rendah** dibanding pekerja yang sesuai kualifikasi."
+      ],
+      "gambar": "konten/visual/2026-11-26_C-JURUSAN/foto/s7-amplop-gaji.jpg",
+      "gambar_mode": "latar",
+      "gambar_tinggi": 700,
+      "gambar_pos": "center 40%",
+      "visual": {
+        "tipe": "angka-besar",
+        "angka": "± 7,57%",
+        "ket": "potensi selisih upah pekerja overeducated vs yang sesuai kualifikasi (Sakernas 2024)",
+        "warna": "oranye"
+      },
+      "penutup": "Beda bidang itu normal. Yang perlu diwaspadai: __terlalu lama kerja di bawah kemampuan.__",
+      "sumber": "Khoiruddin, olahan Sakernas 2024, via CNBC Indonesia (4 Nov 2025)",
+      "teks_dalam": 300
+    },
+    {
+      "layout": "data",
+      "nomor": 8,
+      "judul": "Jurusan yang kedengarannya\n__paling “jelas”__ pun bisa nyasar.",
+      "judul_size": 52,
+      "isi": [
+        "Di lulusan SMK, bidang **TIK** justru tertinggi: **93,82%** kerjanya beda bidang. Di AS (data 2009–2013), lulusan **Liberal Arts** dan **Bisnis Umum** **2–3 kali** lebih mungkin kerja di posisi yang tidak butuh gelar, dibanding **Teknik** atau **Keperawatan**."
+      ],
+      "visual": {
+        "tipe": "kolom",
+        "judul": "Lulusan SMK yang kerjanya beda bidang (Sakernas 2022)",
+        "tinggi": 280,
+        "items": [
+          {
+            "label": "TIK",
+            "nilai": 93.82,
+            "teks": "93,82%",
+            "warna": "oranye"
+          },
+          {
+            "label": "Kemaritiman",
+            "nilai": 84.63,
+            "teks": "84,63%"
+          },
+          {
+            "label": "Seni & kreatif",
+            "nilai": 82.29,
+            "teks": "82,29%"
+          },
+          {
+            "label": "Bisnis",
+            "nilai": 54.11,
+            "teks": "54,11%"
+          }
+        ]
+      },
+      "penutup": "Bukan soal jurusannya bagus atau nggak.\nPasarnya yang menentukan __ke mana orang mengalir.__",
+      "sumber": "Setiyana & Oktora, JKI BRIN 2024; Abel & Deitz, NY Fed SR 749"
+    },
+    {
+      "layout": "data",
+      "nomor": 9,
+      "judul": "Kuliah hukum, lalu\n__“kecelakaan” jadi jurnalis.__",
+      "judul_size": 54,
+      "isi": [
+        "**Najwa Shihab** kuliah di **Fakultas Hukum UI** dan awalnya ingin jadi pengacara, hakim, atau jaksa. Di semester akhir dia magang di media, lalu jatuh cinta. Katanya sendiri:",
+        "__“Jadi jurnalis sebenarnya kecelakaan.”__"
+      ],
+      "visual": {
+        "tipe": "versus",
+        "kiri": {
+          "label": "AWALNYA",
+          "angka": "Hukum",
+          "ket": "Fakultas Hukum UI, ingin jadi pengacara, hakim, atau jaksa"
+        },
+        "kanan": {
+          "label": "SEKARANG",
+          "angka": "Jurnalis",
+          "ket": "setelah magang di media, semester akhir"
+        }
+      },
+      "penutup": "Kadang belokan terbaik __ketemu di semester akhir.__",
+      "sumber": "JawaPos (17 Sep 2022), dari podcast Najwa Shihab bersama Ashanty"
+    },
+    {
+      "layout": "data",
+      "nomor": 10,
+      "judul": "Nyasar jurusan itu normal.\n__Asal jangan terlalu lama.__",
+      "judul_size": 54,
+      "isi": [
+        "Jurusan dipilih saat kita masih belajar mengenal diri, dan dunia kerja terus berubah. Yang perlu dijaga bukan kecocokan ijazah, tapi supaya kemampuanmu tetap kepakai."
+      ],
+      "visual": {
+        "tipe": "tabel",
+        "kolom": [
+          "Anggapan",
+          "Faktanya"
+        ],
+        "sorot_kolom": 1,
+        "baris": [
+          [
+            "Kerja harus sesuai jurusan",
+            "Di AS cuma ± 27% yang sesuai"
+          ],
+          [
+            "SMK pasti sesuai bidang",
+            "72,71% kerjanya beda bidang"
+          ],
+          [
+            "Nyasar = gagal",
+            "Jurusan dipilih umur belasan, wajar berbelok"
+          ],
+          [
+            "Nyasar nggak ada ruginya",
+            "Overeducated: upah ± 7,57% lebih rendah"
+          ]
+        ]
+      },
+      "penutup": "Kamu kuliah apa, kerjanya apa sekarang? __Ceritain di komentar.__",
+      "sumber": "NY Fed 2013; BRIN/Sakernas 2022; Sakernas 2024 via CNBC Indonesia"
+    },
+    {
+      "layout": "cta-seakun",
+      "nomor": 11,
+      "jembatan": "Suka cerita kayak gini?\nDibawakan oleh __Seakun,__\nplatform patungan\nNo.1 Indonesia.",
+      "manfaat": "Patungan langganan premium: aman, legal, lebih hemat."
+    }
+  ]
+}

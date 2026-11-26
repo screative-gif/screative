@@ -317,7 +317,7 @@
    }
   },
   "2026-11-26": {
-   "status": "produksi",
+   "status": "menunggu-review",
    "siklus": "2026-11-23",
    "terpilih": {
     "cara": "suara-tim",
@@ -327,7 +327,16 @@
     "oleh": "aadilah",
     "kode": "C-JURUSAN",
     "folder": "konten/visual/2026-11-26_C-JURUSAN"
-   }
+   },
+   "hasil": [
+    {
+     "revisi": 0,
+     "folder": "konten/visual/2026-11-26_C-JURUSAN",
+     "pesan_awal": "1575356857784991919",
+     "pesan_review": "1575356899946143766",
+     "dikirim": "2026-11-26T10:45+07:00"
+    }
+   ]
   }
  },
  "balasan_diproses": [
