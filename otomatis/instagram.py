@@ -28,7 +28,7 @@ import discord as dc  # noqa: E402  (jembatan Discord di folder yang sama)
 
 GRAPH = "https://graph.facebook.com/v23.0"
 IG_USER = dc.CFG.get("instagram", {}).get("ig_user_id", "17841459636109092")
-MAKS_SLIDE = 10
+MAKS_SLIDE = 20  # Graph API menerima carousel > 10 (uji 26 Nov 2026: 11 slide OK)
 
 
 def _h():

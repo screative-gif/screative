@@ -317,7 +317,7 @@
    }
   },
   "2026-11-26": {
-   "status": "menunggu-review",
+   "status": "tayang",
    "siklus": "2026-11-23",
    "terpilih": {
     "cara": "suara-tim",
@@ -346,7 +346,14 @@
    ],
    "feedback_diproses": [
     "1575408936994086964"
-   ]
+   ],
+   "posting": {
+    "media_id": "18128045311924706",
+    "permalink": "https://www.instagram.com/p/DgM2DOnCQku/",
+    "waktu": "2026-11-26T17:02+07:00",
+    "slide": 11,
+    "tanpa_approve": false
+   }
   }
  },
  "balasan_diproses": [
