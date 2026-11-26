@@ -80,6 +80,7 @@ Naka menyebut folder `konten/visual/<folder>/`. Periksa:
      - ukuran seimbang dengan contoh yang sudah disetujui
    - **Kotak MITOS/FAKTA:** MITOS warna primer, FAKTA warna aksen. Teks di dalamnya tidak menyisakan 1 kata di baris akhir.
    - **Ikon:** kecil (60 px), bervariasi sesuai makna, tidak semuanya sama.
+   - **Gaya cover digilir (aturan user 26 Nov 2026):** `kartu` slide 1 tidak boleh sama dengan cover carousel sebelumnya (`python3 konten/brand/visual/gaya_cover.py --riwayat`). Sama = PERLU PERBAIKAN. Cek juga teks cover tidak menutupi subjek foto pada gaya itu.
    - **Slide CTA `cta-seakun` (Fakta Unik, aturan user 26 Nov 2026):** harus seperti `konten/visual/2026-11-21_C-SINETRON/slide-10.png`: latar foto yang di-blur (bukan hijau polos), logo provider di kotak harga di-blur, tombol "Kunjungi seakun.id" dengan ikon tangan, tanpa bar footer. Latar polos / logo tajam / tombol panah kuning / ada bar footer = PERLU PERBAIKAN (hapus `tombol`, `footer`, `bar_kanan`, `logo_blur` dari spec slide CTA lalu render ulang).
    - **CTA:**
      - 1 ajakan saja

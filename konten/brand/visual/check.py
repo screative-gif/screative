@@ -194,6 +194,19 @@ def main():
         for x in err: print("   ✗", x)
         for x in nt: print("   △", x)
     for x in capf: bad += 1; print("✗", x)
+    # Aturan user 26 Nov 2026: gaya cover digilir (lingkar -> editorial -> poster), tidak sama dengan cover carousel sebelumnya.
+    try:
+        import gaya_cover as GC
+        sp = json.load(open(sys.argv[1]))
+        od = os.path.normpath(sp.get("output_dir", ""))
+        c = sp["slides"][0]
+        if c.get("layout") == "berita" and od:
+            sebelum = [(f, k) for f, k in GC.riwayat(od) if os.path.basename(f) < os.path.basename(od)]
+            if sebelum and c.get("kartu", "kaca") == sebelum[-1][1]:
+                bad += 1
+                print(f"✗ COVER MONOTON: gaya cover \"{sebelum[-1][1]}\" sama dengan {sebelum[-1][0]}; giliran berikutnya \"{GC.URUTAN[(GC.URUTAN.index(sebelum[-1][1]) + 1) % 3] if sebelum[-1][1] in GC.URUTAN else GC.URUTAN[0]}\" (lihat gaya_cover.py)")
+    except Exception as ex:
+        print("△ cek gilir cover dilewati:", ex)
     print(f"\n{'LULUS' if not bad else str(bad) + ' kesalahan'}" + (f" · {notes} catatan (wajib dilihat di PNG oleh Tilik)" if notes else ""))
     sys.exit(1 if bad else 0)
 

@@ -14,11 +14,16 @@ Berlaku untuk semua carousel Fakta Unik, manual maupun otomatis (`otomatis/ALUR.
 - Tombol "Kunjungi seakun.id" gaya `tap` (ikon tangan), tanpa bar footer. Keduanya sudah default; jangan menulis `tombol`, `footer`, atau `bar_kanan` di slide CTA.
 - Contoh salah: slide 10 C-OJOL versi 23 Nov (latar hijau polos, tombol panah kuning, bar footer, logo tajam).
 
+**1c. Gaya cover digilir (keputusan user 26 Nov 2026).** Cover tidak boleh monoton. Urutan: `lingkar` → `editorial` → `poster` → kembali ke `lingkar`; gaya cover selalu beda dari carousel sebelumnya.
+- Sebelum membuat foto cover: `python3 konten/brand/visual/gaya_cover.py` → gaya berikutnya + arahan komposisi foto (lingkar: subjek tengah-bawah, atas kosong; editorial: subjek atas-tengah, bawah kosong; poster: subjek di kanan, kiri kosong). Prompt ElevenLabs mengikuti arahan itu.
+- Spec slide 1: `"layout": "berita", "kartu": "<gaya>"`. `check.py` memberi ✗ `COVER MONOTON` kalau sama dengan cover sebelumnya.
+- Contoh salah: C-SINETRON, C-REKAP, C-OJOL, C-JURUSAN (21–26 Nov) semuanya `lingkar`.
+
 **2. Gambar: cover pakai ElevenLabs, slide lain Magnific.**
 - **Cover (slide 1)**: dibuat **Naka** lewat connector ElevenLabs (`creative_generate_image`, model `gpt-image-2.5-sunburst`), lalu disimpan di `<folder>/foto/cover-el.png`. Rupa tinggal memakainya di spec slide 1.
   - Wajib set node ke **4:5, 2K, high** (`creative_update_node` → `model_parameters {"aspect_ratio":"4:5","resolution":"2K","quality":"high"}`, lalu `creative_run_flow_nodes`). Default model 16:9 1K, dan tulisan "4:5" di prompt **tidak** mengubah rasio.
   - Biaya ± 471 kredit per gambar 2K. Anggaran ± 1.000 kredit per cover → maks 2 gambar. Jangan memanggil ulang untuk "retry".
-  - Prompt: foto sinematik nyata, suasana Indonesia, subjek di bagian bawah/tengah-bawah (atas dipakai judul), tanpa teks, tanpa logo, tanpa wajah orang sungguhan, layar TV/HP hanya cahaya buram (tanpa orang, wajah, atau tulisan). Ingat area atas ± 50% tertutup judul cover: subjek penting jangan di sana.
+  - Prompt: foto sinematik nyata, suasana Indonesia, posisi subjek **sesuai gaya cover giliran ini** (no. 1c, dari `gaya_cover.py`), tanpa teks, tanpa logo, tanpa wajah orang sungguhan, layar TV/HP hanya cahaya buram (tanpa orang, wajah, atau tulisan). Ingat area atas ± 50% tertutup judul cover: subjek penting jangan di sana.
   - Poster/cuplikan film/sinetron berhak cipta **hanya acuan gaya** di prompt, tidak diunduh lalu di-upscale untuk diposting.
   - Catat model, flow_id, dan kredit terpakai di `foto/SUMBER.md`.
   - ElevenLabs tidak tersedia/unduhan diblokir → cadangan Magnific (`gambar.py` stok atau `ai`), sebutkan alasannya.
