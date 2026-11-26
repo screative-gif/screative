@@ -111,7 +111,7 @@ def style_checks(s, i):
     return f
 
 def check(spec_path, use_ill=True):
-    spec = json.load(open(spec_path))
+    spec = R.siapkan_spec(json.load(open(spec_path)))
     tmp = tempfile.mkdtemp(); allf = {}
     for i, s in enumerate(spec["slides"], 1):
         f = style_checks(s, i)

@@ -44,7 +44,7 @@ Slide:
                 | "kartu-angka" (angka, ket, mini:[{angka,ket}]) — kartu hijau angka besar + kartu mini}
         gambar_mode: "atas" (default) | "polaroid" (foto kecil miring di pojok kanan atas, gambar_ket, gambar_miring)
                 | "lingkaran" (badge bulat di pojok) | "sisi" (panel di samping judul) | "strip" (gambar: [3 path] berjejer)
-  cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), kotak harga OTOMATIS dari brand.json cta_harga (desain C-GAJI; layanan di spec diabaikan kecuali harga_khusus:true), ajakan_akhir; pakai bar_kanan:"ig" di slide terakhir
+  cta-seakun: jembatan, manfaat, gambar (opsional, gambar_tinggi default 300), kotak harga OTOMATIS dari brand.json cta_harga (desain C-GAJI; layanan di spec diabaikan kecuali harga_khusus:true), ajakan_akhir. GAYA BAKU C-SINETRON (26 Nov 2026): gambar_latar (default = foto cover slide 1) di-blur (latar_blur, default 12), logo provider di-blur (logo_blur, default 5), tombol default "tap", footer default "none"
   kredit      keterangan kecil gambar, mis. "*gambar cuplikan film: Cinta Fitri Season 3" (wajib untuk cuplikan film/foto dari user, brand.md).
               Tampil sebagai pil kecil di pojok kanan-bawah gambar (berita/foto, data: atas, sisi, latar), di bawah lingkaran (lingkaran),
               atau menggantikan gambar_ket (polaroid). kredit_pos (opsional, CSS) untuk menggeser, mis. "left:12px;right:auto".
@@ -431,13 +431,14 @@ body{font-family:BodyFont,sans-serif;color:%(text)s;position:relative}
 .ka-m span{display:block;font-size:26px;color:#222;line-height:1.25;margin-top:4px}
 .hp .nt.sorot{outline:4px solid %(or)s;outline-offset:-4px}
 .vnote{text-align:center;font-size:22px;color:#6b6b6b;margin-top:16px;font-style:italic}
-.ctabg{position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;z-index:0}
+.ctabg{position:absolute;inset:0;width:100%%;height:100%%;object-fit:cover;z-index:0;transform:scale(1.08)}
 .ctabg-v{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(4,41,31,.88) 0%%,rgba(4,41,31,.55) 34%%,rgba(4,41,31,.15) 60%%,rgba(4,41,31,.35) 78%%,rgba(4,30,24,.9) 100%%)}
 .cta2.latar{bottom:70px}
 .cta2 .pvh{margin-top:76px;font-weight:700;font-size:22px;letter-spacing:3px;text-transform:uppercase;color:#4EE77D}
 .cta2 .pvg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
 .cta2 .pv{background:#fff;border-radius:24px;padding:22px 22px 20px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 12px 26px rgba(0,0,0,.25)}
 .cta2 .pv img{height:58px;max-width:170px;object-fit:contain;object-position:left center}
+.cta2 .pv .lg{display:block;overflow:hidden}
 .cta2 .pv b{font-family:HeadFont,sans-serif;font-weight:400;font-size:42px;color:#17201D;margin-top:12px;line-height:1}
 .cta2 .pv span{font-size:26px;color:#666;margin-top:4px}
 .cta2 .bt2{margin-top:auto;align-self:stretch;display:flex;align-items:center;justify-content:center;gap:18px;background:linear-gradient(135deg,#0BB894,#09A185 55%%,#078A71);color:#fff;border-radius:70px;padding:22px 26px;font-family:HeadFont,sans-serif;font-size:46px;border:3px solid rgba(255,255,255,.85);box-shadow:0 0 0 10px rgba(9,161,133,.35),0 0 50px rgba(78,231,125,.55),0 20px 40px rgba(0,0,0,.35)}
@@ -822,7 +823,8 @@ def slide_html(s, n=1):
                    + (f'<div class="pt">{green(s["penutup"])}</div>' if s.get("penutup") else "") + "</div>")
     if layout == "cta-seakun":
         if s.get("gambar_latar"):
-            out.append(f'<img class="ctabg" src="{uri(s["gambar_latar"])}" style="object-position:{s.get("gambar_pos", "center")}"><div class="ctabg-v"></div>')
+            # Gaya baku C-SINETRON (user, 26 Nov 2026): latar = foto yang di-blur.
+            out.append(f'<img class="ctabg" src="{uri(s["gambar_latar"])}" style="object-position:{s.get("gambar_pos", "center")};filter:blur({s.get("latar_blur", 12)}px)"><div class="ctabg-v"></div>')
         # Aturan tetap (user, 20 Nov 2026): kotak harga = brand.json "cta_harga" (desain C-GAJI).
         # "layanan"/"judul_harga" di spec diabaikan, kecuali spec menulis "harga_khusus": true.
         baku = BRAND.get("cta_harga")
@@ -831,7 +833,9 @@ def slide_html(s, n=1):
         else:
             lay, judul_h = s.get("layanan", []), s.get("judul_harga", "Harga patungan per bulan")
         if lay and isinstance(lay[0], dict):
-            gr = "".join(f'<div class="pv"><img src="{uri(x["logo"])}"><b>{html.escape(x["harga"])}</b><span>/bulan</span></div>' for x in lay)
+            # Logo provider di-blur (permintaan user, 26 Nov 2026); "logo_blur": 0 untuk mematikan.
+            lb = s.get("logo_blur", 5)
+            gr = "".join(f'<div class="pv"><img src="{uri(x["logo"])}" style="filter:blur({lb}px)"><b>{html.escape(x["harga"])}</b><span>/bulan</span></div>' for x in lay)
             grid = (f'<div class="pvh">{html.escape(judul_h)}</div>' if judul_h else "") + f'<div class="pvg">{gr}</div>'
         else:
             warna = ["#E50914", "#1DB954", "#FF0000", "#113CCF", "#10A37F", "#7D2AE8"]
@@ -842,9 +846,9 @@ def slide_html(s, n=1):
         out.append(f'<div class="cta2{" latar" if s.get("gambar_latar") else ""}"><div class="jb">{green(s.get("jembatan", ""))}</div>'
                    f'<div class="mf">{md(s.get("manfaat", "Patungan langganan premium: aman, legal, lebih hemat."))}</div>'
                    f'{gb}{grid}'
-                   + tombol_cta(s.get("tombol", "pil"), arrow)
+                   + tombol_cta(s.get("tombol", "tap"), arrow)
                    + (f'<div class="ss">{html.escape(s["ajakan_akhir"])}</div>' if s.get("ajakan_akhir") else "") + '</div>')
-    f = s.get("footer", "bar" if berita else BRAND.get("footer_default", "web-ig"))
+    f = s.get("footer", "none" if layout == "cta-seakun" else "bar" if berita else BRAND.get("footer_default", "web-ig"))
     if f == "bar":
         padat = (not s.get("foto")) and layout != "cta-seakun"
         out.append(f'<div class="bar{" padat" if padat else ""}"><span class="a">{html.escape(BRAND["website"])}</span>'
@@ -874,6 +878,16 @@ if(w){for(const ch of w.children){res.push((ch.classList.contains('h')?'H':'X')+
 document.title='BOX|'+res.join('|');
 });
 </script>"""
+
+def siapkan_spec(spec):
+    """Isi default yang bergantung pada slide lain. Slide CTA (cta-seakun) tanpa gambar_latar
+    memakai foto cover (slide 1) sebagai latar blur, gaya baku C-SINETRON (user, 26 Nov 2026)."""
+    sl = spec.get("slides", [])
+    cover = next((x.get("foto") for x in sl if x.get("foto")), None)
+    for x in sl:
+        if x.get("layout") == "cta-seakun" and not x.get("gambar_latar") and cover and not x.get("tanpa_latar"):
+            x["gambar_latar"] = cover
+    return spec
 
 def zones(spec):
     """Ukur area teks tiap slide (tanpa ilustrasi) -> kalimat komposisi siap tempel untuk prompt ilustrasi + peringatan."""
@@ -932,7 +946,7 @@ def zones(spec):
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
-    spec = json.load(open(sys.argv[1]))
+    spec = siapkan_spec(json.load(open(sys.argv[1])))
     if "--zones" in sys.argv:
         for z in zones(spec):
             print(f"--- slide {z['slide']} ({z['layout']})")
