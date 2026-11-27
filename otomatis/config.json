@@ -20,7 +20,7 @@
     "radar_topik": "Senin & Jumat 07.00 WIB (radar Senin -> Senin + Kamis, radar Jumat -> Sabtu)",
     "batas_pilih": "Senin 10.00 WIB (radar Senin), Sabtu 10.00 WIB (radar Jumat)",
     "produksi": "Senin, Kamis, Sabtu 10.00 WIB",
-    "cek_feedback": "12.00, 15.00, 16.50 WIB (Senin, Kamis, Sabtu)",
+    "cek_feedback": "15.00 WIB, 1x sehari (Senin, Kamis, Sabtu); keputusan user 27 Nov 2026 untuk hemat limit",
     "jam_posting": "17.00 WIB Senin, Kamis, Sabtu (tanpa approve tetap tayang)"
   },
   "branch_kerja": "otomatis/carousel",

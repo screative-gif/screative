@@ -7,8 +7,8 @@ Panduan untuk **Naka di sesi cloud terjadwal**. Setiap sesi terjadwal mulai dari
   |---|---|---|
   | 06.35 (target terkirim 07.00) | A. kirim radar topik | Senin & Jumat |
   | 10.02 | B. kumpulkan suara + plot (kalau belum) + produksi carousel hari ini | Senin, Kamis, Sabtu |
-  | 12.07, 15.07 | C. cek feedback & revisi | Senin, Kamis, Sabtu |
-  | 16.50 | C lalu D. posting ke IG (target 17.00) | Senin, Kamis, Sabtu |
+  | 15.07 | C. cek feedback & revisi (**1× sehari**, hemat limit, keputusan user 27 Nov 2026) | Senin, Kamis, Sabtu |
+  | 16.50 | D. posting ke IG (target 17.00), **tanpa** cek feedback lagi | Senin, Kamis, Sabtu |
 - Radar Senin → 2 topik untuk **Senin + Kamis** (suara sampai Senin 10.00); radar Jumat → 1 topik untuk **Sabtu** (suara sampai Sabtu 10.00, diplot di sesi produksi Sabtu). Topik per hari ada di `state.json` → `harian.<tanggal>.terpilih` (diisi `discord.py plot`).
 - **Bukan hari tayang (Selasa, Rabu, Jumat, Minggu) → sesi B, C, D langsung berhenti** tanpa mengirim apa pun (`discord.py status` → `hari_tayang: false`). Ini pengaman kalau tugas terjadwal masih berjalan setiap hari.
 - **Tidak ada ✅ sampai 17.00 → tetap tayang** (keputusan user). Feedback tim tetap dikerjakan dulu, termasuk permintaan ganti topik hari itu.
@@ -77,7 +77,8 @@ python3 otomatis/discord.py cek
    Kalau masih ada temuan Tilik yang belum beres setelah 3 putaran, tetap kirim dengan `--catatan "⚠️ Catatan QA: …"`.
 6. Commit + push. Kalau produksi gagal di tengah jalan: `tandai --status gagal`, kirim ke Discord apa yang gagal dan apa yang dibutuhkan, commit yang sudah jadi.
 
-## C. Cek feedback (Senin, Kamis, Sabtu 12.07, 15.07, dan awal sesi 16.50)
+## C. Cek feedback (Senin, Kamis, Sabtu, **sekali saja jam 15.07**)
+Hemat limit (keputusan user 27 Nov 2026): feedback hanya dibaca **satu kali** per hari tayang, di sesi 15.07. Sesi produksi (10.02) dan posting (16.50) **tidak** membaca feedback. Feedback yang masuk setelah ± 15.07 tidak dikerjakan untuk carousel hari itu.
 `HARI=$(TZ=Asia/Jakarta date +%F)`
 1. `python3 otomatis/discord.py status`. Kalau `hari_tayang` false, carousel hari ini belum punya `hasil`, atau status `tayang`, **berhenti tanpa mengirim apa pun** (sesi B belum selesai / sudah tayang).
 2. `python3 otomatis/discord.py baca-feedback` → JSON. Cek juga `baca-balasan <pesan_jadwal>` untuk permintaan tukar topik hari ini.
@@ -91,11 +92,11 @@ python3 otomatis/discord.py cek
 4. Tidak ada feedback baru dan ada `approve` (✅) atau `approve_lewat_teks` → **APPROVED**:
    - `echo "APPROVED $(TZ=Asia/Jakarta date +%F) (Discord: <nama>)" > <folder>/STATUS.txt`, `tandai --status approved`.
    - Kirim: "✅ Approved oleh …. Tayang di IG @seakun.id hari ini 17.00 WIB."
-5. Tidak ada apa-apa → berhenti tanpa mengirim apa pun (di sesi 16.50 lanjut ke D).
+5. Tidak ada apa-apa → berhenti tanpa mengirim apa pun.
 6. Commit + push kalau ada perubahan.
 
 ## D. Posting ke Instagram (Senin, Kamis, Sabtu, sesi 16.50 → tayang ± 17.00)
-1. Jalankan C dulu (feedback terakhir dikerjakan sebelum tayang). Lalu `python3 otomatis/instagram.py cek` (token + kuota). Gagal (401/190/tunnel 403) → kirim ke Discord "⚠️ Posting IG gagal: token/akses Meta bermasalah (…)", berhenti.
+1. **Jangan** menjalankan C (feedback sudah dicek sekali jam 15.07; aturan user 27 Nov 2026, walau prompt tugas terjadwal lama menyebut "C lalu D"). Langsung `python3 otomatis/instagram.py cek` (token + kuota). Gagal (401/190/tunnel 403) → kirim ke Discord "⚠️ Posting IG gagal: token/akses Meta bermasalah (…)", berhenti.
 2. `python3 otomatis/discord.py status`:
    - `hari_tayang` false atau status `tayang` → berhenti tanpa mengirim apa pun.
    - status `approved` atau `menunggu-review` → lanjut. **Tanpa ✅ tetap tayang** (keputusan user 21 Nov 2026).

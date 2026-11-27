@@ -8,7 +8,7 @@ Carousel pilar 2 (fakta / cerita unik / tren): **tayang Sabtu, Senin, Kamis 17.0
 | Radar Senin: sampai Senin 10.00 · Radar Jumat: sampai Sabtu 10.00 | Tim klik reaksi topik (boleh banyak) atau balas `usul: <topik lain>`. Hanya user di `config.json` yang dihitung |
 | Senin 10.00 & Sabtu 10.00 | 2 topik teratas radar Senin → Senin + Kamis; 1 topik teratas radar Jumat → Sabtu. Suara kurang → bobot tertinggi. Jadwal dikirim ke Discord; balas `ganti <hari>: …` untuk tukar |
 | Sen, Kam, Sab 10.00 | Carousel hari itu dikerjakan (slide + caption + PDF Canva), dikirim ke Discord |
-| Sen, Kam, Sab 12.00, 15.00, 16.50 | Bot cek respon: balasan = feedback → direvisi & dikirim ulang (termasuk `ganti topik: …`); ✅ = approved |
+| Sen, Kam, Sab 15.00 (**1× sehari**) | Bot cek respon: balasan = feedback → direvisi & dikirim ulang (termasuk `ganti topik: …`); ✅ = approved. Feedback setelah 15.00 tidak dikerjakan untuk carousel hari itu |
 | Sen, Kam, Sab 17.00 | Tayang otomatis di IG @seakun.id (`otomatis/instagram.py`), **walau belum ada ✅**. Link dikirim ke Discord |
 
 Langkah detail untuk sesi terjadwal: `otomatis/ALUR.md`. Hasil otomatis di-commit ke branch `otomatis/carousel` lalu langsung di-merge ke `main`.
