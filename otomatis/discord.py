@@ -404,7 +404,7 @@ def cmd_kirim_hasil(a):
         "**Review dong 🙏**\n"
         f"• Sudah oke → klik {APPROVE} di pesan ini.\n"
         "• Ada revisi → **balas pesan ini** dengan poin-poinnya (sebut nomor slide, mis. `slide 3: angkanya pakai data 2025`).\n"
-        f"Aku cek respon jam 12.00, 15.00, dan 16.50 WIB. **Tayang otomatis {label_hari(nama)} 17.00 WIB**, "
+        f"Aku cek respon **sekali, jam 15.00 WIB** (feedback setelah itu tidak sempat dikerjakan). **Tayang otomatis {label_hari(nama)} 17.00 WIB**, "
         "walaupun belum ada ✅ (keputusan tim). Mau ganti topik hari ini? Balas `ganti topik: …`.")
     reaksi(akhir["id"], APPROVE)
     s.setdefault("hasil", []).append({"revisi": revisi, "folder": str(folder), "pesan_awal": pertama["id"],

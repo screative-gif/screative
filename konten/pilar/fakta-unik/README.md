@@ -15,7 +15,7 @@ Carousel cerita bisnis/data di balik hal yang semua orang alami (topik umum yang
 | Senin & Jumat 07.00 | 10 topik radar + bobot dikirim ke Discord |
 | Senin 10.00 & Sabtu 10.00 | suara tim dihitung: radar Senin → 2 topik Senin + Kamis, radar Jumat → 1 topik Sabtu (suara kurang → bobot tertinggi) |
 | Sen, Kam, Sab 10.00 | carousel hari itu diproduksi & dikirim ke Discord |
-| Sen, Kam, Sab 12.00, 15.00, 16.50 | feedback dicek & direvisi |
+| Sen, Kam, Sab 15.00 | feedback dicek & direvisi (1× sehari, hemat limit) |
 | Sen, Kam, Sab 17.00 | tayang di IG @seakun.id, walau belum ada ✅ |
 
 ## Contoh yang sudah lulus
