@@ -42,5 +42,7 @@
   "maks_kandidat_per_run": 15,
   "maks_kirim_per_hari": 10,
   "jeda_kirim_detik": 90,
-  "_catatan_keywords": "Actor hanya menemukan hasil untuk keyword pendek (1–2 kata); frasa panjang sering 0 hasil (uji 28 Nov 2026)."
+  "_catatan_keywords": "Actor hanya menemukan hasil untuk keyword pendek (1–2 kata); frasa panjang sering 0 hasil (uji 28 Nov 2026).",
+  "mode_kirim": "manual",
+  "_catatan_mode": "manual = tim mengomentari sendiri dari link di Discord lalu ✅. api = dikirim lewat Threads API; BUTUH izin threads_keyword_search (Advanced access) karena reply_to_id harus ID media Graph, bukan postId Apify (uji 28 Nov 2026: 'Param reply_to_id is not a valid threads_media ID')."
 }
