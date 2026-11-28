@@ -444,7 +444,7 @@
    }
   },
   "2026-11-28": {
-   "status": "approved",
+   "status": "tayang",
    "siklus": "2026-11-27",
    "terpilih": {
     "cara": "suara-tim",
@@ -463,7 +463,14 @@
      "pesan_review": "1576076090051666021",
      "dikirim": "2026-11-28T10:23+07:00"
     }
-   ]
+   ],
+   "posting": {
+    "media_id": "17926840401449693",
+    "permalink": "https://www.instagram.com/p/DgR_dQLDPDr/",
+    "waktu": "2026-11-28T17:01+07:00",
+    "slide": 10,
+    "tanpa_approve": false
+   }
   }
  },
  "balasan_diproses": [
