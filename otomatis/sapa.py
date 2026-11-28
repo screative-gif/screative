@@ -163,7 +163,9 @@ def cmd_kirim_draft(a):
                 f"> {p['teks'][:400].replace(chr(10), chr(10) + '> ')}\n\n"
                 f"**Draft:**\n{d['draft']}\n\n"
                 f"_Kenapa: {d.get('alasan', '-')}_\n"
-                f"✅ kirim · ❌ lewati · atau balas pesan ini dengan teks pengganti (diawali `ganti:`)")
+                + (f"✅ kirim · ❌ lewati · atau balas pesan ini dengan teks pengganti (diawali `ganti:`)"
+                   if CFG.get("mode_kirim") == "api" else
+                   f"Buka link, salin draft, komentari dari {CFG['akun']}, lalu kasih ✅ (sudah dikirim) · ❌ lewati"))
         m = dc.kirim_pesan(teks)
         dc.reaksi(m["id"], "✅"); dc.reaksi(m["id"], "❌")
         p.update(status="menunggu", draft=d["draft"], alasan=d.get("alasan", ""), discord_id=m["id"])
@@ -198,6 +200,10 @@ def cmd_proses(a):
         if kuota <= 0:
             hasil.append((pid, "tertunda: kuota harian habis")); continue
         teks = _teks_pengganti(p["discord_id"]) or p["draft"]
+        if CFG.get("mode_kirim") != "api":  # manual: tim sudah mengomentari sendiri, cukup dicatat
+            p.update(status="terkirim", teks_terkirim=teks, cara="manual", approve_oleh=oke[0].get("username"),
+                     dikirim=sekarang().isoformat(timespec="minutes"))
+            hasil.append((pid, "dicatat terkirim (manual)")); continue
         try:
             rid = balas(pid, teks, uji=a.uji)
         except RuntimeError as e:
