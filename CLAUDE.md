@@ -7,7 +7,7 @@ Gaya Naka: santai, to the point, Bahasa Indonesia. Sebelum mulai, bilang rencana
 
 ## Tim
 
-Panggil anggota tim lewat Agent tool dengan `subagent_type` = nama mereka dalam huruf kecil (`sera`, `lira`, `kala`, `diksa`, `rupa`, `tilik`, `sidik`).
+Panggil anggota tim lewat Agent tool dengan `subagent_type` = nama mereka dalam huruf kecil (`sera`, `lira`, `kala`, `diksa`, `rupa`, `tilik`, `sidik`, `sapa`).
 
 | Nama | Peran | Panggil kalau… | Hasil |
 |---|---|---|---|
@@ -18,6 +18,7 @@ Panggil anggota tim lewat Agent tool dengan `subagent_type` = nama mereka dalam 
 | **Rupa** | Desainer Visual | draft Feed foto / Carousel / cover Reels perlu jadi gambar siap posting sesuai brand | `konten/visual/<tanggal>_<kode>/` (PNG 1080×1350 + caption.txt) |
 | **Sidik** | Pemburu Gambar | slide carousel menyebut nama spesifik (sinetron/film, produk, tokoh, tempat, peristiwa) dan butuh gambar asli dari Google Images, atau Tilik menemukan gambar yang tidak sesuai slide | `konten/visual/<folder>/foto/<slug>.jpg` + `foto/SUMBER.md` + teks kredit |
 | **Tilik** | Pemeriksa Visual (QA) | setiap Rupa selesai satu tahap (prompt / ilustrasi masuk / render final), sebelum hasil dilaporkan ke user | laporan vonis LULUS / PERLU PERBAIKAN (tidak mengubah file) |
+| **Sapa** | Penyapa Threads (soft selling) | perlu draft komentar untuk postingan Threads orang lain yang relate (kandidat dari `otomatis/sapa.py cari`) | `otomatis/sapa_draft/<waktu>.json` → Discord → ✅ tim → terkirim dari @diarydheanas |
 
 Untuk produksi visual:
 - **Feed foto & Carousel Instagram** → **Rupa** (ilustrasi AI + template brand `konten/brand/visual/render.py`; panduan di `konten/brand/visual.md`). Skill `carousel-generator` hanya kalau user minta versi HTML interaktif.
@@ -42,6 +43,7 @@ Untuk produksi visual:
 | "cari gambar untuk C1", "gambarnya kurang relate", gambar slide tidak sesuai nama yang dibahas | **Sidik** (Wikipedia dulu, gratis; kalau tidak cocok Google Images via Apify, ± $0,015 per slide) → Rupa pasang gambar + `kredit` → Tilik titik cek 3 |
 | "render reels R1" | Diksa (kalau belum ada draft) → skill motion-format (ikuti warna & karakter di `konten/brand/visual.md`) |
 | sesi terjadwal "carousel otomatis" (prompt menyebut `otomatis/ALUR.md`) / "status discord", "cek feedback discord" | Ikuti `otomatis/ALUR.md` langkah demi langkah; komunikasi ke tim lewat `python3 otomatis/discord.py`. Setup & jadwal: `otomatis/README.md` |
+| "jalankan Sapa", "cari postingan buat dikomentari", sesi terjadwal Sapa | Ikuti `otomatis/SAPA.md`: `sapa.py cek` → `proses` → `cari` → agent Sapa → `kirim-draft`. Komentar hanya terkirim setelah ✅ tim di Discord, maks 10/hari |
 | "ganti niche/keyword" | edit `riset/config.json` sendiri (tidak perlu agent) |
 | pertanyaan singkat soal hasil yang sudah ada | jawab sendiri dari file di `konten/` |
 
@@ -66,7 +68,7 @@ Brand: **Seakun (seakun.id)**, Platform patungan langganan layanan premium (stre
 
 ```
 CLAUDE.md            ← Naka (file ini)
-.claude/agents/      ← Sera, Lira, Kala, Diksa, Rupa, Tilik, Sidik
+.claude/agents/      ← Sera, Lira, Kala, Diksa, Rupa, Tilik, Sidik, Sapa
 riset/               ← script & data (collect.py, analyze.py, config.json, .env)
 konten/brand/        ← profil brand Seakun (brand.md) + panduan visual (visual.md, visual/: brand.json, logo, font, referensi, render.py, check.py, ilustrasi.py)
 konten/pilar/        ← aturan per pilar konten (fakta-unik/: README, formula, aturan)
@@ -75,5 +77,5 @@ konten/feed/         ← feeding mingguan IG & Threads dari Kala
 konten/ide/          ← arsip (format lama)
 konten/draft/        ← draft siap posting dari Diksa
 konten/visual/       ← visual siap posting dari Rupa
-otomatis/            ← workflow carousel otomatis via Discord (discord.py, ALUR.md, state.json)
+otomatis/            ← workflow carousel otomatis via Discord (discord.py, ALUR.md, state.json) + Sapa komentar Threads (sapa.py, SAPA.md)
 ```
