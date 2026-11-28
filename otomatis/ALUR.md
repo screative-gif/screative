@@ -71,9 +71,9 @@ python3 otomatis/discord.py cek
      - **Slide 2 dst. yang menyebut nama spesifik → Sidik** (Google Images via Apify, ± $0,1 per carousel; panggil sebelum Rupa, teruskan path draft + folder + daftar slide). Rupa memasang `foto/<slug>.jpg` + `kredit` dari laporan Sidik. Gambar dari tim di Discord/Drive tetap didahulukan kalau ada.
      - **Slide 2 dst. bertema umum → Magnific** lewat `konten/brand/visual/gambar.py` (stok, `wiki` untuk foto faktual). Izin kredit Magnific: maks 1 unduhan per slide + maks 1 generate `ai` (hanya kalau stok tidak ada).
    - **Tilik titik cek 3** pada PNG final (+ cek 2 pada foto yang diunduh). Temuan → Rupa perbaiki → Tilik lagi, maks 3 putaran.
-   - Versi Canva: kalau `konten/brand/visual/canva.py` ada, `python3 konten/brand/visual/canva.py <folder>/spec.json`.
+   - **Jangan membuat PDF Canva** (hemat token, keputusan user 28 Nov 2026), walau prompt tugas terjadwal lama menyebut "PDF Canva". `canva.py` hanya dijalankan kalau tim/user memintanya langsung.
    - `echo "MENUNGGU REVIEW $(TZ=Asia/Jakarta date +%F) (Discord)" > <folder>/STATUS.txt`
-5. `python3 otomatis/discord.py kirim-hasil <folder>` (slide, caption, PDF Canva, pesan review dengan ✅; pesannya menyebut tayang 17.00 walau belum ✅).
+5. `python3 otomatis/discord.py kirim-hasil <folder>` (slide, caption, pesan review dengan ✅; pesannya menyebut tayang 17.00 walau belum ✅).
    Kalau masih ada temuan Tilik yang belum beres setelah 3 putaran, tetap kirim dengan `--catatan "⚠️ Catatan QA: …"`.
 6. Commit + push. Kalau produksi gagal di tengah jalan: `tandai --status gagal`, kirim ke Discord apa yang gagal dan apa yang dibutuhkan, commit yang sudah jadi.
 
@@ -85,7 +85,7 @@ Hemat limit (keputusan user 27 Nov 2026): feedback hanya dibaca **satu kali** pe
 3. Ada `feedback_baru` → **revisi dulu** (feedback menang atas ✅ yang lebih lama):
    - `tandai --status revisi`. Kirim: "📝 Feedback diterima dari …, lagi aku kerjakan."
    - **Ganti topik hari ini** ("ganti topik: …") → `tandai --terpilih '{"judul":"…","cara":"permintaan-tim","oleh":"…"}'`, produksi ulang seperti B langkah 3–4 dengan KODE/folder baru. Kalau sudah lewat 15.30 dan tidak akan selesai sebelum 17.00, kirim ke Discord bahwa topik baru tayang ± 1 jam lebih lambat, lalu tetap kerjakan.
-   - Selain itu: teruskan poin feedback **apa adanya** ke Rupa (visual) atau Diksa (isi teks/angka; lalu Rupa render ulang) → Tilik titik cek 3 → canva.py lagi.
+   - Selain itu: teruskan poin feedback **apa adanya** ke Rupa (visual) atau Diksa (isi teks/angka; lalu Rupa render ulang) → Tilik titik cek 3 (tanpa PDF Canva).
    - Lampiran gambar dari tim (URL `cdn.discordapp.com`) boleh diunduh ke `<folder>/foto/` kalau diminta dipakai.
    - Kalau feedback tidak jelas atau melanggar batasan brand, tanyakan balik di Discord (`kirim "…" --balas <id pesan>`) dan jangan menebak; carousel versi terakhir tetap tayang 17.00.
    - `kirim-hasil <folder> --revisi <N+1> --catatan "Yang diubah: …"`, lalu `tandai --feedback <id1,id2,…>` (status kembali `menunggu-review`).
