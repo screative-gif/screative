@@ -1,0 +1,260 @@
+{
+ "output_dir": "konten/visual/2026-11-28_C-DOLAR",
+ "slides": [
+  {
+   "layout": "berita",
+   "kartu": "poster",
+   "nomor": 1,
+   "foto": "konten/visual/2026-11-28_C-DOLAR/foto/cover-el.png",
+   "foto_pos": "center top",
+   "kicker": "FAKTA UNIK",
+   "judul": "DOLAR TEMBUS\nRP18.300.\nKOK GORENGAN\n__IKUT NAIK__?\nFAKTA?",
+   "judul_size": 104,
+   "subjudul": "Padahal nggak ada\nurusannya sama dolar."
+  },
+  {
+   "layout": "data",
+   "nomor": 2,
+   "judul": "Rabu kemarin, 1 dolar\n__Rp18.303.__",
+   "judul_size": 62,
+   "isi": [
+    "Itu kurs resmi **JISDOR BI**, Rabu **25 Nov 2026**. Sehari sebelumnya masih **Rp18.204**. Jadi cuma dalam sehari naik **Rp99**. Kamis paginya di pasar spot malah sudah **Rp18.340**."
+   ],
+   "visual": {
+    "tipe": "kartu-angka",
+    "angka": "Rp18.303",
+    "ket": "kurs JISDOR BI, Rabu 25 Nov 2026",
+    "mini": [
+     {
+      "angka": "Rp18.204",
+      "ket": "Selasa, 24 Nov"
+     },
+     {
+      "angka": "Rp18.340",
+      "ket": "spot, Kamis pagi 26 Nov"
+     }
+    ]
+   },
+   "penutup": "Kelihatannya cuma angka di berita. Tapi angka ini nyampe ke dapur.",
+   "sumber": "Kontan, 26 Nov 2026 (JISDOR BI 24–25 Nov, spot 26 Nov)"
+  },
+  {
+   "layout": "data",
+   "nomor": 3,
+   "judul": "Setahun lalu masih\n__Rp16.675.__",
+   "judul_size": 62,
+   "isi": [
+    "Akhir November 2025, rupiah ditutup **Rp16.675** per dolar. Sekarang **Rp18.303**. Selisihnya **sekitar Rp1.600**, kira-kira **10%**. Barang yang belinya pakai dolar, otomatis jadi segitu lebih mahal buat kita."
+   ],
+   "visual": {
+    "tipe": "versus",
+    "kiri": {
+     "label": "DULU · 28 NOV 2025",
+     "angka": "Rp16.675",
+     "ket": "per dolar AS"
+    },
+    "kanan": {
+     "label": "KINI · 25 NOV 2026",
+     "angka": "Rp18.303",
+     "ket": "per dolar AS"
+    },
+    "badge": "± 10%",
+    "catatan": "± Rp1.600 per dolar, dibulatkan.\n2025: penutupan pasar (Bloomberg). 2026: JISDOR BI."
+   },
+   "penutup": "Harga di luar sana sama.\nRupiahnya yang harus keluar __lebih banyak.__",
+   "sumber": "Bisnis.com, 28 Nov 2025 (Bloomberg); Kontan, 26 Nov 2026"
+  },
+  {
+   "layout": "data",
+   "nomor": 4,
+   "judul": "Gorengan kamu\nawalnya __dari kapal.__",
+   "judul_size": 62,
+   "isi": [
+    "Terigu itu dari **gandum**, dan gandum bukan tanaman yang banyak ditanam di sini. Tahun **2025** kita impor **10,84 juta ton** biji gandum, nilainya **US$3,05 miliar**. Paling banyak dari Australia, sekitar **42%**."
+   ],
+   "visual": {
+    "tipe": "kartu-angka",
+    "angka": "10,84 jt ton",
+    "ket": "impor biji gandum Indonesia 2025",
+    "mini": [
+     {
+      "angka": "11,72 juta ton",
+      "ket": "impor tahun 2024"
+     },
+     {
+      "angka": "± 42%",
+      "ket": "dari Australia"
+     }
+    ]
+   },
+   "penutup": "Jadi tiap gigit bakwan,\nada dolar yang ikut kebayar.",
+   "sumber": "GoodStats, 18 Sep 2026 (data BPS)"
+  },
+  {
+   "layout": "data",
+   "nomor": 5,
+   "judul": "Paling lokal, tapi\nkedelainya __± 95% impor.__",
+   "judul_size": 58,
+   "isi": [
+    "Tahun ini kita butuh kedelai sekitar **2,7 juta ton**. Yang dipanen sendiri rata-rata cuma **± 227 ribu ton** setahun. Akhirnya sekitar **95%** kebutuhan harus diimpor. Pelemahan rupiah disebut jadi salah satu penyebab harga kedelai naik."
+   ],
+   "visual": {
+    "tipe": "kolom",
+    "judul": "Kedelai Indonesia",
+    "tinggi": 300,
+    "items": [
+     {
+      "label": "Kebutuhan 2026",
+      "nilai": 2700,
+      "teks": "± 2,7 juta ton"
+     },
+     {
+      "label": "Panen sendiri/tahun",
+      "nilai": 227,
+      "teks": "± 227 ribu ton",
+      "warna": "oranye"
+     }
+    ]
+   },
+   "penutup": "Rupiah melemah, pengrajin tahu tempe yang duluan pusing.",
+   "sumber": "CNBC Indonesia, 19 Jun 2026 (data Kementan)"
+  },
+  {
+   "layout": "data",
+   "nomor": 6,
+   "judul": "Obat di warung pun,\nbahan bakunya __± 90% impor.__",
+   "judul_size": 58,
+   "isi": [
+    "Kata **Kepala BPOM**, sekitar **90%** bahan baku obat di Indonesia masih impor. Pabriknya boleh di sini. Tapi kalau bahannya dibeli pakai dolar, ongkos bikinnya ikut kena."
+   ],
+   "visual": {
+    "tipe": "kartu-angka",
+    "angka": "± 90%",
+    "ket": "bahan baku obat di Indonesia masih impor",
+    "mini": [
+     {
+      "angka": "Pabriknya",
+      "ket": "bisa di sini"
+     },
+     {
+      "angka": "Bahannya",
+      "ket": "dibeli pakai dolar"
+     }
+    ]
+   },
+   "penutup": "Dibuat di sini belum tentu bahannya dari sini.",
+   "sumber": "detikHealth, 6 Jul 2026 (pernyataan Kepala BPOM)"
+  },
+  {
+   "layout": "data",
+   "nomor": 7,
+   "judul": "Barangnya lokal,\n__ongkosnya belum tentu.__",
+   "judul_size": 62,
+   "isi": [
+    "Yang kebayar dolar nggak cuma bahannya. Sering ada mesin pabrik, plastik kemasan, sampai ongkos kirim yang ikut dihitung pakai dolar. Semuanya numpuk diam-diam di harga akhir."
+   ],
+   "visual": {
+    "tipe": "notif",
+    "jam": "Nota warung",
+    "items": [
+     {
+      "teks": "Bahan",
+      "rp": "$"
+     },
+     {
+      "teks": "Mesin",
+      "rp": "$"
+     },
+     {
+      "teks": "Kemasan",
+      "rp": "$"
+     },
+     {
+      "teks": "Ongkos kirim",
+      "rp": "$"
+     },
+     {
+      "app": "Total",
+      "teks": "“kok naik ya?”",
+      "sorot": true
+     }
+    ],
+    "catatan": "*ilustrasi, bukan data"
+   },
+   "penutup": "Kamu bayar pakai rupiah.\nSebagian ongkosnya __dibayar pakai dolar.__"
+  },
+  {
+   "layout": "data",
+   "nomor": 8,
+   "judul": "Harga naik duluan,\nmikirin __stok minggu depan.__",
+   "judul_size": 58,
+   "isi": [
+    "Pedagang nggak cuma lihat modal hari ini. Kalau kulakan berikutnya bakal lebih mahal, harga di etalase ikut disesuaikan dari sekarang. Biar uang hasil jualan cukup buat belanja stok lagi."
+   ],
+   "visual": {
+    "tipe": "notif",
+    "jam": "Hitungan pedagang",
+    "items": [
+     {
+      "teks": "Kurs naik"
+     },
+     {
+      "teks": "Kulakan minggu depan lebih mahal"
+     },
+     {
+      "teks": "Uang jualan harus cukup buat stok lagi"
+     },
+     {
+      "app": "Jadi",
+      "teks": "harga etalase naik dari sekarang",
+      "sorot": true
+     }
+    ]
+   },
+   "penutup": "Pedagang juga lagi jaga dapurnya sendiri."
+  },
+  {
+   "layout": "data",
+   "nomor": 9,
+   "judul": "Dolarnya jauh,\n__efeknya sampai warung.__",
+   "judul_size": 62,
+   "isi": [
+    "Banyak barang yang kelihatan lokal ternyata bahannya dibeli dari luar. Begitu rupiah melemah, ongkosnya naik pelan-pelan sampai ke harga yang kita bayar."
+   ],
+   "visual": {
+    "tipe": "tabel",
+    "kolom": [
+     "Kelihatannya",
+     "Aslinya"
+    ],
+    "sorot_kolom": 1,
+    "baris": [
+     [
+      "Gorengan & mi",
+      "Gandum impor 10,84 juta ton (2025)"
+     ],
+     [
+      "Tahu tempe",
+      "± 95% kedelainya impor"
+     ],
+     [
+      "Obat warung",
+      "± 90% bahan baku obat impor"
+     ],
+     [
+      "Naik duluan",
+      "Pedagang jaga-jaga stok berikutnya"
+     ]
+    ]
+   },
+   "penutup": "Kamu paling kerasa di mana: gorengan atau tahu tempe? __Cerita di komentar.__",
+   "sumber": "GoodStats/BPS; CNBC Indonesia; detikHealth (2026)"
+  },
+  {
+   "layout": "cta-seakun",
+   "nomor": 10,
+   "jembatan": "Kurs boleh naik-turun.\nLangganan kamu nggak harus ikut __bikin boncos.__",
+   "manfaat": "Patungan aja di seakun.id. Aman, legal, lebih hemat."
+  }
+ ]
+}

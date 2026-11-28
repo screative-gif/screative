@@ -269,8 +269,18 @@
     }
    ],
    "pesan_topik": "1575658104572481661",
-   "status": "menunggu-pilihan",
-   "dikirim": "2026-11-27T06:42+07:00"
+   "status": "terplot",
+   "dikirim": "2026-11-27T06:42+07:00",
+   "plot": {
+    "2026-11-28": {
+     "cara": "suara-tim",
+     "no": 1,
+     "judul": "Dolar tembus Rp18.300. Kenapa harga yang nggak ada urusannya sama dolar ikut naik? Fakta?",
+     "suara": 1,
+     "oleh": "aadilah"
+    }
+   },
+   "pesan_jadwal": "1576071201871106081"
   }
  },
  "harian": {
@@ -432,6 +442,28 @@
     "slide": 11,
     "tanpa_approve": false
    }
+  },
+  "2026-11-28": {
+   "status": "menunggu-review",
+   "siklus": "2026-11-27",
+   "terpilih": {
+    "cara": "suara-tim",
+    "no": 1,
+    "judul": "Dolar tembus Rp18.300. Kenapa harga yang nggak ada urusannya sama dolar ikut naik? Fakta?",
+    "suara": 1,
+    "oleh": "aadilah",
+    "kode": "C-DOLAR",
+    "folder": "konten/visual/2026-11-28_C-DOLAR"
+   },
+   "hasil": [
+    {
+     "revisi": 0,
+     "folder": "konten/visual/2026-11-28_C-DOLAR",
+     "pesan_awal": "1576076075509878896",
+     "pesan_review": "1576076090051666021",
+     "dikirim": "2026-11-28T10:23+07:00"
+    }
+   ]
   }
  },
  "balasan_diproses": [
