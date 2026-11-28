@@ -5,7 +5,7 @@ Keputusan user 28 Nov 2026: agent mencari postingan **orang lain** di Threads so
 ## Aturan tetap
 - **Tidak ada komentar yang terkirim tanpa ✅ anggota tim di Discord** (user di `otomatis/config.json` → `user_boleh_respon`).
 - Maksimal **10 komentar/hari**, jeda 90 detik antar komentar (`otomatis/sapa.json`). Volume tinggi dari satu akun = dianggap spam oleh Meta.
-- Akun @diarydheanas wajib mencantumkan "tim @seakun.id" di bio; komentar yang menyebut Seakun bicara sebagai tim, bukan pura-pura pelanggan/penonton biasa (tanpa testimoni atau skenario karangan). seakun.id maks 1 dari 3 komentar.
+- Akun @diarydheanas wajib mencantumkan "tim @seakun.id" di bio; komentar boleh menyebut seakun.id sebagai saran santai tanpa "aku dari tim" (keputusan user 28 Nov 2026, identitas di bio), tapi tidak boleh pura-pura pelanggan/penonton biasa (tanpa testimoni atau skenario karangan). seakun.id maks 1 dari 3 komentar. Jangan jalankan sebelum bio @diarydheanas mencantumkan tim @seakun.id.
 - Tidak memakai bot browser (Claude in Chrome dll.) untuk mengirim komentar otomatis; otomatis hanya lewat Threads API resmi.
 - Batasan `konten/brand/brand.md` berlaku penuh (nama layanan tersamar, tanpa harga, tanpa janji 100% aman).
 
