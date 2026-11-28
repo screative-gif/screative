@@ -85,6 +85,16 @@ def balas(post_id, teks, uji=False):
 KATA_ID = set("yang ga gak nggak enggak aku gue gw ada mau banget dong sih aja kak buat bisa udah sudah lagi kalau kalo atau tapi juga ini itu dan di ke dari pada sama siapa gimana kenapa".split())
 
 
+def normal(x):
+    """Samakan format futurizerush/meta-threads-scraper dengan scrapesage/threads-search-scraper."""
+    if "text_content" not in x:
+        return x
+    return {"postId": x.get("post_code"), "text": x.get("text_content"), "username": x.get("username"),
+            "postUrl": x.get("post_url"), "publishedAt": x.get("created_at"), "isReply": x.get("is_reply"),
+            "sourceQuery": x.get("search_keyword"), "imageUrl": x.get("media_url") or None,
+            "replyCount": x.get("reply_count") or 0, "likeCount": x.get("like_count") or 0}
+
+
 def bahasa_id(teks):
     kata = {w.strip(".,!?\"'()").lower() for w in teks.split()}
     return len(kata & KATA_ID) >= 2
@@ -92,8 +102,12 @@ def bahasa_id(teks):
 
 def cmd_cari(a):
     ap, f = CFG["apify"], CFG["filter"]
-    inp = {"keywords": CFG["keywords"], "maxPerSource": ap["per_keyword"],
-           "maxResults": ap["per_keyword"] * len(CFG["keywords"]), "excludeReplies": True}
+    if "futurizerush" in ap["actor"]:  # mode search "recent" + filter tanggal (post < maks_umur_jam)
+        inp = {"mode": "search", "keywords": CFG["keywords"], "max_posts": ap["per_keyword"],
+               "search_filter": "recent", "start_date": "1 day"}
+    else:
+        inp = {"keywords": CFG["keywords"], "maxPerSource": ap["per_keyword"],
+               "maxResults": ap["per_keyword"] * len(CFG["keywords"]), "excludeReplies": True}
     qs = urllib.parse.urlencode({"maxTotalChargeUsd": ap["max_usd_per_run"], "timeout": 280})
     tok = os.environ.get("APIFY_TOKEN", "").strip()
     if a.dataset:  # pakai ulang hasil run Apify sebelumnya (gratis)
@@ -107,7 +121,8 @@ def cmd_cari(a):
     items = r.json()
 
     st = muat()
-    batas = sekarang() - dt.timedelta(days=f["maks_umur_hari"])
+    batas = sekarang() - dt.timedelta(hours=f.get("maks_umur_jam", 24 * f.get("maks_umur_hari", 1)))
+    wajib = [k.lower() for k in f.get("kata_wajib_salah_satu", [])]
     penjual = [k.lower() for k in f["lewati_kata_penjual"]]
     lewati_akun = {u.lower().lstrip("@") for u in f["lewati_akun"]}
     out, alasan_buang = [], {}
@@ -116,6 +131,7 @@ def cmd_cari(a):
         alasan_buang[k] = alasan_buang.get(k, 0) + 1
 
     seen = set()
+    items = [normal(x) for x in items if isinstance(x, dict) and x.get("record_type", "post") == "post"]
     for x in items:
         pid, teks, user = str(x.get("postId") or ""), (x.get("text") or "").strip(), (x.get("username") or "").lower()
         if not pid or pid in seen:
@@ -131,6 +147,8 @@ def cmd_cari(a):
             buang("teks pendek"); continue
         if f.get("hanya_indonesia") and not bahasa_id(teks):
             buang("bukan bahasa Indonesia"); continue
+        if wajib and not any(k in teks.lower() for k in wajib):
+            buang("bukan soal film"); continue
         if any(k in teks.lower() for k in penjual):
             buang("penjual/kompetitor"); continue
         try:
