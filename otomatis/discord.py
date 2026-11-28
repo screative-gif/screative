@@ -11,7 +11,7 @@ Pakai (dari root proyek):
   python3 otomatis/discord.py baca-pilihan [--siklus …]            # baca reaksi & balasan tim -> JSON + usulan plot harian
   python3 otomatis/discord.py plot [--siklus …] [--pilihan JSON]   # simpan topik per hari tayang (2 atau 1) ke state
   python3 otomatis/discord.py kirim-hasil <folder-visual> [--hari …] [--revisi N] [--catatan "…"]
-                                                                    # kirim slide + caption + PDF Canva, pasang ✅
+                                                                    # kirim slide + caption (+ PDF Canva kalau ada), pasang ✅
   python3 otomatis/discord.py baca-feedback [--hari …]             # baca ✅ & balasan tim setelah hasil terakhir -> JSON
   python3 otomatis/discord.py baca-balasan <id-pesan>              # pesan tim (yang boleh) setelah id-pesan -> JSON
   python3 otomatis/discord.py tandai [--hari …] [--status …] [--terpilih JSON] [--feedback ids]
