@@ -2,23 +2,25 @@
   "_catatan": "Konfigurasi Sapa: agent soft selling lewat komentar di postingan Threads orang lain (keputusan user 28 Nov 2026). Akun pengirim @diarydheanas (bio wajib menyebut tim @seakun.id). Token Threads = network secret graph.threads.net, tidak disimpan di sini.",
   "akun": "@diarydheanas",
   "keywords": [
-    "patungan",
-    "patungan netflix",
-    "netflix mahal",
-    "spotify premium",
-    "youtube premium",
-    "chatgpt plus",
-    "canva pro",
-    "langganan premium"
+    "rekomendasi film",
+    "rekomen film",
+    "film horor",
+    "film thriller",
+    "abis nonton",
+    "film apa ya",
+    "nonton netflix",
+    "series netflix",
+    "drakor",
+    "film favorit"
   ],
   "apify": {
     "actor": "scrapesage/threads-search-scraper",
-    "per_keyword": 15,
+    "per_keyword": 10,
     "max_usd_per_run": 0.4,
     "_biaya": "$0,003 per post (≈ $0,3 per run penuh 8 keyword × 15)"
   },
   "filter": {
-    "maks_umur_hari": 3,
+    "maks_umur_hari": 14,
     "min_teks": 15,
     "lewati_kata_penjual": [
       "slot",
@@ -31,7 +33,11 @@
       "pricelist",
       "jual",
       "olshop",
-      "store"
+      "store",
+      "sharing akun",
+      "akun netflix",
+      "link nonton",
+      "telegram"
     ],
     "lewati_akun": [
       "seakun.id",
@@ -42,7 +48,7 @@
   "maks_kandidat_per_run": 15,
   "maks_kirim_per_hari": 10,
   "jeda_kirim_detik": 90,
-  "_catatan_keywords": "Actor hanya menemukan hasil untuk keyword pendek (1–2 kata); frasa panjang sering 0 hasil (uji 28 Nov 2026).",
+  "_catatan_keywords": "Fokus film/serial (keputusan user 28 Nov 2026). Actor hanya menemukan hasil untuk keyword pendek (1–2 kata).",
   "mode_kirim": "manual",
   "_catatan_mode": "manual = tim mengomentari sendiri dari link di Discord lalu ✅. api = dikirim lewat Threads API; BUTUH izin threads_keyword_search (Advanced access) karena reply_to_id harus ID media Graph, bukan postId Apify (uji 28 Nov 2026: 'Param reply_to_id is not a valid threads_media ID')."
 }

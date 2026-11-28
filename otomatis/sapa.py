@@ -96,8 +96,12 @@ def cmd_cari(a):
            "maxResults": ap["per_keyword"] * len(CFG["keywords"]), "excludeReplies": True}
     qs = urllib.parse.urlencode({"maxTotalChargeUsd": ap["max_usd_per_run"], "timeout": 280})
     tok = os.environ.get("APIFY_TOKEN", "").strip()
-    r = requests.post(f"{APIFY}/acts/{ap['actor'].replace('/', '~')}/run-sync-get-dataset-items?{qs}", json=inp,
-                      headers={"Authorization": f"Bearer {tok}"} if tok else {}, timeout=320)
+    if a.dataset:  # pakai ulang hasil run Apify sebelumnya (gratis)
+        r = requests.get(f"{APIFY}/datasets/{a.dataset}/items", headers={"Authorization": f"Bearer {tok}"} if tok else {},
+                         timeout=60)
+    else:
+        r = requests.post(f"{APIFY}/acts/{ap['actor'].replace('/', '~')}/run-sync-get-dataset-items?{qs}", json=inp,
+                          headers={"Authorization": f"Bearer {tok}"} if tok else {}, timeout=320)
     if r.status_code >= 400:
         sys.exit(f"Apify gagal {r.status_code}: {r.text[:300]}")
     items = r.json()
@@ -136,7 +140,7 @@ def cmd_cari(a):
         if waktu < batas:
             buang("terlalu lama"); continue
         out.append({"post_id": pid, "url": x.get("postUrl"), "username": x.get("username"), "teks": teks,
-                     "waktu": waktu.astimezone(WIB).strftime("%d %b %H.%M WIB"), "keyword": x.get("sourceQuery"),
+                     "waktu": waktu.astimezone(WIB).strftime("%d %b %H.%M WIB"), "keyword": x.get("sourceQuery"), "gambar": x.get("imageUrl"),
                      "balasan": x.get("replyCount", 0), "suka": x.get("likeCount", 0)})
 
     out.sort(key=lambda k: (k["balasan"] + k["suka"]), reverse=True)
@@ -232,7 +236,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("cek").set_defaults(f=cmd_cek)
-    sub.add_parser("cari").set_defaults(f=cmd_cari)
+    c = sub.add_parser("cari"); c.add_argument("--dataset", help="ID dataset Apify lama (tanpa biaya)"); c.set_defaults(f=cmd_cari)
     k = sub.add_parser("kirim-draft"); k.add_argument("file"); k.set_defaults(f=cmd_kirim_draft)
     p = sub.add_parser("proses"); p.add_argument("--uji", action="store_true"); p.set_defaults(f=cmd_proses)
     sub.add_parser("status").set_defaults(f=cmd_status)
